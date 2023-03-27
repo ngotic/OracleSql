@@ -1,40 +1,40 @@
 /*
     ex09_numerical_function.sql
     
-    ¼ıÀÚ ÇÔ¼ö ( = ¼öÇĞ ÇÔ¼ö)
+    ìˆ«ì í•¨ìˆ˜ ( = ìˆ˜í•™ í•¨ìˆ˜)
     - Math.random()
     
     round()
-    - ¹İ¿Ã¸² ÇÔ¼ö
-    - number round(ÄÃ·³¸í) : Á¤¼ö ¹İÈ¯
-    - number round(ÄÃ·³¸í, ¼Ò¼öÀÌÇÏ ÀÚ¸´¼ö) : ½Ç¼ö ¹İÈ¯   
+    - ë°˜ì˜¬ë¦¼ í•¨ìˆ˜
+    - number round(ì»¬ëŸ¼ëª…) : ì •ìˆ˜ ë°˜í™˜
+    - number round(ì»¬ëŸ¼ëª…, ì†Œìˆ˜ì´í•˜ ìë¦¿ìˆ˜) : ì‹¤ìˆ˜ ë°˜í™˜   
 */
 
-select height/ weight, -- ³Ê¹« ¼Ò¼ö°¡ ±æ´Ù.
-       round(height/ weight),    -- °°´Ù.
-       round(height/ weight, 0), -- °°´Ù.
+select height/ weight, -- ë„ˆë¬´ ì†Œìˆ˜ê°€ ê¸¸ë‹¤.
+       round(height/ weight),    -- ê°™ë‹¤.
+       round(height/ weight, 0), -- ê°™ë‹¤.
        round(height/ weight, 1),
        round(height/ weight, 2),
        round(height/ weight, 3)
 from tblComedian;
 
--- Æò±Õ ±Ş¿©
+-- í‰ê·  ê¸‰ì—¬
 select round(avg(basicpay)) from tblInsa;
 
 /*
 
     floor(), trunc()
-    - Àı»è ÇÔ¼ö 
-    - ¹«Á¶°Ç ³»¸² ÇÔ¼ö
-    - number floor(ÄÃ·³¸í) : ¹«Á¶°Ç Á¤¼ö ¹İÈ¯
-    - number trunc(ÄÃ·³¸í [, ¼Ò¼öÀÌÇÏ ÀÚ¸´¼ö]) : Á¤¼ö or ½Ç¼ö ¹İÈ¯
+    - ì ˆì‚­ í•¨ìˆ˜ 
+    - ë¬´ì¡°ê±´ ë‚´ë¦¼ í•¨ìˆ˜
+    - number floor(ì»¬ëŸ¼ëª…) : ë¬´ì¡°ê±´ ì •ìˆ˜ ë°˜í™˜
+    - number trunc(ì»¬ëŸ¼ëª… [, ì†Œìˆ˜ì´í•˜ ìë¦¿ìˆ˜]) : ì •ìˆ˜ or ì‹¤ìˆ˜ ë°˜í™˜
 
 */
 
-select trunc('1.23456',3) -- ¾îµğ±îÁö ÀÚ¸¦°Å³ÄÀÇ ÀÎÀÚ°¡ ÇÊ¿äÀÖ´Ù. 
+select trunc('1.23456',3) -- ì–´ë””ê¹Œì§€ ìë¥¼ê±°ëƒì˜ ì¸ìê°€ í•„ìš”ìˆë‹¤. 
 from dual;
 
-select floor('1.23456')   -- ÀÎÀÚ°¡ ´õ ÇÊ¿ä°¡ ¾øÀ½ 
+select floor('1.23456')   -- ì¸ìê°€ ë” í•„ìš”ê°€ ì—†ìŒ 
 from dual;
 
 select 
@@ -48,12 +48,12 @@ from tblComedian;
     
 /*
     ceil()
-    - ¹«Á¶°Ç ¿Ã¸² ÇÔ¼ö(ÃµÀå)
-    - number ceil(ÄÃ·³¸í) 
+    - ë¬´ì¡°ê±´ ì˜¬ë¦¼ í•¨ìˆ˜(ì²œì¥)
+    - number ceil(ì»¬ëŸ¼ëª…) 
         
     mod()
-    - ³ª¸ÓÁö ÇÔ¼ö
-    - number mod(ÇÇÁ¦¼ö, Á¦¼ö)
+    - ë‚˜ë¨¸ì§€ í•¨ìˆ˜
+    - number mod(í”¼ì œìˆ˜, ì œìˆ˜)
     
 */
 
@@ -67,10 +67,10 @@ from tblComedian;
 select chr(13)
 from dual;
 
--- dual Å×ÀÌºí  > ·¹ÄÚµå 1°³Â¥¸® Å×ÀÌºí
+-- dual í…Œì´ë¸”  > ë ˆì½”ë“œ 1ê°œì§œë¦¬ í…Œì´ë¸”
 select * from tblCountry;
 select * from dual;
-select sysdate from tblCountry; -- ¿À´Ã ³¯Â¥ÀÎµ¥ whereÀı¾ÈºÙ¿©¼­ ÀÌ Å×ÀÌºí¿¡ ÀÖ´Â ·¹ÄÚµå °³¼ö¸¸Å­ ³ª¿Â´Ù. 
+select sysdate from tblCountry; -- ì˜¤ëŠ˜ ë‚ ì§œì¸ë° whereì ˆì•ˆë¶™ì—¬ì„œ ì´ í…Œì´ë¸”ì— ìˆëŠ” ë ˆì½”ë“œ ê°œìˆ˜ë§Œí¼ ë‚˜ì˜¨ë‹¤. 
 
 select replace('oracle db hey ',' ') as result1,
 replace('oracle db hey ','db','hello') as result2
@@ -78,11 +78,11 @@ from dual;
 
 select 
     10/3,
-    mod(10,3) as "³ª¸ÓÁö",
-    floor(10/3) as "¸ò"
+    mod(10,3) as "ë‚˜ë¨¸ì§€",
+    floor(10/3) as "ëª«"
 from dual;
 
--- dualÀº ¿À¶óÅ¬¿¡¸¸ ÀÖ´Ù.
+-- dualì€ ì˜¤ë¼í´ì—ë§Œ ìˆë‹¤.
 
 select 10/3
 from dual;

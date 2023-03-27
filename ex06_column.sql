@@ -2,14 +2,14 @@
     ex06_column
 */
 
--- ÄÃ·³ ¸í½Ã
+-- ì»¬ëŸ¼ ëª…ì‹œ
 select name, buseo
     from tblInsa;
--- ¿¬»ê 
+-- ì—°ì‚° 
 select name, basicpay, basicpay * 2 as basicpay2
     from tblInsa;
--- »ó¼ö
-select name, 'È«±æµ¿', 100  -- 'È«±æµ¿', 100Àº »ó¼ö´Ù. 
+-- ìƒìˆ˜
+select name, 'í™ê¸¸ë™', 100  -- 'í™ê¸¸ë™', 100ì€ ìƒìˆ˜ë‹¤. 
     from tblInsa;
 
 
@@ -19,41 +19,41 @@ select name, 'È«±æµ¿', 100  -- 'È«±æµ¿', 100Àº »ó¼ö´Ù.
 
 
     distinct 
-    - ÄÃ·³ ¸®½ºÆ®¿¡¼­ »ç¿ë
-    - Áßº¹°ª Á¦°Å 
-    - distinct ÄÃ·³¸í > Áßº¹°ªÀ» ¹èÁ¦ÇÏ·Á¸é °á°ú Å×ÀÌºí ÀÚÃ¼°¡ Áßº¹°ªµé·Î¸¸ ±¸ºÐµÇ´Â ÇàÀÇ ¸ð½ÀÀÌ µÇ¾î¾ß ÇÑ´Ù.
-                    -> ´Ù¸¥ Ä®·³¿¡ ´Ù¸¥ °ª ºÙ¾î ÀÖÀ¸¸é ¾ÈµÈ´Ù. 
-                    -> ·¹ÄÚµå¿¡ ´ëÇØ Áßº¹°ªÀ» Á¦°ÅÇÑ´Ù. ·¹ÄÚµå´ë ·¹ÄÚµå·Î ºñ±³ÇÑ´Ù. > ·¹ÄÚµå ÅëÀ¸·Î ¹­¾î¼­ »ý°¢ÇØ¾ß Áßº¹°ªÁ¦°Å´Ù. 
+    - ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚¬ìš©
+    - ì¤‘ë³µê°’ ì œê±° 
+    - distinct ì»¬ëŸ¼ëª… > ì¤‘ë³µê°’ì„ ë°°ì œí•˜ë ¤ë©´ ê²°ê³¼ í…Œì´ë¸” ìžì²´ê°€ ì¤‘ë³µê°’ë“¤ë¡œë§Œ êµ¬ë¶„ë˜ëŠ” í–‰ì˜ ëª¨ìŠµì´ ë˜ì–´ì•¼ í•œë‹¤.
+                    -> ë‹¤ë¥¸ ì¹¼ëŸ¼ì— ë‹¤ë¥¸ ê°’ ë¶™ì–´ ìžˆìœ¼ë©´ ì•ˆëœë‹¤. 
+                    -> ë ˆì½”ë“œì— ëŒ€í•´ ì¤‘ë³µê°’ì„ ì œê±°í•œë‹¤. ë ˆì½”ë“œëŒ€ ë ˆì½”ë“œë¡œ ë¹„êµí•œë‹¤. > ë ˆì½”ë“œ í†µìœ¼ë¡œ ë¬¶ì–´ì„œ ìƒê°í•´ì•¼ ì¤‘ë³µê°’ì œê±°ë‹¤. 
                     
                     
 */
 
 select * from tblCountry; 
-select continent from tblCountry; -- ÀÌ°æ¿ì > Áßº¹°ªµé¸¸ ÀÖÀ½
+select continent from tblCountry; -- ì´ê²½ìš° > ì¤‘ë³µê°’ë“¤ë§Œ ìžˆìŒ
 
--- tblCountry¿¡´Â ¾î¶² ¾î¶² ´ë·úÀÌ ÀÖ³ª¿ä? > Á¾·ù? > ¿©±â¿£ ¾Æ½Ã¾Æ ¾ÆÇÁ¸®Ä« À¯·Ó »ç¿ì½º ¾ÆÇÁ¸®´Ù, auµµ ÀÖ¾î¿ä
-select distinct continent from tblCountry; --> ¾Õ¿¡ ºÙÀÌ¸é µÈ´Ù. > Áßº¹µÈ ¾ÖµéÀÌ ÅëÇÕÀÌ µÈ´Ù.
+-- tblCountryì—ëŠ” ì–´ë–¤ ì–´ë–¤ ëŒ€ë¥™ì´ ìžˆë‚˜ìš”? > ì¢…ë¥˜? > ì—¬ê¸°ì—” ì•„ì‹œì•„ ì•„í”„ë¦¬ì¹´ ìœ ë¡­ ì‚¬ìš°ìŠ¤ ì•„í”„ë¦¬ë‹¤, auë„ ìžˆì–´ìš”
+select distinct continent from tblCountry; --> ì•žì— ë¶™ì´ë©´ ëœë‹¤. > ì¤‘ë³µëœ ì• ë“¤ì´ í†µí•©ì´ ëœë‹¤.
 
--- tbalInsa. > ÀÌ È¸»ç¿¡´Â ¾î¶² ºÎ¼­µéÀÌ??
+-- tbalInsa. > ì´ íšŒì‚¬ì—ëŠ” ì–´ë–¤ ë¶€ì„œë“¤ì´??
 select buseo from tblInsa; 
 select distinct buseo from tblInsa; 
 select distinct buseo, name from tblInsa; 
 
--- tblInsa. > ÀÌ È¸»ç´Â Á÷À§°¡ ¾î¶²°ÍµéÀÌ ÀÖ³ª¿ä?
+-- tblInsa. > ì´ íšŒì‚¬ëŠ” ì§ìœ„ê°€ ì–´ë–¤ê²ƒë“¤ì´ ìžˆë‚˜ìš”?
 select distinct jikwi from tblInsa;
 
--- ******************************** DBÀÇ Å×ÀÌºí¿¡´Â ¼¿º´ÇÕÀÌ¶ó´Â°Ô ¾ø´Ù. 
-select distinct continent, name from tblCountry; -- ÀÌ ¶§´Â distinct°¡ ºÙ¾îµµ Áßº¹ Á¦°Å°¡ ¾ÈµÈ´Ù. 
-             -- ´ë·ú»Ó ¾Æ´Ï¶ó ±¹°¡ ÀÌ¸§µµ ÀÖÀ¸´Ï±î ±×·¸´Ù. > Æ©ÇÃ±âÁØÀ¸·Î ·Î¿ì ±âÁØÀ¸·Î Áßº¹°ªÀ» Àâ´Â °ÍÀÌ´Ù. 
+-- ******************************** DBì˜ í…Œì´ë¸”ì—ëŠ” ì…€ë³‘í•©ì´ë¼ëŠ”ê²Œ ì—†ë‹¤. 
+select distinct continent, name from tblCountry; -- ì´ ë•ŒëŠ” distinctê°€ ë¶™ì–´ë„ ì¤‘ë³µ ì œê±°ê°€ ì•ˆëœë‹¤. 
+             -- ëŒ€ë¥™ë¿ ì•„ë‹ˆë¼ êµ­ê°€ ì´ë¦„ë„ ìžˆìœ¼ë‹ˆê¹Œ ê·¸ë ‡ë‹¤. > íŠœí”Œê¸°ì¤€ìœ¼ë¡œ ë¡œìš° ê¸°ì¤€ìœ¼ë¡œ ì¤‘ë³µê°’ì„ ìž¡ëŠ” ê²ƒì´ë‹¤. 
              
              
-select age, height from tblAddressBook where age = 36;            -- 50°³
-select distinct age, height from tblAddressBook where age = 36;   -- 29°³ > µÎ Ä®·³ÀÌ ¿Ïº®ÇÏ°Ô ÀÏÄ¡ÇÏ´Â ¾ÖµéÀÌ ºüÁü
+select age, height from tblAddressBook where age = 36;            -- 50ê°œ
+select distinct age, height from tblAddressBook where age = 36;   -- 29ê°œ > ë‘ ì¹¼ëŸ¼ì´ ì™„ë²½í•˜ê²Œ ì¼ì¹˜í•˜ëŠ” ì• ë“¤ì´ ë¹ ì§
 
 /*
     case 
-    - ´ëºÎºÐ Àý¿¡¼­ »ç¿ë
-    - Á¶°Ç¹® ¿ªÇÒ > ÄÃ·³°ª Á¶ÀÛ
+    - ëŒ€ë¶€ë¶„ ì ˆì—ì„œ ì‚¬ìš©
+    - ì¡°ê±´ë¬¸ ì—­í•  > ì»¬ëŸ¼ê°’ ì¡°ìž‘
    
 */
 
@@ -61,22 +61,22 @@ select distinct age, height from tblAddressBook where age = 36;   -- 29°³ > µÎ Ä
 select 
     last || first as name,
     gender,
-    case      -- case, end ºÙÀÌ°í ¿¤¸®¾Æ½º ºÙÀÌ°í  >> Ä®·³
-        when gender = 'm' then '³²ÀÚ'
-        when gender = 'f' then '¿©ÀÚ'
-    end as genderName --as¸¦ ²À ºÙÀÌÀÚ... ¹Ýµå½Ã ºÙÀÌÀÚ > when ¸é? then ¹«´Ù
+    case      -- case, end ë¶™ì´ê³  ì—˜ë¦¬ì•„ìŠ¤ ë¶™ì´ê³   >> ì¹¼ëŸ¼
+        when gender = 'm' then 'ë‚¨ìž'
+        when gender = 'f' then 'ì—¬ìž'
+    end as genderName --asë¥¼ ê¼­ ë¶™ì´ìž... ë°˜ë“œì‹œ ë¶™ì´ìž > when ë©´? then ë¬´ë‹¤
 from tblComedian;
--- if() { -> sqlÀº °ýÈ£ Ç¥ÇöÀÌ ¾ø´Ù. 
+-- if() { -> sqlì€ ê´„í˜¸ í‘œí˜„ì´ ì—†ë‹¤. 
 -- }
                           
 select 
     name,
     continent,
     case 
-        when continent = 'AS' then '¾Æ½Ã¾Æ'
-        when continent = 'EU' then 'À¯·´'
-        when continent = 'AF' then '¾ÆÇÁ¸®Ä«'
-        else '±âÅ¸'
+        when continent = 'AS' then 'ì•„ì‹œì•„'
+        when continent = 'EU' then 'ìœ ëŸ½'
+        when continent = 'AF' then 'ì•„í”„ë¦¬ì¹´'
+        else 'ê¸°íƒ€'
     end as continentName
 from tblCountry;
 
@@ -84,10 +84,10 @@ from tblCountry;
 select 
     name,
     continent,
-    case continent -- continent = ¸¦ °øÅëÀ¸·Î ¿Ã·Á³í°Å 
-        when 'AS' then '¾Æ½Ã¾Æ'
-        when 'EU' then 'À¯·´'
-        when 'AF' then '¾ÆÇÁ¸®Ä«'
+    case continent -- continent = ë¥¼ ê³µí†µìœ¼ë¡œ ì˜¬ë ¤ë…¼ê±° 
+        when 'AS' then 'ì•„ì‹œì•„'
+        when 'EU' then 'ìœ ëŸ½'
+        when 'AF' then 'ì•„í”„ë¦¬ì¹´'
     end as continentName
 from  tblCountry;
 
@@ -95,10 +95,10 @@ select
     name,
     continent,
     case 
-        when continent = 'AS' then '¾Æ½Ã¾Æ'
-        when continent = 'EU' then 'À¯·´'
-        when continent = 'AF' then '¾ÆÇÁ¸®Ä«'
-        -- else '±âÅ¸' > Á¶°ÇÀÌ ¾øÀ¸¸é nullÀÌ´Ù. 
+        when continent = 'AS' then 'ì•„ì‹œì•„'
+        when continent = 'EU' then 'ìœ ëŸ½'
+        when continent = 'AF' then 'ì•„í”„ë¦¬ì¹´'
+        -- else 'ê¸°íƒ€' > ì¡°ê±´ì´ ì—†ìœ¼ë©´ nullì´ë‹¤. 
     end as continentName
 from tblCountry;
 
@@ -106,10 +106,10 @@ select
     name,
     continent,
     case 
-        when continent = 'AS' then '¾Æ½Ã¾Æ'
-        when continent = 'EU' then 'À¯·´'
-        when continent = 'AF' then '¾ÆÇÁ¸®Ä«'
-         else continent  -- Á¶°Ç¿¡ ¾È°É¸®¸é ¿ø·¡ ÀÚ±â°ª ÂïÈù´Ù. 
+        when continent = 'AS' then 'ì•„ì‹œì•„'
+        when continent = 'EU' then 'ìœ ëŸ½'
+        when continent = 'AF' then 'ì•„í”„ë¦¬ì¹´'
+         else continent  -- ì¡°ê±´ì— ì•ˆê±¸ë¦¬ë©´ ì›ëž˜ ìžê¸°ê°’ ì°ížŒë‹¤. 
     end as continentName
 from tblCountry;
 
@@ -117,11 +117,11 @@ select
     name,
     continent,
     case 
-        when continent = 'AS' then '¾Æ½Ã¾Æ'
-        when continent = 'EU' then 'À¯·´'
-        when continent = 'AF' then '¾ÆÇÁ¸®Ä«'
-         else capital  -- Á¶°Ç¿¡ ¾È°É¸®¸é ¿ø·¡ ÀÚ±â°ª ÂïÈù´Ù. 
-    end as continentName -- ´Ù¸¥ Ä®·³ÀÇ °ªµµ ÁöÁ¤ÀÌ °¡´ÉÇÏ´Ù. 
+        when continent = 'AS' then 'ì•„ì‹œì•„'
+        when continent = 'EU' then 'ìœ ëŸ½'
+        when continent = 'AF' then 'ì•„í”„ë¦¬ì¹´'
+         else capital  -- ì¡°ê±´ì— ì•ˆê±¸ë¦¬ë©´ ì›ëž˜ ìžê¸°ê°’ ì°ížŒë‹¤. 
+    end as continentName -- ë‹¤ë¥¸ ì¹¼ëŸ¼ì˜ ê°’ë„ ì§€ì •ì´ ê°€ëŠ¥í•˜ë‹¤. 
 from tblCountry;
 
 /*
@@ -129,21 +129,21 @@ select
     name,
     continent,
     case 
-        when continent = 'AS' then '¾Æ½Ã¾Æ'
-        when continent = 'EU' then 'À¯·´'
-        when continent = 'AF' then '¾ÆÇÁ¸®Ä«'
-         else capital  -- Á¶°Ç¿¡ ¾È°É¸®¸é ¿ø·¡ ÀÚ±â°ª ÂïÈù´Ù. 
-    end as 100 -- ´Ù¸¥ Ä®·³ÀÇ °ªµµ ÁöÁ¤ÀÌ °¡´ÉÇÏ´Ù.  > ÀÚ·áÇüµµ ÀÏÄ¡ÇØ¾ß ÇÑ´Ù.  > µ¿ÀÏÇÑ ¼º°ÝÀÇ µ¥ÀÌÅÍ¿Í µ¿ÀÏÇÑ ÀÚ·áÇüÀÇ µ¥ÀÌÅÍ 
+        when continent = 'AS' then 'ì•„ì‹œì•„'
+        when continent = 'EU' then 'ìœ ëŸ½'
+        when continent = 'AF' then 'ì•„í”„ë¦¬ì¹´'
+         else capital  -- ì¡°ê±´ì— ì•ˆê±¸ë¦¬ë©´ ì›ëž˜ ìžê¸°ê°’ ì°ížŒë‹¤. 
+    end as 100 -- ë‹¤ë¥¸ ì¹¼ëŸ¼ì˜ ê°’ë„ ì§€ì •ì´ ê°€ëŠ¥í•˜ë‹¤.  > ìžë£Œí˜•ë„ ì¼ì¹˜í•´ì•¼ í•œë‹¤.  > ë™ì¼í•œ ì„±ê²©ì˜ ë°ì´í„°ì™€ ë™ì¼í•œ ìžë£Œí˜•ì˜ ë°ì´í„° 
 from tblCountry;
 */
 
 select 
     name,
     continent,
-    case continent -- continent = ¸¦ °øÅëÀ¸·Î ¿Ã·Á³í°Å 
-        when 'AS' then '¾Æ½Ã¾Æ'
-        when 'EU' then 'À¯·´'
-        when 'AF' then '¾ÆÇÁ¸®Ä«'
+    case continent -- continent = ë¥¼ ê³µí†µìœ¼ë¡œ ì˜¬ë ¤ë…¼ê±° 
+        when 'AS' then 'ì•„ì‹œì•„'
+        when 'EU' then 'ìœ ëŸ½'
+        when 'AF' then 'ì•„í”„ë¦¬ì¹´'
         else continent 
     end as continentName
 from  tblCountry;
@@ -151,18 +151,18 @@ from  tblCountry;
 select 
     last || first as name,
     weight, 
-    case -- À§¿¡¼­ºÎÅÍ °Ë»çÇÏ°í ¾Æ·¡·Î ³»·Á¿Â´Ù. 
-        when weight > 90 then '°úÃ¼Áß'
-        when weight < 50 then 'Á¤»óÃ¼Áß' -- 89ÀÌÇÏ¶ó´Â °Í
-        else 'ÀúÃ¼Áß'
+    case -- ìœ„ì—ì„œë¶€í„° ê²€ì‚¬í•˜ê³  ì•„ëž˜ë¡œ ë‚´ë ¤ì˜¨ë‹¤. 
+        when weight > 90 then 'ê³¼ì²´ì¤‘'
+        when weight < 50 then 'ì •ìƒì²´ì¤‘' -- 89ì´í•˜ë¼ëŠ” ê²ƒ
+        else 'ì €ì²´ì¤‘'
     end as state,
     case 
-        when weight > 50 and weight <= 90 then 'Á¤»óÃ¼Áß'
-        else 'ÀÌ»óÃ¼Áß'
+        when weight > 50 and weight <= 90 then 'ì •ìƒì²´ì¤‘'
+        else 'ì´ìƒì²´ì¤‘'
     end as state2,
     case 
-        when weight between 50 and 90 then 'Á¤»óÃ¼Áß'
-        else 'ÀÌ»óÃ¼Áß'
+        when weight between 50 and 90 then 'ì •ìƒì²´ì¤‘'
+        else 'ì´ìƒì²´ì¤‘'
     end as state3
 from tblComedian;
 
@@ -172,67 +172,67 @@ select * from tblComedian;
 select 
     name, jikwi,
     case 
-        when jikwi = 'ºÎÀå' or jikwi = '°úÀå' then '°£ºÎ±Þ'
-        else 'Æò»ç¿ø±Þ '
+        when jikwi = 'ë¶€ìž¥' or jikwi = 'ê³¼ìž¥' then 'ê°„ë¶€ê¸‰'
+        else 'í‰ì‚¬ì›ê¸‰ '
     end state ,
     case 
-    when jikwi in ('ºÎÀå', '°úÀå') then '°£ºÎ±Þ'
-        else 'Æò»ç¿ø±Þ'
+    when jikwi in ('ë¶€ìž¥', 'ê³¼ìž¥') then 'ê°„ë¶€ê¸‰'
+        else 'í‰ì‚¬ì›ê¸‰'
     end  state2
 from tblInsa;
 
 select 
     name,
     case 
-        when name like '±è%' then 100
-        when name like 'ÀÌ%' then 100
-        when name like '¹Ú%' then 100
+        when name like 'ê¹€%' then 100
+        when name like 'ì´%' then 100
+        when name like 'ë°•%' then 100
         else 50
-    end as °¡»êÁ¡
+    end as ê°€ì‚°ì 
 from tblInsa;
 
 
 select 
     title,
     case 
-        when completedate is null then '¹Ì¿Ï·á'
-        when completedate is not null then '¿Ï·á'
+        when completedate is null then 'ë¯¸ì™„ë£Œ'
+        when completedate is not null then 'ì™„ë£Œ'
     end as state
 from tblTodo;
 
 
 
---¿ä±¸»çÇ×.001.employees
---Á÷¾÷ÀÌ ¾î¶²°ÍµéÀÌ ÀÖ´ÂÁö °¡Á®¿À½Ã¿À. > job_id
+--ìš”êµ¬ì‚¬í•­.001.employees
+--ì§ì—…ì´ ì–´ë–¤ê²ƒë“¤ì´ ìžˆëŠ”ì§€ ê°€ì ¸ì˜¤ì‹œì˜¤. > job_id
 
 select distinct job_id
 from employees;
 
---¿ä±¸»çÇ×.002.employees
---°í¿ëÀÏÀÌ 2002~2004³â »çÀÌÀÎ Á÷¿øµéÀº ¾î´À ºÎ¼­¿¡ ±Ù¹«ÇÕ´Ï±î? > hire_date + department_id
+--ìš”êµ¬ì‚¬í•­.002.employees
+--ê³ ìš©ì¼ì´ 2002~2004ë…„ ì‚¬ì´ì¸ ì§ì›ë“¤ì€ ì–´ëŠ ë¶€ì„œì— ê·¼ë¬´í•©ë‹ˆê¹Œ? > hire_date + department_id
 
-select distinct E.department_id "ºÎ¼­ID", D.department_name "ºÎ¼­ÀÌ¸§"
+select distinct E.department_id "ë¶€ì„œID", D.department_name "ë¶€ì„œì´ë¦„"
 from employees E, departments D
 where hire_date between '2002-01-01' and '2004-12-31' and E.department_id=D.department_id ;
 
 
 select * from employees;
 
---¿ä±¸»çÇ×.003.employees > ¸Å´ÏÀú ¹øÈ£°¡ °ãÄ£´Ù. 
---±Þ¿©°¡ 5000ºÒ ÀÌ»óÀÎ Á÷¿øµéÀº ´ã´ç ¸Å´ÏÀú°¡ ´©±¸? > manager_id
-select distinct manager_id  -- nullÀº ³ÀµÐ´Ù.
+--ìš”êµ¬ì‚¬í•­.003.employees > ë§¤ë‹ˆì € ë²ˆí˜¸ê°€ ê²¹ì¹œë‹¤. 
+--ê¸‰ì—¬ê°€ 5000ë¶ˆ ì´ìƒì¸ ì§ì›ë“¤ì€ ë‹´ë‹¹ ë§¤ë‹ˆì €ê°€ ëˆ„êµ¬? > manager_id
+select distinct manager_id  -- nullì€ ëƒ…ë‘”ë‹¤.
 from employees
 where salary >= 5000;
 
---¿ä±¸»çÇ×.004.tblInsa > ÁÖ¹Îµî·Ï¹øÈ£¸¦ like·Î Àû´çÈ÷ Àß ÇÊÅÍ¸µÇØ¼­ ³²ÀÚÀÌ¸é¼­ 80³â´ë»ý Ã£À¸¸é µÈ´Ù. 
---³²ÀÚ Á÷¿ø + 80³â´ë»ýµéÀÇ Á÷±ÞÀº ¹¼´Ï±î? > ssn + jikwi
+--ìš”êµ¬ì‚¬í•­.004.tblInsa > ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ likeë¡œ ì ë‹¹ížˆ ìž˜ í•„í„°ë§í•´ì„œ ë‚¨ìžì´ë©´ì„œ 80ë…„ëŒ€ìƒ ì°¾ìœ¼ë©´ ëœë‹¤. 
+--ë‚¨ìž ì§ì› + 80ë…„ëŒ€ìƒë“¤ì˜ ì§ê¸‰ì€ ë­¡ë‹ˆê¹Œ? > ssn + jikwi
 select distinct jikwi
 from tblInsa
 where ssn LIKE '8%';
 
 
---¿ä±¸»çÇ×.005.tblInsa > ¼ö´ç 20¸¸¿ø ³Ñ´Â »ç¶÷µé °¡Á®¿Í¼­ ±× »ç¶÷µé Áö¿ªÀÌ ¾îµðÀÖ´Â »ç¶÷µéÀÌ³Ä? 
---¼ö´ç 20¸¸¿ø ³Ñ´Â Á÷¿øµéÀº ¾îµð »ð´Ï±î? > sudang + city   
+--ìš”êµ¬ì‚¬í•­.005.tblInsa > ìˆ˜ë‹¹ 20ë§Œì› ë„˜ëŠ” ì‚¬ëžŒë“¤ ê°€ì ¸ì™€ì„œ ê·¸ ì‚¬ëžŒë“¤ ì§€ì—­ì´ ì–´ë””ìžˆëŠ” ì‚¬ëžŒë“¤ì´ëƒ? 
+--ìˆ˜ë‹¹ 20ë§Œì› ë„˜ëŠ” ì§ì›ë“¤ì€ ì–´ë”” ì‚½ë‹ˆê¹Œ? > sudang + city   
 
 select distinct city
 from tblInsa
@@ -241,34 +241,34 @@ where sudang > 200000 ;
 
 select *
 from tblInsa;
---¿ä±¸»çÇ×.006.tblInsa > ¿¬¶ôÃ³°¡ ¾ø´Â Á÷¿øµéÀÌ ¾î´ÀºÎ¼­ »ç¶÷µéÀÌ³Ä? 3¸íÁß¿¡ 2¸íÀÌ °°Àº ºÎ¼­´Ù. 
---¿¬¶ôÃ³°¡ ¾ÆÁ÷ ¾ø´Â Á÷¿øÀº ¾î´À ºÎ¼­ÀÔ´Ï±î? > null + buseo
+--ìš”êµ¬ì‚¬í•­.006.tblInsa > ì—°ë½ì²˜ê°€ ì—†ëŠ” ì§ì›ë“¤ì´ ì–´ëŠë¶€ì„œ ì‚¬ëžŒë“¤ì´ëƒ? 3ëª…ì¤‘ì— 2ëª…ì´ ê°™ì€ ë¶€ì„œë‹¤. 
+--ì—°ë½ì²˜ê°€ ì•„ì§ ì—†ëŠ” ì§ì›ì€ ì–´ëŠ ë¶€ì„œìž…ë‹ˆê¹Œ? > null + buseo
 select distinct buseo
 from tblInsa
 where tel is null;
 
 
 
---¿ä±¸»çÇ×.001.employees
---Á÷¾÷ÀÌ ¾î¶²°ÍµéÀÌ ÀÖ´ÂÁö °¡Á®¿À½Ã¿À. > job_id
+--ìš”êµ¬ì‚¬í•­.001.employees
+--ì§ì—…ì´ ì–´ë–¤ê²ƒë“¤ì´ ìžˆëŠ”ì§€ ê°€ì ¸ì˜¤ì‹œì˜¤. > job_id
 select distinct job_id from employees;
 
---¿ä±¸»çÇ×.002.employees
---°í¿ëÀÏÀÌ 2002~2004³â »çÀÌÀÎ Á÷¿øµéÀº ¾î´À ºÎ¼­¿¡ ±Ù¹«ÇÕ´Ï±î? > hire_date + department_id
+--ìš”êµ¬ì‚¬í•­.002.employees
+--ê³ ìš©ì¼ì´ 2002~2004ë…„ ì‚¬ì´ì¸ ì§ì›ë“¤ì€ ì–´ëŠ ë¶€ì„œì— ê·¼ë¬´í•©ë‹ˆê¹Œ? > hire_date + department_id
 select distinct department_id from employees where hire_date between '2002-01-01' and '2004-12-31';
 
---¿ä±¸»çÇ×.003.employees
---±Þ¿©°¡ 5000ºÒ ÀÌ»óÀÎ Á÷¿øµéÀº ´ã´ç ¸Å´ÏÀú°¡ ´©±¸? > manager_id
+--ìš”êµ¬ì‚¬í•­.003.employees
+--ê¸‰ì—¬ê°€ 5000ë¶ˆ ì´ìƒì¸ ì§ì›ë“¤ì€ ë‹´ë‹¹ ë§¤ë‹ˆì €ê°€ ëˆ„êµ¬? > manager_id
 select distinct manager_id from employees where salary >= 5000;
 
---¿ä±¸»çÇ×.004.tblInsa
---³²ÀÚ Á÷¿ø + 80³â´ë»ýµéÀÇ Á÷±ÞÀº ¹¼´Ï±î? > ssn + jikwi
+--ìš”êµ¬ì‚¬í•­.004.tblInsa
+--ë‚¨ìž ì§ì› + 80ë…„ëŒ€ìƒë“¤ì˜ ì§ê¸‰ì€ ë­¡ë‹ˆê¹Œ? > ssn + jikwi
 select distinct jikwi from tblInsa where ssn like '8%-1%';
 
---¿ä±¸»çÇ×.005.tblInsa
---¼ö´ç 20¸¸¿ø ³Ñ´Â Á÷¿øµéÀº ¾îµð »ð´Ï±î? > sudang + city   
+--ìš”êµ¬ì‚¬í•­.005.tblInsa
+--ìˆ˜ë‹¹ 20ë§Œì› ë„˜ëŠ” ì§ì›ë“¤ì€ ì–´ë”” ì‚½ë‹ˆê¹Œ? > sudang + city   
 select distinct city from tblInsa where sudang >= 200000;
     
---¿ä±¸»çÇ×.006.tblInsa
---¿¬¶ôÃ³°¡ ¾ÆÁ÷ ¾ø´Â Á÷¿øÀº ¾î´À ºÎ¼­ÀÔ´Ï±î? > null + buseo
+--ìš”êµ¬ì‚¬í•­.006.tblInsa
+--ì—°ë½ì²˜ê°€ ì•„ì§ ì—†ëŠ” ì§ì›ì€ ì–´ëŠ ë¶€ì„œìž…ë‹ˆê¹Œ? > null + buseo
 select distinct buseo from tblInsa where tel is null;

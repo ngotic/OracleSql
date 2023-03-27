@@ -1,29 +1,29 @@
 /*
 ex11_casting_function.sql
 
-1. to_char(¼ıÀÚ)   : ¼ıÀÚ > ¹®ÀÚ
-2. to_char(³¯Â¥)   : ³¯Â¥ > ¹®ÀÚ *************
-3. to_number(¹®ÀÚ) : ¹®ÀÚ > ¼ıÀÚ
-4. to_date(¹®ÀÚ)   : ¹®ÀÚ > ³¯Â¥ ****
+1. to_char(ìˆ«ì)   : ìˆ«ì > ë¬¸ì
+2. to_char(ë‚ ì§œ)   : ë‚ ì§œ > ë¬¸ì *************
+3. to_number(ë¬¸ì) : ë¬¸ì > ìˆ«ì
+4. to_date(ë¬¸ì)   : ë¬¸ì > ë‚ ì§œ ****
 
 */
 
 /*
 
-1. to_char(¼ıÀÚ, Çü½Ä¹®ÀÚ¿­)
+1. to_char(ìˆ«ì, í˜•ì‹ë¬¸ìì—´)
 
-Çü½Ä¹®ÀÚ¿­ ±¸¼º¿ä¼Ò
-a. 9: ¼ıÀÚ 1°³¸¦ ¹®ÀÚ 1°³·Î ¹Ù²Ù´Â ¿ªÇÒ. ºóÀÚ¸®¸¦ ½ºÆäÀÌ½º·Î Ä¡È¯ . %5d
-b. 0: ¼ıÀÚ 1°³¸¦ ¹®ÀÚ 1°³·Î ¹Ù²Ù´Â ¿ªÇÒ. ºóÀÚ¸®¸¦ 0À¸·Î Ä¡È¯.      %05d
-c. $: ÅëÈ­ ±âÈ£ Ç¥Çö 
-d. L: ÅëÈ­ ±âÈ£ Ç¥Çö > µÑ´Ù ±İ¾×À» ³ªÅ¸³»´Â ´ÜÀ§¸¦ ºÙÀÏ ¶§ ¾´´Ù. 
-e. .: ¼Ò¼öÁ¡
-f. ,: Ã¹´ÜÀ§
+í˜•ì‹ë¬¸ìì—´ êµ¬ì„±ìš”ì†Œ
+a. 9: ìˆ«ì 1ê°œë¥¼ ë¬¸ì 1ê°œë¡œ ë°”ê¾¸ëŠ” ì—­í• . ë¹ˆìë¦¬ë¥¼ ìŠ¤í˜ì´ìŠ¤ë¡œ ì¹˜í™˜ . %5d
+b. 0: ìˆ«ì 1ê°œë¥¼ ë¬¸ì 1ê°œë¡œ ë°”ê¾¸ëŠ” ì—­í• . ë¹ˆìë¦¬ë¥¼ 0ìœ¼ë¡œ ì¹˜í™˜.      %05d
+c. $: í†µí™” ê¸°í˜¸ í‘œí˜„ 
+d. L: í†µí™” ê¸°í˜¸ í‘œí˜„ > ë‘˜ë‹¤ ê¸ˆì•¡ì„ ë‚˜íƒ€ë‚´ëŠ” ë‹¨ìœ„ë¥¼ ë¶™ì¼ ë•Œ ì“´ë‹¤. 
+e. .: ì†Œìˆ˜ì 
+f. ,: ì²«ë‹¨ìœ„
 
 
-2. to_char(³¯Â¥)   : ³¯Â¥ > ¹®ÀÚ *************
+2. to_char(ë‚ ì§œ)   : ë‚ ì§œ > ë¬¸ì *************
 
-Çü½Ä¹®ÀÚ¿­
+í˜•ì‹ë¬¸ìì—´
 
 a. yyyy
 b. yy
@@ -43,77 +43,77 @@ o. am(pm)
 */
 
 select 
-    weight,          -- ¿ìÃøÁ¤·Ä(¼ıÀÚ)  
-    to_char(weight)  -- ÁÂÃøÁ¤·Ä(¹®ÀÚ)
+    weight,          -- ìš°ì¸¡ì •ë ¬(ìˆ«ì)  
+    to_char(weight)  -- ì¢Œì¸¡ì •ë ¬(ë¬¸ì)
 from tblComedian;
 
--- *** JavaÀº ¾ö°İÇÑ ¾ğ¾î > ¹®¹ıÀ» Ä®°°ÀÌ ÁØ¼ö > ÀÚ·áÇü
--- *** SQLÀº À¯¿¬ÇÑ ¾ğ¾î > ¹®¹ıÀ» Àû´çÈ÷ ÁØ¼ö > ÀÚ·áÇü > ¾Ï½ÃÀû Çüº¯È¯ ÀæÀ½ 
+-- *** Javaì€ ì—„ê²©í•œ ì–¸ì–´ > ë¬¸ë²•ì„ ì¹¼ê°™ì´ ì¤€ìˆ˜ > ìë£Œí˜•
+-- *** SQLì€ ìœ ì—°í•œ ì–¸ì–´ > ë¬¸ë²•ì„ ì ë‹¹íˆ ì¤€ìˆ˜ > ìë£Œí˜• > ì•”ì‹œì  í˜•ë³€í™˜ ì¦ìŒ 
 
 select 
-    weight,          -- ¿ìÃøÁ¤·Ä(¼ıÀÚ)  
-    to_char(weight),  -- ÁÂÃøÁ¤·Ä(¹®ÀÚ)
-    length(weight),    -- length() ¹®ÀÚ¿­ > weight ¼ıÀÚ 
-    length(to_char(weight))  -- ÀÌ°Ô ³»ºÎÀûÀ¸·Î È£ÃâÀÌ µÈ °ÍÀÌ´Ù. > ¼ıÀÚ°¡ ÀÖ´õ¶óµµ ³»ºÎÀû Çüº¯È¯ÀÌ ÀÚµ¿À¸·Î µÈ´Ù. 
+    weight,          -- ìš°ì¸¡ì •ë ¬(ìˆ«ì)  
+    to_char(weight),  -- ì¢Œì¸¡ì •ë ¬(ë¬¸ì)
+    length(weight),    -- length() ë¬¸ìì—´ > weight ìˆ«ì 
+    length(to_char(weight))  -- ì´ê²Œ ë‚´ë¶€ì ìœ¼ë¡œ í˜¸ì¶œì´ ëœ ê²ƒì´ë‹¤. > ìˆ«ìê°€ ìˆë”ë¼ë„ ë‚´ë¶€ì  í˜•ë³€í™˜ì´ ìë™ìœ¼ë¡œ ëœë‹¤. 
 from tblComedian;
 
 select 
     weight,
     to_char(weight),
     '@' || to_char(weight) || '@',
-    to_char(weight, '99999'),-- µÎÀÚ¸®´Â Ã¤¿ì°í ³ª¸ÓÁö´Â ³²¾Æ¼­ ½ºÆäÀÌ½º·Î Ã¤¿î´Ù. 
+    to_char(weight, '99999'),-- ë‘ìë¦¬ëŠ” ì±„ìš°ê³  ë‚˜ë¨¸ì§€ëŠ” ë‚¨ì•„ì„œ ìŠ¤í˜ì´ìŠ¤ë¡œ ì±„ìš´ë‹¤. 
     '@' || to_char(weight, '99999'),
-    '@' || to_char(weight, '00000')  || '@', -- ºÎÈ£°¡ µé¾î°¡´Â ÀÚ¸® ÇÑÄ­Àº ºñ¿öµĞ´Ù. 
-    '@' || to_char(-weight, '00000') || '@' -- ¸¶ÀÌ³Ê½º¸¦ ³Ö¾ú´õ´Ï µé¾î°£´Ù. 
+    '@' || to_char(weight, '00000')  || '@', -- ë¶€í˜¸ê°€ ë“¤ì–´ê°€ëŠ” ìë¦¬ í•œì¹¸ì€ ë¹„ì›Œë‘”ë‹¤. 
+    '@' || to_char(-weight, '00000') || '@' -- ë§ˆì´ë„ˆìŠ¤ë¥¼ ë„£ì—ˆë”ë‹ˆ ë“¤ì–´ê°„ë‹¤. 
 from tblComedian;
 
 select 
     100,
      to_char(100, '999'),
-     to_char(100, '999') || '´Ş·¯' ,
-     to_char(100, '999') || '¿ø' ,
+     to_char(100, '999') || 'ë‹¬ëŸ¬' ,
+     to_char(100, '999') || 'ì›' ,
      to_char(100, '$999'),
-     to_char(100, 'L999') -- £Ü100 ÀÌ·¸°Ô ³ª¿Â´Ù.
-    -- to_char(100, '999´Ş·¯') ÀÌ°Ô ¾ÈµÈ´Ù. ¿©±âÀÇ to_char µÎ¹øÂ° ¹®ÀÚ¿­Àº Çü½Ä¹®ÀÚÀÌ´Ù. ¾Æ¹«³ª ¸øÀû°í Çã¶ôµÈ ¾Öµé¸¸ Àû´Â´Ù. 
+     to_char(100, 'L999') -- ï¿¦100 ì´ë ‡ê²Œ ë‚˜ì˜¨ë‹¤.
+    -- to_char(100, '999ë‹¬ëŸ¬') ì´ê²Œ ì•ˆëœë‹¤. ì—¬ê¸°ì˜ to_char ë‘ë²ˆì§¸ ë¬¸ìì—´ì€ í˜•ì‹ë¬¸ìì´ë‹¤. ì•„ë¬´ë‚˜ ëª»ì ê³  í—ˆë½ëœ ì• ë“¤ë§Œ ì ëŠ”ë‹¤. 
 from dual;
 
 select 
     1234567.89,
-    to_char(1234567.89, '9,999,999') -- ÀÚ¹Ù´Â %,d ¿´´Ù. 
+    to_char(1234567.89, '9,999,999') -- ìë°”ëŠ” %,d ì˜€ë‹¤. 
 from dual;
 
-select sysdate from dual; -- ±¸ºĞÀÌ ¾È°£´Ù. 
-select to_char(sysdate) from dual; -- ÀÌ°Å³ª 
+select sysdate from dual; -- êµ¬ë¶„ì´ ì•ˆê°„ë‹¤. 
+select to_char(sysdate) from dual; -- ì´ê±°ë‚˜ 
 select to_char(sysdate,'yyyy') from dual;
 
 select to_char(sysdate) from dual; 
-select to_char(sysdate, 'yyyy') from dual;  -- 2023 ( 4ÀÚ¸® ) 
-select to_char(sysdate, 'yy') from dual;    -- 23³â(2ÀÚ¸®) 
-select to_char(sysdate, 'month') from dual; -- 3¿ù(Ç®³×ÀÓ)
-select to_char(sysdate, 'mon') from dual;   -- ¿ù(¾à¾î)
-select to_char(sysdate, 'mm') from dual;    -- ¿ù(2ÀÚ¸®)
-select to_char(sysdate, 'day') from dual;   -- ¿äÀÏ(Ç®³×ÀÓ)
-select to_char(sysdate, 'dy') from dual;    -- ¿äÀÏ(¾à¾î)
-select to_char(sysdate, 'ddd') from dual;   -- ÀÏ(¿ÃÇØÀÇ ¸çÄ¥)
-select to_char(sysdate, 'dd') from dual;    -- ÀÏ(ÀÌ¹ø´ŞÀÇ ¸çÄ¥)
-select to_char(sysdate, 'd') from dual;     -- ÀÏ(ÀÌ¹øÁÖÀÇ ¸çÄ¥)
-select to_char(sysdate, 'hh') from dual;    -- ½Ã(12½Ã°£)
-select to_char(sysdate, 'hh24') from dual;  -- ½Ã(24½Ã°£)
-select to_char(sysdate, 'mi') from dual;    -- ºĞ
-select to_char(sysdate, 'ss') from dual;    -- ÃÊ
-select to_char(sysdate, 'am') from dual;    -- ¿ÀÀü/¿ÀÈÄ
-select to_char(sysdate, 'pm') from dual;    -- ¿ÀÀü/¿ÀÈÄ
+select to_char(sysdate, 'yyyy') from dual;  -- 2023 ( 4ìë¦¬ ) 
+select to_char(sysdate, 'yy') from dual;    -- 23ë…„(2ìë¦¬) 
+select to_char(sysdate, 'month') from dual; -- 3ì›”(í’€ë„¤ì„)
+select to_char(sysdate, 'mon') from dual;   -- ì›”(ì•½ì–´)
+select to_char(sysdate, 'mm') from dual;    -- ì›”(2ìë¦¬)
+select to_char(sysdate, 'day') from dual;   -- ìš”ì¼(í’€ë„¤ì„)
+select to_char(sysdate, 'dy') from dual;    -- ìš”ì¼(ì•½ì–´)
+select to_char(sysdate, 'ddd') from dual;   -- ì¼(ì˜¬í•´ì˜ ë©°ì¹ )
+select to_char(sysdate, 'dd') from dual;    -- ì¼(ì´ë²ˆë‹¬ì˜ ë©°ì¹ )
+select to_char(sysdate, 'd') from dual;     -- ì¼(ì´ë²ˆì£¼ì˜ ë©°ì¹ )
+select to_char(sysdate, 'hh') from dual;    -- ì‹œ(12ì‹œê°„)
+select to_char(sysdate, 'hh24') from dual;  -- ì‹œ(24ì‹œê°„)
+select to_char(sysdate, 'mi') from dual;    -- ë¶„
+select to_char(sysdate, 'ss') from dual;    -- ì´ˆ
+select to_char(sysdate, 'am') from dual;    -- ì˜¤ì „/ì˜¤í›„
+select to_char(sysdate, 'pm') from dual;    -- ì˜¤ì „/ì˜¤í›„
 
--- ¾Ï±â
+-- ì•”ê¸°
 select 
     sysdate,
     to_char(sysdate, 'yyyy-mm-dd'), -- 2023-03-16
     to_char(sysdate, 'hh24:mi:ss'), -- 14:46:54
     to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss'), -- 2023-03-16 14:46:54
-    to_char(sysdate, 'day am hh:mi:ss')        -- ¸ñ¿äÀÏ ¿ÀÈÄ 02:46:54
+    to_char(sysdate, 'day am hh:mi:ss')        -- ëª©ìš”ì¼ ì˜¤í›„ 02:46:54
 from dual;
 
--- È«±æµ¿	98/10/11	1998-10-11
+-- í™ê¸¸ë™	98/10/11	1998-10-11
 
 select * from tblInsa;
 
@@ -123,8 +123,8 @@ ibsadate,
 to_char(ibsadate, 'yyyy-mm-dd') as hire_date,
 to_char(ibsadate, 'day') as day,
 case
-    when to_char(ibsadate, 'd') in ('1','7') then 'ÈŞÀÏÀÔ»ç'
-    else 'ÆòÀÏÀÔ»ç' -- else¿¡´Â then ¾È¾´´Ù. 
+    when to_char(ibsadate, 'd') in ('1','7') then 'íœ´ì¼ì…ì‚¬'
+    else 'í‰ì¼ì…ì‚¬' -- elseì—ëŠ” then ì•ˆì“´ë‹¤. 
 end
 from tblInsa;
 
@@ -132,55 +132,55 @@ select * from tblInsa;
 
 desc tblInsa;
 
--- ³¯Â¥ »ó¼ö 
--- ÀÔ»ç³¯Â¥ > 2000³â ÀÌÈÄ
+-- ë‚ ì§œ ìƒìˆ˜ 
+-- ì…ì‚¬ë‚ ì§œ > 2000ë…„ ì´í›„
 select * from tblInsa
-    where ibsadate >= '2000-01-01';  -- ¾ê°¡ Á¦±â´ÉÀ» ÇÑ´Ù. ±Ùµ¥ ÀÌ°Ô ¹®ÀÚ¿­ÀÌ´Ù. 
-    -- ÀÚ²Ù¸¸ ÀÌ³ğµéÀÌ Çüº¯È¯ÇÑ´Ù...
+    where ibsadate >= '2000-01-01';  -- ì–˜ê°€ ì œê¸°ëŠ¥ì„ í•œë‹¤. ê·¼ë° ì´ê²Œ ë¬¸ìì—´ì´ë‹¤. 
+    -- ìê¾¸ë§Œ ì´ë†ˆë“¤ì´ í˜•ë³€í™˜í•œë‹¤...
 
--- ÀÔ»ç³¯Â¥ > 2000³â¿¡ ...
+-- ì…ì‚¬ë‚ ì§œ > 2000ë…„ì— ...
 select * from tblInsa 
-    where ibsadate >= '2000-01-01' and ibsadate < '2001-01-01'; -- ÀÌ·¸°Ô ½á¾ß ÇÑ´Ù. > ÀÌ Ç¥ÇöÀÌ Á¦ÀÏ ¾ÈÁ¤ÀûÀÌ´Ù. 
-    -- where ibsadate >= '2000-01-01' and ibsadate <= '2000-12-31'; -- ¿À´ä > ¸¶Áö¸·¿¡ µé¾î¿Â »ç¶÷Àº Æ÷ÇÔÀÌ µÇÁö ¾Ê´Â´Ù.
-                                          -- 2000-12-31 00½Ã0ºĞ0ÃÊÀÌ¶ó¼­ ¸¶Áö¸·³¯ÀÌ Æ÷ÇÔÀÌ ¾ÈµÈ´Ù. > Á¶½ÉÇÏÀÚ!!
-                     -- ³â¿ùÀÏ ½ÃºĞÃÊÀÎµ¥ 
-                     -- ³¯Â¥ »ó¼ö > ÀÚµ¿À¸·Î 00:00:00 > ÀÚÁ¤À¸·Î ¼¼ÆÃµÈ´Ù.(±×³¯Â¥ÀÇ ½ÃÀÛÀÌµÇ´Â ÀÚÁ¤ÀÌ µÈ´Ù.)
+    where ibsadate >= '2000-01-01' and ibsadate < '2001-01-01'; -- ì´ë ‡ê²Œ ì¨ì•¼ í•œë‹¤. > ì´ í‘œí˜„ì´ ì œì¼ ì•ˆì •ì ì´ë‹¤. 
+    -- where ibsadate >= '2000-01-01' and ibsadate <= '2000-12-31'; -- ì˜¤ë‹µ > ë§ˆì§€ë§‰ì— ë“¤ì–´ì˜¨ ì‚¬ëŒì€ í¬í•¨ì´ ë˜ì§€ ì•ŠëŠ”ë‹¤.
+                                          -- 2000-12-31 00ì‹œ0ë¶„0ì´ˆì´ë¼ì„œ ë§ˆì§€ë§‰ë‚ ì´ í¬í•¨ì´ ì•ˆëœë‹¤. > ì¡°ì‹¬í•˜ì!!
+                     -- ë…„ì›”ì¼ ì‹œë¶„ì´ˆì¸ë° 
+                     -- ë‚ ì§œ ìƒìˆ˜ > ìë™ìœ¼ë¡œ 00:00:00 > ìì •ìœ¼ë¡œ ì„¸íŒ…ëœë‹¤.(ê·¸ë‚ ì§œì˜ ì‹œì‘ì´ë˜ëŠ” ìì •ì´ ëœë‹¤.)
                      
--- ¿¬¿ùÀÏµµ ÀÚµ¿À¸·Î Çüº¯È¯ÀÌ µÇ´Âµ¥ Çüº¯È¯ÀÌ µÇ¸é ½ÃºĞÃÊ´Â 00:00:00ÀÌ´Ù.
+-- ì—°ì›”ì¼ë„ ìë™ìœ¼ë¡œ í˜•ë³€í™˜ì´ ë˜ëŠ”ë° í˜•ë³€í™˜ì´ ë˜ë©´ ì‹œë¶„ì´ˆëŠ” 00:00:00ì´ë‹¤.
 select * from tblInsa
     where to_char(ibsadate, 'yyyy') = '2000';
     
     
 select * from tblInsa
-    where ibsadate >= '2000-01-01 00:00:00' and ibsadate <= '2000-12-31 23:59:59'; -- Çüº¯È¯ÀÌ ¾ÈµÈ´Ù. ³â¿ùÀÏ±îÁö ¾´´Ù.
+    where ibsadate >= '2000-01-01 00:00:00' and ibsadate <= '2000-12-31 23:59:59'; -- í˜•ë³€í™˜ì´ ì•ˆëœë‹¤. ë…„ì›”ì¼ê¹Œì§€ ì“´ë‹¤.
     
 select to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss') from dual;
 
 
 
--- 3. to_number(¹®ÀÚ) 
+-- 3. to_number(ë¬¸ì) 
 select 
    123,
-   '123',            -- ¹®ÀÚ¿­ ¿À¸¥ÂÊ Á¤·Ä
-   to_number('1234') -- ¼ıÀÚ ¿ŞÂÊ Á¤·ÄµÈ´Ù.
+   '123',            -- ë¬¸ìì—´ ì˜¤ë¥¸ìª½ ì •ë ¬
+   to_number('1234') -- ìˆ«ì ì™¼ìª½ ì •ë ¬ëœë‹¤.
 from dual;
 
 select 123 * 2,
        to_number('123') * 2,
-       '123'*2               -- Çüº¯È¯À» ¾ÈÇØµµ ±×³Éµµ µÈ´Ù. > ¾Ï½ÃÀû Çüº¯È¯
+       '123'*2               -- í˜•ë³€í™˜ì„ ì•ˆí•´ë„ ê·¸ëƒ¥ë„ ëœë‹¤. > ì•”ì‹œì  í˜•ë³€í™˜
 from dual;
 
 -- 4. to_date()
 select 
     sysdate,     -- 23/03/16
-    '2023-03-16', -- '2023-03-16'> ¹®ÀÚ¿­!!!, ³¯Â¥ ¾Æ´Ï´Ù > ¿©±â¼± Çüº¯È¯ ¹ß»ı ¾ÈÇß´Ù. 
+    '2023-03-16', -- '2023-03-16'> ë¬¸ìì—´!!!, ë‚ ì§œ ì•„ë‹ˆë‹¤ > ì—¬ê¸°ì„  í˜•ë³€í™˜ ë°œìƒ ì•ˆí–ˆë‹¤. 
     to_date('2023-03-16') + 1,
     to_date('2023-03-16', 'yyyy-mm-dd' ),
     to_date('20230316'),  -- 23/03/16
     to_date('20230316','yyyymmdd'),
     to_date('2023/03/16','yyyy/mm/dd'),
-    to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss') -- ½ÃºĞÃÊ°¡ Æ÷ÇÔµÇ¸é... ÀÌ»óÇÏ°Ô µÈ´Ù. 
-from dual; -- ' 'À¸·Î ¹­À¸´Ï±î ³¯Â¥ Ãë±ŞÀÌ ÇÊ¿ä°¡ ¾øÀ¸´Ï±î '2023-03-16' + 1 ÀÌ ¾ÈµÈ´Ù. 
+    to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss') -- ì‹œë¶„ì´ˆê°€ í¬í•¨ë˜ë©´... ì´ìƒí•˜ê²Œ ëœë‹¤. 
+from dual; -- ' 'ìœ¼ë¡œ ë¬¶ìœ¼ë‹ˆê¹Œ ë‚ ì§œ ì·¨ê¸‰ì´ í•„ìš”ê°€ ì—†ìœ¼ë‹ˆê¹Œ '2023-03-16' + 1 ì´ ì•ˆëœë‹¤. 
 
 select * from tblInsa;
 desc tblInsa;
@@ -189,18 +189,18 @@ select * from tblInsa
     where ibsadate >= to_date('2000-01-01 00:00:00', 'yyyy-mm-dd hh24:mi:ss') and ibsadate <= to_date('2000-12-31 23:59:59', 'yyyy-mm-dd hh24:mi:ss');
     
 
--- to_date´Â ½ÃºĞÃÊ±îÁö Æ÷ÇÔÇÑ °ÍÀ» ¹Ù²Ù±â À§ÇØ¼­ ¾´´Ù.
--- to_date´Â ½ÃºĞÃÊ±îÁö ÀúÀå½ÃÅ³ ¼ö ÀÖ´Ù. > ÇÏÁö¸¸ Å×ÀÌºí µ¥ÀÌÅÍ ¾È¿¡¼­´Â ½ÃºĞÃÊ°¡ ¾Èº¸ÀÎ´Ù. > to_char·Î ²¨³»½á¾ßÇÑ´Ù.
+-- to_dateëŠ” ì‹œë¶„ì´ˆê¹Œì§€ í¬í•¨í•œ ê²ƒì„ ë°”ê¾¸ê¸° ìœ„í•´ì„œ ì“´ë‹¤.
+-- to_dateëŠ” ì‹œë¶„ì´ˆê¹Œì§€ ì €ì¥ì‹œí‚¬ ìˆ˜ ìˆë‹¤. > í•˜ì§€ë§Œ í…Œì´ë¸” ë°ì´í„° ì•ˆì—ì„œëŠ” ì‹œë¶„ì´ˆê°€ ì•ˆë³´ì¸ë‹¤. > to_charë¡œ êº¼ë‚´ì¨ì•¼í•œë‹¤.
 
 
 select 
-    to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss'),   -- ½ÃºĞÃÊ±îÁö ±â·Ï  --23/03/16
-    to_char(to_date('2023-03-16 15:28', 'yyyy-mm-dd hh24:mi'), 'yyyy-mm-dd hh24:mi:ss'),      -- ½ÃºĞÃÊ¸¦ ²¨³»¾²·Á¸é ÀÌ·¸°Ô -- default´Â 00À¸·Î Ã¤¿öÁö°í
-    to_char(to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss'), 'yyyy-mm-dd hh24:mi:ss')  -- ½ÃºĞÃÊ¸¦ ²¨³»¾²·Á¸é ÀÌ·¸°Ô 
+    to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss'),   -- ì‹œë¶„ì´ˆê¹Œì§€ ê¸°ë¡  --23/03/16
+    to_char(to_date('2023-03-16 15:28', 'yyyy-mm-dd hh24:mi'), 'yyyy-mm-dd hh24:mi:ss'),      -- ì‹œë¶„ì´ˆë¥¼ êº¼ë‚´ì“°ë ¤ë©´ ì´ë ‡ê²Œ -- defaultëŠ” 00ìœ¼ë¡œ ì±„ì›Œì§€ê³ 
+    to_char(to_date('2023-03-16 15:28:25', 'yyyy-mm-dd hh24:mi:ss'), 'yyyy-mm-dd hh24:mi:ss')  -- ì‹œë¶„ì´ˆë¥¼ êº¼ë‚´ì“°ë ¤ë©´ ì´ë ‡ê²Œ 
 from dual;
 
 select to_char(sysdate, 'yyyy-mm-dd hh24:mi:ss') from dual;  
--- º¸ÀÏ¶© ³â¿ùÀÏ±îÁö »ç½ÇÀº ½ÃºĞÃÊ±îÁö ÀúÀåµÊ, ½ÃºĞÃÊ±îÁö ²¨³»º¸·Á¸é to_char·Î ²¨³»±â
+-- ë³´ì¼ë• ë…„ì›”ì¼ê¹Œì§€ ì‚¬ì‹¤ì€ ì‹œë¶„ì´ˆê¹Œì§€ ì €ì¥ë¨, ì‹œë¶„ì´ˆê¹Œì§€ êº¼ë‚´ë³´ë ¤ë©´ to_charë¡œ êº¼ë‚´ê¸°
 
 
 

@@ -2,12 +2,12 @@
 
     ex10_string_function.sql
     
-    ¹®ÀÚ¿­ ÇÔ¼ö
+    ë¬¸ìì—´ í•¨ìˆ˜
     
     upper(), lower(), initcap()
-    - varchar2 upper(ÄÃ·³)
-    - varchar2 lower(ÄÃ·³)
-    - varchar2 initcap(ÄÃ·³)
+    - varchar2 upper(ì»¬ëŸ¼)
+    - varchar2 lower(ì»¬ëŸ¼)
+    - varchar2 initcap(ì»¬ëŸ¼)
     
 */
 
@@ -18,7 +18,7 @@ select
 from employees;
 
 select 
-    'abc', initcap('abc'), initcap('aBC')  -- Ä«¸á Ç¥±â¹ıÃ³·³ Ã¹±ÛÀÚ¸¦ ´ë¹®ÀÚ·Î ¹Ù²ãÁÖ´Ù.  > Ä«¸áÇ¥±â¹ıÀ¸·Î ÇÑ´Ù. Ã¹±ÛÀÚ¸¸ ´ë¹®ÀÚ, ³ª¸ÓÁö´Â ¼Ò¹®ÀÚ·Î ÀÏ°ı º¯È¯
+    'abc', initcap('abc'), initcap('aBC')  -- ì¹´ë©œ í‘œê¸°ë²•ì²˜ëŸ¼ ì²«ê¸€ìë¥¼ ëŒ€ë¬¸ìë¡œ ë°”ê¿”ì£¼ë‹¤.  > ì¹´ë©œí‘œê¸°ë²•ìœ¼ë¡œ í•œë‹¤. ì²«ê¸€ìë§Œ ëŒ€ë¬¸ì, ë‚˜ë¨¸ì§€ëŠ” ì†Œë¬¸ìë¡œ ì¼ê´„ ë³€í™˜
 from dual;
 
 
@@ -29,60 +29,60 @@ select first_name
 /*
 
     substr()
-    - ¹®ÀÚ¿­ ÃßÃâ ÇÔ¼ö
-    - varchar2 substr(ÄÃ·³, ½ÃÀÛÀ§Ä¡, °¡Á®¿Ã ¹®ÀÚ °³¼ö) 
-    - varchar2 substr(ÄÃ·³, ½ÃÀÛÀ§Ä¡)
-    - *** SQL ÀÎµ¦½º > 1ºÎÅÍ ½ÃÀÛ
+    - ë¬¸ìì—´ ì¶”ì¶œ í•¨ìˆ˜
+    - varchar2 substr(ì»¬ëŸ¼, ì‹œì‘ìœ„ì¹˜, ê°€ì ¸ì˜¬ ë¬¸ì ê°œìˆ˜) 
+    - varchar2 substr(ì»¬ëŸ¼, ì‹œì‘ìœ„ì¹˜)
+    - *** SQL ì¸ë±ìŠ¤ > 1ë¶€í„° ì‹œì‘
 */
 
 select
     title, 
-    substr(title, 3, 4), -- 4±ÛÀÚ¸¦ Â¥¸£´Âµ¥ °ø¹éµµ Æ÷ÇÔÇØ¼­ ÀÚ¸¥´Ù.
-    substr(title, 3)     -- 3¹øÂ° À§Ä¡ºÎÅÍ ³¡±îÁö ~ 
+    substr(title, 3, 4), -- 4ê¸€ìë¥¼ ì§œë¥´ëŠ”ë° ê³µë°±ë„ í¬í•¨í•´ì„œ ìë¥¸ë‹¤.
+    substr(title, 3)     -- 3ë²ˆì§¸ ìœ„ì¹˜ë¶€í„° ëê¹Œì§€ ~ 
 from tblTodo;
 
 
 
 select 
     name, 
-    substr(name, 1, 1) as "¼º",
-    substr(name, 2) as "ÀÌ¸§",
+    substr(name, 1, 1) as "ì„±",
+    substr(name, 2) as "ì´ë¦„",
     ssn,
-    substr(ssn, 1, 2) as "»ı³â",
-    substr(ssn, 3, 2) as "»ı¿ù",
-    substr(ssn, 5, 2) as "»ıÀÏ",
-    substr(ssn, 8, 1) as "¼ºº°"
+    substr(ssn, 1, 2) as "ìƒë…„",
+    substr(ssn, 3, 2) as "ìƒì›”",
+    substr(ssn, 5, 2) as "ìƒì¼",
+    substr(ssn, 8, 1) as "ì„±ë³„"
 from tblInsa;
 
 
 select 
     sum
     (case 
-        when substr(name, 1, 1) = '±è' then 1 else 0
-    end) as "±è¾¾",
+        when substr(name, 1, 1) = 'ê¹€' then 1 else 0
+    end) as "ê¹€ì”¨",
     count
     (case 
-        when substr(name, 1, 1) = 'ÀÌ' then 1
-    end) as "ÀÌ¾¾",
+        when substr(name, 1, 1) = 'ì´' then 1
+    end) as "ì´ì”¨",
     count
     (case 
-        when substr(name, 1, 1) = '¹Ú' then 1
-    end) as "¹Ú¾¾",
+        when substr(name, 1, 1) = 'ë°•' then 1
+    end) as "ë°•ì”¨",
     count
     (case 
-        when substr(name, 1, 1) = 'ÃÖ' then 1
-    end) as "ÃÖ¾¾",
+        when substr(name, 1, 1) = 'ìµœ' then 1
+    end) as "ìµœì”¨",
     count
     (case 
-        when substr(name, 1, 1) = 'Á¤' then 1
-    end) as "Á¤¾¾",
+        when substr(name, 1, 1) = 'ì •' then 1
+    end) as "ì •ì”¨",
     count(case 
-        when substr(name, 1, 1) NOT IN ('±è', 'ÀÌ', '¹Ú', 'ÃÖ', 'Á¤') then 1
-    end) as "³ª¸ÓÁö"
-from tblInsa; -- Á¶°Ç¿¡ substring¸¸ µé¾î°£ °ÍÀÌ´Ù.
+        when substr(name, 1, 1) NOT IN ('ê¹€', 'ì´', 'ë°•', 'ìµœ', 'ì •') then 1
+    end) as "ë‚˜ë¨¸ì§€"
+from tblInsa; -- ì¡°ê±´ì— substringë§Œ ë“¤ì–´ê°„ ê²ƒì´ë‹¤.
 
 
--- Àº±Ù ÄÉÀÌ½º¸¦ ¸¹ÀÌ ¾²´Â ±¸³ª
+-- ì€ê·¼ ì¼€ì´ìŠ¤ë¥¼ ë§ì´ ì“°ëŠ” êµ¬ë‚˜
 
 
 select * from tblInsa
@@ -91,9 +91,9 @@ select * from tblInsa
 select * from tblInsa
     where substr(ssn ,8, 1) = '2';
     
--- or·Î ¹¹°¡ ¾Æ´Ï¸é ¹¹°¡ ¾Æ´Ï¸é ÀÌ·¸°Ôµµ ¾²´Âµ¥ INÀ¸·Î or¸¦ ¶°¿Ã·Áµµ µÈ´Ù. 
+-- orë¡œ ë­ê°€ ì•„ë‹ˆë©´ ë­ê°€ ì•„ë‹ˆë©´ ì´ë ‡ê²Œë„ ì“°ëŠ”ë° INìœ¼ë¡œ orë¥¼ ë– ì˜¬ë ¤ë„ ëœë‹¤. 
 
--- ³²ÀÚ > ¿©ÀÚ ~ ³²ÀÚ¼øÀ¸·Î ¸ÕÀú Ãâ·ÂÇÏ°í ¿©ÀÚ¼øÀ¸·Î Ãâ·ÂÇÑ´Ù. 
+-- ë‚¨ì > ì—¬ì ~ ë‚¨ììˆœìœ¼ë¡œ ë¨¼ì € ì¶œë ¥í•˜ê³  ì—¬ììˆœìœ¼ë¡œ ì¶œë ¥í•œë‹¤. 
 select * from tblInsa
     order by ssn;
 
@@ -114,33 +114,33 @@ from tblInsa
     order by case
         when ssn like '%-1%' then 1
         when ssn like '%-2%' then 2
-    end; -- case·Î ¸¸µç Ä®·³À» order ±âÁØÀ¸·Î ¶â¾î¿Â´Ù.    
+    end; -- caseë¡œ ë§Œë“  ì¹¼ëŸ¼ì„ order ê¸°ì¤€ìœ¼ë¡œ ëœ¯ì–´ì˜¨ë‹¤.    
     
 select 
     *
 from tblInsa
-    order by substr(ssn, 8, 1); -- ³²ÀÚ Á÷¿øÀÌ Âß ³ª¿À°í ¿©ÀÚ Á÷¿øÀÌ Âß ³ª¿Â´Ù. 
+    order by substr(ssn, 8, 1); -- ë‚¨ì ì§ì›ì´ ì­‰ ë‚˜ì˜¤ê³  ì—¬ì ì§ì›ì´ ì­‰ ë‚˜ì˜¨ë‹¤. 
     
     
 /*
 
     length()
-    - ¹®ÀÚ¿­ ±æÀÌ
-    - number length(Ä®·³)
+    - ë¬¸ìì—´ ê¸¸ì´
+    - number length(ì¹¼ëŸ¼)
     
 */
 
--- ÄÃ·³ ¸®½ºÆ®¿¡¼­ »ç¿ë
+-- ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚¬ìš©
 select name, length(name) from tblCountry;
 
--- Á¶°ÇÀı¿¡¼­ »ç¿ë 
+-- ì¡°ê±´ì ˆì—ì„œ ì‚¬ìš© 
 select name, length(name) from tblCountry where length(name) > 3;
 select name, length(name) from tblCountry where length(name) between 4 and 6;
 
--- Á¤·Ä¿¡¼­ »ç¿ë
+-- ì •ë ¬ì—ì„œ ì‚¬ìš©
 select name, length(name) from tblCountry order by length(name) desc;
 
--- °Ô½ÃÆÇ Á¦¸ñ > ±æ¸é > Àß¶ó¼­ > ¸»ÁÙÀÓÇ¥(..) 
+-- ê²Œì‹œíŒ ì œëª© > ê¸¸ë©´ > ì˜ë¼ì„œ > ë§ì¤„ì„í‘œ(..) 
 select 
     title,
     case 
@@ -151,23 +151,23 @@ from tblTodo;
 
 /*
     instr()
-    - °Ë»öÇÔ¼ö(indexOf)
-    - °Ë»ö¾îÀÇ À§Ä¡¸¦ ¹İÈ¯
-    - number instr(ÄÃ·³, °Ë»ö¾î) 
-    - number instr(ÄÃ·³, °Ë»ö¾î, ½ÃÀÛÀ§Ä¡) 
-    - number instr(ÄÃ·³, °Ë»ö¾î, ½ÃÀÛÀ§Ä¡, -1)  -- ÀÌ·¸°Ô ÇÏ¸é lastIndex ¿ªÇÒÀ» ÇÑ´Ù.
+    - ê²€ìƒ‰í•¨ìˆ˜(indexOf)
+    - ê²€ìƒ‰ì–´ì˜ ìœ„ì¹˜ë¥¼ ë°˜í™˜
+    - number instr(ì»¬ëŸ¼, ê²€ìƒ‰ì–´) 
+    - number instr(ì»¬ëŸ¼, ê²€ìƒ‰ì–´, ì‹œì‘ìœ„ì¹˜) 
+    - number instr(ì»¬ëŸ¼, ê²€ìƒ‰ì–´, ì‹œì‘ìœ„ì¹˜, -1)  -- ì´ë ‡ê²Œ í•˜ë©´ lastIndex ì—­í• ì„ í•œë‹¤.
     
 */
 
 select 
-    '¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô',
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô', 'È«±æµ¿') as r1, -- µü 8¹øÂ°ºÎÅÍ 
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô', '¾Æ¹«°³') as r2, -- ¾ø´Â°Å Ã£À¸¸é 
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô. È«±æµ¿´Ô', 'È«±æµ¿') as r3,
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô. È«±æµ¿´Ô', 'È«±æµ¿', 11) as r4,
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô. È«±æµ¿´Ô', 'È«±æµ¿'
-    , instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô. È«±æµ¿´Ô', 'È«±æµ¿') + length('È«±æµ¿')) as r5, -- ´ÙÀ½°É Ã£´Â´Ù. 
-    instr('¾È³çÇÏ¼¼¿ä. È«±æµ¿´Ô. È«±æµ¿´Ô', 'È«±æµ¿', -1 ) as t6
+    'ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜',
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™') as r1, -- ë”± 8ë²ˆì§¸ë¶€í„° 
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜', 'ì•„ë¬´ê°œ') as r2, -- ì—†ëŠ”ê±° ì°¾ìœ¼ë©´ 
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™') as r3,
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™', 11) as r4,
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™'
+    , instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™') + length('í™ê¸¸ë™')) as r5, -- ë‹¤ìŒê±¸ ì°¾ëŠ”ë‹¤. 
+    instr('ì•ˆë…•í•˜ì„¸ìš”. í™ê¸¸ë™ë‹˜. í™ê¸¸ë™ë‹˜', 'í™ê¸¸ë™', -1 ) as t6
 from dual;
 
 
@@ -175,15 +175,15 @@ from dual;
 /*
     lpad(), rpad()
     - left padding, right padding
-    - varchar2 lpad(ÄÃ·³, °³¼ö, ¹®ÀÚ)
-    - varchar2 rpad(ÄÃ·³, °³¼ö, ¹®ÀÚ)
+    - varchar2 lpad(ì»¬ëŸ¼, ê°œìˆ˜, ë¬¸ì)
+    - varchar2 rpad(ì»¬ëŸ¼, ê°œìˆ˜, ë¬¸ì)
 */
 
 
--- ³»°¡ ¾ó¸¸Å­ ÀÚ¸® °ø°£À» Àâ°í ±× ºó °ø°£¿¡´Ù°¡ ÀÌ ¹®ÀÚ·Î Ã¤¿ï °ÍÀÌ´Ù.
+-- ë‚´ê°€ ì–¼ë§Œí¼ ìë¦¬ ê³µê°„ì„ ì¡ê³  ê·¸ ë¹ˆ ê³µê°„ì—ë‹¤ê°€ ì´ ë¬¸ìë¡œ ì±„ìš¸ ê²ƒì´ë‹¤.
 select 
     'a',
-    lpad('a', 5, 'b'), -- ³²´Â ¿©¹éÀ» Ã¤¿î´Ù > ÆĞµù 
+    lpad('a', 5, 'b'), -- ë‚¨ëŠ” ì—¬ë°±ì„ ì±„ìš´ë‹¤ > íŒ¨ë”© 
     'a',
     lpad('1', 3, '0'),
     lpad('12', 3, '0'),
@@ -205,58 +205,58 @@ from dual;
 /*
 
     trim(), ltrim(), rtrim()
-    - varchar2 trim(ÄÃ·³)
-    - varchar2 ltrim(ÄÃ·³)
-    - varchar2 rtrim(ÄÃ·³)
+    - varchar2 trim(ì»¬ëŸ¼)
+    - varchar2 ltrim(ì»¬ëŸ¼)
+    - varchar2 rtrim(ì»¬ëŸ¼)
 
 */
 
 
 select 
-    '    ÇÏ³ª       µÑ        ¼Â     ',
-    trim('    ÇÏ³ª       µÑ        ¼Â     '), -- °ø¹é¸¸ Áö¿î´Ù. ´Ù¸¥ ¹®ÀÚ Á¦°Å´Â ¸øÇÔ, ÀÎÀÚ°¡ ÇÏ³ª¸¸ µé¾î°£´Ù. 
-    ltrim('    ÇÏ³ª       µÑ        ¼Â     '), -- ´Ù¸¥ ¹®ÀÚ Á¦°Åµµ °¡´É
-    rtrim('    ÇÏ³ª       µÑ        ¼Â     '), -- ´Ù¸¥ ¹®ÀÚ Á¦°Åµµ °¡´É 
-    rtrim('    ÇÏ³ª       µÑ        ¼Â     xx','x') -- ´Ù¸¥ ¹®ÀÚ Á¦°Åµµ °¡´É 
+    '    í•˜ë‚˜       ë‘˜        ì…‹     ',
+    trim('    í•˜ë‚˜       ë‘˜        ì…‹     '), -- ê³µë°±ë§Œ ì§€ìš´ë‹¤. ë‹¤ë¥¸ ë¬¸ì ì œê±°ëŠ” ëª»í•¨, ì¸ìê°€ í•˜ë‚˜ë§Œ ë“¤ì–´ê°„ë‹¤. 
+    ltrim('    í•˜ë‚˜       ë‘˜        ì…‹     '), -- ë‹¤ë¥¸ ë¬¸ì ì œê±°ë„ ê°€ëŠ¥
+    rtrim('    í•˜ë‚˜       ë‘˜        ì…‹     '), -- ë‹¤ë¥¸ ë¬¸ì ì œê±°ë„ ê°€ëŠ¥ 
+    rtrim('    í•˜ë‚˜       ë‘˜        ì…‹     xx','x') -- ë‹¤ë¥¸ ë¬¸ì ì œê±°ë„ ê°€ëŠ¥ 
 from dual;
 
 
 /*
     replace()
-    - ¹®ÀÚ¿­ Ä¡È¯
-    - varchar2 replace(ÄÃ·³, Ã£À» ¹®ÀÚ¿­, ¹Ù²Ü ¹®ÀÚ¿­)
+    - ë¬¸ìì—´ ì¹˜í™˜
+    - varchar2 replace(ì»¬ëŸ¼, ì°¾ì„ ë¬¸ìì—´, ë°”ê¿€ ë¬¸ìì—´)
 */
 
 select 
-    replace('È«±æµ¿', 'È«', '±è'),
-    replace('È«±æµ¿', 'ÀÌ', '±è'),
-    replace('È«±æµ¿', 'ÀÌ', '±è')
+    replace('í™ê¸¸ë™', 'í™', 'ê¹€'),
+    replace('í™ê¸¸ë™', 'ì´', 'ê¹€'),
+    replace('í™ê¸¸ë™', 'ì´', 'ê¹€')
 from dual;
 
 select 
     name,
     continent,
     case
-        when continent='AS' then '¾Æ½Ã¾Æ'
-        when continent='EU' then 'À¯·´'
-        when continent='AF' then '¾ÆÇÁ¸®Ä«'
+        when continent='AS' then 'ì•„ì‹œì•„'
+        when continent='EU' then 'ìœ ëŸ½'
+        when continent='AF' then 'ì•„í”„ë¦¬ì¹´'
     end as c1,
-    replace(continent, 'AS', '¾Æ½Ã¾Æ'),
-    replace(replace(replace(continent, 'AS', '¾Æ½Ã¾Æ'),'EU','À¯·´'),'AF','¾ÆÇÁ¸®Ä«') -- ¿¬¼èÀû replace
+    replace(continent, 'AS', 'ì•„ì‹œì•„'),
+    replace(replace(replace(continent, 'AS', 'ì•„ì‹œì•„'),'EU','ìœ ëŸ½'),'AF','ì•„í”„ë¦¬ì¹´') -- ì—°ì‡ ì  replace
 from tblCountry;
     
--- case end´Â Á¶°ÇÀ» ¸¸Á·ÇÏÁö ¾ÊÀ¸¸é nullÀ» ¹İÈ¯ÇÑ´Ù.
--- replace´Â ¸øÃ£À¸¸é ¿øº»À» µ¹·ÁÁØ´Ù.
+-- case endëŠ” ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•Šìœ¼ë©´ nullì„ ë°˜í™˜í•œë‹¤.
+-- replaceëŠ” ëª»ì°¾ìœ¼ë©´ ì›ë³¸ì„ ëŒë ¤ì¤€ë‹¤.
 
 /*
 
     decode()
-    - ¹®ÀÚ¿­ Ä¡È¯ 
-    - replace¿Í ºñ½Á
-    - varchar2 decode( ÄÃ·³, Ã£À» ¹®ÀÚ¿­, ¹Ù²Ü ¹®ÀÚ¿­ [, Ã£À» ¹®ÀÚ¿­, ¹Ù²Ü ¹®ÀÚ¿­] x N )
-    - ¹®ÀÚ¿­ Á¶ÀÛ > caseÀÇ °£´ÜÇÑ ¹öÀü 
-    - ¸øÃ£À¸¸é nullÀ» µ¹·ÁÁØ´Ù. ( replace´Â ¸øÃ£À¸¸é ¿øº»À» µ¹·ÁÁØ´Ù.)
-    - >>> ±×·¡¼­ case end¿Í ºñ½ÁÇÏ´Ù.
+    - ë¬¸ìì—´ ì¹˜í™˜ 
+    - replaceì™€ ë¹„ìŠ·
+    - varchar2 decode( ì»¬ëŸ¼, ì°¾ì„ ë¬¸ìì—´, ë°”ê¿€ ë¬¸ìì—´ [, ì°¾ì„ ë¬¸ìì—´, ë°”ê¿€ ë¬¸ìì—´] x N )
+    - ë¬¸ìì—´ ì¡°ì‘ > caseì˜ ê°„ë‹¨í•œ ë²„ì „ 
+    - ëª»ì°¾ìœ¼ë©´ nullì„ ëŒë ¤ì¤€ë‹¤. ( replaceëŠ” ëª»ì°¾ìœ¼ë©´ ì›ë³¸ì„ ëŒë ¤ì¤€ë‹¤.)
+    - >>> ê·¸ë˜ì„œ case endì™€ ë¹„ìŠ·í•˜ë‹¤.
 */
 
 select * from tblComedian;
@@ -264,17 +264,17 @@ select * from tblComedian;
 select 
     gender,
     case 
-        when gender = 'm' then '³²ÀÚ'
-        when gender = 'f' then '¿©ÀÚ'
+        when gender = 'm' then 'ë‚¨ì'
+        when gender = 'f' then 'ì—¬ì'
     end as g1,
-    replace(replace(gender, 'm', '³²ÀÚ'), 'f' ,'¿©ÀÚ') as g2,
-    decode(gender, 'm', '³²ÀÚ') as g3, -- Á¶°ÇÀ» ¸øÃ£À¸´Ï±î nullÀÌ µé¾î¿Ô´Ù.
-    decode(gender, 'm', '³²ÀÚ', 'f','¿©ÀÚ') as g4
+    replace(replace(gender, 'm', 'ë‚¨ì'), 'f' ,'ì—¬ì') as g2,
+    decode(gender, 'm', 'ë‚¨ì') as g3, -- ì¡°ê±´ì„ ëª»ì°¾ìœ¼ë‹ˆê¹Œ nullì´ ë“¤ì–´ì™”ë‹¤.
+    decode(gender, 'm', 'ë‚¨ì', 'f','ì—¬ì') as g4
     
 from tblComedian;
--- ±ÛÀÚ¸¦ Ã£¾Æ¼­ Àú·¸°Ô ¹Ù²Û´Ù.
+-- ê¸€ìë¥¼ ì°¾ì•„ì„œ ì €ë ‡ê²Œ ë°”ê¾¼ë‹¤.
 
--- ³²ÀÚ ¸î¸í? ¿©ÀÚ ¸î¸í?
+-- ë‚¨ì ëª‡ëª…? ì—¬ì ëª‡ëª…?
 
 select
     -- A.
@@ -286,7 +286,7 @@ select
     end),
     count(decode(gender,'m', 1)),
     count(decode(gender,'f', 1))
-from tblComedian; -- ¿Ã Áı°èÇÔ¼ö¸¸ µÇ´Ï±î Á¶½É!!! 
+from tblComedian; -- ì˜¬ ì§‘ê³„í•¨ìˆ˜ë§Œ ë˜ë‹ˆê¹Œ ì¡°ì‹¬!!! 
 
--- decode³ª case°¡ ºñ½ÁÇÑµ¥ .... 
+-- decodeë‚˜ caseê°€ ë¹„ìŠ·í•œë° .... 
 

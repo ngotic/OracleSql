@@ -1,31 +1,31 @@
 /*
     ex08_aggregation_function.sql 
     
-ÇÔ¼ö   > µ¶¸³ÀûÀÎ Á¸Àç ¿À¶óÅ¬Àº OOP°¡ ¾Æ´Ï´Ù ±×·¡¼­ ÇÔ¼ö¶ó´Â ¸»À» ¾´´Ù.
-¸Þ¼Òµå > °´Ã¼°¡ ¼ÒÀ¯ÇÑ ÇÔ¼ö ÀÚ¹Ù´Â OOPÀÓ
-    ÇÔ¼ö, Function 
-    1. ³»ÀåÇü ÇÔ¼ö(Built-in Function)
-    2. »ç¿ëÀÚ Á¤ÀÇ ÇÔ¼ö(User Function)  > ANSI-SQL(X) , PL/SQL(O) 
+í•¨ìˆ˜   > ë…ë¦½ì ì¸ ì¡´ìž¬ ì˜¤ë¼í´ì€ OOPê°€ ì•„ë‹ˆë‹¤ ê·¸ëž˜ì„œ í•¨ìˆ˜ë¼ëŠ” ë§ì„ ì“´ë‹¤.
+ë©”ì†Œë“œ > ê°ì²´ê°€ ì†Œìœ í•œ í•¨ìˆ˜ ìžë°”ëŠ” OOPìž„
+    í•¨ìˆ˜, Function 
+    1. ë‚´ìž¥í˜• í•¨ìˆ˜(Built-in Function)
+    2. ì‚¬ìš©ìž ì •ì˜ í•¨ìˆ˜(User Function)  > ANSI-SQL(X) , PL/SQL(O) 
     
-    Áý°èÇÔ¼ö, Aggreegation Function
+    ì§‘ê³„í•¨ìˆ˜, Aggreegation Function
     1. count()
     2. sum()
     3. avg()
     4. max()
     5. min()
     
-    1. count() : °³¼ö¸¦ ¼¼ÁØ´Ù. 
-    - °á°ú Å×ÀÌºíÀÇ ·¹ÄÚµå ¼ö¸¦ ¹ÝÈ¯ÇÑ´Ù. 
-    - number count(ÄÃ·³¸í) 
-    - null ·¹ÄÚµå´Â Á¦¿Ü(***) > count(Ä®·³¸í)
-                              count(*) null Æ÷ÇÔ
+    1. count() : ê°œìˆ˜ë¥¼ ì„¸ì¤€ë‹¤. 
+    - ê²°ê³¼ í…Œì´ë¸”ì˜ ë ˆì½”ë“œ ìˆ˜ë¥¼ ë°˜í™˜í•œë‹¤. 
+    - number count(ì»¬ëŸ¼ëª…) 
+    - null ë ˆì½”ë“œëŠ” ì œì™¸(***) > count(ì¹¼ëŸ¼ëª…)
+                              count(*) null í¬í•¨
 */
 
-select name from tblCountry; -- ÀÌ °á°ú¼Â > ³»ÄÚµå °³¼ö¸¦ ¼¼°í ½Í´Ù.
-select count(name) from tblCountry; -- ÀÌ °á°ú¼Â > ³»ÄÚµå °³¼ö¸¦ ¼¼°í ½Í´Ù. > ¹ÝÈ¯°ªÀº ·¹ÄÚµå °³¼ö - 14 > ÀÌ°Íµµ Å×ÀÌºíÀÌ´Ù.
--- 1Çà 1¿­Â¥¸® °á°ú Å×ÀÌºíÀÌ´Ù.
+select name from tblCountry; -- ì´ ê²°ê³¼ì…‹ > ë‚´ì½”ë“œ ê°œìˆ˜ë¥¼ ì„¸ê³  ì‹¶ë‹¤.
+select count(name) from tblCountry; -- ì´ ê²°ê³¼ì…‹ > ë‚´ì½”ë“œ ê°œìˆ˜ë¥¼ ì„¸ê³  ì‹¶ë‹¤. > ë°˜í™˜ê°’ì€ ë ˆì½”ë“œ ê°œìˆ˜ - 14 > ì´ê²ƒë„ í…Œì´ë¸”ì´ë‹¤.
+-- 1í–‰ 1ì—´ì§œë¦¬ ê²°ê³¼ í…Œì´ë¸”ì´ë‹¤.
 
--- 'AS'¿¡ ¼ÓÇÑ ³ª¶ó °¹¼ö? > ÃÑ 4°³ÀÇ ³ª¶ó°¡ ÀÖ½À´Ï´Ù. 
+-- 'AS'ì— ì†í•œ ë‚˜ë¼ ê°¯ìˆ˜? > ì´ 4ê°œì˜ ë‚˜ë¼ê°€ ìžˆìŠµë‹ˆë‹¤. 
 select count(name) from tblCountry where continent = 'AS';
 
 select capital from tblCountry;            
@@ -34,121 +34,121 @@ select count(capital) from tblCountry;
 select population from tblCountry;         
 select count(population) from tblCountry;      
 
--- tblCountry¿¡ ³ª¶ó°¡ ÃÑ ¸î°³? 14
+-- tblCountryì— ë‚˜ë¼ê°€ ì´ ëª‡ê°œ? 14
 select count(name) from tblCountry;
 select count(capital) from tblCountry;
 select count(population) from tblCountry;
 
-select * from tblAddressBook; -- µ¥ÀÌÅÍ°¡ °Ì³ª ¸¹À¸¸é ºñ¾îÀÖ´Â°Å ¾Ë¾Æ³»±â ¾î·Æ´Ù. 
+select * from tblAddressBook; -- ë°ì´í„°ê°€ ê²ë‚˜ ë§Žìœ¼ë©´ ë¹„ì–´ìžˆëŠ”ê±° ì•Œì•„ë‚´ê¸° ì–´ë µë‹¤. 
 
-select count(*) from tblCountry;  --null°ú »ó°ü¾øÀÌ Å×ÀÌºíÀÇ Çà °¹¼ö Á¤È®ÇÏ°Ô ÆÄ¾Ç~ 
+select count(*) from tblCountry;  --nullê³¼ ìƒê´€ì—†ì´ í…Œì´ë¸”ì˜ í–‰ ê°¯ìˆ˜ ì •í™•í•˜ê²Œ íŒŒì•…~ 
 select * from tblCountry;         
 
 
--- ¸ðµç Á÷¿ø¼ö? 
--- ¿¬¶ôÃ³°¡ ÀÖ´Â Á÷¿ø¼ö?
--- ¿¬¶ôÃ³°¡ ¾ø´Â Á÷¿ø¼ö?
-select count(*) from tblInsa;      -- ¸ðµç Á÷¿ø¼ö?
-select count(tel) from tblInsa; -- null °ªÀº »©°í °³¼ö¸¦ ¼¾´Ù. ¿¬¶ôÃ³°¡ ÀÖ´Â Á÷¿ø¼ö?
-select count(*) - count(tel) from tblInsa; -- µ¥ÀÌÅÍ»©±â µ¥ÀÌÅÍ nullÀÎ °³¼ö°¡ ³ª¿Â´Ù. ¿¬¶ôÃ³°¡ ¾ø´Â Á÷¿ø¼ö?
+-- ëª¨ë“  ì§ì›ìˆ˜? 
+-- ì—°ë½ì²˜ê°€ ìžˆëŠ” ì§ì›ìˆ˜?
+-- ì—°ë½ì²˜ê°€ ì—†ëŠ” ì§ì›ìˆ˜?
+select count(*) from tblInsa;      -- ëª¨ë“  ì§ì›ìˆ˜?
+select count(tel) from tblInsa; -- null ê°’ì€ ë¹¼ê³  ê°œìˆ˜ë¥¼ ì„¼ë‹¤. ì—°ë½ì²˜ê°€ ìžˆëŠ” ì§ì›ìˆ˜?
+select count(*) - count(tel) from tblInsa; -- ë°ì´í„°ë¹¼ê¸° ë°ì´í„° nullì¸ ê°œìˆ˜ê°€ ë‚˜ì˜¨ë‹¤. ì—°ë½ì²˜ê°€ ì—†ëŠ” ì§ì›ìˆ˜?
 
-select count(*) from tblInsa where tel is not null; -- 57¸í
-select count(*) from tblInsa where tel is null;     -- 3¸í
+select count(*) from tblInsa where tel is not null; -- 57ëª…
+select count(*) from tblInsa where tel is null;     -- 3ëª…
 
--- tblInsa. ¾î¶² ºÎ¼­µéÀÌ ÀÖ³ª¿ä?
-select distinct buseo from tblInsa; -- 7°³ÀÇ ºÎ¼­°¡ ÀÖ´Ù.
+-- tblInsa. ì–´ë–¤ ë¶€ì„œë“¤ì´ ìžˆë‚˜ìš”?
+select distinct buseo from tblInsa; -- 7ê°œì˜ ë¶€ì„œê°€ ìžˆë‹¤.
 
--- tblInsa. ºÎ¼­°¡ ¸î°³ ÀÖ³ª¿ä?
-select count(distinct buseo) from tblInsa; -- Áßº¹¾øÀÌ Á¾·ùÀÇ °³¼ö ±¸ÇÒ ¶§
+-- tblInsa. ë¶€ì„œê°€ ëª‡ê°œ ìžˆë‚˜ìš”?
+select count(distinct buseo) from tblInsa; -- ì¤‘ë³µì—†ì´ ì¢…ë¥˜ì˜ ê°œìˆ˜ êµ¬í•  ë•Œ
 
 
--- tblComedian. ³²ÀÚ¼ö?, ¿©ÀÚ¼ö?
+-- tblComedian. ë‚¨ìžìˆ˜?, ì—¬ìžìˆ˜?
 select * from tblComedian;
 
 select count(*) from tblComedian where gender = 'm';
 select count(*) from tblComedian where gender = 'f';
 
--- *** ÀÚÁÖ »ç¿ëµÇ´Â ÆÐÅÏ
+-- *** ìžì£¼ ì‚¬ìš©ë˜ëŠ” íŒ¨í„´
 select 
     case
-        when gender = 'm' then 'A' -- ¡Ú Á¶°ÇÀ» ¸¸Á·¸øÇØ¼­ ¾Æ¹«µµ ¸øÃ£À¸¸é nullÀ» ¹ÝÈ¯ÇÑ´Ù.
-    end -- ÀÌ ÀÚÃ¼°¡ Ä®·³
+        when gender = 'm' then 'A' -- â˜… ì¡°ê±´ì„ ë§Œì¡±ëª»í•´ì„œ ì•„ë¬´ë„ ëª»ì°¾ìœ¼ë©´ nullì„ ë°˜í™˜í•œë‹¤.
+    end -- ì´ ìžì²´ê°€ ì¹¼ëŸ¼
 from tblComedian;
 
 select 
     count(case
-        when gender = 'm' then 'A' -- ¡Ú Á¶°ÇÀ» ¸¸Á·¸øÇØ¼­ ¾Æ¹«µµ ¸øÃ£À¸¸é nullÀ» ¹ÝÈ¯ÇÑ´Ù.
-    end) -- ÀÌ ÀÚÃ¼°¡ Ä®·³
+        when gender = 'm' then 'A' -- â˜… ì¡°ê±´ì„ ë§Œì¡±ëª»í•´ì„œ ì•„ë¬´ë„ ëª»ì°¾ìœ¼ë©´ nullì„ ë°˜í™˜í•œë‹¤.
+    end) -- ì´ ìžì²´ê°€ ì¹¼ëŸ¼
 from tblComedian;
 
- -- ÀÌ ÀÚÃ¼°¡ Ä®·³
- -- ¡Ú Á¶°ÇÀ» ¸¸Á·¸øÇØ¼­ ¾Æ¹«µµ ¸øÃ£À¸¸é nullÀ» ¹ÝÈ¯ÇÑ´Ù.
+ -- ì´ ìžì²´ê°€ ì¹¼ëŸ¼
+ -- â˜… ì¡°ê±´ì„ ë§Œì¡±ëª»í•´ì„œ ì•„ë¬´ë„ ëª»ì°¾ìœ¼ë©´ nullì„ ë°˜í™˜í•œë‹¤.
 select 
-    count(*) as ÀüÃ¼ÀÎ¿ø¼ö,
+    count(*) as ì „ì²´ì¸ì›ìˆ˜,
     count(case
         when gender = 'm' then 'A' 
-    end) as ³²ÀÚÀÎ¿ø¼ö,
+    end) as ë‚¨ìžì¸ì›ìˆ˜,
     count(case 
         when gender ='f' then 'B'
-    end)  as ¿©ÀÚÀÎ¿ø¼ö -- nullÀ» »©ÁÖ·Á°í °íÀÇÀûÀ¸·Î ÇÏ´Â ÁþÀÌ´Ù.   
+    end)  as ì—¬ìžì¸ì›ìˆ˜ -- nullì„ ë¹¼ì£¼ë ¤ê³  ê³ ì˜ì ìœ¼ë¡œ í•˜ëŠ” ì§“ì´ë‹¤.   
 from tblComedian;
 
--- tblInsa. ºÎ¼­º° ÀÎ¿ø¼ö 
+-- tblInsa. ë¶€ì„œë³„ ì¸ì›ìˆ˜ 
 
--- ±âÈ¹ºÎ ¸î¸í? ÃÑ¹«ºÎ ¸î¸í? °³¹ßºÎ ¸î¸í? 
-select count(*) from tblInsa where buseo = '±âÈ¹ºÎ'; -- 7
-select count(*) from tblInsa where buseo = 'ÃÑ¹«ºÎ'; -- 7
-select count(*) from tblInsa where buseo = '°³¹ßºÎ'; -- 14
+-- ê¸°íšë¶€ ëª‡ëª…? ì´ë¬´ë¶€ ëª‡ëª…? ê°œë°œë¶€ ëª‡ëª…? 
+select count(*) from tblInsa where buseo = 'ê¸°íšë¶€'; -- 7
+select count(*) from tblInsa where buseo = 'ì´ë¬´ë¶€'; -- 7
+select count(*) from tblInsa where buseo = 'ê°œë°œë¶€'; -- 14
 
 
 --select 
 --    case
---        when buseo = '±âÈ¹ºÎ' then 1
---        when buseo = 'ÃÑ¹«ºÎ' then 1 > µû·Î ½á¾ßÁö....
+--        when buseo = 'ê¸°íšë¶€' then 1
+--        when buseo = 'ì´ë¬´ë¶€' then 1 > ë”°ë¡œ ì¨ì•¼ì§€....
 --    end
---from tblInsa; ÀÌ°Ç ¾ûÅÍ¸®´Ù. 
+--from tblInsa; ì´ê±´ ì—‰í„°ë¦¬ë‹¤. 
 
-select   -- ÀÚÁÖ ¾²´Â ÆÐÅÏÀÌ´Ù.
+select   -- ìžì£¼ ì“°ëŠ” íŒ¨í„´ì´ë‹¤.
     count(case
-        when buseo = '±âÈ¹ºÎ' then 1
-    end) as ±âÈ¹ºÎ,
+        when buseo = 'ê¸°íšë¶€' then 1
+    end) as ê¸°íšë¶€,
     count(case
-        when buseo = 'ÃÑ¹«ºÎ' then 1
-    end) as ÃÑ¹«ºÎ,
+        when buseo = 'ì´ë¬´ë¶€' then 1
+    end) as ì´ë¬´ë¶€,
     count(case
-        when buseo = '°³¹ßºÎ' then 1
-    end) as °³¹ßºÎ 
+        when buseo = 'ê°œë°œë¶€' then 1
+    end) as ê°œë°œë¶€ 
 from tblInsa;
 
--- ´ÜÀÏÄÃ·³ or *
+-- ë‹¨ì¼ì»¬ëŸ¼ or *
 select count(name, buseo) from tblInsa; 
 
 /*
     2. sum()
-    - ÇØ´ç Ä®·³ÀÇ ÇÕÀ» ±¸ÇÑ´Ù.
-    - number sum(ÄÃ·³¸í)
-    - ¼ýÀÚÇü¸¸ Àû¿ë °¡´É 
+    - í•´ë‹¹ ì¹¼ëŸ¼ì˜ í•©ì„ êµ¬í•œë‹¤.
+    - number sum(ì»¬ëŸ¼ëª…)
+    - ìˆ«ìží˜•ë§Œ ì ìš© ê°€ëŠ¥ 
         
 */
 
 select * from tblComedian;
 select sum(height), sum(weight) from tblComedian;
--- select sum(first) from tblComedian; -- ¼ýÀÚ°¡ ¾Æ´Ñ°Å ³ÖÀ¸¸é ¿¡·¯³­´Ù. 
+-- select sum(first) from tblComedian; -- ìˆ«ìžê°€ ì•„ë‹Œê±° ë„£ìœ¼ë©´ ì—ëŸ¬ë‚œë‹¤. 
 -- ORA-01722: invalid number
 -- 01722. 00000 -  "invalid number"
 
 select 
-    sum(basicpay) as "ÁöÃâ ±Þ¿© ÇÕ",
-    sum(sudang) as "ÁöÃâ ¼ö´ç ÇÕ",
-    sum(basicpay) + sum(sudang) as "ÃÑ ÁöÃâ",
-    sum(basicpay + sudang) as "ÃÑ ÁöÃâ" -- Ä®·³ ´õÇÑ°Åµµ ÇÕ ³ª¿À°Ô ÇÒ ¼ö ÀÖ´Ù. 
+    sum(basicpay) as "ì§€ì¶œ ê¸‰ì—¬ í•©",
+    sum(sudang) as "ì§€ì¶œ ìˆ˜ë‹¹ í•©",
+    sum(basicpay) + sum(sudang) as "ì´ ì§€ì¶œ",
+    sum(basicpay + sudang) as "ì´ ì§€ì¶œ" -- ì¹¼ëŸ¼ ë”í•œê±°ë„ í•© ë‚˜ì˜¤ê²Œ í•  ìˆ˜ ìžˆë‹¤. 
 from tblInsa;
 
 /*
     3. avg()
-    -  ÇØ´ç ÄÃ·³ÀÇ Æò±Õ°ªÀ» ±¸ÇÑ´Ù.
-    - number avg(ÄÃ·³¸í)
-    - ¼ýÀÚÇü¸¸ Àû¿ë °¡´É 
+    -  í•´ë‹¹ ì»¬ëŸ¼ì˜ í‰ê· ê°’ì„ êµ¬í•œë‹¤.
+    - number avg(ì»¬ëŸ¼ëª…)
+    - ìˆ«ìží˜•ë§Œ ì ìš© ê°€ëŠ¥ 
 */
 
 
@@ -157,72 +157,72 @@ select sum(basicpay) / count(*) from tblInsa; -- 1556526
 
 select avg(basicpay) from tblInsa;       -- 1556526
 
--- Á¶½ÉÇÒ Æ÷ÀÎÆ® 
--- Æò±Õ ÀÎ±¸¼ö?
+-- ì¡°ì‹¬í•  í¬ì¸íŠ¸ 
+-- í‰ê·  ì¸êµ¬ìˆ˜?
 select 
-    avg(population),         -- null Æ÷ÇÔxºÐ¸ð Áý°è                 - 15588
-    sum(population)/count(*), -- null Æ÷ÇÔ ºÐ¸ð Æ÷ÇÔÇÑ Áý°è          - 14475
-    sum(population)/count(population) -- null Æ÷ÇÔ ºÐ¸ð Æ÷ÇÔÇÑ Áý°è  - 15588
+    avg(population),         -- null í¬í•¨xë¶„ëª¨ ì§‘ê³„                 - 15588
+    sum(population)/count(*), -- null í¬í•¨ ë¶„ëª¨ í¬í•¨í•œ ì§‘ê³„          - 14475
+    sum(population)/count(population) -- null í¬í•¨ ë¶„ëª¨ í¬í•¨í•œ ì§‘ê³„  - 15588
 from tblCountry;
--- avg´Â null Ä®·³ Á¦¿ÜµÈ´Ù.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- avgëŠ” null ì¹¼ëŸ¼ ì œì™¸ëœë‹¤.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 select 
     count(*),           -- 14
     count(population)   -- 13
 from tblCountry;
 
--- È¸»ç > ¼º°ú±Þ Áö±Þ > ¼º°ú±Þ ÃâÃ³ > 1ÆÀ °ø·Î~
--- 1. ±Õµî Áö±Þ: ÃÑÀÚ±Þ¾× / ¸ðµç Á÷¿ø¼ö = sum() / count(*) 
--- 2. Â÷µî Áö±Þ: ÃÑÁö±Þ¾× / Âü¿© Á÷¿ø¼ö = sum() / count(Âü¿©ÀÎ¿ø¼ö) = avg()
--- ¸ðÁ÷ vs ÂüÁ÷
+-- íšŒì‚¬ > ì„±ê³¼ê¸‰ ì§€ê¸‰ > ì„±ê³¼ê¸‰ ì¶œì²˜ > 1íŒ€ ê³µë¡œ~
+-- 1. ê· ë“± ì§€ê¸‰: ì´ìžê¸‰ì•¡ / ëª¨ë“  ì§ì›ìˆ˜ = sum() / count(*) 
+-- 2. ì°¨ë“± ì§€ê¸‰: ì´ì§€ê¸‰ì•¡ / ì°¸ì—¬ ì§ì›ìˆ˜ = sum() / count(ì°¸ì—¬ì¸ì›ìˆ˜) = avg()
+-- ëª¨ì§ vs ì°¸ì§
 
 /*
     4. max()
-    - object max(Ä®·³¸í)
-    - ÃÖ´ñ°ª ¹ÝÈ¯
+    - object max(ì¹¼ëŸ¼ëª…)
+    - ìµœëŒ“ê°’ ë°˜í™˜
     
     5. min()
-    - object min(Ä®·³¸í)
-    - ÃÖ¼Ú°ª ¹ÝÈ¯
+    - object min(ì¹¼ëŸ¼ëª…)
+    - ìµœì†Ÿê°’ ë°˜í™˜
     
-    - ¼ýÀÚÇü, ¹®ÀÚÇü, ³¯Â¥Çü ¸ðµÎ Àû¿ë 
+    - ìˆ«ìží˜•, ë¬¸ìží˜•, ë‚ ì§œí˜• ëª¨ë‘ ì ìš© 
 
 */
 
-select max(height),min(height) from tblComedian; -- ¼ýÀÚÇü
-select max(name), min(name) from tblInsa;         -- ¹®ÀÚÇü
-select max(ibsadate), min(ibsadate) from tblInsa; --³¯Â¥Çü
+select max(height),min(height) from tblComedian; -- ìˆ«ìží˜•
+select max(name), min(name) from tblInsa;         -- ë¬¸ìží˜•
+select max(ibsadate), min(ibsadate) from tblInsa; --ë‚ ì§œí˜•
 
 select
-    count(*) as "Á÷¿ø¼ö",
-    sum(basicpay) as "ÃÑ±Þ¿© ÇÕ",
-    avg(basicpay) as "Æò±Õ±Þ¿©",
-    max(basicpay) as "ÃÖ°í ±Þ¿©",
-    min(basicpay) as "ÃÖÀú ±Þ¿©"
+    count(*) as "ì§ì›ìˆ˜",
+    sum(basicpay) as "ì´ê¸‰ì—¬ í•©",
+    avg(basicpay) as "í‰ê· ê¸‰ì—¬",
+    max(basicpay) as "ìµœê³  ê¸‰ì—¬",
+    min(basicpay) as "ìµœì € ê¸‰ì—¬"
 from tblInsa;
 
 
--- Áý°è ÇÔ¼ö »ç¿ë ÁÖÀÇÁ¡!!!!
+-- ì§‘ê³„ í•¨ìˆ˜ ì‚¬ìš© ì£¼ì˜ì !!!!
 
--- Áý°èÇÔ¼ö > sum(), avg(), max(), min()
+-- ì§‘ê³„í•¨ìˆ˜ > sum(), avg(), max(), min()
 
--- Áý°èÇÔ¼ö > count()
+-- ì§‘ê³„í•¨ìˆ˜ > count()
 
 
--- 1. tblCountry. ¾Æ½Ã¾Æ(AS)¿Í À¯·´(EU)¿¡ ¼ÓÇÑ ³ª¶óÀÇ °³¼ö?? -> 7°³
+-- 1. tblCountry. ì•„ì‹œì•„(AS)ì™€ ìœ ëŸ½(EU)ì— ì†í•œ ë‚˜ë¼ì˜ ê°œìˆ˜?? -> 7ê°œ
 select * from tblCountry ;
 
 select count(NAME) 
 from tblCountry
 where continent = 'AS' or continent = 'EU';
 
--- 2. ÀÎ±¸¼ö°¡ 7000 ~ 20000 »çÀÌÀÎ ³ª¶óÀÇ °³¼ö?? -> 2°³
+-- 2. ì¸êµ¬ìˆ˜ê°€ 7000 ~ 20000 ì‚¬ì´ì¸ ë‚˜ë¼ì˜ ê°œìˆ˜?? -> 2ê°œ
 select count(NAME) 
 from tblCountry
 where population between 7000 and 20000;
 
 
--- 3. hr.employees. job_id > 'IT_PROG' Áß¿¡¼­ ±Þ¿©°¡ 5000ºÒÀÌ ³Ñ´Â Á÷¿øÀÌ ¸î¸í? -> 2¸í
+-- 3. hr.employees. job_id > 'IT_PROG' ì¤‘ì—ì„œ ê¸‰ì—¬ê°€ 5000ë¶ˆì´ ë„˜ëŠ” ì§ì›ì´ ëª‡ëª…? -> 2ëª…
 select * from employees;
 
 select count(employee_id) 
@@ -230,7 +230,7 @@ from employees
 where job_id = 'IT_PROG' and salary > 5000;
 
 
--- 4. tblInsa. tel. 010À» ¾È¾²´Â »ç¶÷Àº ¸î¸í?(¿¬¶ôÃ³°¡ ¾ø´Â »ç¶÷Àº Á¦¿Ü) -> 42¸í
+-- 4. tblInsa. tel. 010ì„ ì•ˆì“°ëŠ” ì‚¬ëžŒì€ ëª‡ëª…?(ì—°ë½ì²˜ê°€ ì—†ëŠ” ì‚¬ëžŒì€ ì œì™¸) -> 42ëª…
 select count(*)
 from tblInsa
 where tel NOT LIKE '010-%' and tel is not null;
@@ -240,117 +240,117 @@ from tblInsa;
 
 
 select * from tblInsa;
--- 5. city. ¼­¿ï, °æ±â, ÀÎÃµ -> ±× ¿ÜÀÇ Áö¿ª ÀÎ¿ø¼ö? -> 18¸í
+-- 5. city. ì„œìš¸, ê²½ê¸°, ì¸ì²œ -> ê·¸ ì™¸ì˜ ì§€ì—­ ì¸ì›ìˆ˜? -> 18ëª…
 select count(city)
 from tblInsa
-where city NOT IN('¼­¿ï', '°æ±â', 'ÀÎÃµ') and city is not null; -- ±×·¯¸é È¤½Ã ¸ð¸£´Ï±î Áý°è ÇÔ¼ö »ç¿ë ¶§ ´Ã and Ä®·³¸í is not nullÀ» ºÙ¿©¾ß ÇÏ´Â °É±î?
--- 6. ¿©¸§ÅÂ»ý(7~9¿ù) + ¿©ÀÚ Á÷¿ø ÃÑ ¸î¸í? -> 7¸í
+where city NOT IN('ì„œìš¸', 'ê²½ê¸°', 'ì¸ì²œ') and city is not null; -- ê·¸ëŸ¬ë©´ í˜¹ì‹œ ëª¨ë¥´ë‹ˆê¹Œ ì§‘ê³„ í•¨ìˆ˜ ì‚¬ìš© ë•Œ ëŠ˜ and ì¹¼ëŸ¼ëª… is not nullì„ ë¶™ì—¬ì•¼ í•˜ëŠ” ê±¸ê¹Œ?
+-- 6. ì—¬ë¦„íƒœìƒ(7~9ì›”) + ì—¬ìž ì§ì› ì´ ëª‡ëª…? -> 7ëª…
 select count(NAME)
 from tblInsa
 where SUBSTR(ssn,4,1) IN ('7','8','9') and ssn LIKE '%-2%';
 select SUBSTR('1234567',4,1) 
 from dual;
 
--- 7. °³¹ßºÎ + Á÷À§º° ÀÎ¿ø¼ö? -> ºÎÀå ?¸í, °úÀå ?¸í, ´ë¸® ?¸í, »ç¿ø ?¸í
+-- 7. ê°œë°œë¶€ + ì§ìœ„ë³„ ì¸ì›ìˆ˜? -> ë¶€ìž¥ ?ëª…, ê³¼ìž¥ ?ëª…, ëŒ€ë¦¬ ?ëª…, ì‚¬ì› ?ëª…
 select 
     count(
     case 
-        when jikwi = 'ºÎÀå' then 1
-    end) as "ºÎÀå",
+        when jikwi = 'ë¶€ìž¥' then 1
+    end) as "ë¶€ìž¥",
     count(
     case 
-        when jikwi = '°úÀå' then 1
-    end) as "°úÀå",
+        when jikwi = 'ê³¼ìž¥' then 1
+    end) as "ê³¼ìž¥",
     count(
     case 
-        when jikwi = '´ë¸®' then 1
-    end) as "´ë¸®",
+        when jikwi = 'ëŒ€ë¦¬' then 1
+    end) as "ëŒ€ë¦¬",
     count(
     case 
-        when jikwi = 'ºÎÀå' then 1
-    end) as "»ç¿ø"
+        when jikwi = 'ë¶€ìž¥' then 1
+    end) as "ì‚¬ì›"
 from tblInsa
-where  buseo ='°³¹ßºÎ';
+where  buseo ='ê°œë°œë¶€';
 
 
 --sum()
---1. À¯·´°ú ¾ÆÇÁ¸®Ä«¿¡ ¼ÓÇÑ ³ª¶óÀÇ ÀÎ±¸ ¼ö ÇÕ? tblCountry > 14,198
+--1. ìœ ëŸ½ê³¼ ì•„í”„ë¦¬ì¹´ì— ì†í•œ ë‚˜ë¼ì˜ ì¸êµ¬ ìˆ˜ í•©? tblCountry > 14,198
 select sum(POPULATION)
 from  tblCountry
 where continent='EU' or continent='AF';
 
 
---2. ¸Å´ÏÀú(108)ÀÌ °ü¸®ÇÏ°í ÀÖ´Â Á÷¿øµéÀÇ ±Þ¿© ÃÑÇÕ? hr.employees > 39,600
+--2. ë§¤ë‹ˆì €(108)ì´ ê´€ë¦¬í•˜ê³  ìžˆëŠ” ì§ì›ë“¤ì˜ ê¸‰ì—¬ ì´í•©? hr.employees > 39,600
 select sum(salary)
 from   employees
 where  manager_id = 108;
 
---3. Á÷¾÷(ST_CLERK, SH_CLERK)À» °¡Áö´Â Á÷¿øµéÀÇ ±Þ¿© ÇÕ? hr.employees > 120,000
+--3. ì§ì—…(ST_CLERK, SH_CLERK)ì„ ê°€ì§€ëŠ” ì§ì›ë“¤ì˜ ê¸‰ì—¬ í•©? hr.employees > 120,000
 select sum(salary)
 from employees
-where job_id = 'ST_CLERK' or job_id = 'SH_CLERK' ; -- or·Î ÅüÃÄ¹ö¸®¸é µÇ±äÇÔ
+where job_id = 'ST_CLERK' or job_id = 'SH_CLERK' ; -- orë¡œ í‰ì³ë²„ë¦¬ë©´ ë˜ê¸´í•¨
 
---4. ¼­¿ï¿¡ ÀÖ´Â Á÷¿øµéÀÇ ±Þ¿© ÇÕ(±Þ¿© + ¼ö´ç)? tblInsa > 33,812,400
+--4. ì„œìš¸ì— ìžˆëŠ” ì§ì›ë“¤ì˜ ê¸‰ì—¬ í•©(ê¸‰ì—¬ + ìˆ˜ë‹¹)? tblInsa > 33,812,400
 select sum(basicpay + sudang)
 from tblInsa
-where city ='¼­¿ï';
+where city ='ì„œìš¸';
 
 
 select * from tblInsa;
 
---5. Àå±Þ(ºÎÀå+°úÀå)µéÀÇ ±Þ¿© ÇÕ? tblInsa > 36,289,000 > ´©±¸³ª ´©±¸ orÀÇ È°¿ë
+--5. ìž¥ê¸‰(ë¶€ìž¥+ê³¼ìž¥)ë“¤ì˜ ê¸‰ì—¬ í•©? tblInsa > 36,289,000 > ëˆ„êµ¬ë‚˜ ëˆ„êµ¬ orì˜ í™œìš©
 select sum(basicpay)
 from tblInsa
-where jikwi = 'ºÎÀå' or jikwi = '°úÀå';
+where jikwi = 'ë¶€ìž¥' or jikwi = 'ê³¼ìž¥';
 
 --avg()
---1. ¾Æ½Ã¾Æ¿¡ ¼ÓÇÑ ±¹°¡ÀÇ Æò±Õ ÀÎ±¸¼ö? tblCountry > 39,165
+--1. ì•„ì‹œì•„ì— ì†í•œ êµ­ê°€ì˜ í‰ê·  ì¸êµ¬ìˆ˜? tblCountry > 39,165
 select 
 avg(population)
 from tblCountry
 where continent='AS';
 
---2. ÀÌ¸§(first_name)¿¡ 'AN'ÀÌ Æ÷ÇÔµÈ Á÷¿øµéÀÇ Æò±Õ ±Þ¿©?(´ë¼Ò¹®ÀÚ ±¸ºÐ¾øÀÌ) hr.employees > 6,270.4
+--2. ì´ë¦„(first_name)ì— 'AN'ì´ í¬í•¨ëœ ì§ì›ë“¤ì˜ í‰ê·  ê¸‰ì—¬?(ëŒ€ì†Œë¬¸ìž êµ¬ë¶„ì—†ì´) hr.employees > 6,270.4
 select avg(salary)
 from employees
 where upper(first_name) LIKE '%AN%';
 
--- select upper(first_name), lower(first_name) from employees; -- upperµç lowerµç
+-- select upper(first_name), lower(first_name) from employees; -- upperë“  lowerë“ 
 
---3. Àå±Þ(ºÎÀå+°úÀå)ÀÇ Æò±Õ ±Þ¿©? tblInsa > 2,419,266.66
+--3. ìž¥ê¸‰(ë¶€ìž¥+ê³¼ìž¥)ì˜ í‰ê·  ê¸‰ì—¬? tblInsa > 2,419,266.66
 select avg(basicpay)
 from  tblInsa
-where jikwi='ºÎÀå' or jikwi='°úÀå';
+where jikwi='ë¶€ìž¥' or jikwi='ê³¼ìž¥';
 
 
---4. »ç¿ø±Þ(´ë¸®+»ç¿ø)ÀÇ Æò±Õ ±Þ¿©? tblInsa > 1,268,946.66 > ÇÕ¿¡¼­ ´©±¸ ´õÇÏ±â ´©±¸¸é orÀÌ´Ù. 
+--4. ì‚¬ì›ê¸‰(ëŒ€ë¦¬+ì‚¬ì›)ì˜ í‰ê·  ê¸‰ì—¬? tblInsa > 1,268,946.66 > í•©ì—ì„œ ëˆ„êµ¬ ë”í•˜ê¸° ëˆ„êµ¬ë©´ orì´ë‹¤. 
 select avg(basicpay)
 from  tblInsa
-where jikwi='´ë¸®' or jikwi='»ç¿ø';
+where jikwi='ëŒ€ë¦¬' or jikwi='ì‚¬ì›';
 
 
---5. Àå±Þ(ºÎÀå,°úÀå)ÀÇ Æò±Õ ±Þ¿©¿Í »ç¿ø±Þ(´ë¸®,»ç¿ø)ÀÇ Æò±Õ ±Þ¿©ÀÇ Â÷¾×? tblInsa > 1,150,320 ¡Ú
-select -- Ä®·³ Ä®·³Àº case end ¶ó´Â °ÍÀ» ¾ËÀÚ°í 
+--5. ìž¥ê¸‰(ë¶€ìž¥,ê³¼ìž¥)ì˜ í‰ê·  ê¸‰ì—¬ì™€ ì‚¬ì›ê¸‰(ëŒ€ë¦¬,ì‚¬ì›)ì˜ í‰ê·  ê¸‰ì—¬ì˜ ì°¨ì•¡? tblInsa > 1,150,320 â˜…
+select -- ì¹¼ëŸ¼ ì¹¼ëŸ¼ì€ case end ë¼ëŠ” ê²ƒì„ ì•Œìžê³  
     avg(
     CASE
-        when jikwi IN ('ºÎÀå', '°úÀå') then basicpay
+        when jikwi IN ('ë¶€ìž¥', 'ê³¼ìž¥') then basicpay
     end)
     -
     avg(
     CASE
-        when jikwi IN ('´ë¸®', '»ç¿ø') then basicpay
-    end) as Â÷¾×
+        when jikwi IN ('ëŒ€ë¦¬', 'ì‚¬ì›') then basicpay
+    end) as ì°¨ì•¡
     from tblInsa;
--- ÀÌ°Í 
+-- ì´ê²ƒ 
 
 
 --max(),min()
---1. ¸éÀûÀÌ °¡Àå ³ÐÀº ³ª¶óÀÇ ¸éÀûÀº? tblCountry > 959
+--1. ë©´ì ì´ ê°€ìž¥ ë„“ì€ ë‚˜ë¼ì˜ ë©´ì ì€? tblCountry > 959
 select max(AREA)
 from tblCountry;
 
 
---2. ±Þ¿©(±Þ¿©+¼ö´ç)°¡ °¡Àå ÀûÀº Á÷¿øÀº ÃÑ ¾ó¸¶¸¦ ¹Þ°í ÀÖ´Â°¡? tblInsa > 988,000
+--2. ê¸‰ì—¬(ê¸‰ì—¬+ìˆ˜ë‹¹)ê°€ ê°€ìž¥ ì ì€ ì§ì›ì€ ì´ ì–¼ë§ˆë¥¼ ë°›ê³  ìžˆëŠ”ê°€? tblInsa > 988,000
 select min(basicpay+sudang)
 from tblInsa;
 
@@ -360,34 +360,34 @@ select TO_DATE('201501','YYYYMM') from dual;
 select extract (day from to_date('2020/10/21'))
 from dual;
 
--- Áý°è ÇÔ¼ö »ç¿ë ÁÖÀÇÁ¡
+-- ì§‘ê³„ í•¨ìˆ˜ ì‚¬ìš© ì£¼ì˜ì 
 select count(*) from tblInsa;
 select name from tblInsa; 
 
 select name, count(*) from tblInsa;
 select name from tblInsa;
 -- ORA-00937: not a single-group group function 
--- ÄÃ·³ ¸®½ºÆ®¿¡ Áý°èÇÔ¼ö¿Í ÀÏ¹Ý ÄÃ·³Àº µ¿½Ã¿¡ »ç¿ëÇÒ ¼ö ¾ø´Ù. > ¾ÈµÊ
--- Áý°è ÇÔ¼ö »ç¿ë ÁÖÀÇÁ¡ 
+-- ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì— ì§‘ê³„í•¨ìˆ˜ì™€ ì¼ë°˜ ì»¬ëŸ¼ì€ ë™ì‹œì— ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤. > ì•ˆë¨
+-- ì§‘ê³„ í•¨ìˆ˜ ì‚¬ìš© ì£¼ì˜ì  
 
 
 select to_char(to_date('2015.01.01 10','YYYY.MM.DD HH24') + 1/24/(60/10), 'YYYY.MM.DD HH24:MI:SS') from dual;
 
 
--- ¿ä±¸ »çÇ×] Æò±Õ ±Þ¿©º¸´Ù ´õ ¸¹ÀÌ ¸¹´Â Á÷¿øÀ» °¡Á®¿À½Ã¿À 
+-- ìš”êµ¬ ì‚¬í•­] í‰ê·  ê¸‰ì—¬ë³´ë‹¤ ë” ë§Žì´ ë§ŽëŠ” ì§ì›ì„ ê°€ì ¸ì˜¤ì‹œì˜¤ 
 select avg(basicpay) from tblInsa; 
 
-select * from tblInsa where basicpay >= avg(basicpay); -- whereÀý¿¡´Â Áý°èÇÔ¼ö ºÒ°¡´É
-select * from tblInsa where basicpay >= (select avg(basicpay) from tblInsa); -- ÀÌ°Ç °¡´É > ¼­ºêÄõ¸® > ´Ü ½ºÄ®¶ó
+select * from tblInsa where basicpay >= avg(basicpay); -- whereì ˆì—ëŠ” ì§‘ê³„í•¨ìˆ˜ ë¶ˆê°€ëŠ¥
+select * from tblInsa where basicpay >= (select avg(basicpay) from tblInsa); -- ì´ê±´ ê°€ëŠ¥ > ì„œë¸Œì¿¼ë¦¬ > ë‹¨ ìŠ¤ì¹¼ë¼
 
 
 
 select *                         --3.
 from tblInsa                     --1.
-where basicpay >= avg(basicpay); --2. > whereÀýÀº ÀÚ¹Ù·Î Ä¡¸é ¹Ýº¹¹®ÀÌ´Ù. ÀÌ°É ¸¸³ª¸é ¿À¶óÅ¬Àº 
-                                 --   fromÀý Å×ÀÌºí¿¡¼­ °¡Á®¿Â ¿øº» µ¥ÀÌÅÍ¸¦ ÇÏ³ª¾¿ Á¢±ÙÇØ¼­ ÀÌ Áú¹®À» ¹°¾îº»´Ù. 
-                                 --   whereÀýÀº °³ÀÎÀ» °Çµå¸®´Â Á¶°ÇÀÌ´Ù.
-                                 --   °³°³ÀÎÀ» ´Ù·ç´Â ¿µ¿ªÀÌ whereÀýÀÌ´Ï±î ÁýÇÕÀ¸·Î ¿©·¯°³ ´Ù·ê ¶© »¶ÀÌ³ª´Â °ÍÀÌ´Ù. 
+where basicpay >= avg(basicpay); --2. > whereì ˆì€ ìžë°”ë¡œ ì¹˜ë©´ ë°˜ë³µë¬¸ì´ë‹¤. ì´ê±¸ ë§Œë‚˜ë©´ ì˜¤ë¼í´ì€ 
+                                 --   fromì ˆ í…Œì´ë¸”ì—ì„œ ê°€ì ¸ì˜¨ ì›ë³¸ ë°ì´í„°ë¥¼ í•˜ë‚˜ì”© ì ‘ê·¼í•´ì„œ ì´ ì§ˆë¬¸ì„ ë¬¼ì–´ë³¸ë‹¤. 
+                                 --   whereì ˆì€ ê°œì¸ì„ ê±´ë“œë¦¬ëŠ” ì¡°ê±´ì´ë‹¤.
+                                 --   ê°œê°œì¸ì„ ë‹¤ë£¨ëŠ” ì˜ì—­ì´ whereì ˆì´ë‹ˆê¹Œ ì§‘í•©ìœ¼ë¡œ ì—¬ëŸ¬ê°œ ë‹¤ë£° ë• ë»‘ì´ë‚˜ëŠ” ê²ƒì´ë‹¤. 
 
 
 

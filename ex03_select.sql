@@ -3,37 +3,37 @@
 
 /*
 
-    SQL, Query(ÁúÀÇ) > SELECT 
+    SQL, Query(ì§ˆì˜) > SELECT 
     
-    SELECT¹®
+    SELECTë¬¸
     - DML, DQL
-    - °ü°è´ë¼ö ¿¬»ê Áß ¼¿·º¼Ç ÀÛ¾÷À» ±¸ÇöÇÑ ¸í·É¾î 
-    - ´ë»ó Å×ÀÌºí·ÎºÎÅÍ ¿øÇÏ´Â ÇàÀ» ÃßÃâÇÏ´Â ÀÛ¾÷ > ¿À¶óÅ¬ ¼­¹öÇÑÅ× µ¥ÀÌÅÍÁ» ÁÖ¼¼¿ä ~ ¿äÃ» ¸í·É¾î 
-    - ÀĞ±â 
+    - ê´€ê³„ëŒ€ìˆ˜ ì—°ì‚° ì¤‘ ì…€ë ‰ì…˜ ì‘ì—…ì„ êµ¬í˜„í•œ ëª…ë ¹ì–´ 
+    - ëŒ€ìƒ í…Œì´ë¸”ë¡œë¶€í„° ì›í•˜ëŠ” í–‰ì„ ì¶”ì¶œí•˜ëŠ” ì‘ì—… > ì˜¤ë¼í´ ì„œë²„í•œí…Œ ë°ì´í„°ì¢€ ì£¼ì„¸ìš” ~ ìš”ì²­ ëª…ë ¹ì–´ 
+    - ì½ê¸° 
     
-                                                  - select¹®
-    [ WITH <Sub Query> ]                          - withÀı 
-    SELECT column_list                            - selectÀı    // : ÀÌ µÎ°³ºÎÅÍ ½ÃÀÛ
-    FROM table_name                               - fromÀı
-    [ WHERE search_condition]                     - whereÀı
-    [ GROUP BY group_by_expression]               - group byÀı
-    { HAVING search_condition]                    - havingÀı
-    [ ORDER BY order_expression [ASC | DESC] ]    - order byÀı
+                                                  - selectë¬¸
+    [ WITH <Sub Query> ]                          - withì ˆ 
+    SELECT column_list                            - selectì ˆ    // : ì´ ë‘ê°œë¶€í„° ì‹œì‘
+    FROM table_name                               - fromì ˆ
+    [ WHERE search_condition]                     - whereì ˆ
+    [ GROUP BY group_by_expression]               - group byì ˆ
+    { HAVING search_condition]                    - havingì ˆ
+    [ ORDER BY order_expression [ASC | DESC] ]    - order byì ˆ
     
-    ********** ÀıÀÇ ½ÇÇà¼ø¼­°¡ Á¤ÇØÁ® ÀÖ´Ù.
+    ********** ì ˆì˜ ì‹¤í–‰ìˆœì„œê°€ ì •í•´ì ¸ ìˆë‹¤.
     
 */ 
 
-select ÄÃ·³¸®½ºÆ®     --2. ¿øÇÏ´Â ÄÃ·³À» ÁöÁ¤ÇÏ´Â ¿ªÇÒ > ´Ù °¡Á®¿Ã¼öµµ ¿øÇÏ´Â°ÍÀ» °¡Á®¿Ã ¼öµµ 
+select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸     --2. ì›í•˜ëŠ” ì»¬ëŸ¼ì„ ì§€ì •í•˜ëŠ” ì—­í•  > ë‹¤ ê°€ì ¸ì˜¬ìˆ˜ë„ ì›í•˜ëŠ”ê²ƒì„ ê°€ì ¸ì˜¬ ìˆ˜ë„ 
 
-from Å×ÀÌºí¸í;        --1. µ¥ÀÌÅÍ¼Ò½º¸¦ ÁöÁ¤(¾î´À Å×ÀÌºí·Î ºÎÅÍ µ¥ÀÌÅÍ¸¦ °¡Á®¿ÃÁö)
--- Å×ÀÌºíÀ» ¸ÕÀú ÁöÁ¤ÇÏ°í Å×ÀÌºí¿¡ ÀÖ´Â ¿øÇÏ´Â ÄÃ·³À» °¡Á® ¿Â´Ù. 
+from í…Œì´ë¸”ëª…;        --1. ë°ì´í„°ì†ŒìŠ¤ë¥¼ ì§€ì •(ì–´ëŠ í…Œì´ë¸”ë¡œ ë¶€í„° ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¬ì§€)
+-- í…Œì´ë¸”ì„ ë¨¼ì € ì§€ì •í•˜ê³  í…Œì´ë¸”ì— ìˆëŠ” ì›í•˜ëŠ” ì»¬ëŸ¼ì„ ê°€ì ¸ ì˜¨ë‹¤. 
 
--- Ã³À½ º¸´Â Å×ÀÌºíÀÇ ±¸Á¶(½ºÅ°¸¶, Schema) È®ÀÎ
--- 1. Åø > ¸Ş¸ğÀå °°Àº°Ô ¶ß³×? 
--- 2. ¸í·É¾î(SQL Developer, SQL PLUS ¿¡¼­¸¸ µ¹¾Æ°£´Ù.
+-- ì²˜ìŒ ë³´ëŠ” í…Œì´ë¸”ì˜ êµ¬ì¡°(ìŠ¤í‚¤ë§ˆ, Schema) í™•ì¸
+-- 1. íˆ´ > ë©”ëª¨ì¥ ê°™ì€ê²Œ ëœ¨ë„¤? 
+-- 2. ëª…ë ¹ì–´(SQL Developer, SQL PLUS ì—ì„œë§Œ ëŒì•„ê°„ë‹¤.
 
-DESC employees; -- SQLÀÌ ¾Æ´Ñ´Ù. Æ¯Á¤ Åø ¸í·É¾î´Ï±î ÀÌ°Å ´Ù¸¥ µ¥¼­ ¾²¸é ¹ºÁö ¸ğ¸¥´Ù°í ¿¡·¯³­´Ù. 
+DESC employees; -- SQLì´ ì•„ë‹Œë‹¤. íŠ¹ì • íˆ´ ëª…ë ¹ì–´ë‹ˆê¹Œ ì´ê±° ë‹¤ë¥¸ ë°ì„œ ì“°ë©´ ë­”ì§€ ëª¨ë¥¸ë‹¤ê³  ì—ëŸ¬ë‚œë‹¤. 
 
 select * 
 from employees; 
@@ -41,33 +41,33 @@ from employees;
 select first_name from employees;
 select email from employees;
 
--- ´ÙÁß ÄÃ·³
+-- ë‹¤ì¤‘ ì»¬ëŸ¼
 select first_name, last_name from employees;
 
-select first_name, last_name, email, salary, phone_number from employees; -- °¡µ¶¼ºÀÌ ¸¹ÀÌ ¶³¾îÁø´Ù. 
+select first_name, last_name, email, salary, phone_number from employees; -- ê°€ë…ì„±ì´ ë§ì´ ë–¨ì–´ì§„ë‹¤. 
 
 select first_name, last_name, email, salary, phone_number 
-from employees; -- °¡µ¶¼ºÀÌ ¸¹ÀÌ ¶³¾îÁø´Ù. 
+from employees; -- ê°€ë…ì„±ì´ ë§ì´ ë–¨ì–´ì§„ë‹¤. 
 
 
--- ÄÃ·³¸íÀ» ¸ğµÎ ¸í½Ã ÀÌ°Ô ´õ ºü¸£´Ù. ¿ÍÀÏµå Ä«µåº¸´Ù 
+-- ì»¬ëŸ¼ëª…ì„ ëª¨ë‘ ëª…ì‹œ ì´ê²Œ ë” ë¹ ë¥´ë‹¤. ì™€ì¼ë“œ ì¹´ë“œë³´ë‹¤ 
 select 
     first_name, last_name, email, salary, phone_number 
 from 
-    employees; -- °¡µ¶¼ºÀÌ ¸¹ÀÌ ¶³¾îÁø´Ù. 
+    employees; -- ê°€ë…ì„±ì´ ë§ì´ ë–¨ì–´ì§„ë‹¤. 
 
--- ÄÃ·³¸íÀ» ¸ğµÎ ¸í½Ã > ½ÇÁ¦·Ğ ÀÌ°Ô ÀÌµæÀÌ µÇ´Â ºÎºĞÀÌ ¸¹´Ù. 
+-- ì»¬ëŸ¼ëª…ì„ ëª¨ë‘ ëª…ì‹œ > ì‹¤ì œë¡  ì´ê²Œ ì´ë“ì´ ë˜ëŠ” ë¶€ë¶„ì´ ë§ë‹¤. 
 select first_name, last_name, email, salary, phone_number -- 
     from employees;
 
--- ¿ÍÀÏµå Ä«µå »ç¿ë     
-select * -- ¿ÍÀÏµå Ä«µå(*) > ¸ğµç Ä®·³ > Ä®·³¸í ´Ù¾²´Â °Íµµ ÁÁÀ» ¼ö ÀÖ´Ù. 
+-- ì™€ì¼ë“œ ì¹´ë“œ ì‚¬ìš©     
+select * -- ì™€ì¼ë“œ ì¹´ë“œ(*) > ëª¨ë“  ì¹¼ëŸ¼ > ì¹¼ëŸ¼ëª… ë‹¤ì“°ëŠ” ê²ƒë„ ì¢‹ì„ ìˆ˜ ìˆë‹¤. 
     from employees;
 
--- Ä®·³¸®½ºÆ®ÀÇ Ä®·³¼ø¼­´Â ¿øº» Å×ÀÌºíÀÇ ÄÃ·³¼ø¼­¿Í ¹«°üÇÏ´Ù. ÇÊ¿äÇÏ¸é ¸¾´ë·Î Àç¹èÄ¡ÇØ¶ó 
+-- ì¹¼ëŸ¼ë¦¬ìŠ¤íŠ¸ì˜ ì¹¼ëŸ¼ìˆœì„œëŠ” ì›ë³¸ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ìˆœì„œì™€ ë¬´ê´€í•˜ë‹¤. í•„ìš”í•˜ë©´ ë§˜ëŒ€ë¡œ ì¬ë°°ì¹˜í•´ë¼ 
 select last_name, first_name from employees; 
 
-select first_name, first_name, first_name from employees;  -- µ¿ÀÏÇÑ Ä®·³À» ¿©·¯¹ø °¡Á®¿Ã ÀÌÀ¯°¡ ¾ø´Ù.
+select first_name, first_name, first_name from employees;  -- ë™ì¼í•œ ì¹¼ëŸ¼ì„ ì—¬ëŸ¬ë²ˆ ê°€ì ¸ì˜¬ ì´ìœ ê°€ ì—†ë‹¤.
 
 select first_name, length(first_name) from employees; -- 
 
@@ -76,21 +76,21 @@ select first_name, length(first_name) from employees; --
 
 
 select * from zipcode;        -- 
-select * from tblAddressBook; -- ÁÖ¼Ò·Ï
-select * from tblComedian;    -- ÄÚ¸Şµğ¾ğ
+select * from tblAddressBook; -- ì£¼ì†Œë¡
+select * from tblComedian;    -- ì½”ë©”ë””ì–¸
 select * from tblCountry; 
 select * from tblDiary;       
-select * from tblHousekeeping; -- °¡°ÔºÎ 
-select * from tblInsa;         -- Á÷¿øÁ¤º¸
-select * from tblMen;          -- µ¥ÀÌÅÍ°¡ ¾Èµé¾î¿È > ³²ÀÚ
-select * from tblWomen;        -- ¿©ÀÚ
-select * from tblTodo;         -- ÇÒ ÀÏ > ¾ğÁ¦ ¿Ï·á°¡ µÇ¾ú´ÂÁö
-select * from tblZoo;          -- µ¿¹°  > 
+select * from tblHousekeeping; -- ê°€ê²Œë¶€ 
+select * from tblInsa;         -- ì§ì›ì •ë³´
+select * from tblMen;          -- ë°ì´í„°ê°€ ì•ˆë“¤ì–´ì˜´ > ë‚¨ì
+select * from tblWomen;        -- ì—¬ì
+select * from tblTodo;         -- í•  ì¼ > ì–¸ì œ ì™„ë£Œê°€ ë˜ì—ˆëŠ”ì§€
+select * from tblZoo;          -- ë™ë¬¼  > 
 
--- ¹®Á¦¸¦ ³¾ ¶§ ¾¸ 
+-- ë¬¸ì œë¥¼ ë‚¼ ë•Œ ì”€ 
 
--- select Àı  --> 2. ÄÃ·³ ÁöÁ¤
--- from Àı ;  --> 1. Å×ÀÌºí ÁöÁ¤ 
+-- select ì ˆ  --> 2. ì»¬ëŸ¼ ì§€ì •
+-- from ì ˆ ;  --> 1. í…Œì´ë¸” ì§€ì • 
 
 
 select name from tblInsa; 
@@ -98,20 +98,20 @@ select name from tblInsa;
 select name, buseo, jikwi
     from tblInsa;
     
--- Ç×»ó select¹®ÀÇ °á°ú´Â Å×ÀÌºíÀÌ´Ù. > ¸Ş¸ğ¸®¿¡ Á¸ÀçÇÏ´Â ÀÓ½Ã Å×ÀÌºí > ¿øº»¿¡¼­ µû·Î »Ì¾Æ¿Â °á°ú¹°ÀÌ´Ù.
--- Àá½Ã º¸°í ¹ö¸®´Â Å×ÀÌºíÀÌ¶ó »ı°¢ÇÏÀÚ. select ¹®ÀÇ °á°ú¸¦ °á°úÅ×ÀÌºí or °á°ú¼ÂÀÌ¶ó ÇÑ´Ù. 
+-- í•­ìƒ selectë¬¸ì˜ ê²°ê³¼ëŠ” í…Œì´ë¸”ì´ë‹¤. > ë©”ëª¨ë¦¬ì— ì¡´ì¬í•˜ëŠ” ì„ì‹œ í…Œì´ë¸” > ì›ë³¸ì—ì„œ ë”°ë¡œ ë½‘ì•„ì˜¨ ê²°ê³¼ë¬¼ì´ë‹¤.
+-- ì ì‹œ ë³´ê³  ë²„ë¦¬ëŠ” í…Œì´ë¸”ì´ë¼ ìƒê°í•˜ì. select ë¬¸ì˜ ê²°ê³¼ë¥¼ ê²°ê³¼í…Œì´ë¸” or ê²°ê³¼ì…‹ì´ë¼ í•œë‹¤. 
 
 select name, length(name)
     from tblInsa;
 
 select * 
-    from tblIns; -- ¾ø´Â Å×ÀÌºí ÀÌ¸§ > Å×ÀÌºíÀÌ Á¸ÀçÇÏÁö ¾Ê´Â´Ù. 
+    from tblIns; -- ì—†ëŠ” í…Œì´ë¸” ì´ë¦„ > í…Œì´ë¸”ì´ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤. 
 --    ORA-00942: table or view does not exist
 -- 00942. 00000 -  "table or view does not exist"
     
 select nama
     from tblInsa; 
--- Á¸ÀçÇÏÁö ¾Ê´Â ½Äº°ÀÚ
+-- ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì‹ë³„ì
 --    ORA-00904: "NAMA": invalid identifier
 --    00904. 00000 -  "%s: invalid identifier" 
 

@@ -1,46 +1,46 @@
 /*
     ex14_sequence.sql
     
-    µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼
-    1. Å×ÀÌºí
-    2. °èÁ¤(hr)
-    3. Á¦¾à»çÇ×
-    4. ½ÃÄö½º 
+    ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´
+    1. í…Œì´ë¸”
+    2. ê³„ì •(hr)
+    3. ì œì•½ì‚¬í•­
+    4. ì‹œí€€ìŠ¤ 
     
-    ½ÃÄö½º, Sequence
-    - µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ Áß ÇÏ³ª 
-    - ¿À¶óÅ¬ Àü¿ë °´Ã¼(´Ù¸¥ DMBS¿¡´Â ¾øÀ½) 
-    - ÀÏ·Ã¹øÈ£¸¦ »ý¼ºÇÏ´Â °´Ã¼(**********) 
-    - (ÁÖ·Î) ½Äº°ÀÚ¸¦ ¸¸µå´Â ¿ëµµ·Î ¸¹ÀÌ »ç¿ëÇÑ´Ù. > PK ÄÃ·³¿¡ ÀÏ·Ã ¹øÈ£¸¦ ³ÖÀ» ¶§ ¸¹ÀÌ »ç¿ëÇÑ´Ù.
+    ì‹œí€€ìŠ¤, Sequence
+    - ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ ì¤‘ í•˜ë‚˜ 
+    - ì˜¤ë¼í´ ì „ìš© ê°ì²´(ë‹¤ë¥¸ DMBSì—ëŠ” ì—†ìŒ) 
+    - ì¼ë ¨ë²ˆí˜¸ë¥¼ ìƒì„±í•˜ëŠ” ê°ì²´(**********) 
+    - (ì£¼ë¡œ) ì‹ë³„ìžë¥¼ ë§Œë“œëŠ” ìš©ë„ë¡œ ë§Žì´ ì‚¬ìš©í•œë‹¤. > PK ì»¬ëŸ¼ì— ì¼ë ¨ ë²ˆí˜¸ë¥¼ ë„£ì„ ë•Œ ë§Žì´ ì‚¬ìš©í•œë‹¤.
     
-    mysql > auto increment¶ó´Â °É Á¦°ø  > ÀÏ·Ã¹øÈ£¸¦ ¸¸µå´Â ±â´ÉÀ» ÀÚÃ¼ÀûÀ» º¸À¯ÇÏ´Âµ¥ ÀÌ°Ô Ç¥ÁØÀÌ ¾Æ´Ï´Ù.
-    Ç¥ÁØÀÌ ¾Æ´Ï¶ó À¯Æ¿¸®Æ¼¼º ±â´ÉÀÌ´Ù. db¸¶´Ù ´Ù¸¥ ÇüÅÂ·Î Á¦°øÇÏ´Â °ÍÀÎµ¥ ºñ½Áºñ½ÁÇÏ´Ù. ¿À¶óÅ¬ÀÇ sequence °¡ Á¶±Ý ºÒÆíÇÏ´Ù.   
+    mysql > auto incrementë¼ëŠ” ê±¸ ì œê³µ  > ì¼ë ¨ë²ˆí˜¸ë¥¼ ë§Œë“œëŠ” ê¸°ëŠ¥ì„ ìžì²´ì ì„ ë³´ìœ í•˜ëŠ”ë° ì´ê²Œ í‘œì¤€ì´ ì•„ë‹ˆë‹¤.
+    í‘œì¤€ì´ ì•„ë‹ˆë¼ ìœ í‹¸ë¦¬í‹°ì„± ê¸°ëŠ¥ì´ë‹¤. dbë§ˆë‹¤ ë‹¤ë¥¸ í˜•íƒœë¡œ ì œê³µí•˜ëŠ” ê²ƒì¸ë° ë¹„ìŠ·ë¹„ìŠ·í•˜ë‹¤. ì˜¤ë¼í´ì˜ sequence ê°€ ì¡°ê¸ˆ ë¶ˆíŽ¸í•˜ë‹¤.   
     
-    ½ÃÄö½º °´Ã¼ »ý¼ºÇÏ±â
-    - create sequence ½ÃÄö½º¸í [¿É¼Ç];
+    ì‹œí€€ìŠ¤ ê°ì²´ ìƒì„±í•˜ê¸°
+    - create sequence ì‹œí€€ìŠ¤ëª… [ì˜µì…˜];
     
-    ½ÃÄö½º °´Ã¼ »èÁ¦ÇÏ±â
-    - drop sequence ½ÃÄö½º¸í;
+    ì‹œí€€ìŠ¤ ê°ì²´ ì‚­ì œí•˜ê¸°
+    - drop sequence ì‹œí€€ìŠ¤ëª…;
     
-    ½ÃÄö½º °´Ã¼ »ç¿ëÇÏ±â
-    - ½ÃÄö½º¸í.nextVal > ÁÖ·Î »ç¿ë > ´ÙÀ½ ¼ýÀÚ
-    - ½ÃÄö½º¸í.currVal > °¡²û »ç¿ë > ÇöÀç ¼ýÀÚ
-    ¢Ñ µþ¶û ÀÌ°Å´Ù...
+    ì‹œí€€ìŠ¤ ê°ì²´ ì‚¬ìš©í•˜ê¸°
+    - ì‹œí€€ìŠ¤ëª….nextVal > ì£¼ë¡œ ì‚¬ìš© > ë‹¤ìŒ ìˆ«ìž
+    - ì‹œí€€ìŠ¤ëª….currVal > ê°€ë” ì‚¬ìš© > í˜„ìž¬ ìˆ«ìž
+    â˜ž ë”¸ëž‘ ì´ê±°ë‹¤...
 */
 
 create sequence seqNum;
 drop sequence seqNum;
 
 select seqNum.nextVal from dual;
--- ½ÇÇàÀ» ¹Ýº¹ÇÏ¸é 1ºÎÅÍ Á¡Á¡ Áõ°¡µÈ´Ù. ÀÏ·Ã ¹øÈ£¸¦ ¸¸µå´Â ¾Ö´Ù. 
+-- ì‹¤í–‰ì„ ë°˜ë³µí•˜ë©´ 1ë¶€í„° ì ì  ì¦ê°€ëœë‹¤. ì¼ë ¨ ë²ˆí˜¸ë¥¼ ë§Œë“œëŠ” ì• ë‹¤. 
 
 create sequence seqTest;
 select seqTest.nextVal from dual;
--- ½ÃÄö½º´Â ¼­·Î µ¶¸³ÀûÀÌ°í °¢ÀÚ ÀÚ±â¹øÈ£¸¸ ¼¾´Ù.! 
+-- ì‹œí€€ìŠ¤ëŠ” ì„œë¡œ ë…ë¦½ì ì´ê³  ê°ìž ìžê¸°ë²ˆí˜¸ë§Œ ì„¼ë‹¤.! 
 
--- ÀÌ»óÅÂ¿¡¼­ sql developer¸¦ ²ö´Ù. > ¼­¹öµµ Á×ÀÎ´Ù. services.msc 
+-- ì´ìƒíƒœì—ì„œ sql developerë¥¼ ëˆë‹¤. > ì„œë²„ë„ ì£½ì¸ë‹¤. services.msc 
 
-select seqTest.nextVal from dual; -- ¼­¹ö¸¦ ²ô°í ´Ù½Ã Á¢¼ÓÇß´Âµ¥µµ ¿µ±¸ÀûÀ¸·Î ³²¾ÆÀÖ´Â ±â·ÏÀÌ¶ó ´Ù¼­ ½áµµ ±â·ÏÀÌ ³²´Â´Ù. 
+select seqTest.nextVal from dual; -- ì„œë²„ë¥¼ ë„ê³  ë‹¤ì‹œ ì ‘ì†í–ˆëŠ”ë°ë„ ì˜êµ¬ì ìœ¼ë¡œ ë‚¨ì•„ìžˆëŠ” ê¸°ë¡ì´ë¼ ë‹¤ì„œ ì¨ë„ ê¸°ë¡ì´ ë‚¨ëŠ”ë‹¤. 
 
 drop table tblMemo;
 
@@ -54,66 +54,66 @@ create table tblMemo (
 create sequence seqMemo;
 
 insert into tblMemo(seq, name, memo, regdate) 
-    values (seqMemo.nextVal, 'È«±æµ¿', '¸Þ¸ðÀÔ´Ï´Ù. ¾È³çÇÏ¼¼¿ä.', sysdate);
+    values (seqMemo.nextVal, 'í™ê¸¸ë™', 'ë©”ëª¨ìž…ë‹ˆë‹¤. ì•ˆë…•í•˜ì„¸ìš”.', sysdate);
     
 select *from tblMemo;
 
-insert into tblMemo(seq, name, memo, regdate) values(seqMemo.nextVal, 'È«±æµ¿', '¸Þ¸ðÀÔ´Ï´Ù. ¾È³çÇÏ¼¼¿ä.> ' || seqMemo.nextVal , sysdate);
+insert into tblMemo(seq, name, memo, regdate) values(seqMemo.nextVal, 'í™ê¸¸ë™', 'ë©”ëª¨ìž…ë‹ˆë‹¤. ì•ˆë…•í•˜ì„¸ìš”.> ' || seqMemo.nextVal , sysdate);
 
--- currVal > ½ÃÄö½º °´Ã¼°¡ ¸¶Áö¸·¿¡ ¸¸µç ¼ýÀÚ¸¦ ÀÇ¹ÌÇÑ´Ù. È®ÀÎÇÏ´Â ÇÔ¼öÀÌ´Ù. > Å¥, ½ºÅØ peek() ¿ªÇÒ 
+-- currVal > ì‹œí€€ìŠ¤ ê°ì²´ê°€ ë§ˆì§€ë§‰ì— ë§Œë“  ìˆ«ìžë¥¼ ì˜ë¯¸í•œë‹¤. í™•ì¸í•˜ëŠ” í•¨ìˆ˜ì´ë‹¤. > í, ìŠ¤í… peek() ì—­í•  
 select seqMemo.currVal from dual; 
--- ·Î±×ÀÎÀ» ÇÑ µÚ(Á¢¼Ó) ÃÖ¼Ò 1È¸ ÀÌ»ó nextVal¸¦ È£ÃâÇÏ°í ³­µÚ¿¡¸¸ currVal¸¦ È£ÃâÇÒ ¼ö ÀÖ´Ù. 
--- ¾Æ¹«¸® È£ÃâÇØµµ ¼ýÀÚ°¡ Áõ°¡µÇÁö ¾Ê´Â´Ù. ±×·±µ¥ ÀÌ°Ô Á» ºÒÆíÇÏ´Ù. 
+-- ë¡œê·¸ì¸ì„ í•œ ë’¤(ì ‘ì†) ìµœì†Œ 1íšŒ ì´ìƒ nextValë¥¼ í˜¸ì¶œí•˜ê³  ë‚œë’¤ì—ë§Œ currValë¥¼ í˜¸ì¶œí•  ìˆ˜ ìžˆë‹¤. 
+-- ì•„ë¬´ë¦¬ í˜¸ì¶œí•´ë„ ìˆ«ìžê°€ ì¦ê°€ë˜ì§€ ì•ŠëŠ”ë‹¤. ê·¸ëŸ°ë° ì´ê²Œ ì¢€ ë¶ˆíŽ¸í•˜ë‹¤. 
 
--- ÀÏ·Ã¹øÈ£ > ¼ýÀÚ·Î¸¸ x
--- ¼îÇÎ¸ô »óÇ°¹øÈ£ > ABC10010 > ¿µ¾î:Ä«Å×°í¸®, ¼ýÀÚ:¾ÆÀÌÅÛ ¹øÈ£
+-- ì¼ë ¨ë²ˆí˜¸ > ìˆ«ìžë¡œë§Œ x
+-- ì‡¼í•‘ëª° ìƒí’ˆë²ˆí˜¸ > ABC10010 > ì˜ì–´:ì¹´í…Œê³ ë¦¬, ìˆ«ìž:ì•„ì´í…œ ë²ˆí˜¸
 
 select seqNum.nextVal from dual;
 
 select 'ABC' || seqNum.nextVal from dual;
 
-select 'ABC' || to_char(seqNum.nextVal, '0000') from dual; -- Áß°£¿¡ °ø¹éÀÌ »ý±ä´Ù. > ºÎÈ£ÀÚ¸®´Â ±âº» 
+select 'ABC' || to_char(seqNum.nextVal, '0000') from dual; -- ì¤‘ê°„ì— ê³µë°±ì´ ìƒê¸´ë‹¤. > ë¶€í˜¸ìžë¦¬ëŠ” ê¸°ë³¸ 
 
-select 'ABC' ||  ltrim(to_char(seqNum.nextVal, '0000')) from dual; -- °ø¹éÀÌ »ç¶óÁø´Ù. 
+select 'ABC' ||  ltrim(to_char(seqNum.nextVal, '0000')) from dual; -- ê³µë°±ì´ ì‚¬ë¼ì§„ë‹¤. 
 
 select -seqNum.nextVal from dual;
-select -seqNum.currVal from dual;  -- ¹Ýµå½Ã nextValÀ» ¼±ÇàÇÏ°í ³ª¼­ ½á¾ß ÇÑ´Ù. 
+select -seqNum.currVal from dual;  -- ë°˜ë“œì‹œ nextValì„ ì„ í–‰í•˜ê³  ë‚˜ì„œ ì¨ì•¼ í•œë‹¤. 
 
 
 /*
 
-    ½ÃÄö½º °´Ã¼ »ý¼ºÇÏ±â
-    create sequence ½ÃÄö½º¸í ;    
-    create sequence ½ÃÄö½º¸í
-                    increment by n  -- Áõ°¨Ä¡(**)
-                    start with n    -- ÃÖ´ñ°ª
-                    minvalue n      -- ÃÖ¼Ú°ª 
-                    cycle           -- ·çÇÁ 
-                    cache n;        -- Ä³½Ã 
+    ì‹œí€€ìŠ¤ ê°ì²´ ìƒì„±í•˜ê¸°
+    create sequence ì‹œí€€ìŠ¤ëª… ;    
+    create sequence ì‹œí€€ìŠ¤ëª…
+                    increment by n  -- ì¦ê°ì¹˜(**)
+                    start with n    -- ìµœëŒ“ê°’
+                    minvalue n      -- ìµœì†Ÿê°’ 
+                    cycle           -- ë£¨í”„ 
+                    cache n;        -- ìºì‹œ 
 */
 
 drop sequence seqNum;
 create sequence seqNum;
--- ¸Þ¸ðÀåÀ» ÃÊ±âÈ­ÇÏ¸é ÀÌ°É µå¶ø½ÃÅ°°í ´Ù½Ã ¸¸µç´Ù.
+-- ë©”ëª¨ìž¥ì„ ì´ˆê¸°í™”í•˜ë©´ ì´ê±¸ ë“œëžì‹œí‚¤ê³  ë‹¤ì‹œ ë§Œë“ ë‹¤.
 
 insert into tblMemo(seq, name, memo, regdate) 
-    values (seqNum.nextVal, 'È«±æµ¿', '¸Þ¸ðÀÔ´Ï´Ù. ¾È³çÇÏ¼¼¿ä.', sysdate);
--- ½ÃÄö½º¸¦ Áö¿ì°í ´Ù½Ã¸¸µë ±×¸®°í ´Ù½Ã »ý¼ºÇÏ°í ³ÖÀ½ >>> ±âÁ¸¿¡ °ª°ú Ãæµ¹³­´Ù. 
--- ÀÌ Á¦¾à»çÇ×¿¡ À§¹ÝÀÌ ³­´Ù. ORA-00001: unique constraint (HR.SYS_C007260) violated
--- ÀÌ°Ô »õ·Î ½ÃÄö½º¸¦ ¸¸µé¾î¼­ 1ºÎÅÍ ³ÖÀ¸·Á´Ï±î ±×·¸´Ù. ÀÌ·³ ±âÁ¸¿¡ ÀÖ´Â °Ô½ÃÆÇ °ª ¹øÈ£·Î ´Ù½Ã µÇµ¹·Á¾ßÇÔ..
---> ÇÔºÎ·Î ½ÃÄö½º °´Ã¼¸¦ Áö¿ì¸é ¾ÈµÈ´Ù. Áö¿ü´Ù°¡ ´Ù½Ã ¸¸µå´Â °ÍÀº ¾î·ÆÁö ¾ÊÀ½
+    values (seqNum.nextVal, 'í™ê¸¸ë™', 'ë©”ëª¨ìž…ë‹ˆë‹¤. ì•ˆë…•í•˜ì„¸ìš”.', sysdate);
+-- ì‹œí€€ìŠ¤ë¥¼ ì§€ìš°ê³  ë‹¤ì‹œë§Œë“¬ ê·¸ë¦¬ê³  ë‹¤ì‹œ ìƒì„±í•˜ê³  ë„£ìŒ >>> ê¸°ì¡´ì— ê°’ê³¼ ì¶©ëŒë‚œë‹¤. 
+-- ì´ ì œì•½ì‚¬í•­ì— ìœ„ë°˜ì´ ë‚œë‹¤. ORA-00001: unique constraint (HR.SYS_C007260) violated
+-- ì´ê²Œ ìƒˆë¡œ ì‹œí€€ìŠ¤ë¥¼ ë§Œë“¤ì–´ì„œ 1ë¶€í„° ë„£ìœ¼ë ¤ë‹ˆê¹Œ ê·¸ë ‡ë‹¤. ì´ëŸ¼ ê¸°ì¡´ì— ìžˆëŠ” ê²Œì‹œíŒ ê°’ ë²ˆí˜¸ë¡œ ë‹¤ì‹œ ë˜ëŒë ¤ì•¼í•¨..
+--> í•¨ë¶€ë¡œ ì‹œí€€ìŠ¤ ê°ì²´ë¥¼ ì§€ìš°ë©´ ì•ˆëœë‹¤. ì§€ì› ë‹¤ê°€ ë‹¤ì‹œ ë§Œë“œëŠ” ê²ƒì€ ì–´ë µì§€ ì•ŠìŒ
 select seqNum.nextVal from dual;
 
 select *from tblMemo;
 
--- ¾Æ ±×·¯¸é ¾öÃ»³ª°Ô Å« ¼ö·Î ½ÃÀÛÇÏ·Á¸é start with¸¦ ºÙ¿©ÁØ´Ù. 
+-- ì•„ ê·¸ëŸ¬ë©´ ì—„ì²­ë‚˜ê²Œ í° ìˆ˜ë¡œ ì‹œìž‘í•˜ë ¤ë©´ start withë¥¼ ë¶™ì—¬ì¤€ë‹¤. 
 drop sequence seqNum;
 create sequence seqNum 
                 start with 200;
                 
 select seqNum.nextVal from dual;                
 
--- ¸Þ¸ðÀåÀÇ ¸¶Áö¸· ¹øÈ£¸¦ ´«À¸·Î º»´Ù. 
+-- ë©”ëª¨ìž¥ì˜ ë§ˆì§€ë§‰ ë²ˆí˜¸ë¥¼ ëˆˆìœ¼ë¡œ ë³¸ë‹¤. 
 
 select max(seq) from tblMemo;
 drop sequence seqNum;
@@ -121,7 +121,7 @@ drop sequence seqNum;
 create sequence seqNum 
                 start with 23;
 
--- create sequence seqNum start with select max(seq) from tblMemo;  -- ¼­ºêÄõ¸®¸¦ ³ÖÀ» ¼ö ¾ø´Ù.
+-- create sequence seqNum start with select max(seq) from tblMemo;  -- ì„œë¸Œì¿¼ë¦¬ë¥¼ ë„£ì„ ìˆ˜ ì—†ë‹¤.
 
 drop sequence seqNum;
 create sequence seqNum 
@@ -140,14 +140,14 @@ create sequence seqNum
 create sequence seqNum
                 start with 100
                 increment by -1
-                maxvalue 100; -- ÀÌ °ªÀ» ³ÑÀ» ¶§ ¹®Á¦°¡ µÇ´Â°Í °ÉÄ¡¸é »ó°ü¾ø´Ù. 
+                maxvalue 100; -- ì´ ê°’ì„ ë„˜ì„ ë•Œ ë¬¸ì œê°€ ë˜ëŠ”ê²ƒ ê±¸ì¹˜ë©´ ìƒê´€ì—†ë‹¤. 
                 
 select seqNum.nextVal from dual;       
 
 drop sequence seqNum;
 
 create sequence seqNum
-                maxvalue 10; -- 10 ³Ñ¾î°¡¸é ¿¡·¯´Ù. 
+                maxvalue 10; -- 10 ë„˜ì–´ê°€ë©´ ì—ëŸ¬ë‹¤. 
 
 select seqNum.nextVal from dual;                   
 
@@ -164,7 +164,7 @@ select seqNum.nextVal from dual;
 --query := 'create sequence seqNum
 --                start with ' || vNum ;
 --end;
---                pl/sql·Î ±¸¼ºÇØº¸±â 
+--                pl/sqlë¡œ êµ¬ì„±í•´ë³´ê¸° 
 
 drop sequence seqNum;
 
@@ -172,25 +172,25 @@ create sequence seqNum
                 increment by 1
                 start with 1
                 maxvalue 10
-                cycle    -- ·çÇÁ 
-                cache 5; -- 10º¸´Ù ÀÛÀº °ª Áà¾ß ÇÑ´Ù. 
-                -- cache ´Â ÇÁ·ÎÁ§Æ® ±Ô¸ð¿¡ µû¶ó ´Ù¸£´Ù. Àß³ª°¡´Â »çÀÌÆ®´Â ¸¹ÀÌ¸¹ÀÌ Å« ¼ö¸¦ ¾´´Ù. 
+                cycle    -- ë£¨í”„ 
+                cache 5; -- 10ë³´ë‹¤ ìž‘ì€ ê°’ ì¤˜ì•¼ í•œë‹¤. 
+                -- cache ëŠ” í”„ë¡œì íŠ¸ ê·œëª¨ì— ë”°ë¼ ë‹¤ë¥´ë‹¤. ìž˜ë‚˜ê°€ëŠ” ì‚¬ì´íŠ¸ëŠ” ë§Žì´ë§Žì´ í° ìˆ˜ë¥¼ ì“´ë‹¤. 
                 
-select seqNum.nextVal from dual; -- 10±îÁö °¡°í ´Ù½Ã 1·Î ½ÃÀÛÇÑ´Ù.
+select seqNum.nextVal from dual; -- 10ê¹Œì§€ ê°€ê³  ë‹¤ì‹œ 1ë¡œ ì‹œìž‘í•œë‹¤.
 
--- ¸Þ¸ð¹øÈ£ > 1´ÙÀ½¿¡ ¹Ýµå½Ã 2??? ¾Æ´Ï´Ù. > À¯ÀÏÇÑ ½Äº°ÀÚ°¡ ¸Þ¸ð¹øÈ£´Ù.
+-- ë©”ëª¨ë²ˆí˜¸ > 1ë‹¤ìŒì— ë°˜ë“œì‹œ 2??? ì•„ë‹ˆë‹¤. > ìœ ì¼í•œ ì‹ë³„ìžê°€ ë©”ëª¨ë²ˆí˜¸ë‹¤.
 
 -- 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
 
--- ¹ö±× > °¡²û¾¿ Ä³½Ã ³¯¶ó°¨
--- °Ô½ÃÆÇ ±Û¾²±â > ¸¶Áö¸· 15¹ø~ ´Ù½Ã ±Û¾²±â ÇØ¾ßÁö ÇÏ´Âµ¥ °©ÀÚ±â ±Û¹øÈ£°¡ 21¹øºÎÅÍ ½ÃÀÛÇÒ ¼ö ÀÖ´Ù.
--- °¡²û½Ä Ä³½Ã°¡ ³¯¶ó°£´Ù. ¿Ö 16¹øÀ¸·Î ½ÃÀÛÀ» ¾ÈÇÏÁö °í¹ÎÀ»ÇÏÁö¸¶¶ó 21¹øºÎÅÍ ´Ù½Ã½ÃÀÛÇØ¶ó ±×°Ô ÀÏ¹ÝÀûÀÎ °ÍÀÌ´Ù.
--- ¸¸¾à ÁøÂ¥·Î ±¸¸ÛÀÌ »ý±â¸é ¾ÈµÇ´Â ¹øÈ£°¡ ÀÖ´Ù. 
+-- ë²„ê·¸ > ê°€ë”ì”© ìºì‹œ ë‚ ë¼ê°
+-- ê²Œì‹œíŒ ê¸€ì“°ê¸° > ë§ˆì§€ë§‰ 15ë²ˆ~ ë‹¤ì‹œ ê¸€ì“°ê¸° í•´ì•¼ì§€ í•˜ëŠ”ë° ê°‘ìžê¸° ê¸€ë²ˆí˜¸ê°€ 21ë²ˆë¶€í„° ì‹œìž‘í•  ìˆ˜ ìžˆë‹¤.
+-- ê°€ë”ì‹ ìºì‹œê°€ ë‚ ë¼ê°„ë‹¤. ì™œ 16ë²ˆìœ¼ë¡œ ì‹œìž‘ì„ ì•ˆí•˜ì§€ ê³ ë¯¼ì„í•˜ì§€ë§ˆë¼ 21ë²ˆë¶€í„° ë‹¤ì‹œì‹œìž‘í•´ë¼ ê·¸ê²Œ ì¼ë°˜ì ì¸ ê²ƒì´ë‹¤.
+-- ë§Œì•½ ì§„ì§œë¡œ êµ¬ë©ì´ ìƒê¸°ë©´ ì•ˆë˜ëŠ” ë²ˆí˜¸ê°€ ìžˆë‹¤. 
 
-drop sequence seqMemo; -- ½ÃÄö½º¸¦ ¹ö¸®°í ´Ù½Ã ¸¸µç´Ù.
+drop sequence seqMemo; -- ì‹œí€€ìŠ¤ë¥¼ ë²„ë¦¬ê³  ë‹¤ì‹œ ë§Œë“ ë‹¤.
 
 create sequence seqMemo start with 16;
--- °¡²û¾¿ ¹øÈ£°¡ Æ¢´Âµ¥ ÀÌ°Ô Ä³½¬°¡ ÅÍÁö´Â °æ¿ì ±×·¡¼­ À§Ã³·³ ¸Þ²Ù¸é µÈ´Ù.. ±×°É Á¶ÀýÇÏ´Â ¿É¼ÇÀÌ Ä³½¬´Ù. 
+-- ê°€ë”ì”© ë²ˆí˜¸ê°€ íŠ€ëŠ”ë° ì´ê²Œ ìºì‰¬ê°€ í„°ì§€ëŠ” ê²½ìš° ê·¸ëž˜ì„œ ìœ„ì²˜ëŸ¼ ë©”ê¾¸ë©´ ëœë‹¤.. ê·¸ê±¸ ì¡°ì ˆí•˜ëŠ” ì˜µì…˜ì´ ìºì‰¬ë‹¤. 
 
 
 

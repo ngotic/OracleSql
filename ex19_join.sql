@@ -2,11 +2,11 @@
 
     ex19_join.sql
     
-    °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º ½Ã½ºÅÛ(RDBMS, Oracle)ÀÌ Áö¾çÇÏ´Â °Íµé ....
-    1. Å×ÀÌºí¿¡ ±âº»Å°(PK)°¡ ¾ø´Â »óÅÂ > µ¥ÀÌÅÍ Á¶ÀÛ °ï¶õ 
-    2. nullÀÌ ¸¹Àº »óÅÂÀÇ Å×ÀÌºíÀ» ±Øµµ·Î ½È¾îÇÑ´Ù.... > µ¥ÀÌÅÍ Á¶ÀÛ + °ø°£ ³¶ºñ 
-    3. µ¥ÀÌÅÍ°¡ Áßº¹µÇ´Â »óÅÂ > µ¥ÀÌÅÍ Á¶ÀÛ °ï¶õ + °ø°£ ³¶ºñ
-    4. ÇÏ³ªÀÇ ¼Ó¼º°ªÀÌ ¿øÀÚ°ªÀÌ ¾Æ´Ñ »óÅÂ 
+    ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ ì‹œìŠ¤í…œ(RDBMS, Oracle)ì´ ì§€ì–‘í•˜ëŠ” ê²ƒë“¤ ....
+    1. í…Œì´ë¸”ì— ê¸°ë³¸í‚¤(PK)ê°€ ì—†ëŠ” ìƒíƒœ > ë°ì´í„° ì¡°ì‘ ê³¤ë€ 
+    2. nullì´ ë§ì€ ìƒíƒœì˜ í…Œì´ë¸”ì„ ê·¹ë„ë¡œ ì‹«ì–´í•œë‹¤.... > ë°ì´í„° ì¡°ì‘ + ê³µê°„ ë‚­ë¹„ 
+    3. ë°ì´í„°ê°€ ì¤‘ë³µë˜ëŠ” ìƒíƒœ > ë°ì´í„° ì¡°ì‘ ê³¤ë€ + ê³µê°„ ë‚­ë¹„
+    4. í•˜ë‚˜ì˜ ì†ì„±ê°’ì´ ì›ìê°’ì´ ì•„ë‹Œ ìƒíƒœ 
    
 */
 
@@ -21,14 +21,14 @@ drop table tblTest;
 
 select * from tblTest;
 
-insert into tblTest(name, age, address) values('È«±æµ¿', 20, '¼­¿ï½Ã');
-insert into tblTest(name, age, address) values('¾Æ¹«°³', 25, 'ÀÎÃµ½Ã');
-insert into tblTest(name, age, address) values('È£È£È£', 20, 'ºÎ»ê½Ã');
-insert into tblTest(name, age, address) values('È«±æµ¿', 20, '¼­¿ï½Ã');
+insert into tblTest(name, age, address) values('í™ê¸¸ë™', 20, 'ì„œìš¸ì‹œ');
+insert into tblTest(name, age, address) values('ì•„ë¬´ê°œ', 25, 'ì¸ì²œì‹œ');
+insert into tblTest(name, age, address) values('í˜¸í˜¸í˜¸', 20, 'ë¶€ì‚°ì‹œ');
+insert into tblTest(name, age, address) values('í™ê¸¸ë™', 20, 'ì„œìš¸ì‹œ');
 
 select * from tblTest;
 
-update tblTest set address='°­¸ª½Ã' where name = 'È«±æµ¿'; 
+update tblTest set address='ê°•ë¦‰ì‹œ' where name = 'í™ê¸¸ë™'; 
 
 drop table tblTest;
 
@@ -39,24 +39,24 @@ create table tblTest (
     hobby varchar2(300) null
 );
 
-insert into tblTest(name, age, address, hobby) values('È«±æµ¿', 20 ,'¼­¿ï½Ã', 'µ¶¼­');
-insert into tblTest(name, age, address, hobby) values('¾Æ¹«°³', 25 ,'ÀÎÃµ½Ã', null);
-insert into tblTest(name, age, address, hobby) values('È£È£È£', 27 ,'ºÎ»ê½Ã', '¸ÀÁı, ¿©Çà, ¿îµ¿, ³·Àá');
-insert into tblTest(name, age, address, hobby) values('ÈÄÈÄÈÄ', 29 ,'ºÎ»ê½Ã', '¿îµ¿À¯Æ©ºêº¸±â');
+insert into tblTest(name, age, address, hobby) values('í™ê¸¸ë™', 20 ,'ì„œìš¸ì‹œ', 'ë…ì„œ');
+insert into tblTest(name, age, address, hobby) values('ì•„ë¬´ê°œ', 25 ,'ì¸ì²œì‹œ', null);
+insert into tblTest(name, age, address, hobby) values('í˜¸í˜¸í˜¸', 27 ,'ë¶€ì‚°ì‹œ', 'ë§›ì§‘, ì—¬í–‰, ìš´ë™, ë‚®ì ');
+insert into tblTest(name, age, address, hobby) values('í›„í›„í›„', 29 ,'ë¶€ì‚°ì‹œ', 'ìš´ë™ìœ íŠœë¸Œë³´ê¸°');
 
 select * from tblTest;
 
--- µ¶¼­°¡ Ãë¹ÌÀÎ?
-select * from tblTest where hobby = 'µ¶¼­';
+-- ë…ì„œê°€ ì·¨ë¯¸ì¸?
+select * from tblTest where hobby = 'ë…ì„œ';
 
--- ¿îµ¿ÀÌ Ãë¹Ì? 
-select * from tblTest where hobby = '¿îµ¿'; -- ÀÌ·¸°Ô¶óµµ Ã£À¸¸é µÇ±ä ÇÔ
-select * from tblTest where hobby like '%¿îµ¿%'; -- ÀÌ·¸°Ô¶óµµ Ã£À¸¸é µÇ±ä ÇÔ
+-- ìš´ë™ì´ ì·¨ë¯¸? 
+select * from tblTest where hobby = 'ìš´ë™'; -- ì´ë ‡ê²Œë¼ë„ ì°¾ìœ¼ë©´ ë˜ê¸´ í•¨
+select * from tblTest where hobby like '%ìš´ë™%'; -- ì´ë ‡ê²Œë¼ë„ ì°¾ìœ¼ë©´ ë˜ê¸´ í•¨
 
--- ¿îµ¿ > ½ÅÃ¼´Ü·Ã 
--- ¸ÀÁı, ¿©Çà, ¿îµ¿, ³·Àá> ¸ÀÁı, ¿©Çà, ½ÅÃ¼´Ü·Ã, ³·Àá
--- ¿øÀÚ°ªÀÌ µé¾î°¡¾ßÇØ ±Ùµ¥ ÀÌ·¸°Ô ÇÏ¸é °í»ıÀ» ÇÑ´Ù. 
--- ÀÇµµÀûÀ¸·Î ÇÇÇØ¾ß ÇÑ´Ù. 
+-- ìš´ë™ > ì‹ ì²´ë‹¨ë ¨ 
+-- ë§›ì§‘, ì—¬í–‰, ìš´ë™, ë‚®ì > ë§›ì§‘, ì—¬í–‰, ì‹ ì²´ë‹¨ë ¨, ë‚®ì 
+-- ì›ìê°’ì´ ë“¤ì–´ê°€ì•¼í•´ ê·¼ë° ì´ë ‡ê²Œ í•˜ë©´ ê³ ìƒì„ í•œë‹¤. 
+-- ì˜ë„ì ìœ¼ë¡œ í”¼í•´ì•¼ í•œë‹¤. 
 
 drop table tblTest;
 
@@ -69,183 +69,183 @@ create table tblTest (
     hobby3 varchar2(300) null
 );
 
--- ±×·³ Ä®·³À» ¿©·¯°³ ¸¸µé±î?
--- È£È£È£, 27, ºÎ»ê½Ã, ¿îµ¿, null, null, null, null, null, null > ÀÌ·¡¹ö¸®¸é °ø°£ ³¶ºñ 
--- ÈÄÈÄÈÄ, 29, ¼­¿ï½Ã, A, B, C, D, E, F, J > ÀÌ·¸°Ô ´Ù¾²¸é »ó°ü¾ø´Âµğ
+-- ê·¸ëŸ¼ ì¹¼ëŸ¼ì„ ì—¬ëŸ¬ê°œ ë§Œë“¤ê¹Œ?
+-- í˜¸í˜¸í˜¸, 27, ë¶€ì‚°ì‹œ, ìš´ë™, null, null, null, null, null, null > ì´ë˜ë²„ë¦¬ë©´ ê³µê°„ ë‚­ë¹„ 
+-- í›„í›„í›„, 29, ì„œìš¸ì‹œ, A, B, C, D, E, F, J > ì´ë ‡ê²Œ ë‹¤ì“°ë©´ ìƒê´€ì—†ëŠ”ë””
 
--- Á÷¿øÁ¤º¸ 
--- Á÷¿ø(¹øÈ£(PK), ÀÌ¸§, ±Ş¿©, °ÅÁÖÁö, ´ã´çÇÁ·ÎÁ§Æ®)
+-- ì§ì›ì •ë³´ 
+-- ì§ì›(ë²ˆí˜¸(PK), ì´ë¦„, ê¸‰ì—¬, ê±°ì£¼ì§€, ë‹´ë‹¹í”„ë¡œì íŠ¸)
 --create table tblStaff (
---    seq number primary key,         -- ¹øÈ£(PK) 
---    name varchar2(30) not null,     -- ÀÌ¸§
---    salary number not null,         -- ±Ş¿©
---    address varchar2(300) not null, -- °ÅÁÖÁö
---    project varchar2(300) null      -- ´ã´ç ÇÁ·ÎÁ§Æ® --> ¿ä³ğÀÌ ¹®Á¦¿´´Ù. 
+--    seq number primary key,         -- ë²ˆí˜¸(PK) 
+--    name varchar2(30) not null,     -- ì´ë¦„
+--    salary number not null,         -- ê¸‰ì—¬
+--    address varchar2(300) not null, -- ê±°ì£¼ì§€
+--    project varchar2(300) null      -- ë‹´ë‹¹ í”„ë¡œì íŠ¸ --> ìš”ë†ˆì´ ë¬¸ì œì˜€ë‹¤. 
 --); -- old
 
 
-insert into tblStaff(seq, name, salary, address, project) values (1, 'È«±æµ¿', 300, '¼­¿ï½Ã', 'È«Äá ¼öÃâ');
-insert into tblStaff(seq, name, salary, address, project) values (2, '¾Æ¹«°³', 250, 'ÀÎÃµ½Ã', 'TV ±¤°í');
-insert into tblStaff(seq, name, salary, address, project) values (3, 'ÇÏÇÏÇÏ', 350, 'ºÎ»ê½Ã', '¸ÅÃâ ºĞ¼®');
+insert into tblStaff(seq, name, salary, address, project) values (1, 'í™ê¸¸ë™', 300, 'ì„œìš¸ì‹œ', 'í™ì½© ìˆ˜ì¶œ');
+insert into tblStaff(seq, name, salary, address, project) values (2, 'ì•„ë¬´ê°œ', 250, 'ì¸ì²œì‹œ', 'TV ê´‘ê³ ');
+insert into tblStaff(seq, name, salary, address, project) values (3, 'í•˜í•˜í•˜', 350, 'ë¶€ì‚°ì‹œ', 'ë§¤ì¶œ ë¶„ì„');
                 
 select * from tblStaff;
 
--- Á÷¿ø + ´ã´çÇÁ·ÎÁ§Æ®
--- 1¸íÀÇ Á÷¿ø > ¿©·¯°³ÀÇ ÇÁ·ÎÁ§Æ® ´ã´ç 
--- 'È«±æµ¿'¿¡°Ô ´ã´ç ÇÁ·ÎÁ§Æ® 1°Ç Ãß°¡ > '°í°´°ü¸®' 
--- '¾Æ¹«°³'¿¡°Ô ´ã´ç ÇÁ·ÎÁ§Æ® 1°Ç Ãß°¡ > '°Ô½ÃÆÇ °ü¸®'
+-- ì§ì› + ë‹´ë‹¹í”„ë¡œì íŠ¸
+-- 1ëª…ì˜ ì§ì› > ì—¬ëŸ¬ê°œì˜ í”„ë¡œì íŠ¸ ë‹´ë‹¹ 
+-- 'í™ê¸¸ë™'ì—ê²Œ ë‹´ë‹¹ í”„ë¡œì íŠ¸ 1ê±´ ì¶”ê°€ > 'ê³ ê°ê´€ë¦¬' 
+-- 'ì•„ë¬´ê°œ'ì—ê²Œ ë‹´ë‹¹ í”„ë¡œì íŠ¸ 1ê±´ ì¶”ê°€ > 'ê²Œì‹œíŒ ê´€ë¦¬'
 insert into tblStaff(seq, name, salary, address, project) 
-values (4, 'È«±æµ¿', 300, '¼­¿ï½Ã', 'È«Äá ¼öÃâ');
-update tblStaff set project = project || ',°Ô½ÃÆÇ°ü¸®' where name = '¾Æ¹«°³'; -- ÇÏ³ªÀÇ Ä®·³¿¡ µÎ°³ÀÇ ÇÁ·ÎÁ§Æ®°¡ µé¾î°£´Ù??... ¸»ÀÌ ¾ÈµÊ ÀÌ°Å °íÃÄº¸ÀÚ
+values (4, 'í™ê¸¸ë™', 300, 'ì„œìš¸ì‹œ', 'í™ì½© ìˆ˜ì¶œ');
+update tblStaff set project = project || ',ê²Œì‹œíŒê´€ë¦¬' where name = 'ì•„ë¬´ê°œ'; -- í•˜ë‚˜ì˜ ì¹¼ëŸ¼ì— ë‘ê°œì˜ í”„ë¡œì íŠ¸ê°€ ë“¤ì–´ê°„ë‹¤??... ë§ì´ ì•ˆë¨ ì´ê±° ê³ ì³ë³´ì
 select * from tblStaff;
 
 drop table tblStaff;
 
 create table tblStaff (
-    seq number primary key,         -- ¹øÈ£(PK) 
-    name varchar2(30) not null,     -- ÀÌ¸§
-    salary number not null,         -- ±Ş¿©
-    address varchar2(300) not null  -- °ÅÁÖÁö
+    seq number primary key,         -- ë²ˆí˜¸(PK) 
+    name varchar2(30) not null,     -- ì´ë¦„
+    salary number not null,         -- ê¸‰ì—¬
+    address varchar2(300) not null  -- ê±°ì£¼ì§€
     
-); -- ¿ø·¡ tblStaff¿¡ ÀÖ´ø ÇÁ·ÎÁ§Æ®¸¦ ¾Æ·¡ Å×ÀÌºí·Î ºĞ¸® 
+); -- ì›ë˜ tblStaffì— ìˆë˜ í”„ë¡œì íŠ¸ë¥¼ ì•„ë˜ í…Œì´ë¸”ë¡œ ë¶„ë¦¬ 
 
 create table tblProject (
-    seq number primary key,           -- ¿ø·¡ºÎÅÍ ÇÊ¿äÇß´ø °ÍÀº ¾Æ´Ñµ¥ ±âº»Å° ¿ªÇÒÀ» À§ÇØ¼­ ¸¸µç Å° 
-    project varchar2(300) not null,   -- ´ã´ç ÇÁ·ÎÁ§Æ®
-    staff_seq number not null         -- Á÷¿ø¹øÈ£
+    seq number primary key,           -- ì›ë˜ë¶€í„° í•„ìš”í–ˆë˜ ê²ƒì€ ì•„ë‹Œë° ê¸°ë³¸í‚¤ ì—­í• ì„ ìœ„í•´ì„œ ë§Œë“  í‚¤ 
+    project varchar2(300) not null,   -- ë‹´ë‹¹ í”„ë¡œì íŠ¸
+    staff_seq number not null         -- ì§ì›ë²ˆí˜¸
 );
 
-insert into tblStaff(seq, name, salary, address) values (1, 'È«±æµ¿', 300, '¼­¿ï½Ã');
-insert into tblStaff(seq, name, salary, address) values (2, '¾Æ¹«°³', 300, 'ÀÎÃµ½Ã');
-insert into tblStaff(seq, name, salary, address) values (3, 'ÇÏÇÏÇÏ', 300, 'ºÎ»ê½Ã');
+insert into tblStaff(seq, name, salary, address) values (1, 'í™ê¸¸ë™', 300, 'ì„œìš¸ì‹œ');
+insert into tblStaff(seq, name, salary, address) values (2, 'ì•„ë¬´ê°œ', 300, 'ì¸ì²œì‹œ');
+insert into tblStaff(seq, name, salary, address) values (3, 'í•˜í•˜í•˜', 300, 'ë¶€ì‚°ì‹œ');
 
--- >> ÀÌÁ¦ ÀÌ·± °ü¸®°¡ ÀßµÊ 
-insert into tblProject( seq, project, staff_seq) values ( 1, 'È«Äá ¼öÃâ', 1 );  -- È«±æµ¿
-insert into tblProject( seq, project, staff_seq) values ( 2, 'TV ±¤°í',  2);   -- ¾Æ¹«°³
-insert into tblProject( seq, project, staff_seq) values ( 3, '¸ÅÃâ ºĞ¼®', 3);  -- ÇÏÇÏÇÏ
-insert into tblProject( seq, project, staff_seq) values ( 4, '³ëÁ¶ Çù»ó', 1 ); -- È«±æµ¿
-insert into tblProject( seq, project, staff_seq) values ( 5, '´ë¸®Á¡ ºĞ¾ç',2 ); -- ¾Æ¹«°³
+-- >> ì´ì œ ì´ëŸ° ê´€ë¦¬ê°€ ì˜ë¨ 
+insert into tblProject( seq, project, staff_seq) values ( 1, 'í™ì½© ìˆ˜ì¶œ', 1 );  -- í™ê¸¸ë™
+insert into tblProject( seq, project, staff_seq) values ( 2, 'TV ê´‘ê³ ',  2);   -- ì•„ë¬´ê°œ
+insert into tblProject( seq, project, staff_seq) values ( 3, 'ë§¤ì¶œ ë¶„ì„', 3);  -- í•˜í•˜í•˜
+insert into tblProject( seq, project, staff_seq) values ( 4, 'ë…¸ì¡° í˜‘ìƒ', 1 ); -- í™ê¸¸ë™
+insert into tblProject( seq, project, staff_seq) values ( 5, 'ëŒ€ë¦¬ì  ë¶„ì–‘',2 ); -- ì•„ë¬´ê°œ
 
--- ¿øÀÚ°ª º¸Àå & Áßº¹ ¹ß»ıX > Á¤±ÔÈ­ : Á¦ 1Á¤±ÔÈ­ÀÇ ÀÛ¾÷À» ÇÑ °ÍÀÌ´Ù. 
--- ¹°¸®ÀûÀ¸·Î ¹®Á¦°¡ ÀÖ´Â Å×ÀÌºíÀ» Á¦´ë·ÎµÈ ±¸Á¶ÀÇ Å×ÀÌºí·Î ¹Ù²Ş 
+-- ì›ìê°’ ë³´ì¥ & ì¤‘ë³µ ë°œìƒX > ì •ê·œí™” : ì œ 1ì •ê·œí™”ì˜ ì‘ì—…ì„ í•œ ê²ƒì´ë‹¤. 
+-- ë¬¼ë¦¬ì ìœ¼ë¡œ ë¬¸ì œê°€ ìˆëŠ” í…Œì´ë¸”ì„ ì œëŒ€ë¡œëœ êµ¬ì¡°ì˜ í…Œì´ë¸”ë¡œ ë°”ê¿ˆ 
 select * from tblStaff; 
 select * from tblProject;
 
--- A. ½ÅÀÔ »ç¿ø ÀÔ»ç > ½Å±Ô ÇÁ·ÎÁ§Æ® ´ã´ç 
--- A.1 ½ÅÀÔ »ç¿ø Ãß°¡ 
-insert into tblStaff (seq, name, salary, address)  values (4, 'È£È£È£', 250, 'ÀÏ»ê½Ã');
+-- A. ì‹ ì… ì‚¬ì› ì…ì‚¬ > ì‹ ê·œ í”„ë¡œì íŠ¸ ë‹´ë‹¹ 
+-- A.1 ì‹ ì… ì‚¬ì› ì¶”ê°€ 
+insert into tblStaff (seq, name, salary, address)  values (4, 'í˜¸í˜¸í˜¸', 250, 'ì¼ì‚°ì‹œ');
 
--- A.2 ½Å±Ô ÇÁ·ÎÁ§Æ® Ãß°¡ + ´ã´ç ÁöÁ¤ 
-insert into tblProject ( seq, project, staff_seq ) values (6, 'ÀÚÀç ¸ÅÀÔ', 4);
+-- A.2 ì‹ ê·œ í”„ë¡œì íŠ¸ ì¶”ê°€ + ë‹´ë‹¹ ì§€ì • 
+insert into tblProject ( seq, project, staff_seq ) values (6, 'ìì¬ ë§¤ì…', 4);
 
--- A.3 ½Å±Ô ÇÁ·ÎÁ§Æ® Ãß°¡ > ¹®Á¦ ¹ß»ı!! > Á¸ÀçÇÏÁö ¾Ê´Â Á÷¿ø ¹øÈ£¸¦ »ç¿ë!!! 
-insert into tblProject ( seq, project, staff_seq ) values (7, '°í°´ À¯Ä¡', 5); -- X ¸» ¾ÈµÊ : Àß µÇ´Âµ¥... 
+-- A.3 ì‹ ê·œ í”„ë¡œì íŠ¸ ì¶”ê°€ > ë¬¸ì œ ë°œìƒ!! > ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì§ì› ë²ˆí˜¸ë¥¼ ì‚¬ìš©!!! 
+insert into tblProject ( seq, project, staff_seq ) values (7, 'ê³ ê° ìœ ì¹˜', 5); -- X ë§ ì•ˆë¨ : ì˜ ë˜ëŠ”ë°... 
 
--- »çÀå´Ô!! > '°í°´ À¯Ä¡' ´ã´çÀÚ!!!
+-- ì‚¬ì¥ë‹˜!! > 'ê³ ê° ìœ ì¹˜' ë‹´ë‹¹ì!!!
 select * from tblStaff
-where seq = (select staff_seq from tblProject where project ='°í°´ À¯Ä¡'); -- ¾Æ¹«°Íµµ ¾øÀ½ 
--- ´ã´çÀÚ°¡ ¾øÀ½.... ¿©±â¼­ ÀÌ¹Ì Àß¸øµµ´Ï °ÍÀÌ´Ù. 
--- ¾÷¹«»óÀÇ ¿À·ù°í ³í¸® ¿À·ù´Ù. 
+where seq = (select staff_seq from tblProject where project ='ê³ ê° ìœ ì¹˜'); -- ì•„ë¬´ê²ƒë„ ì—†ìŒ 
+-- ë‹´ë‹¹ìê°€ ì—†ìŒ.... ì—¬ê¸°ì„œ ì´ë¯¸ ì˜ëª»ë„ë‹ˆ ê²ƒì´ë‹¤. 
+-- ì—…ë¬´ìƒì˜ ì˜¤ë¥˜ê³  ë…¼ë¦¬ ì˜¤ë¥˜ë‹¤. 
 
--- B.  'È«±æµ¿' Åğ»ç
--- B.1 'È«±æµ¿' »èÁ¦ 
+-- B.  'í™ê¸¸ë™' í‡´ì‚¬
+-- B.1 'í™ê¸¸ë™' ì‚­ì œ 
 delete from tblStaff where seq = 1;
 
 select * from tblStaff;
 
--- »çÀå´Ô!! > "È«Äá ¼öÃâ" > ´ã´çÀÚ ´©±¸¾ä? > ¾ø´Ù. ±æµ¿ÀÌ¸¦ ³»º¸³»´Ï±î ÀÌ·± ¹®Á¦°¡.... 
+-- ì‚¬ì¥ë‹˜!! > "í™ì½© ìˆ˜ì¶œ" > ë‹´ë‹¹ì ëˆ„êµ¬ì–Œ? > ì—†ë‹¤. ê¸¸ë™ì´ë¥¼ ë‚´ë³´ë‚´ë‹ˆê¹Œ ì´ëŸ° ë¬¸ì œê°€.... 
 select * from tblStaff
-where seq = (select  staff_seq from tblProject where project ='È«Äá ¼öÃâ');
+where seq = (select  staff_seq from tblProject where project ='í™ì½© ìˆ˜ì¶œ');
 
--- ±æµ¿ÀÌ°¡ ´ã´çÀÚ·Î µÇ¾î ÀÖ´Â ÇÁ·ÎÁ§Æ®°¡ Á¸ÀçÇÔ¿¡µµ ÀÌ·¸´Ù. 
+-- ê¸¸ë™ì´ê°€ ë‹´ë‹¹ìë¡œ ë˜ì–´ ìˆëŠ” í”„ë¡œì íŠ¸ê°€ ì¡´ì¬í•¨ì—ë„ ì´ë ‡ë‹¤. 
 
--- B.2 '¾Æ¹«°³' Åğ»ç > ÀÎ¼ö ÀÎ°è(À§ÀÓ) > 'ÇÏÇÏÇÏ'
+-- B.2 'ì•„ë¬´ê°œ' í‡´ì‚¬ > ì¸ìˆ˜ ì¸ê³„(ìœ„ì„) > 'í•˜í•˜í•˜'
 update tblProject set staff_seq = 3 where staff_seq = 2; 
--- µÎ °ÇÀÇ ÇÁ·ÎÁ§Æ®¸¦ ¸Ã°í ÀÖ¾î¼­ µÎ°³ÀÇ ÇàÀÌ ¾÷µ¥ÀÌÆ® µÈ´Ù.
+-- ë‘ ê±´ì˜ í”„ë¡œì íŠ¸ë¥¼ ë§¡ê³  ìˆì–´ì„œ ë‘ê°œì˜ í–‰ì´ ì—…ë°ì´íŠ¸ ëœë‹¤.
 
-update tblProject set staff_seq = (select seq from tblStaff where name='ÇÏÇÏÇÏ') 
-    where staff_seq = (select seq from tblStaff where name ='¾Æ¹«°³'); 
+update tblProject set staff_seq = (select seq from tblStaff where name='í•˜í•˜í•˜') 
+    where staff_seq = (select seq from tblStaff where name ='ì•„ë¬´ê°œ'); 
 
 
---B.3 '¾Æ¹«°³' Åğ»ç 
+--B.3 'ì•„ë¬´ê°œ' í‡´ì‚¬ 
 delete from tblStaff where seq= 2;
 
--- »çÀå´Ô!! > 'TV ±¤°í'
+-- ì‚¬ì¥ë‹˜!! > 'TV ê´‘ê³ '
 select * from tblStaff 
-    where seq = (select staff_seq from tblProject where project = 'TV ±¤°í');
+    where seq = (select staff_seq from tblProject where project = 'TV ê´‘ê³ ');
 
--- ÀÌ·± Á¦¾à»çÇ×À» fk·Î °ü¸®ÇÑ´Ù. 
+-- ì´ëŸ° ì œì•½ì‚¬í•­ì„ fkë¡œ ê´€ë¦¬í•œë‹¤. 
 drop table tblStaff;
 drop table tblProject;
 
--- ºÎ¸ğ Å×ÀÌºí(±âº» Å×ÀÌºí)  
+-- ë¶€ëª¨ í…Œì´ë¸”(ê¸°ë³¸ í…Œì´ë¸”)  
 create table tblStaff (
-    seq number primary key,         -- ¹øÈ£(PK) 
-    name varchar2(30) not null,     -- ÀÌ¸§
-    salary number not null,         -- ±Ş¿©
-    address varchar2(300) not null  -- °ÅÁÖÁö
-); -- ¿ø·¡ tblStaff¿¡ ÀÖ´ø ÇÁ·ÎÁ§Æ®¸¦ ¾Æ·¡ Å×ÀÌºí·Î ºĞ¸® 
+    seq number primary key,         -- ë²ˆí˜¸(PK) 
+    name varchar2(30) not null,     -- ì´ë¦„
+    salary number not null,         -- ê¸‰ì—¬
+    address varchar2(300) not null  -- ê±°ì£¼ì§€
+); -- ì›ë˜ tblStaffì— ìˆë˜ í”„ë¡œì íŠ¸ë¥¼ ì•„ë˜ í…Œì´ë¸”ë¡œ ë¶„ë¦¬ 
 
 
--- ÀÚ½Ä Å×ÀÌºí(ÂüÁ¶Å×ÀÌºí) 
+-- ìì‹ í…Œì´ë¸”(ì°¸ì¡°í…Œì´ë¸”) 
 create table tblProject (
-    seq number primary key,                                 -- ¿ø·¡ºÎÅÍ ÇÊ¿äÇß´ø °ÍÀº ¾Æ´Ñµ¥ ±âº»Å° ¿ªÇÒÀ» À§ÇØ¼­ ¸¸µç Å° 
-    project varchar2(300) not null,                         -- ´ã´ç ÇÁ·ÎÁ§Æ®
-    staff_seq number not null references tblStaff(seq)      -- Á÷¿ø¹øÈ£(ÂüÁ¶Å°, ¿Ü·¡Å°, FK) > ÀÌ Ä®·³ ¶§¹®¿¡ ¹®Á¦´Ù. 
+    seq number primary key,                                 -- ì›ë˜ë¶€í„° í•„ìš”í–ˆë˜ ê²ƒì€ ì•„ë‹Œë° ê¸°ë³¸í‚¤ ì—­í• ì„ ìœ„í•´ì„œ ë§Œë“  í‚¤ 
+    project varchar2(300) not null,                         -- ë‹´ë‹¹ í”„ë¡œì íŠ¸
+    staff_seq number not null references tblStaff(seq)      -- ì§ì›ë²ˆí˜¸(ì°¸ì¡°í‚¤, ì™¸ë˜í‚¤, FK) > ì´ ì¹¼ëŸ¼ ë•Œë¬¸ì— ë¬¸ì œë‹¤. 
 ); 
--- ÀÌÁ¦ºÎÅÍ ÀÌ ÄÃ·³¿¡ µé¾î°¡´Â µ¥ÀÌÅÍ´Â ¾Æ¹«°Å³ª ³ÖÀ» ¼ö°¡ ¾ø´Ù. staff Å×ÀÌºíÀÌ °¡Áö°í ÀÖ´Â staff_seq¸¦ ³Ö¾î¾ß ÇÑ´Ù. 
--- tblProject Å×ÀÌºí > ÀÌ°Í ¸ÕÀú ¸¸µé¸é ¿¡·¯°¡ ³­´Ù. 
--- tblStaffÀÌ°Ô ¾îµ÷´ÂÁö ¸ğ¸£´Ï±î ¿¡·¯¸¦ ¶ç¿öÁÖ´Â °ÍÀÌ´Ù.
+-- ì´ì œë¶€í„° ì´ ì»¬ëŸ¼ì— ë“¤ì–´ê°€ëŠ” ë°ì´í„°ëŠ” ì•„ë¬´ê±°ë‚˜ ë„£ì„ ìˆ˜ê°€ ì—†ë‹¤. staff í…Œì´ë¸”ì´ ê°€ì§€ê³  ìˆëŠ” staff_seqë¥¼ ë„£ì–´ì•¼ í•œë‹¤. 
+-- tblProject í…Œì´ë¸” > ì´ê²ƒ ë¨¼ì € ë§Œë“¤ë©´ ì—ëŸ¬ê°€ ë‚œë‹¤. 
+-- tblStaffì´ê²Œ ì–´ë”§ëŠ”ì§€ ëª¨ë¥´ë‹ˆê¹Œ ì—ëŸ¬ë¥¼ ë„ì›Œì£¼ëŠ” ê²ƒì´ë‹¤.
 
--- ¸¸µé ¶§ Å×ÀÌºí ¼ø¼­¸¦ Á¶½ÉÇØ¶ó fkºÙÀº°Ç ³ªÁß¿¡ ¸¸µé¾î ¿Ö³Ä¸é ÂüÁ¶ÇÏ´Â Å×ÀÌºíÀÌ ¸ÕÀú ¸¸µé¾î¾ß ÇÏ±â ¶§¹®¿¡ 
+-- ë§Œë“¤ ë•Œ í…Œì´ë¸” ìˆœì„œë¥¼ ì¡°ì‹¬í•´ë¼ fkë¶™ì€ê±´ ë‚˜ì¤‘ì— ë§Œë“¤ì–´ ì™œëƒë©´ ì°¸ì¡°í•˜ëŠ” í…Œì´ë¸”ì´ ë¨¼ì € ë§Œë“¤ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì— 
 
--- Áö¿ï ¶§´Â Project table ¸ÕÀú Áö¿ö¾ß ÇÑ´Ù.
--- ±×·¯°í ³ª¼­ tblStaffÅ×ÀÌºíµµ Áö¿î´Ù. 
+-- ì§€ìš¸ ë•ŒëŠ” Project table ë¨¼ì € ì§€ì›Œì•¼ í•œë‹¤.
+-- ê·¸ëŸ¬ê³  ë‚˜ì„œ tblStaffí…Œì´ë¸”ë„ ì§€ìš´ë‹¤. 
 
--- ¡Ú ºÎ¸ğ Å×ÀÌºíºÎÅÍ ¸¸µé°í ÀÚ½ÄÅ×ÀÌºí ¸¸µé¾î¾ß ÇÑ´Ù.
--- ¡Ú Áö¿ï ¶§´Â ÀÚ½ÄÅ×ÀÌºí ¸ÕÀú Áö¿ö¾ß ÇÑ´Ù. 
+-- â˜… ë¶€ëª¨ í…Œì´ë¸”ë¶€í„° ë§Œë“¤ê³  ìì‹í…Œì´ë¸” ë§Œë“¤ì–´ì•¼ í•œë‹¤.
+-- â˜… ì§€ìš¸ ë•ŒëŠ” ìì‹í…Œì´ë¸” ë¨¼ì € ì§€ì›Œì•¼ í•œë‹¤. 
 
-insert into tblStaff(seq, name, salary, address) values (1, 'È«±æµ¿', 300, '¼­¿ï½Ã');
-insert into tblStaff(seq, name, salary, address) values (2, '¾Æ¹«°³', 300, 'ÀÎÃµ½Ã');
-insert into tblStaff(seq, name, salary, address) values (3, 'ÇÏÇÏÇÏ', 300, 'ºÎ»ê½Ã');
+insert into tblStaff(seq, name, salary, address) values (1, 'í™ê¸¸ë™', 300, 'ì„œìš¸ì‹œ');
+insert into tblStaff(seq, name, salary, address) values (2, 'ì•„ë¬´ê°œ', 300, 'ì¸ì²œì‹œ');
+insert into tblStaff(seq, name, salary, address) values (3, 'í•˜í•˜í•˜', 300, 'ë¶€ì‚°ì‹œ');
 
-insert into tblProject( seq, project, staff_seq) values ( 1, 'È«Äá ¼öÃâ', 1 );  -- È«±æµ¿
-insert into tblProject( seq, project, staff_seq) values ( 2, 'TV ±¤°í',  2);   -- ¾Æ¹«°³
-insert into tblProject( seq, project, staff_seq) values ( 3, '¸ÅÃâ ºĞ¼®', 3);  -- ÇÏÇÏÇÏ
-insert into tblProject( seq, project, staff_seq) values ( 4, '³ëÁ¶ Çù»ó', 1 ); -- È«±æµ¿
-insert into tblProject( seq, project, staff_seq) values ( 5, '´ë¸®Á¡ ºĞ¾ç',2 ); -- ¾Æ¹«°³
+insert into tblProject( seq, project, staff_seq) values ( 1, 'í™ì½© ìˆ˜ì¶œ', 1 );  -- í™ê¸¸ë™
+insert into tblProject( seq, project, staff_seq) values ( 2, 'TV ê´‘ê³ ',  2);   -- ì•„ë¬´ê°œ
+insert into tblProject( seq, project, staff_seq) values ( 3, 'ë§¤ì¶œ ë¶„ì„', 3);  -- í•˜í•˜í•˜
+insert into tblProject( seq, project, staff_seq) values ( 4, 'ë…¸ì¡° í˜‘ìƒ', 1 ); -- í™ê¸¸ë™
+insert into tblProject( seq, project, staff_seq) values ( 5, 'ëŒ€ë¦¬ì  ë¶„ì–‘',2 ); -- ì•„ë¬´ê°œ
 
--- A.1 ½ÅÀÔ »ç¿ø Ãß°¡ 
-insert into tblStaff (seq, name, salary, address)  values (4, 'È£È£È£', 250, 'ÀÏ»ê½Ã');
+-- A.1 ì‹ ì… ì‚¬ì› ì¶”ê°€ 
+insert into tblStaff (seq, name, salary, address)  values (4, 'í˜¸í˜¸í˜¸', 250, 'ì¼ì‚°ì‹œ');
 
--- A.2 ½Å±Ô ÇÁ·ÎÁ§Æ® Ãß°¡ + ´ã´ç ÁöÁ¤ 
-insert into tblProject ( seq, project, staff_seq ) values (6, 'ÀÚÀç ¸ÅÀÔ', 4);
+-- A.2 ì‹ ê·œ í”„ë¡œì íŠ¸ ì¶”ê°€ + ë‹´ë‹¹ ì§€ì • 
+insert into tblProject ( seq, project, staff_seq ) values (6, 'ìì¬ ë§¤ì…', 4);
 
--- A.3 ½Å±Ô ÇÁ·ÎÁ§Æ® Ãß°¡ > ¹®Á¦ ¹ß»ı!! > Á¸ÀçÇÏÁö ¾Ê´Â Á÷¿ø ¹øÈ£¸¦ »ç¿ë!!! -- ÀÌÁ¦ ¿¡·¯°¡ ³­´Ù.
+-- A.3 ì‹ ê·œ í”„ë¡œì íŠ¸ ì¶”ê°€ > ë¬¸ì œ ë°œìƒ!! > ì¡´ì¬í•˜ì§€ ì•ŠëŠ” ì§ì› ë²ˆí˜¸ë¥¼ ì‚¬ìš©!!! -- ì´ì œ ì—ëŸ¬ê°€ ë‚œë‹¤.
 -- ORA-02291: integrity constraint (HR.SYS_C007334) violated - parent key not found
-insert into tblProject ( seq, project, staff_seq ) values (7, '°í°´ À¯Ä¡', 5);
-                                             -- 5¹øÀÌ¶ó´Â ¹øÈ£°¡ Á¸ÀçÇÏÁö ¾Ê´Â´Ù. 
--- È«±æµ¿ Åğ»ç ¹®Á¦°¡ »ı±ä´Ù. 
+insert into tblProject ( seq, project, staff_seq ) values (7, 'ê³ ê° ìœ ì¹˜', 5);
+                                             -- 5ë²ˆì´ë¼ëŠ” ë²ˆí˜¸ê°€ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤. 
+-- í™ê¸¸ë™ í‡´ì‚¬ ë¬¸ì œê°€ ìƒê¸´ë‹¤. 
 delete from tblStaff where seq = 1; 
 -- ORA-02292: integrity constraint (HR.SYS_C007334) violated - child record found
--- ÀÚ½Ä Å×ÀÌºíÀÌ ÀÖ¾î¼­ ¸ø³ª°£´Ù. > ³ª¸¦ ÂüÁ¶ÇÏ´Â ¾Ö°¡ ÀÖ¾î¼­ ¸ø³ª°¡.... child record
+-- ìì‹ í…Œì´ë¸”ì´ ìˆì–´ì„œ ëª»ë‚˜ê°„ë‹¤. > ë‚˜ë¥¼ ì°¸ì¡°í•˜ëŠ” ì• ê°€ ìˆì–´ì„œ ëª»ë‚˜ê°€.... child record
 
-update tblProject set staff_seq = 3 where staff_seq = 2; -- ¾÷¹« À§ÀÓ 
-select * from tblProject;      -- staff_seq = 2 ¿¡ ÇØ´çÇÏ´Â Ä£±¸°¡ ¾øÀ½
-delete from tblStaff where seq= 2;  -- 2, '¾Æ¹«°³'´Â ÀÌÁ¦ ÀÏÀÌ ¾øÀ¸´Ï Åğ»ç °¡´É
+update tblProject set staff_seq = 3 where staff_seq = 2; -- ì—…ë¬´ ìœ„ì„ 
+select * from tblProject;      -- staff_seq = 2 ì— í•´ë‹¹í•˜ëŠ” ì¹œêµ¬ê°€ ì—†ìŒ
+delete from tblStaff where seq= 2;  -- 2, 'ì•„ë¬´ê°œ'ëŠ” ì´ì œ ì¼ì´ ì—†ìœ¼ë‹ˆ í‡´ì‚¬ ê°€ëŠ¥
 select * from tblStaff;
 
--- µÎ (Å×ÀÌºí) µ¥ÀÌÅÍ ºñ±³ > ¸ÕÀú Á¸ÀçÇØ¾ßÇÒ ¼º°İÀÇ µ¥ÀÌÅÍ > ºÎ¸ğ Å×ÀÌºí 
+-- ë‘ (í…Œì´ë¸”) ë°ì´í„° ë¹„êµ > ë¨¼ì € ì¡´ì¬í•´ì•¼í•  ì„±ê²©ì˜ ë°ì´í„° > ë¶€ëª¨ í…Œì´ë¸” 
 
--- °í°´ Å×ÀÌºí 
+-- ê³ ê° í…Œì´ë¸” 
 create table tblCustomer (
-    seq number primary key,        -- °í°´¹øÈ£(PK)
-    name varchar2(30) not null,    -- °í°´¸í
-    tel varchar2(15) not null,     -- ¿¬¶ôÃ³
-    address varchar2(100) not null -- ÁÖ¼Ò
+    seq number primary key,        -- ê³ ê°ë²ˆí˜¸(PK)
+    name varchar2(30) not null,    -- ê³ ê°ëª…
+    tel varchar2(15) not null,     -- ì—°ë½ì²˜
+    address varchar2(100) not null -- ì£¼ì†Œ
 );
 
--- ÆÇ¸Å³»¿ª Å×ÀÌºí 
+-- íŒë§¤ë‚´ì—­ í…Œì´ë¸” 
 create table tblSales(
     seq number primary key,
     item varchar2(50) not null,
@@ -256,68 +256,68 @@ create table tblSales(
 
 select * from tblCustomer;
 select * from tblSales;
--- Àå¸£ Å×ÀÌºí
-create table tblGenre (         -- Á»´õ Å« ´À³¦
-    seq number primary key ,    -- Àå¸£¹øÈ£(PK)
-    name varchar2(30) not null, -- Àå¸£¸é
+-- ì¥ë¥´ í…Œì´ë¸”
+create table tblGenre (         -- ì¢€ë” í° ëŠë‚Œ
+    seq number primary key ,    -- ì¥ë¥´ë²ˆí˜¸(PK)
+    name varchar2(30) not null, -- ì¥ë¥´ë©´
     price number not null,      -- 
     period number not null      -- 
 );
 
--- ºñµğ¿À Å×ÀÌºí
+-- ë¹„ë””ì˜¤ í…Œì´ë¸”
 create table tblVideo (
-    seq number primary key,        -- ºñµğ¿À ¹øÈ£(PK)
-    name varchar2(100) not null,   -- ºñµğ¿À Á¦¸ñ
-    qty number not null,           -- º¸À¯ ¼ö·®
-    company varchar2(50) null,     -- Á¦ÀÛ»ç
-    director varchar2(50) null,    -- °¨µ¶
-    major varchar2(50) null,       -- ÁÖ¿¬¹è¿ì 
-    genre number not null references tblGenre(seq) -- Àå¸£ ¹øÈ£(FK) 
+    seq number primary key,        -- ë¹„ë””ì˜¤ ë²ˆí˜¸(PK)
+    name varchar2(100) not null,   -- ë¹„ë””ì˜¤ ì œëª©
+    qty number not null,           -- ë³´ìœ  ìˆ˜ëŸ‰
+    company varchar2(50) null,     -- ì œì‘ì‚¬
+    director varchar2(50) null,    -- ê°ë…
+    major varchar2(50) null,       -- ì£¼ì—°ë°°ìš° 
+    genre number not null references tblGenre(seq) -- ì¥ë¥´ ë²ˆí˜¸(FK) 
 );
 
--- ¸â¹ö Å×ÀÌºí 
+-- ë©¤ë²„ í…Œì´ë¸” 
 create table tblMember (
     seq number primary key ,
     name varchar2(30) not null,
     grade number(1) not null,
     byear number(4) not null,
     tel varchar2(15) not null,   
-    address varchar2(300) null,        -- ÁÖ¼Ò 
-    money number not null              -- ¿¹Ä¡±İ
+    address varchar2(300) null,        -- ì£¼ì†Œ 
+    money number not null              -- ì˜ˆì¹˜ê¸ˆ
 );
 
--- ´ë¿© Å×ÀÌºí 
-create table tblRent ( -- ´©°¡ ºô·Á°¡ ÀÌ·±°Ç ÀÚ½Ä, ¾Æ´Ï¸é ¿©±â¿¡ ¹» ±ÛÀ» ´Ş¾Æ 
-    seq number primary key,                                 -- ´ë¿©¹øÈ£(PK)
-    member number not null references tblMember(seq),       -- È¸¿ø¹øÈ£(PK)
-    video number not null references tblVideo(seq),         -- ºñµğ¿À¹øÈ£(FK)
-    rentdate date default sysdate not null,                 -- ´ë¿©³¯Â¥
-    retdate date null,                                      -- ¹İ³³³¯Â¥
-    remark varchar2(500) null                               -- ºñ°í 
+-- ëŒ€ì—¬ í…Œì´ë¸” 
+create table tblRent ( -- ëˆ„ê°€ ë¹Œë ¤ê°€ ì´ëŸ°ê±´ ìì‹, ì•„ë‹ˆë©´ ì—¬ê¸°ì— ë­˜ ê¸€ì„ ë‹¬ì•„ 
+    seq number primary key,                                 -- ëŒ€ì—¬ë²ˆí˜¸(PK)
+    member number not null references tblMember(seq),       -- íšŒì›ë²ˆí˜¸(PK)
+    video number not null references tblVideo(seq),         -- ë¹„ë””ì˜¤ë²ˆí˜¸(FK)
+    rentdate date default sysdate not null,                 -- ëŒ€ì—¬ë‚ ì§œ
+    retdate date null,                                      -- ë°˜ë‚©ë‚ ì§œ
+    remark varchar2(500) null                               -- ë¹„ê³  
 );
--- ¼ø¼­ > Àå¸£ > ºñµğ¿À > È¸¿ø > ´ë¿© Å×ÀÌºí »ı¼º 
+-- ìˆœì„œ > ì¥ë¥´ > ë¹„ë””ì˜¤ > íšŒì› > ëŒ€ì—¬ í…Œì´ë¸” ìƒì„± 
 
 
 
--- °í°´ µ¥ÀÌÅÍ
+-- ê³ ê° ë°ì´í„°
 insert into tblcustomer (seq, name, tel, address)
-      values (1, 'È«±æµ¿', '010-1234-5678', '¼­¿ï½Ã');
+      values (1, 'í™ê¸¸ë™', '010-1234-5678', 'ì„œìš¸ì‹œ');
 insert into tblcustomer (seq, name, tel, address)
-      values (2, '¾Æ¹«°Ô', '010-3333-4444', 'ÀÎÃµ½Ã');
+      values (2, 'ì•„ë¬´ê²Œ', '010-3333-4444', 'ì¸ì²œì‹œ');
 insert into tblcustomer (seq, name, tel, address)
-      values (3, 'ÇÏÇÏÇÏ', '010-5555-6666', 'ºÎ»ê½Ã');
+      values (3, 'í•˜í•˜í•˜', '010-5555-6666', 'ë¶€ì‚°ì‹œ');
 
 
--- ÆÇ¸Å µ¥ÀÌÅÍ
-insert into tblsales (seq, item, qty, cseq) values (1, 'ÀüÈ­±â', 1, 1);
-insert into tblsales (seq, item, qty, cseq) values (2, '´ÙÀÌ¾î¸®', 3, 2);
-insert into tblsales (seq, item, qty, cseq) values (3, '³ëÆ®', 10, 2);
-insert into tblsales (seq, item, qty, cseq) values (4, 'º¼Ææ', 20, 3);
-insert into tblsales (seq, item, qty, cseq) values (5, 'Áö¿ì°³', 15, 3);
-insert into tblsales (seq, item, qty, cseq) values (6, '¸¶¿ì½º', 5, 1);
-insert into tblsales (seq, item, qty, cseq) values (7, 'Å°º¸µå', 2, 3);
-insert into tblsales (seq, item, qty, cseq) values (8, '¸ğ´ÏÅÍ', 1, 2);
-insert into tblsales (seq, item, qty, cseq) values (9, '¼±Ç³±â', 2, 1);
+-- íŒë§¤ ë°ì´í„°
+insert into tblsales (seq, item, qty, cseq) values (1, 'ì „í™”ê¸°', 1, 1);
+insert into tblsales (seq, item, qty, cseq) values (2, 'ë‹¤ì´ì–´ë¦¬', 3, 2);
+insert into tblsales (seq, item, qty, cseq) values (3, 'ë…¸íŠ¸', 10, 2);
+insert into tblsales (seq, item, qty, cseq) values (4, 'ë³¼íœ', 20, 3);
+insert into tblsales (seq, item, qty, cseq) values (5, 'ì§€ìš°ê°œ', 15, 3);
+insert into tblsales (seq, item, qty, cseq) values (6, 'ë§ˆìš°ìŠ¤', 5, 1);
+insert into tblsales (seq, item, qty, cseq) values (7, 'í‚¤ë³´ë“œ', 2, 3);
+insert into tblsales (seq, item, qty, cseq) values (8, 'ëª¨ë‹ˆí„°', 1, 2);
+insert into tblsales (seq, item, qty, cseq) values (9, 'ì„ í’ê¸°', 2, 1);
 
 commit;
 
@@ -326,44 +326,44 @@ commit;
 
 
 
--- Àå¸£ µ¥ÀÌÅÍ
-INSERT INTO tblGenre VALUES (1, '¾×¼Ç',1500,2);
-INSERT INTO tblGenre VALUES (2, '¿¡·Î',1000,1);
-INSERT INTO tblGenre VALUES (3, '¾î¸°ÀÌ',1000,3);
-INSERT INTO tblGenre VALUES (4, 'ÄÚ¹Ìµğ',2000,2);
-INSERT INTO tblGenre VALUES (5, '¸á·Î',2000,1);
-INSERT INTO tblGenre VALUES (6, '±âÅ¸',1800,2);
+-- ì¥ë¥´ ë°ì´í„°
+INSERT INTO tblGenre VALUES (1, 'ì•¡ì…˜',1500,2);
+INSERT INTO tblGenre VALUES (2, 'ì—ë¡œ',1000,1);
+INSERT INTO tblGenre VALUES (3, 'ì–´ë¦°ì´',1000,3);
+INSERT INTO tblGenre VALUES (4, 'ì½”ë¯¸ë””',2000,2);
+INSERT INTO tblGenre VALUES (5, 'ë©œë¡œ',2000,1);
+INSERT INTO tblGenre VALUES (6, 'ê¸°íƒ€',1800,2);
 
 
--- ºñµğ¿À µ¥ÀÌÅÍ
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (1, '¿µ±¸¿Í ¶¯Ä¥ÀÌ',5,'¿µ±¸ÇÊ¸§','½É¿µ·¡','¶¯Ä¥ÀÌ',3);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (2, '¾îÂŞ±¸¸®',5,'¿¡·Î ÇÁ·Î´ö¼Ç','±è°¨µ¶','¹Ú¿¡·Î',2);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (3, 'ÅĞ¹Ì³×ÀÌÅÍ',3,'ÆÄ¶ó¸¶¿îÆ®','James','John',1);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (4, 'À°º¹¼º',3,'´ë¸¸¿µÈ­»ç','È«±ºº¸','»ı·æ',4);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (5, '»Ç»ÇÇÒ±î¿ä',6,'»Ç»Ç»ç','¹Ú°¨µ¶','ÃÖÁöÈÄ',5);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (6, '¿ìÁ¤°ú ¿µÈ¥',2,'ÆÄ¶ó¸¶¿îÆ®','James','Mike',5);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (7, 'ÁÖ¶ó±â À¯¿øÁö',1,NULL,NULL,NULL,1);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (8, 'Å¸ÀÌ°Å Å·',4,'Walt','Kebin','Tiger',3);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (9, 'ÅÚ¹Ì ¿¡ºê¸® µù',10,'¿µ±¸ÇÊ¸§','°­°¨µ¶','½ÉÀ¸³ª',5);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (10, 'µ¿¹«',7,'ºÎ»êÇÊ¸§','¹Ú°¨µ¶','Àåµ¿±Ù',1);
-INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (11, '°øµ¿°æÀï±¸¿ª',2,'»Ç»Ç»ç','¹Ú°¨µ¶','ÀÌº´Èç',1);
+-- ë¹„ë””ì˜¤ ë°ì´í„°
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (1, 'ì˜êµ¬ì™€ ë•¡ì¹ ì´',5,'ì˜êµ¬í•„ë¦„','ì‹¬ì˜ë˜','ë•¡ì¹ ì´',3);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (2, 'ì–´ì­ˆêµ¬ë¦¬',5,'ì—ë¡œ í”„ë¡œë•ì…˜','ê¹€ê°ë…','ë°•ì—ë¡œ',2);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (3, 'í„¸ë¯¸ë„¤ì´í„°',3,'íŒŒë¼ë§ˆìš´íŠ¸','James','John',1);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (4, 'ìœ¡ë³µì„±',3,'ëŒ€ë§Œì˜í™”ì‚¬','í™êµ°ë³´','ìƒë£¡',4);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (5, 'ë½€ë½€í• ê¹Œìš”',6,'ë½€ë½€ì‚¬','ë°•ê°ë…','ìµœì§€í›„',5);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (6, 'ìš°ì •ê³¼ ì˜í˜¼',2,'íŒŒë¼ë§ˆìš´íŠ¸','James','Mike',5);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (7, 'ì£¼ë¼ê¸° ìœ ì›ì§€',1,NULL,NULL,NULL,1);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (8, 'íƒ€ì´ê±° í‚¹',4,'Walt','Kebin','Tiger',3);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (9, 'í…”ë¯¸ ì—ë¸Œë¦¬ ë”©',10,'ì˜êµ¬í•„ë¦„','ê°•ê°ë…','ì‹¬ìœ¼ë‚˜',5);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (10, 'ë™ë¬´',7,'ë¶€ì‚°í•„ë¦„','ë°•ê°ë…','ì¥ë™ê·¼',1);
+INSERT INTO tblVideo (seq, Name, qty, Company, Director, Major, Genre) VALUES (11, 'ê³µë™ê²½ìŸêµ¬ì—­',2,'ë½€ë½€ì‚¬','ë°•ê°ë…','ì´ë³‘í”',1);
 
 
 
 
--- È¸¿ø µ¥ÀÌÅÍ
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (1, '±èÀ¯½Å',1,1970,'123-4567','12-3¹øÁö 301È£',10000);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (2, '°­°¨Âù',1,1978,'111-1111','777-2¹øÁö 101È£',0);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (3, 'À¯°ü¼ø',1,1978,'222-2222','86-9¹øÁö',20000);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (4, 'ÀÌÀ²°î',1,1982,'333-3333',NULL,15000);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (5, '½Å¼÷ÁÖ',1,1988,'444-4444','Á¶¼± APT 1012È£',0);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (6, '¾ÈÁß±Ù',1,1981,'555-5555','´ëÇÑºô¶ó 102È£',1000);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (7, 'À±ºÀ±æ',1,1981,'666-6666','12-1¹øÁö',0);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (8, 'ÀÌ¼ø½Å',1,1981,'777-7777',NULL,1500);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (9, '±èºÎ½Ä',1,1981,'888-8888','73-6¹øÁö',-1000);
-INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (10, '¹ÚÁö¿ø',1,1981,'999-9999','Á¶¼± APT 902È£',1200);
+-- íšŒì› ë°ì´í„°
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (1, 'ê¹€ìœ ì‹ ',1,1970,'123-4567','12-3ë²ˆì§€ 301í˜¸',10000);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (2, 'ê°•ê°ì°¬',1,1978,'111-1111','777-2ë²ˆì§€ 101í˜¸',0);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (3, 'ìœ ê´€ìˆœ',1,1978,'222-2222','86-9ë²ˆì§€',20000);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (4, 'ì´ìœ¨ê³¡',1,1982,'333-3333',NULL,15000);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (5, 'ì‹ ìˆ™ì£¼',1,1988,'444-4444','ì¡°ì„  APT 1012í˜¸',0);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (6, 'ì•ˆì¤‘ê·¼',1,1981,'555-5555','ëŒ€í•œë¹Œë¼ 102í˜¸',1000);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (7, 'ìœ¤ë´‰ê¸¸',1,1981,'666-6666','12-1ë²ˆì§€',0);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (8, 'ì´ìˆœì‹ ',1,1981,'777-7777',NULL,1500);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (9, 'ê¹€ë¶€ì‹',1,1981,'888-8888','73-6ë²ˆì§€',-1000);
+INSERT INTO tblMember (seq, Name,Grade,Byear,Tel,address,Money) VALUES (10, 'ë°•ì§€ì›',1,1981,'999-9999','ì¡°ì„  APT 902í˜¸',1200);
 
--- ´ë¿© µ¥ÀÌÅÍ
+-- ëŒ€ì—¬ ë°ì´í„°
 INSERT INTO tblRent (seq, member, video, Rentdate, Retdate) VALUES (1, 1,1,'2022-01-01',NULL);
 INSERT INTO tblRent (seq, member, video, Rentdate, Retdate) VALUES (2, 2,2,'2022-02-02','2022-02-03');
 INSERT INTO tblRent (seq, member, video, Rentdate, Retdate) VALUES (3, 3,3,'2022-02-03',NULL);
@@ -382,57 +382,57 @@ select * from tblMember;
 select * from tblRent;
 
 /*
-    Á¶ÀÎ, join
-    - (¼­·Î °ü°è¸¦ ¸ÎÀº) 2°³(1°³) ÀÌ»óÀÇ Å×ÀÌºíÀ» »ç¿ëÇØ¼­, 1°³ÀÇ °á°ú¼ÂÀ» ¸¸µå´Â ¿¬»ê
-    - Å×ÀÌºíA + Å×ÀÌºíB = Å×ÀÌºíC
+    ì¡°ì¸, join
+    - (ì„œë¡œ ê´€ê³„ë¥¼ ë§ºì€) 2ê°œ(1ê°œ) ì´ìƒì˜ í…Œì´ë¸”ì„ ì‚¬ìš©í•´ì„œ, 1ê°œì˜ ê²°ê³¼ì…‹ì„ ë§Œë“œëŠ” ì—°ì‚°
+    - í…Œì´ë¸”A + í…Œì´ë¸”B = í…Œì´ë¸”C
     
-    Á¶ÀÎÀÇ Á¾·ù
-    1. ´Ü¼ø Á¶ÀÎ, Cross join
-    2. ³»ºÎ Á¶ÀÎ, Inner join *** 
-    3. ¿ÜºÎ Á¶ÀÎ, Outer join ***
-    4. ¼¿ÇÁ Á¶ÀÎ, Self join
-    5. ÀüÃ¼ ¿ÜºÎ Á¶ÀÎ, Full Outer Join
+    ì¡°ì¸ì˜ ì¢…ë¥˜
+    1. ë‹¨ìˆœ ì¡°ì¸, Cross join
+    2. ë‚´ë¶€ ì¡°ì¸, Inner join *** 
+    3. ì™¸ë¶€ ì¡°ì¸, Outer join ***
+    4. ì…€í”„ ì¡°ì¸, Self join
+    5. ì „ì²´ ì™¸ë¶€ ì¡°ì¸, Full Outer Join
     
-    1. ´Ü¼ø Á¶ÀÎ, Cross Join
-        - Ä«Æ¼¼Ç°ö, µ¥Ä«¸£Æ®°ö
-        - A Å×ÀÌºí ·¹ÄÚµå °³¼ö x B Å×ÀÌºí ·¹ÄÚµå °³¼ö = °á°ú¼Â ·¹ÄÚµå °³¼ö
-        - A Å×ÀÌºí ÄÃ·³ °³¼ö + B Å×ÀÌºí ÄÃ·³ °³¼ö = °á°ú¼ÂÀÇ ÄÃ·³ ¼ö 
-        - ¾µ¸ğ¾ø´Ù. > °¡Ä¡°¡ ÀÖ´Â Çà°ú °¡Ä¡°¡ ¾ø´Â ÇàÀÌ µÚ¼¯¿© ÀÖ´Ù. 
-        - °³¹ß¿ë, Å×½ºÆ®¿ë > À¯È¿¼º°ú »ó°ü¾øÀÌ ´Ù·®ÀÇ µ¥ÀÌÅÍ¸¦ ¸¸µé ¶§.... 
+    1. ë‹¨ìˆœ ì¡°ì¸, Cross Join
+        - ì¹´í‹°ì…˜ê³±, ë°ì¹´ë¥´íŠ¸ê³±
+        - A í…Œì´ë¸” ë ˆì½”ë“œ ê°œìˆ˜ x B í…Œì´ë¸” ë ˆì½”ë“œ ê°œìˆ˜ = ê²°ê³¼ì…‹ ë ˆì½”ë“œ ê°œìˆ˜
+        - A í…Œì´ë¸” ì»¬ëŸ¼ ê°œìˆ˜ + B í…Œì´ë¸” ì»¬ëŸ¼ ê°œìˆ˜ = ê²°ê³¼ì…‹ì˜ ì»¬ëŸ¼ ìˆ˜ 
+        - ì“¸ëª¨ì—†ë‹¤. > ê°€ì¹˜ê°€ ìˆëŠ” í–‰ê³¼ ê°€ì¹˜ê°€ ì—†ëŠ” í–‰ì´ ë’¤ì„ì—¬ ìˆë‹¤. 
+        - ê°œë°œìš©, í…ŒìŠ¤íŠ¸ìš© > ìœ íš¨ì„±ê³¼ ìƒê´€ì—†ì´ ë‹¤ëŸ‰ì˜ ë°ì´í„°ë¥¼ ë§Œë“¤ ë•Œ.... 
         
-     * ¿ŞÂÊÀÇ Å×ÀÌºí, ¿À¸¥ÂÊÀÇ Å×ÀÌºí 1´ë1·Î ¸ÅÄªÇØ¼­ °á°ú¼ÂÀ» ¸¸µç´Ù. 
+     * ì™¼ìª½ì˜ í…Œì´ë¸”, ì˜¤ë¥¸ìª½ì˜ í…Œì´ë¸” 1ëŒ€1ë¡œ ë§¤ì¹­í•´ì„œ ê²°ê³¼ì…‹ì„ ë§Œë“ ë‹¤. 
         
-     2. ³»ºÎ Á¶ÀÎ, Inner Join
-     - ´Ü¼ø Á¶ÀÎ¿¡¼­ À¯È¿ÇÑ ·¹ÄÚµå¸¸ ÃßÃâÇÏ´Â Á¶ÀÎ(³ë¶õ»ö ÃßÃâ)
-     - select ÄÃ·³¸®½ºÆ® from Å×ÀÌºíA inner join Å×ÀÌºíB on Å×ÀÌºíA.ÄÃ·³ = Å×ÀÌºíB.ÄÃ·³; -- ANSI-SQL
-                                --> ¿ŞÂÊ Å×ÀÌºíÀÇ ÄÃ·³°ú ¿À¸¥ÂÊ Å×ÀÌºíÀÇ ÄÃ·³ÀÌ µ¿ÀÏÇÑ Á¶°ÇÀ» °¡Á®¾ß ÇÑ´Ù.
-     - select ÄÃ·³¸®½ºÆ® from Å×ÀÌºíA, Å×ÀÌºíB where Å×ÀÌºíA.ÄÃ·³ = Å×ÀÌºíB.ÄÃ·³;        -- Oracle Àü¿ëÇ¥±â¹ı
-                            -- ÀÌ°Ô where°¡ Á¶ÀÎ¿ëµµÀÎÁö ¾Æ´Ï¸é ´Ù¸¥ ¿ëµµÀÎÁö Çò°¥¸°´Ù. > °¡µ¶¼º ¶³¾îÁø´Ù. 
+     2. ë‚´ë¶€ ì¡°ì¸, Inner Join
+     - ë‹¨ìˆœ ì¡°ì¸ì—ì„œ ìœ íš¨í•œ ë ˆì½”ë“œë§Œ ì¶”ì¶œí•˜ëŠ” ì¡°ì¸(ë…¸ë€ìƒ‰ ì¶”ì¶œ)
+     - select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ from í…Œì´ë¸”A inner join í…Œì´ë¸”B on í…Œì´ë¸”A.ì»¬ëŸ¼ = í…Œì´ë¸”B.ì»¬ëŸ¼; -- ANSI-SQL
+                                --> ì™¼ìª½ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ê³¼ ì˜¤ë¥¸ìª½ í…Œì´ë¸”ì˜ ì»¬ëŸ¼ì´ ë™ì¼í•œ ì¡°ê±´ì„ ê°€ì ¸ì•¼ í•œë‹¤.
+     - select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ from í…Œì´ë¸”A, í…Œì´ë¸”B where í…Œì´ë¸”A.ì»¬ëŸ¼ = í…Œì´ë¸”B.ì»¬ëŸ¼;        -- Oracle ì „ìš©í‘œê¸°ë²•
+                            -- ì´ê²Œ whereê°€ ì¡°ì¸ìš©ë„ì¸ì§€ ì•„ë‹ˆë©´ ë‹¤ë¥¸ ìš©ë„ì¸ì§€ í—·ê°ˆë¦°ë‹¤. > ê°€ë…ì„± ë–¨ì–´ì§„ë‹¤. 
     
-    select ÄÃ·³¸®½ºÆ®
+    select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸
     from tableA 
         inner join tableB
-            on tableA.ÄÃ·³ = tableB.ÄÃ·³;
+            on tableA.ì»¬ëŸ¼ = tableB.ì»¬ëŸ¼;
             
-select ÄÃ·³¸®½ºÆ®
-from Å×ÀÌºíA
-    inner join Å×ÀÌºí B
-        on ºÎ¸ğÅ×ÀÌºí.id = ÀÚ½ÄÅ×ÀÌºí.id
+select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸
+from í…Œì´ë¸”A
+    inner join í…Œì´ë¸” B
+        on ë¶€ëª¨í…Œì´ë¸”.id = ìì‹í…Œì´ë¸”.id
 */
 
-select * from tblCustomer; -- 3¸í
-select * from tblSales;    -- 9¸í
+select * from tblCustomer; -- 3ëª…
+select * from tblSales;    -- 9ëª…
 
 select * from tblCustomer cross join tblSales; 
--- ANSI-SQL > ±ÇÀå 
--- °öÇÏ±â ¿¬»êÀÚ ´À³¦ÀÌ´Ù.
-select * from tblCustomer; -- ¾êµµ seq
-select * from tblSales; -- ¾êµµ seq°¡ ÀÖ´Ù. 
+-- ANSI-SQL > ê¶Œì¥ 
+-- ê³±í•˜ê¸° ì—°ì‚°ì ëŠë‚Œì´ë‹¤.
+select * from tblCustomer; -- ì–˜ë„ seq
+select * from tblSales; -- ì–˜ë„ seqê°€ ìˆë‹¤. 
 
 select * from tblCustomer 
     inner join tblSales
         on seq = cseq; -- ORA-00918: column ambiguously defined
-        -- ¿©±â seq°¡ tblSales °ÍÀÎÁö, tblCustomer°ÍÀÎÁö ¸ğ¸¥´Ù.
+        -- ì—¬ê¸° seqê°€ tblSales ê²ƒì¸ì§€, tblCustomerê²ƒì¸ì§€ ëª¨ë¥¸ë‹¤.
 
 
 
@@ -441,52 +441,52 @@ from tblCustomer
     inner join tblSales
         on tblCustomer.seq = tblSales.cseq; 
        
--- ±ÍÂú´Ù. ±×·¡¼­ º°ÄªÀ» ºÙÀÎ´Ù.... 
+-- ê·€ì°®ë‹¤. ê·¸ë˜ì„œ ë³„ì¹­ì„ ë¶™ì¸ë‹¤.... 
 
 select 
-    c.name, s.item, c.seq, s.seq -- °¡µ¶¼ºÀº ÁÁ¾ÆÁø´Ù. 
+    c.name, s.item, c.seq, s.seq -- ê°€ë…ì„±ì€ ì¢‹ì•„ì§„ë‹¤. 
 from tblCustomer c
     inner join tblSales s
         on c.seq = s.cseq;
 
 
-select * from tblCustomer, tblSales; -- Oracle Àü¿ë > µÎ Å×ÀÌºíÀÇ rowÀÇ ¼öµéÀ» °öÇÑ °ÍÀÌ °á°úÇà¼öÀÌ´Ù.
+select * from tblCustomer, tblSales; -- Oracle ì „ìš© > ë‘ í…Œì´ë¸”ì˜ rowì˜ ìˆ˜ë“¤ì„ ê³±í•œ ê²ƒì´ ê²°ê³¼í–‰ìˆ˜ì´ë‹¤.
 
--- ¿ø·¡ ¾Æ·¡ 2°³ÀÇ Å×ÀÌºíÀº 1°³ÀÇ Å×ÀÌºíÀÌ¾ú´Ù.
-select * from tblStaff; -- ÇÑ»ç¶÷ÀÌ 2°³ÀÌ»óÀÇ ÇÁ·ÎÁ§Æ®¸¦ ÀúÀåÇÏ´Ï ¹®Á¦´Ù. 
+-- ì›ë˜ ì•„ë˜ 2ê°œì˜ í…Œì´ë¸”ì€ 1ê°œì˜ í…Œì´ë¸”ì´ì—ˆë‹¤.
+select * from tblStaff; -- í•œì‚¬ëŒì´ 2ê°œì´ìƒì˜ í”„ë¡œì íŠ¸ë¥¼ ì €ì¥í•˜ë‹ˆ ë¬¸ì œë‹¤. 
 select * from tblProject;
 
--- ¿ø·¡ 1°³ÀÇ Å×ÀÌºí Á¤º¸¸¦ 2°³·Î ³ª´³´Ù. > °¡²û¾¿ 2°³ÀÇ Á¤º¸¸¦ ´Ù½Ã 1°³·Î ÇÕÃÄ¼­ ºÁ¾ßÇÒ ¾÷¹«°¡ »ı±ä´Ù. 
--- > ±× ¶§ ¾²´Â °ÍÀÌ JoinÀÌ´Ù. 
+-- ì›ë˜ 1ê°œì˜ í…Œì´ë¸” ì •ë³´ë¥¼ 2ê°œë¡œ ë‚˜ëˆ´ë‹¤. > ê°€ë”ì”© 2ê°œì˜ ì •ë³´ë¥¼ ë‹¤ì‹œ 1ê°œë¡œ í•©ì³ì„œ ë´ì•¼í•  ì—…ë¬´ê°€ ìƒê¸´ë‹¤. 
+-- > ê·¸ ë•Œ ì“°ëŠ” ê²ƒì´ Joinì´ë‹¤. 
 
 select 
 *
 from tblStaff s 
     inner join tblProject p 
         on s.seq = p.staff_seq;
-        -- ÀÚ½Ä fk
-        -- ºÎ¸ğÂÊÀÇ pk
+        -- ìì‹ fk
+        -- ë¶€ëª¨ìª½ì˜ pk
         
--- ÂÉ°³³õÀº °Íµé ´Ù½Ã ÇÕÄ¡´Â °ÍÀÌ joinÀÌ´Ù. 
+-- ìª¼ê°œë†“ì€ ê²ƒë“¤ ë‹¤ì‹œ í•©ì¹˜ëŠ” ê²ƒì´ joinì´ë‹¤. 
 
--- 1. Á÷¿ø ¸í´ÜÀ» °¡Á®¿À½Ã¿À.
+-- 1. ì§ì› ëª…ë‹¨ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblStaff;
 
--- 2. ÁøÇàÁßÀÎ ÇÁ·ÎÁ§Æ® ¸ñ·ÏÀ» °¡Á®¿À½Ã¿À.
+-- 2. ì§„í–‰ì¤‘ì¸ í”„ë¡œì íŠ¸ ëª©ë¡ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblProject;
 
--- 3. ÁøÇàÁßÀÎ ÇÁ·ÎÁ§Æ®(tblProject)¿Í ÇØ´ç ´ã´çÁ÷¿øÀÇ ÀÌ¸§(tblStaff)À» °¡Á®¿À½Ã¿À.
+-- 3. ì§„í–‰ì¤‘ì¸ í”„ë¡œì íŠ¸(tblProject)ì™€ í•´ë‹¹ ë‹´ë‹¹ì§ì›ì˜ ì´ë¦„(tblStaff)ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select 
 *
 from tblStaff s
     inner join tblProject p 
         on s.seq = p.staff_seq;
 
--- ³ª´µ¾îÁ® ÀÖ´Â Á¤º¸¸¦ ÇÏ³ªÀÇ Å×ÀÌºí·Î °¡Á®¿Â´Ù. 
+-- ë‚˜ë‰˜ì–´ì ¸ ìˆëŠ” ì •ë³´ë¥¼ í•˜ë‚˜ì˜ í…Œì´ë¸”ë¡œ ê°€ì ¸ì˜¨ë‹¤. 
 
 select * from tblGenre;
 select * from tblVideo;
--- ºñµğ¿À Á¦¸ñ, ´ë¿© °¡°İÀÌ °¢°¢ ¾ó¸¸Áö ¾Ë°í ½Í´Ù.
+-- ë¹„ë””ì˜¤ ì œëª©, ëŒ€ì—¬ ê°€ê²©ì´ ê°ê° ì–¼ë§Œì§€ ì•Œê³  ì‹¶ë‹¤.
 
 select 
 *
@@ -502,21 +502,21 @@ from tblGenre g
         on v.genre = g.seq;
 
 -- tblCustomer + tblSales
--- :> Á¶ÀÎ or ¼­ºêÄõ¸® 
+-- :> ì¡°ì¸ or ì„œë¸Œì¿¼ë¦¬ 
 
--- °í°´¸í + »óÇ°¸í
--- 1. join > ¾ê°¡ ¼Óµµ°¡ Á¶±İ ºü¸£±ä ÇÏ´Ù.
+-- ê³ ê°ëª… + ìƒí’ˆëª…
+-- 1. join > ì–˜ê°€ ì†ë„ê°€ ì¡°ê¸ˆ ë¹ ë¥´ê¸´ í•˜ë‹¤.
 select 
-    c.name as "°í°´¸í",
-    s.item as "»óÇ°¸í"
+    c.name as "ê³ ê°ëª…",
+    s.item as "ìƒí’ˆëª…"
 from tblCustomer c
     inner join tblSales s 
         on c.seq = s.cseq;
 
--- 2.subquery > Àı´ëÀûÀ¸·Î joinÀÌ ºü¸£Áø ¾Ê´Ù.
+-- 2.subquery > ì ˆëŒ€ì ìœ¼ë¡œ joinì´ ë¹ ë¥´ì§„ ì•Šë‹¤.
 select 
-    item as "»óÇ°¸í",
-    (select name from tblCustomer where seq = tblSales.cseq) as "°í°´¸í"
+    item as "ìƒí’ˆëª…",
+    (select name from tblCustomer where seq = tblSales.cseq) as "ê³ ê°ëª…"
 from tblSales;
 
 select * from tblGenre;
@@ -524,12 +524,12 @@ select * from tblVideo;
 select * from tblRent;
 
 
--- ´©±¸¶û °ü°è¸¦ ¸Î°í ÀÖ´ÂÁö Àß ±â¾ïÇØ¶ó... 
+-- ëˆ„êµ¬ë‘ ê´€ê³„ë¥¼ ë§ºê³  ìˆëŠ”ì§€ ì˜ ê¸°ì–µí•´ë¼... 
 select 
-    v.name as "ºñµğ¿À",
-    r.rentdate as "¾ğÁ¦",
-    g.period as "´ë¿©±â°£",
-    r.rentdate + g.period as "¹İ³³³¯Â¥"
+    v.name as "ë¹„ë””ì˜¤",
+    r.rentdate as "ì–¸ì œ",
+    g.period as "ëŒ€ì—¬ê¸°ê°„",
+    r.rentdate + g.period as "ë°˜ë‚©ë‚ ì§œ"
 from tblGenre g
         inner join tblVideo v
             on g.seq = v.genre              -- tblGenre <-> tblVideo
@@ -542,10 +542,10 @@ select * from tblRent;
 select * from tblMember;
 
 select 
-    m.name as "´©°¡?",
-    v.name as "ºñµğ¿À?",
-    r.rentdate as "ºô¸°³¯",
-    m.money as "µ·¾ó¸¶?"
+    m.name as "ëˆ„ê°€?",
+    v.name as "ë¹„ë””ì˜¤?",
+    r.rentdate as "ë¹Œë¦°ë‚ ",
+    m.money as "ëˆì–¼ë§ˆ?"
     
 from tblGenre g
     inner join tblVideo v
@@ -564,14 +564,14 @@ select
 from tblStaff s1
     inner join tblSales s2
         on s1.seq = s2.cseq;
--- joinÀº ¹İµå½Ã ºÎ¸ğ ÀÚ½ÄÀ¸·Î ¿«ÀÎ Å×ÀÌºí·Î µ¿ÀÛµÇ´Â°Ô ¾Æ´Ï´Ù.
--- ±Ùµ¥ °ü°è°¡ ÀÖ¾î¾ß ÇÑ´Ù. ÀÚ½Ä Å×ÀÌºí ºÎ¸ğ Å×ÀÌºí °£ÀÇ °ü°è¸¦ ÀÌ¿ëÇØ¾ß ÇÑ´Ù.!!!!
--- ±Ùµ¥ fk¸¦ ¾È°É¾î³öµµ µ¥ÀÌÅÍ»ó¿¡µµ °ü°è¸¦ °É¾î³õÀº Å×ÀÌºíÀÌ ÀÖ´Ù. > ¼³°è»ó ±×·±°ÍÀÌ ¹°¸®ÀûÀ¸·Î ÀÖ´Ù. 
+-- joinì€ ë°˜ë“œì‹œ ë¶€ëª¨ ìì‹ìœ¼ë¡œ ì—®ì¸ í…Œì´ë¸”ë¡œ ë™ì‘ë˜ëŠ”ê²Œ ì•„ë‹ˆë‹¤.
+-- ê·¼ë° ê´€ê³„ê°€ ìˆì–´ì•¼ í•œë‹¤. ìì‹ í…Œì´ë¸” ë¶€ëª¨ í…Œì´ë¸” ê°„ì˜ ê´€ê³„ë¥¼ ì´ìš©í•´ì•¼ í•œë‹¤.!!!!
+-- ê·¼ë° fkë¥¼ ì•ˆê±¸ì–´ë†”ë„ ë°ì´í„°ìƒì—ë„ ê´€ê³„ë¥¼ ê±¸ì–´ë†“ì€ í…Œì´ë¸”ì´ ìˆë‹¤. > ì„¤ê³„ìƒ ê·¸ëŸ°ê²ƒì´ ë¬¼ë¦¬ì ìœ¼ë¡œ ìˆë‹¤. 
 
 select * from employees;
 
 
--- hr > 7°³ > ÀÌ·¸°Ô 5°³°¡ ¿¬´Ş¾Æ 1¿­·Î ÂüÁ¶ÇÑ´Ù.
+-- hr > 7ê°œ > ì´ë ‡ê²Œ 5ê°œê°€ ì—°ë‹¬ì•„ 1ì—´ë¡œ ì°¸ì¡°í•œë‹¤.
 select * from employees;
 select * from departments;
 select * from locations;
@@ -580,14 +580,14 @@ select * from regions;
 
 select * from jobs;
 
--- ¾î´ÀÁö¿ª
+-- ì–´ëŠì§€ì—­
 select  
     *
 from employees e
     inner join departments d 
         on d.department_id = e.department_id
             inner join locations l
-                on l.location_id = d.location_id; -- pk¿Í fk ÀÌ¸§À» ÅëÀÏ ½ÃÄÑ³õÀ½
+                on l.location_id = d.location_id; -- pkì™€ fk ì´ë¦„ì„ í†µì¼ ì‹œì¼œë†“ìŒ
 
 select  
     *
@@ -597,32 +597,11 @@ from employees e
             inner join locations l
                 on l.location_id = d.location_id
                     inner join countries c 
-                        on c.country_id = l.country_id; -- pk¿Í fk ÀÌ¸§À» ÅëÀÏ ½ÃÄÑ³õÀ½
+                        on c.country_id = l.country_id; -- pkì™€ fk ì´ë¦„ì„ í†µì¼ ì‹œì¼œë†“ìŒ
 
--- joinÀ»ÇÏ¸é *Ç¥¸¦ ¾ÈÀû´Â´Ù Áßº¹µÇ´Âµ¥ ¿¬´Ş¾Æ ºÙ¾î¼­ ³ª¿Â´Ù. ±×·¡¼­ ÀÌ°Ô ³¶ºñ´Ù. > ¿øÇÏ´Â Ä®·³¸¸ °¡Á®¿ÀÀÚ
+-- joinì„í•˜ë©´ *í‘œë¥¼ ì•ˆì ëŠ”ë‹¤ ì¤‘ë³µë˜ëŠ”ë° ì—°ë‹¬ì•„ ë¶™ì–´ì„œ ë‚˜ì˜¨ë‹¤. ê·¸ë˜ì„œ ì´ê²Œ ë‚­ë¹„ë‹¤. > ì›í•˜ëŠ” ì¹¼ëŸ¼ë§Œ ê°€ì ¸ì˜¤ì
 select  
     *
-from employees e
-    inner join departments d 
-        on d.department_id = e.department_id
-            inner join locations l
-                on l.location_id = d.location_id
-                    inner join countries c 
-                        on c.country_id = l.country_id
-                            inner join regions r
-                                on r.region_id = c.region_id
-                                    inner join jobs j
-                                        on j.job_id = e.job_id; -- pk¿Í fk ÀÌ¸§À» ÅëÀÏ ½ÃÄÑ³õÀ½
-                                      
-
--- joinÀ»ÇÏ¸é *Ç¥¸¦ ¾ÈÀû´Â´Ù Áßº¹µÇ´Âµ¥ ¿¬´Ş¾Æ ºÙ¾î¼­ ³ª¿Â´Ù. ±×·¡¼­ ÀÌ°Ô ³¶ºñ´Ù. > ¿øÇÏ´Â Ä®·³¸¸ °¡Á®¿ÀÀÚ
-select  
-    e.first_name || ' ' || e.last_name as "ÀÌ¸§",
-    d.department_name as "ºÎ¼­",
-    l.city as "µµ½Ã",
-    c.country_name as "±¹°¡",
-    r.region_name as "´ë·ú",
-    j.job_title as "Á÷¾÷"
 from employees e
     inner join departments d 
         on d.department_id = e.department_id
@@ -633,53 +612,74 @@ from employees e
                             inner join regions r
                                 on r.region_id = c.region_id
                                     inner join jobs j
-                                        on j.job_id = e.job_id; -- pk¿Í fk ÀÌ¸§À» ÅëÀÏ ½ÃÄÑ³õÀ½
+                                        on j.job_id = e.job_id; -- pkì™€ fk ì´ë¦„ì„ í†µì¼ ì‹œì¼œë†“ìŒ
                                       
--- [ Å¬¶óÀÌ¾ğÆ®ÀÇ ¿ä±¸»çÇ×À» ±¸ÇöÇÏ´Â °ÍÀÌ 1¼øÀ§´Ù. > ¿ä±¸»çÇ×À» ¸íÈ®ÇÏ°Ô ÆÄ¾ÇÇÏ´Â °ÍÀÌ ÁÁ´Ù. ]
+
+-- joinì„í•˜ë©´ *í‘œë¥¼ ì•ˆì ëŠ”ë‹¤ ì¤‘ë³µë˜ëŠ”ë° ì—°ë‹¬ì•„ ë¶™ì–´ì„œ ë‚˜ì˜¨ë‹¤. ê·¸ë˜ì„œ ì´ê²Œ ë‚­ë¹„ë‹¤. > ì›í•˜ëŠ” ì¹¼ëŸ¼ë§Œ ê°€ì ¸ì˜¤ì
+select  
+    e.first_name || ' ' || e.last_name as "ì´ë¦„",
+    d.department_name as "ë¶€ì„œ",
+    l.city as "ë„ì‹œ",
+    c.country_name as "êµ­ê°€",
+    r.region_name as "ëŒ€ë¥™",
+    j.job_title as "ì§ì—…"
+from employees e
+    inner join departments d 
+        on d.department_id = e.department_id
+            inner join locations l
+                on l.location_id = d.location_id
+                    inner join countries c 
+                        on c.country_id = l.country_id
+                            inner join regions r
+                                on r.region_id = c.region_id
+                                    inner join jobs j
+                                        on j.job_id = e.job_id; -- pkì™€ fk ì´ë¦„ì„ í†µì¼ ì‹œì¼œë†“ìŒ
+                                      
+-- [ í´ë¼ì´ì–¸íŠ¸ì˜ ìš”êµ¬ì‚¬í•­ì„ êµ¬í˜„í•˜ëŠ” ê²ƒì´ 1ìˆœìœ„ë‹¤. > ìš”êµ¬ì‚¬í•­ì„ ëª…í™•í•˜ê²Œ íŒŒì•…í•˜ëŠ” ê²ƒì´ ì¢‹ë‹¤. ]
 
 
 /*
-    3. ¿ÜºÎ Á¶ÀÎ, Outer join
-    - ³»ºÎ Á¶ÀÎ °á°ú + °á°ú¼Â¿¡ Æ÷ÇÔµÇÁö ¸øÇÑ ºÎ¸ğ Å×ÀÌºíÀÇ ³ª¸ÓÁö ·¹ÄÚµå
+    3. ì™¸ë¶€ ì¡°ì¸, Outer join
+    - ë‚´ë¶€ ì¡°ì¸ ê²°ê³¼ + ê²°ê³¼ì…‹ì— í¬í•¨ë˜ì§€ ëª»í•œ ë¶€ëª¨ í…Œì´ë¸”ì˜ ë‚˜ë¨¸ì§€ ë ˆì½”ë“œ
     
     select 
-        ÄÃ·³¸®½ºÆ®
-    from Å×ÀÌºíA
-        inner join Å×ÀÌºíA
-            on Å×ÀÌºíA.ÄÃ·³ = Å×ÀÌºíB.ÄÃ·³;
+        ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸
+    from í…Œì´ë¸”A
+        inner join í…Œì´ë¸”A
+            on í…Œì´ë¸”A.ì»¬ëŸ¼ = í…Œì´ë¸”B.ì»¬ëŸ¼;
             
     select 
-        ÄÃ·³¸®½ºÆ®
-    from Å×ÀÌºíA
-        (left|right) outer join Å×ÀÌºíB  -- ¿ŞÂÊ¿¡µµ Å×ÀÌºíÀÌ ÀÖ°í ¿À¸¥ÂÊ¿¡µµ Å×ÀÌºíÀÌ ÀÖ´Âµ¥ µÑ Áß¿¡ ÇÏ³ª¸¦ °¡¸£ÄÑ¾ß ÇÑ´Ù.
-            on Å×ÀÌºíA.ÄÃ·³ = Å×ÀÌºíB.ÄÃ·³;
+        ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸
+    from í…Œì´ë¸”A
+        (left|right) outer join í…Œì´ë¸”B  -- ì™¼ìª½ì—ë„ í…Œì´ë¸”ì´ ìˆê³  ì˜¤ë¥¸ìª½ì—ë„ í…Œì´ë¸”ì´ ìˆëŠ”ë° ë‘˜ ì¤‘ì— í•˜ë‚˜ë¥¼ ê°€ë¥´ì¼œì•¼ í•œë‹¤.
+            on í…Œì´ë¸”A.ì»¬ëŸ¼ = í…Œì´ë¸”B.ì»¬ëŸ¼;
             
             
 */
 
-select * from tblCustomer; -- 3¸í
-select * from tblSales;    -- 9°Ç
+select * from tblCustomer; -- 3ëª…
+select * from tblSales;    -- 9ê±´
 
 
-insert into tblCustomer values (4, 'È£È£È£', '010-1234-4321', '¼­¿ï½Ã' );
+insert into tblCustomer values (4, 'í˜¸í˜¸í˜¸', '010-1234-4321', 'ì„œìš¸ì‹œ' );
 
--- ÇÑ¹øÀÌ¶óµµ ±¸¸ÅÇÑ ÀÌ·Â ÀÖ´Â °í°´µéÀÇ Á¤º¸¿Í ±¸¸Å ÀÌ·ÂÀ» °¡Á®¿À½Ã¿À.
+-- í•œë²ˆì´ë¼ë„ êµ¬ë§¤í•œ ì´ë ¥ ìˆëŠ” ê³ ê°ë“¤ì˜ ì •ë³´ì™€ êµ¬ë§¤ ì´ë ¥ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select 
 *
 from tblCustomer c
     inner join tblSales s
         on c.seq = s.cseq; 
         
--- ±¸¸Å ÀÌ·Â°ú »ó°ü¾øÀÌ ¸ğµç °í°´ Á¤º¸¸¦ °¡Á®¿ÀµÇ, ´Ü ±¸¸Å ÀÌ·Â ÀÖÀ¸¸é ±×°Íµµ °°ÀÌ °¡Á®¿À½Ã¿À.
-select -- inner join ¾çÂÊ Å×ÀÌºí¿¡ µ¿½Ã¿¡ Á¸ÀçÇÏ´Â °Í¸¸ °¡Á®¿À´Â ´À³¦ 
+-- êµ¬ë§¤ ì´ë ¥ê³¼ ìƒê´€ì—†ì´ ëª¨ë“  ê³ ê° ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ë˜, ë‹¨ êµ¬ë§¤ ì´ë ¥ ìˆìœ¼ë©´ ê·¸ê²ƒë„ ê°™ì´ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select -- inner join ì–‘ìª½ í…Œì´ë¸”ì— ë™ì‹œì— ì¡´ì¬í•˜ëŠ” ê²ƒë§Œ ê°€ì ¸ì˜¤ëŠ” ëŠë‚Œ 
 * 
 from tblCustomer c
-    left outer join tblSales s -- ¿ŞÂÊ¿¡¼­´Â ´Ù °¡Á®¿Â °ÍÀÌ´Ù. 
+    left outer join tblSales s -- ì™¼ìª½ì—ì„œëŠ” ë‹¤ ê°€ì ¸ì˜¨ ê²ƒì´ë‹¤. 
         on c.seq = s.cseq;
--- °í°´ Å×ÀÌºí¿¡ ÀÖ´Â °í°´¹øÈ£´Â ¹°°ÇÀ» »ê ÀÌ·ÂÀÌ ÀÖ¾ú´Ù. 
--- ±Ùµ¥ »õ·Î ³ÖÀº µ¥ÀÌÅÍ´Â ±¸¸ÅÇÑ ÀÌ·ÂÀÌ ¾ø´Ù. 
+-- ê³ ê° í…Œì´ë¸”ì— ìˆëŠ” ê³ ê°ë²ˆí˜¸ëŠ” ë¬¼ê±´ì„ ì‚° ì´ë ¥ì´ ìˆì—ˆë‹¤. 
+-- ê·¼ë° ìƒˆë¡œ ë„£ì€ ë°ì´í„°ëŠ” êµ¬ë§¤í•œ ì´ë ¥ì´ ì—†ë‹¤. 
 
--- inner joinÀÇ °á°ú¸¦ outer join¿¡ °¡Áö°í ÀÖ´Ù.
+-- inner joinì˜ ê²°ê³¼ë¥¼ outer joinì— ê°€ì§€ê³  ìˆë‹¤.
 
 select *
 from tblCustomer c
@@ -689,11 +689,11 @@ from tblCustomer c
 select * from tblStaff;
 select * from tblProject;
 
-insert into tblStaff(seq, name, salary, address) values (2, '¾Æ¹«°³', 250, 'ÀÎÃµ½Ã');
+insert into tblStaff(seq, name, salary, address) values (2, 'ì•„ë¬´ê°œ', 250, 'ì¸ì²œì‹œ');
 
--- Á÷¿ø ¸í´Ü + ´ã´ç ÇÁ·ÎÁ§Æ® 
+-- ì§ì› ëª…ë‹¨ + ë‹´ë‹¹ í”„ë¡œì íŠ¸ 
 -- 1. inner join 
--- : '¾Æ¹«°³' Á¦¿Ü > ´ã´ç ÇÁ·ÎÁ§Æ®°¡ ¾ø¾î¼­ .. > ºÎ¸ğ ·¹ÄÚµå°¡ ÀÚ½Ä Å×ÀÌºí¿¡ ÂüÁ¶µÇÁö ¾Ê¾Ò±â ¶§¹®¿¡ 
+-- : 'ì•„ë¬´ê°œ' ì œì™¸ > ë‹´ë‹¹ í”„ë¡œì íŠ¸ê°€ ì—†ì–´ì„œ .. > ë¶€ëª¨ ë ˆì½”ë“œê°€ ìì‹ í…Œì´ë¸”ì— ì°¸ì¡°ë˜ì§€ ì•Šì•˜ê¸° ë•Œë¬¸ì— 
 select 
     * 
 from tblStaff s
@@ -701,7 +701,7 @@ from tblStaff s
         on s.seq = p.staff_seq; 
 
 -- 2. outer join 
--- : ´ã´ç ÇÁ·ÎÁ¦±×°¡ ¾ø´Â Á÷¿øµé±îÁö.. > ÂüÁ¶°¡ ¾ø´Â ºÎ¸ğ·¹ÄÚµå±îÁö °¡Á®¿À½Ã¿À.
+-- : ë‹´ë‹¹ í”„ë¡œì œê·¸ê°€ ì—†ëŠ” ì§ì›ë“¤ê¹Œì§€.. > ì°¸ì¡°ê°€ ì—†ëŠ” ë¶€ëª¨ë ˆì½”ë“œê¹Œì§€ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select 
     *
 from tblStaff s
@@ -710,7 +710,7 @@ from tblStaff s
         
 
 -- tblVideo, tblRent
--- ´ë¿©°¡ ÇÑ¹øÀÌ¶ó µÈ ºñµğ¿À¿Í ±× ´ë¿© ³»¿ªÀ» °¡Á®¿À½Ã¿À. > inner join
+-- ëŒ€ì—¬ê°€ í•œë²ˆì´ë¼ ëœ ë¹„ë””ì˜¤ì™€ ê·¸ ëŒ€ì—¬ ë‚´ì—­ì„ ê°€ì ¸ì˜¤ì‹œì˜¤. > inner join
 select * 
     from tblVideo v
         inner join tblRent r
@@ -721,7 +721,7 @@ select name, count(*)
         inner join tblRent r
             on v.seq = r.video
                 group by name
-                    order by count(*) desc; -- ÀÏºÎ Ä®·³ÀÌ nullÀÌ¶óµµ ·¹ÄÚµå ÀüÃ¼¸¦ »÷´Ù.
+                    order by count(*) desc; -- ì¼ë¶€ ì¹¼ëŸ¼ì´ nullì´ë¼ë„ ë ˆì½”ë“œ ì „ì²´ë¥¼ ìƒŒë‹¤.
                     
                     
 select name, count(rentdate)
@@ -732,21 +732,21 @@ select name, count(rentdate)
                     order by count(rentdate) desc;
             
             
--- ´ë¿©¿Í »ó°ü¾øÀÌ ¸ğµç ºñµğ¿À¿Í ±× ´ë¿© ³»¿ªÀ» °¡Á®¿À½Ã¿À. > outer join
+-- ëŒ€ì—¬ì™€ ìƒê´€ì—†ì´ ëª¨ë“  ë¹„ë””ì˜¤ì™€ ê·¸ ëŒ€ì—¬ ë‚´ì—­ì„ ê°€ì ¸ì˜¤ì‹œì˜¤. > outer join
 select * 
     from tblVideo v
         left outer join tblRent r
-            on v.seq = r.video;  -- ´ë¿©³»¿ëÀÌ ÀÖµç ¾øµç ´Ù °¡Á®¿È
+            on v.seq = r.video;  -- ëŒ€ì—¬ë‚´ìš©ì´ ìˆë“  ì—†ë“  ë‹¤ ê°€ì ¸ì˜´
          
 select * 
     from tblVideo v
         left outer join tblRent r
             on v.seq = r.video
-                where rentdate is null; -- ¾Ç¼ºÀç°í
+                where rentdate is null; -- ì•…ì„±ì¬ê³ 
 
 
 -- tblMember, tblRent 
--- [ ´ë¿©¸¦ 1È¸ ÀÌ»ó > °í°´ Á¤º¸ + ´ë¿© Á¤º¸ ]
+-- [ ëŒ€ì—¬ë¥¼ 1íšŒ ì´ìƒ > ê³ ê° ì •ë³´ + ëŒ€ì—¬ ì •ë³´ ]
 select 
 *
 from tblMember m
@@ -754,88 +754,88 @@ from tblMember m
         on m.seq = r.member;
         
 
-select -- ´ë¿©¸¦ ÇÑ¹øµµ ÇÏÁö ¾ÊÀº °í°´µéµµ ´ë¿©¸¦ Çß´ø °í°´ÀÌ¶û °°ÀÌ Ãâ·ÂÇØÁà 
+select -- ëŒ€ì—¬ë¥¼ í•œë²ˆë„ í•˜ì§€ ì•Šì€ ê³ ê°ë“¤ë„ ëŒ€ì—¬ë¥¼ í–ˆë˜ ê³ ê°ì´ë‘ ê°™ì´ ì¶œë ¥í•´ì¤˜ 
 *
 from tblMember m
     left outer join tblRent r
         on m.seq = r.member;
 
 
-select -- ´ë¿©¸¦ ÇÑ¹øµµ ÇÏÁö ¾ÊÀº °í°´µéµµ ´ë¿©¸¦ Çß´ø °í°´ÀÌ¶û °°ÀÌ Ãâ·ÂÇØÁà 
+select -- ëŒ€ì—¬ë¥¼ í•œë²ˆë„ í•˜ì§€ ì•Šì€ ê³ ê°ë“¤ë„ ëŒ€ì—¬ë¥¼ í–ˆë˜ ê³ ê°ì´ë‘ ê°™ì´ ì¶œë ¥í•´ì¤˜ 
 *
 from tblMember m
     left outer join tblRent r
         on m.seq = r.member
             where rentdate is null;
 
--- ¸â¹öÅ×ÀÌºí, ´ë¿©Å×ÀÌºí ´ë¿©¿¡ ¾ø¾î? ±×·¯¸é ´ë¿©¸¦ ÇÑ¹øµµ ¾ÈÇÑ °í°´ÀÌ ÀÖ´Ù!?
+-- ë©¤ë²„í…Œì´ë¸”, ëŒ€ì—¬í…Œì´ë¸” ëŒ€ì—¬ì— ì—†ì–´? ê·¸ëŸ¬ë©´ ëŒ€ì—¬ë¥¼ í•œë²ˆë„ ì•ˆí•œ ê³ ê°ì´ ìˆë‹¤!?
 
 
 select *  from tblStaff;
 select *  from tblProject;
 
 
--- tblStaff, tblProject. ÇöÀç ÀçÁ÷ÁßÀÎ ¸ğµç Á÷¿øÀÇ ÀÌ¸§, ÁÖ¼Ò, ¿ù±Ş, ´ã´çÇÁ·ÎÁ§Æ®¸íÀ» °¡Á®¿À½Ã¿À.
+-- tblStaff, tblProject. í˜„ì¬ ì¬ì§ì¤‘ì¸ ëª¨ë“  ì§ì›ì˜ ì´ë¦„, ì£¼ì†Œ, ì›”ê¸‰, ë‹´ë‹¹í”„ë¡œì íŠ¸ëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select distinct s.name, s.address, s.salary, p.project
     from tblStaff s inner join tblProject p
         on s.seq = p.staff_seq;
     
 
--- °í°´ ´ë¿© ºñµğ¿À Àå¸£
+-- ê³ ê° ëŒ€ì—¬ ë¹„ë””ì˜¤ ì¥ë¥´
     
--- tblVideo, tblRent, tblMember. '»Ç»ÇÇÒ±î¿ä' ¶ó´Â ºñµğ¿À¸¦ ºô·Á°£ È¸¿øÀÇ ÀÌ¸§Àº?
-select * from tblVideo; -- »Ç»Ç´Â 5¹øÀÌ´Ù. 5¹øÀ» Ã£¾Æ¼­ 
-select * from tblRent; -- video 5¹øÀ¸·Î member Ã£±â ¸â¹ö´Â 5¹øÀÌ´Ù.
-select * from tblMember; -- 5¹ø ¸â¹ö´Â ÀÌ¸§ÀÌ ¸Ó¾ß?
+-- tblVideo, tblRent, tblMember. 'ë½€ë½€í• ê¹Œìš”' ë¼ëŠ” ë¹„ë””ì˜¤ë¥¼ ë¹Œë ¤ê°„ íšŒì›ì˜ ì´ë¦„ì€?
+select * from tblVideo; -- ë½€ë½€ëŠ” 5ë²ˆì´ë‹¤. 5ë²ˆì„ ì°¾ì•„ì„œ 
+select * from tblRent; -- video 5ë²ˆìœ¼ë¡œ member ì°¾ê¸° ë©¤ë²„ëŠ” 5ë²ˆì´ë‹¤.
+select * from tblMember; -- 5ë²ˆ ë©¤ë²„ëŠ” ì´ë¦„ì´ ë¨¸ì•¼?
 
 
--- ´ä>
+-- ë‹µ>
 select name
 from ( select *
 from tblRent 
 where video = ( select seq from tblVideo
-where name ='»Ç»ÇÇÒ±î¿ä')) sr inner join tblMember
+where name ='ë½€ë½€í• ê¹Œìš”')) sr inner join tblMember
 on sr.member = tblMember.seq;
 
--- 2¹ø Á¶ÀÎÇÏ°í ¸¶Áö¸·¿¡ where¹®À¸·Î ½áµµ µÇ±äÇÔ
+-- 2ë²ˆ ì¡°ì¸í•˜ê³  ë§ˆì§€ë§‰ì— whereë¬¸ìœ¼ë¡œ ì¨ë„ ë˜ê¸´í•¨
 
     
 select * 
 from tblStaff;
 select * 
 from tblProject;
--- tblStaff, tblProject. 'TV ±¤°í'À» ´ã´çÇÑ Á÷¿øÀÇ ¿ù±ŞÀº ¾ó¸¶ÀÎ°¡?
--- ´ä> 
+-- tblStaff, tblProject. 'TV ê´‘ê³ 'ì„ ë‹´ë‹¹í•œ ì§ì›ì˜ ì›”ê¸‰ì€ ì–¼ë§ˆì¸ê°€?
+-- ë‹µ> 
 select s.salary
 from tblStaff s inner join tblProject p
-on p.project = 'TV ±¤°í' and p.staff_seq = s.seq;
+on p.project = 'TV ê´‘ê³ ' and p.staff_seq = s.seq;
 
    
    
 select * from tblVideo;
 select * from tblRent;
 select * from tblMember;
--- tblVideo, tblRent, tblMember. 'ÅĞ¹Ì³×ÀÌÅÍ' ºñµğ¿À¸¦ ÇÑ¹øÀÌ¶óµµ ºô·Á°¬´ø È¸¿øµéÀÇ ÀÌ¸§Àº?
+-- tblVideo, tblRent, tblMember. 'í„¸ë¯¸ë„¤ì´í„°' ë¹„ë””ì˜¤ë¥¼ í•œë²ˆì´ë¼ë„ ë¹Œë ¤ê°”ë˜ íšŒì›ë“¤ì˜ ì´ë¦„ì€?
 
--- > ´ä
+-- > ë‹µ
 select m.name
 from tblMember m 
     inner join tblRent r
         on m.seq = r.member 
             inner join tblVideo v
-                on v.seq = r.video and v.name ='ÅĞ¹Ì³×ÀÌÅÍ';
+                on v.seq = r.video and v.name ='í„¸ë¯¸ë„¤ì´í„°';
           
 select  * from tblStaff;
 select  * from tblProject;
--- tblStaff, tblProject. ¼­¿ï½Ã¿¡ »ç´Â Á÷¿øÀ» Á¦¿ÜÇÑ ³ª¸ÓÁö Á÷¿øµéÀÇ ÀÌ¸§, ¿ù±Ş, ´ã´çÇÁ·ÎÁ§Æ®¸íÀ» °¡Á®¿À½Ã¿À.
+-- tblStaff, tblProject. ì„œìš¸ì‹œì— ì‚¬ëŠ” ì§ì›ì„ ì œì™¸í•œ ë‚˜ë¨¸ì§€ ì§ì›ë“¤ì˜ ì´ë¦„, ì›”ê¸‰, ë‹´ë‹¹í”„ë¡œì íŠ¸ëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select s.name, s.salary, p. project
 from tblStaff s inner join tblProject p
-on s.seq = p.staff_seq and s.address <> '¼­¿ï½Ã';
+on s.seq = p.staff_seq and s.address <> 'ì„œìš¸ì‹œ';
 
 
--- tblCustomer, tblSales. »óÇ°À» 2°³(´ÜÀÏ»óÇ°) ÀÌ»ó ±¸¸ÅÇÑ È¸¿øÀÇ ¿¬¶ôÃ³, ÀÌ¸§, ±¸¸Å»óÇ°¸í, ¼ö·®À» °¡Á®¿À½Ã¿À.
+-- tblCustomer, tblSales. ìƒí’ˆì„ 2ê°œ(ë‹¨ì¼ìƒí’ˆ) ì´ìƒ êµ¬ë§¤í•œ íšŒì›ì˜ ì—°ë½ì²˜, ì´ë¦„, êµ¬ë§¤ìƒí’ˆëª…, ìˆ˜ëŸ‰ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblCustomer;
-select * from tblSales; -- ÀÌ°Å´Â ±¸¸Å±â·Ï 
+select * from tblSales; -- ì´ê±°ëŠ” êµ¬ë§¤ê¸°ë¡ 
 
 select c.tel, c.name, s.item, s.qty
 from tblCustomer c  inner join tblSales s
@@ -844,7 +844,7 @@ from tblCustomer c  inner join tblSales s
             ORDER BY c.name asc, s.item asc;
 
 
--- qty°¡ ¼ö·®ÀÌ¾ùÀ½?
+-- qtyê°€ ìˆ˜ëŸ‰ì´ì—‡ìŒ?
 
 SELECT c.name, c.tel, s.item, s.qty FROM tblcustomer c
     inner join tblsales s
@@ -852,39 +852,39 @@ SELECT c.name, c.tel, s.item, s.qty FROM tblcustomer c
             where s.qty > 1
                 ORDER BY c.name asc, s.item asc;
 
--- tblVideo, tblRent, tblGenre. ¸ğµç ºñµğ¿À Á¦¸ñ, º¸À¯¼ö·®, ´ë¿©°¡°İÀ» °¡Á®¿À½Ã¿À.
-select * from tblVideo; -- Á¦¸ñÀº ¿©±â, º¸À¯¼ö·® 
+-- tblVideo, tblRent, tblGenre. ëª¨ë“  ë¹„ë””ì˜¤ ì œëª©, ë³´ìœ ìˆ˜ëŸ‰, ëŒ€ì—¬ê°€ê²©ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select * from tblVideo; -- ì œëª©ì€ ì—¬ê¸°, ë³´ìœ ìˆ˜ëŸ‰ 
 select * from tblRent; -- 
-select * from tblGenre; -- °¡°İ
+select * from tblGenre; -- ê°€ê²©
 select * from tblMember;
 
--- > ´ä 
+-- > ë‹µ 
 select 
 v.name, v.qty, g.price
 from tblVideo v inner join tblGenre g
 on v.genre =  g.seq;
                 
--- tblVideo, tblRent, tblMember, tblGenre. 2022³â 2¿ù¿¡ ´ë¿©µÈ ±¸¸Å³»¿ªÀ» °¡Á®¿À½Ã¿À. È¸¿ø¸í, ºñµğ¿À¸í, ¾ğÁ¦, ´ë¿©°¡°İ
+-- tblVideo, tblRent, tblMember, tblGenre. 2022ë…„ 2ì›”ì— ëŒ€ì—¬ëœ êµ¬ë§¤ë‚´ì—­ì„ ê°€ì ¸ì˜¤ì‹œì˜¤. íšŒì›ëª…, ë¹„ë””ì˜¤ëª…, ì–¸ì œ, ëŒ€ì—¬ê°€ê²©
 
 
--- tblVideo > ºñµğ¿À¸í 
--- tblGenre > °¡°İ 
--- tblRent > ¾ğÁ¦ 
--- tblRent > Á¶°Ç°Å¸£±â
--- tblMember > È¸¿ø¸í
+-- tblVideo > ë¹„ë””ì˜¤ëª… 
+-- tblGenre > ê°€ê²© 
+-- tblRent > ì–¸ì œ 
+-- tblRent > ì¡°ê±´ê±°ë¥´ê¸°
+-- tblMember > íšŒì›ëª…
 
 
-select m.name "È¸¿ø¸í", v.name "ºñµğ¿À¸í", r.rentdate "¾ğÁ¦", g.price "°¡°İ"
+select m.name "íšŒì›ëª…", v.name "ë¹„ë””ì˜¤ëª…", r.rentdate "ì–¸ì œ", g.price "ê°€ê²©"
 from tblVideo v inner join tblGenre g
 on v.genre = g.seq inner join tblRent r 
 on r.video = v.seq and r.rentdate in (
-select rentdate -- 2022 2¿ùÀÇ ±¸¸Å ³»¿ªµé ~ 
+select rentdate -- 2022 2ì›”ì˜ êµ¬ë§¤ ë‚´ì—­ë“¤ ~ 
 from tblRent
 where rentdate between to_date('2022-02-01') and to_date('2022-12-31') 
 ) inner join tblMember m
 on r.member = m.seq;
 
--- ¼±»ı´Ô²¨ 
+-- ì„ ìƒë‹˜êº¼ 
 SELECT m.name, v.name, r.rentdate, g.price FROM tblmember m
     inner join tblrent r
      on m.seq = r.member
@@ -896,9 +896,9 @@ SELECT m.name, v.name, r.rentdate, g.price FROM tblmember m
 
 
 
--- tblVideo, tblRent, tblMember. ÇöÀç ¹İ³³À» ¾ÈÇÑ È¸¿ø¸í°ú ºñµğ¿À¸í, ´ë¿©³¯Â¥¸¦ °¡Á®¿À½Ã¿À.
--- tblRentÀÇ retdate°¡ nullÀÎ Ä£±¸¸¦ Ã£¾Æ¶ó 
-select m.name "È¸¿ø¸í", v.name "ºñµğ¿À¸í", r.rentdate "¾ğÁ¦"
+-- tblVideo, tblRent, tblMember. í˜„ì¬ ë°˜ë‚©ì„ ì•ˆí•œ íšŒì›ëª…ê³¼ ë¹„ë””ì˜¤ëª…, ëŒ€ì—¬ë‚ ì§œë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+-- tblRentì˜ retdateê°€ nullì¸ ì¹œêµ¬ë¥¼ ì°¾ì•„ë¼ 
+select m.name "íšŒì›ëª…", v.name "ë¹„ë””ì˜¤ëª…", r.rentdate "ì–¸ì œ"
 from tblVideo v  inner join tblRent r 
 on r.video = v.seq and r.rentdate in (
 select rentdate 
@@ -906,7 +906,7 @@ from tblRent
 where retdate is null 
 ) inner join tblMember m
 on r.member = m.seq;
--- ´Ù Á¶ÀÎÇÏ°í ¸¶Áö¸·¿¡ Á¶°Ç´Ş±â     
+-- ë‹¤ ì¡°ì¸í•˜ê³  ë§ˆì§€ë§‰ì— ì¡°ê±´ë‹¬ê¸°     
     
 SELECT m.name, v.name, r.rentdate FROM tblmember m
     inner join tblrent r
@@ -916,9 +916,9 @@ SELECT m.name, v.name, r.rentdate FROM tblmember m
     where r.retdate is null;
     
 
--- employees, departments. »ç¿øµéÀÇ ÀÌ¸§, ºÎ¼­¹øÈ£, ºÎ¼­¸íÀ» °¡Á®¿À½Ã¿À.
--- ´ä
-select e.first_name || ' ' || e.last_name "ÀÌ¸§", e.department_id "ºÎ¼­¹øÈ£", d.department_name "ºÎ¼­¸í"
+-- employees, departments. ì‚¬ì›ë“¤ì˜ ì´ë¦„, ë¶€ì„œë²ˆí˜¸, ë¶€ì„œëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+-- ë‹µ
+select e.first_name || ' ' || e.last_name "ì´ë¦„", e.department_id "ë¶€ì„œë²ˆí˜¸", d.department_name "ë¶€ì„œëª…"
 from employees e inner join departments d
 on e.department_id = d.department_id;
     
@@ -926,19 +926,19 @@ select * from departments; -- department_id
 -- employees_id, department_id
 
 
--- employees, jobs. »ç¿øµéÀÇ Á¤º¸¿Í Á÷¾÷¸íÀ» °¡Á®¿À½Ã¿À.
+-- employees, jobs. ì‚¬ì›ë“¤ì˜ ì •ë³´ì™€ ì§ì—…ëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from employees;
 select * from jobs;
 
 select e.*,j.job_title
-from employees e inner join ( -- Ä®·³ ÁÙÀÌ±â
+from employees e inner join ( -- ì¹¼ëŸ¼ ì¤„ì´ê¸°
                             select job_id, job_title 
                             from jobs) j
 on e.job_id = j.job_id;
 
 
--- ÀÏ´Ü º¸·ù   
--- ¡Ú employees, jobs. Á÷¹«(job_id)º° ÃÖ°í±Ş¿©(max_salary) ¹Ş´Â »ç¿ø Á¤º¸¸¦ °¡Á®¿À½Ã¿À.
+-- ì¼ë‹¨ ë³´ë¥˜   
+-- â˜… employees, jobs. ì§ë¬´(job_id)ë³„ ìµœê³ ê¸‰ì—¬(max_salary) ë°›ëŠ” ì‚¬ì› ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 --with test as (
 --select e.job_id, max_salary
 --from employees e inner join jobs j
@@ -963,13 +963,13 @@ select * from jobs;
 --    on e.job_id = k.job1
 --        where e.salary = k.maxvalue;
 --        
--- ¡Ú ÀÌ°Å ÇÏ³ª¸¸ ³ªÁß¿¡ ´Ù½Ã Ç®±â
+-- â˜… ì´ê±° í•˜ë‚˜ë§Œ ë‚˜ì¤‘ì— ë‹¤ì‹œ í’€ê¸°
 
 
 
 
 
--- departments, locations. ¸ğµç ºÎ¼­¿Í °¢ ºÎ¼­°¡ À§Ä¡ÇÏ°í ÀÖ´Â µµ½ÃÀÇ ÀÌ¸§À» °¡Á®¿À½Ã¿À.
+-- departments, locations. ëª¨ë“  ë¶€ì„œì™€ ê° ë¶€ì„œê°€ ìœ„ì¹˜í•˜ê³  ìˆëŠ” ë„ì‹œì˜ ì´ë¦„ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from departments;
 select * from  locations;
 
@@ -978,12 +978,12 @@ from departments d inner join locations l
 on d.location_id = l.location_id;
 
         
--- locations, countries. location_id °¡ 2900ÀÎ µµ½Ã°¡ ¼ÓÇÑ ±¹°¡ ÀÌ¸§À» °¡Á®¿À½Ã¿À.
+-- locations, countries. location_id ê°€ 2900ì¸ ë„ì‹œê°€ ì†í•œ êµ­ê°€ ì´ë¦„ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 
 select * from countries; -- country_id
 select * from locations;
 
--- > ´ä
+-- > ë‹µ
 select c.country_name
 from countries c inner join locations l
 on c.country_id = l.country_id and l.location_id = 2900;
@@ -993,9 +993,9 @@ select * from employees; -- department_id
 select * from departments;
 
 
--- employees. ±Ş¿©¸¦ 12000 ÀÌ»ó ¹Ş´Â »ç¿ø°ú °°Àº ºÎ¼­¿¡¼­ / ±Ù¹«ÇÏ´Â »ç¿øµéÀÇ ÀÌ¸§, ±Ş¿©, ºÎ¼­¹øÈ£¸¦ °¡Á®¿À½Ã¿À.
+-- employees. ê¸‰ì—¬ë¥¼ 12000 ì´ìƒ ë°›ëŠ” ì‚¬ì›ê³¼ ê°™ì€ ë¶€ì„œì—ì„œ / ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ë“¤ì˜ ì´ë¦„, ê¸‰ì—¬, ë¶€ì„œë²ˆí˜¸ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 
--- 1. ±Ş¿©¸¦ 12000 ÀÌ»ó ¹Ş´Â »ç¿øÀÌ ÀÖ´Â ºÎ¼­ Ã£±â
+-- 1. ê¸‰ì—¬ë¥¼ 12000 ì´ìƒ ë°›ëŠ” ì‚¬ì›ì´ ìˆëŠ” ë¶€ì„œ ì°¾ê¸°
 --with test as (
 --select distinct department_id 
 --from employees
@@ -1009,10 +1009,10 @@ SELECT e.first_name||' '||e.last_name as name, e.salary, e.department_id FROM HR
     inner join (SELECT DISTINCT (job_id) FROM HR.employees where salary >= 12000) f
         on e.job_id = f.job_id;
 
--- ¡Ú inner join½Ã¿¡ ¼­ºêÄõ¸®¸¦ ´ë»óÀ¸·Î Á¶ÀÎµµ °¡´É
+-- â˜… inner joinì‹œì— ì„œë¸Œì¿¼ë¦¬ë¥¼ ëŒ€ìƒìœ¼ë¡œ ì¡°ì¸ë„ ê°€ëŠ¥
         
--- employees, departments. locations.  'Seattle'¿¡¼­(LOC) ±Ù¹«ÇÏ´Â »ç¿øÀÇ ÀÌ¸§, Á÷À§(job_id), ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§À» °¡Á®¿À½Ã¿À.
---> ´ä
+-- employees, departments. locations.  'Seattle'ì—ì„œ(LOC) ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ì˜ ì´ë¦„, ì§ìœ„(job_id), ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+--> ë‹µ
 select e.first_name || ' ' || e.last_name, e.job_id, e.department_id, d.department_name
 from employees e inner join departments d
 on e.department_id = d.department_id inner join locations l
@@ -1020,7 +1020,7 @@ on d.location_id = l.location_id and l.city ='Seattle';
 
     
     
--- employees, departments. first_nameÀÌ 'Jonathon'ÀÎ Á÷¿ø°ú °°Àº ºÎ¼­¿¡ ±Ù¹«ÇÏ´Â Á÷¿øµé Á¤º¸¸¦ °¡Á®¿À½Ã¿À.
+-- employees, departments. first_nameì´ 'Jonathon'ì¸ ì§ì›ê³¼ ê°™ì€ ë¶€ì„œì— ê·¼ë¬´í•˜ëŠ” ì§ì›ë“¤ ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 with test as (
 select e.department_id
 from employees e inner join departments d
@@ -1032,13 +1032,13 @@ where department_id = (select * from test ) ;
 
 
     
--- employees, departments. »ç¿øÀÌ¸§°ú ±× »ç¿øÀÌ ¼ÓÇÑ ºÎ¼­ÀÇ ºÎ¼­¸í, ±×¸®°í ¿ù±ŞÀ» Ãâ·ÂÇÏ´Âµ¥ ¿ù±ŞÀÌ 3000ÀÌ»óÀÎ »ç¿øÀ» °¡Á®¿À½Ã¿À.
+-- employees, departments. ì‚¬ì›ì´ë¦„ê³¼ ê·¸ ì‚¬ì›ì´ ì†í•œ ë¶€ì„œì˜ ë¶€ì„œëª…, ê·¸ë¦¬ê³  ì›”ê¸‰ì„ ì¶œë ¥í•˜ëŠ”ë° ì›”ê¸‰ì´ 3000ì´ìƒì¸ ì‚¬ì›ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select e.first_name || ' ' || e.last_name, d.department_name, e.salary
 from employees e inner join departments d
 on e.department_id = d.department_id and e.salary>=3000;
             
             
--- employees, departments. ºÎ¼­¹øÈ£°¡ 10¹øÀÎ »ç¿øµéÀÇ ºÎ¼­¹øÈ£, ºÎ¼­ÀÌ¸§, »ç¿øÀÌ¸§, ¿ù±ŞÀ» °¡Á®¿À½Ã¿À.
+-- employees, departments. ë¶€ì„œë²ˆí˜¸ê°€ 10ë²ˆì¸ ì‚¬ì›ë“¤ì˜ ë¶€ì„œë²ˆí˜¸, ë¶€ì„œì´ë¦„, ì‚¬ì›ì´ë¦„, ì›”ê¸‰ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select d.department_id,d.department_name, e.first_name || ' ' || e.last_name,  e.salary
 from employees e inner join departments d
 on e.department_id = d.department_id and e.department_id=10;
@@ -1049,8 +1049,8 @@ job_history;
 select * from 
 departments;
 select * from employees;
--- departments, job_history. Åğ»çÇÑ »ç¿øÀÇ ÀÔ»çÀÏ, Åğ»çÀÏ, ±Ù¹«Çß´ø ºÎ¼­ ÀÌ¸§À» °¡Á®¿À½Ã¿À.
--- > ´ä
+-- departments, job_history. í‡´ì‚¬í•œ ì‚¬ì›ì˜ ì…ì‚¬ì¼, í‡´ì‚¬ì¼, ê·¼ë¬´í–ˆë˜ ë¶€ì„œ ì´ë¦„ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+-- > ë‹µ
 select h.start_date, h.end_date, d.department_name
 from departments d inner join job_history h
 on h.department_id = d.department_id;
@@ -1062,26 +1062,26 @@ SELECT h.employee_id, h.start_date, h.end_date, d.department_name FROM HR.job_hi
 
 
         
--- employees. »ç¿ø¹øÈ£¿Í »ç¿øÀÌ¸§, ±×¸®°í ±× »ç¿øÀ» °ü¸®ÇÏ´Â °ü¸®ÀÚÀÇ »ç¿ø¹øÈ£¿Í »ç¿øÀÌ¸§À» Ãâ·ÂÇÏµÇ °¢°¢ÀÇ ÄÃ·³¸íÀ» '»ç¿ø¹øÈ£', '»ç¿øÀÌ¸§', '°ü¸®ÀÚ¹øÈ£', '°ü¸®ÀÚÀÌ¸§'À¸·Î ÇÏ¿© °¡Á®¿À½Ã¿À.
+-- employees. ì‚¬ì›ë²ˆí˜¸ì™€ ì‚¬ì›ì´ë¦„, ê·¸ë¦¬ê³  ê·¸ ì‚¬ì›ì„ ê´€ë¦¬í•˜ëŠ” ê´€ë¦¬ìì˜ ì‚¬ì›ë²ˆí˜¸ì™€ ì‚¬ì›ì´ë¦„ì„ ì¶œë ¥í•˜ë˜ ê°ê°ì˜ ì»¬ëŸ¼ëª…ì„ 'ì‚¬ì›ë²ˆí˜¸', 'ì‚¬ì›ì´ë¦„', 'ê´€ë¦¬ìë²ˆí˜¸', 'ê´€ë¦¬ìì´ë¦„'ìœ¼ë¡œ í•˜ì—¬ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from employees;
 -- self join
-select e.employee_id "»ç¿ø¹øÈ£", e.first_name || ' ' || e.last_name "»ç¿øÀÌ¸§", m.employee_id "°ü¸®ÀÚ¹øÈ£", m.first_name || ' ' || m.last_name "°ü¸®ÀÚÀÌ¸§"
+select e.employee_id "ì‚¬ì›ë²ˆí˜¸", e.first_name || ' ' || e.last_name "ì‚¬ì›ì´ë¦„", m.employee_id "ê´€ë¦¬ìë²ˆí˜¸", m.first_name || ' ' || m.last_name "ê´€ë¦¬ìì´ë¦„"
 from employees e inner join employees m
 on e.manager_id = m.employee_id;
         
--- employees, jobs. Á÷Ã¥(Job Title)ÀÌ Sales ManagerÀÎ »ç¿øµéÀÇ ÀÔ»ç³âµµ¿Í ÀÔ»ç³âµµ(hire_date)º° Æò±Õ ±Ş¿©¸¦ °¡Á®¿À½Ã¿À. ³âµµ¸¦ ±âÁØÀ¸·Î ¿À¸§Â÷¼ø Á¤·Ä.
+-- employees, jobs. ì§ì±…(Job Title)ì´ Sales Managerì¸ ì‚¬ì›ë“¤ì˜ ì…ì‚¬ë…„ë„ì™€ ì…ì‚¬ë…„ë„(hire_date)ë³„ í‰ê·  ê¸‰ì—¬ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤. ë…„ë„ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬.
 select * from jobs;
 with test as (
-select to_char( hire_date, 'YYYY') as ÀÔ»ç³âµµ, salary
+select to_char( hire_date, 'YYYY') as ì…ì‚¬ë…„ë„, salary
 from employees e inner join jobs j
 on e.job_id = j.job_id
 where job_title = 'Sales Manager')
-select ÀÔ»ç³âµµ, avg(salary)
+select ì…ì‚¬ë…„ë„, avg(salary)
 from test 
-group by ÀÔ»ç³âµµ
-order by ÀÔ»ç³âµµ;
+group by ì…ì‚¬ë…„ë„
+order by ì…ì‚¬ë…„ë„;
 
-SELECT to_char(e.hire_date, 'yyyy')||'³âµµ' as "ÀÔ»ç³âµµ", avg(e.salary) as "Æò±Õ ±Ş¿©" FROM HR.employees e
+SELECT to_char(e.hire_date, 'yyyy')||'ë…„ë„' as "ì…ì‚¬ë…„ë„", avg(e.salary) as "í‰ê·  ê¸‰ì—¬" FROM HR.employees e
     inner join HR.jobs j
         on e.job_id = j.job_id
             where j.job_title = 'Sales Manager'
@@ -1091,7 +1091,7 @@ SELECT to_char(e.hire_date, 'yyyy')||'³âµµ' as "ÀÔ»ç³âµµ", avg(e.salary) as "Æò±
 
 select * from departments;
 select * from departments;
--- employees, departments. locations. °¢ µµ½Ã(city)¿¡ ÀÖ´Â ¸ğµç ºÎ¼­ »ç¿øµéÀÇ Æò±Õ±Ş¿©°¡ °¡Àå ³·Àº µµ½ÃºÎÅÍ µµ½Ã¸í(city)°ú Æò±Õ¿¬ºÀ, ÇØ´ç µµ½ÃÀÇ »ç¿ø¼ö¸¦ °¡Á®¿À½Ã¿À. ´Ü, µµ½Ã¿¡ ±Ù¹«ÇÏ´Â »ç¿øÀÌ 10¸í ÀÌ»óÀÎ °÷Àº Á¦¿ÜÇÏ°í °¡Á®¿À½Ã¿À.
+-- employees, departments. locations. ê° ë„ì‹œ(city)ì— ìˆëŠ” ëª¨ë“  ë¶€ì„œ ì‚¬ì›ë“¤ì˜ í‰ê· ê¸‰ì—¬ê°€ ê°€ì¥ ë‚®ì€ ë„ì‹œë¶€í„° ë„ì‹œëª…(city)ê³¼ í‰ê· ì—°ë´‰, í•´ë‹¹ ë„ì‹œì˜ ì‚¬ì›ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤. ë‹¨, ë„ì‹œì— ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ì´ 10ëª… ì´ìƒì¸ ê³³ì€ ì œì™¸í•˜ê³  ê°€ì ¸ì˜¤ì‹œì˜¤.
 select city, round(avg(e.salary)), count(e.employee_id)
 from employees e inner join departments d
         on e.department_id = d.department_id 
@@ -1103,32 +1103,32 @@ from employees e inner join departments d
 
             
 -- employees, jobs, job_history. 
--- ¡®Public  Accountant¡¯ÀÇ Á÷Ã¥(job_title)À¸·Î °ú°Å¿¡ ±Ù¹«ÇÑ ÀûÀÌ ÀÖ´Â ¸ğµç »ç¿øÀÇ »ç¹ø°ú ÀÌ¸§À» °¡Á®¿À½Ã¿À.
--- ÇöÀç ¡®Public Accountant¡¯ÀÇ Á÷Ã¥(job_title)À¸·Î ±Ù¹«ÇÏ´Â »ç¿øÀº °í·Á ÇÏÁö ¸»°Í.
+-- â€˜Public  Accountantâ€™ì˜ ì§ì±…(job_title)ìœ¼ë¡œ ê³¼ê±°ì— ê·¼ë¬´í•œ ì ì´ ìˆëŠ” ëª¨ë“  ì‚¬ì›ì˜ ì‚¬ë²ˆê³¼ ì´ë¦„ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+-- í˜„ì¬ â€˜Public Accountantâ€™ì˜ ì§ì±…(job_title)ìœ¼ë¡œ ê·¼ë¬´í•˜ëŠ” ì‚¬ì›ì€ ê³ ë ¤ í•˜ì§€ ë§ê²ƒ.
 select * from employees;
 select * from jobs;
-select * from job_history; -- Accountant ÀÌÄ£±¸µéÀÇ employee_id¸¦ »Ì¾Æ¼­ ÀÌ¸§À» Ã£°í 
+select * from job_history; -- Accountant ì´ì¹œêµ¬ë“¤ì˜ employee_idë¥¼ ë½‘ì•„ì„œ ì´ë¦„ì„ ì°¾ê³  
 
-select e.employee_id "»ç¹ø", e.first_name || ' ' || e.last_name "»ç¿øÀÌ¸§"
-from jobs j inner join job_history h -- ¿©±â¼­ Ã£´Â 
+select e.employee_id "ì‚¬ë²ˆ", e.first_name || ' ' || e.last_name "ì‚¬ì›ì´ë¦„"
+from jobs j inner join job_history h -- ì—¬ê¸°ì„œ ì°¾ëŠ” 
 on j.job_id = h.job_id and j.job_title = 'Public Accountant' inner join employees e
 on h.employee_id = e.employee_id;
 
 
     
--- employees, departments, locations. Ä¿¹Ì¼ÇÀ» ¹Ş´Â ¸ğµç »ç¶÷µéÀÇ first_name, last_name, ºÎ¼­¸í, Áö¿ª id, µµ½Ã¸íÀ» °¡Á®¿À½Ã¿À.
+-- employees, departments, locations. ì»¤ë¯¸ì…˜ì„ ë°›ëŠ” ëª¨ë“  ì‚¬ëŒë“¤ì˜ first_name, last_name, ë¶€ì„œëª…, ì§€ì—­ id, ë„ì‹œëª…ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from employees;
 select * from departments;
 
-select e.first_name || ' ' || e.last_name "»ç¿øÀÌ¸§", d.department_name, l.location_id, l.city
+select e.first_name || ' ' || e.last_name "ì‚¬ì›ì´ë¦„", d.department_name, l.location_id, l.city
 from employees e inner join departments d 
 on e.department_id = d.department_id and e.commission_pct is not null inner join locations l
 on d.location_id = l.location_id;
     
--- ¡Ú Á¶ÀÎÀº ´Ù°É¾î¹ö¸®°í where Á¶°ÇÀº ÃÖ´ëÇÑ µÚ·Î »©±â     
+-- â˜… ì¡°ì¸ì€ ë‹¤ê±¸ì–´ë²„ë¦¬ê³  where ì¡°ê±´ì€ ìµœëŒ€í•œ ë’¤ë¡œ ë¹¼ê¸°     
     
--- employees. ÀÚ½ÅÀÇ ¸Å´ÏÀúº¸´Ù ¸ÕÀú °í¿ëµÈ »ç¿øµéÀÇ first_name, last_name, °í¿ëÀÏÀ» °¡Á®¿À½Ã¿À.
-select e.first_name , e.last_name , e.hire_date "°í¿ëÀÏ"
+-- employees. ìì‹ ì˜ ë§¤ë‹ˆì €ë³´ë‹¤ ë¨¼ì € ê³ ìš©ëœ ì‚¬ì›ë“¤ì˜ first_name, last_name, ê³ ìš©ì¼ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select e.first_name , e.last_name , e.hire_date "ê³ ìš©ì¼"
 from employees e inner join employees m
 on e.manager_id = m.employee_id and e.hire_date < m.hire_date ;
 
@@ -1141,103 +1141,103 @@ select * from employees; --03/06/17
 
 
 /*
-    4. ¼¿ÇÁÁ¶ÀÎ, self join
-    - 1°³ÀÇ Å×ÀÌºíÀ» »ç¿ëÇÏ´Â Á¶ÀÎ
-    - Å×ÀÌºí ½º½º·Î°¡ ÀÚ½Å°ú °ü°è¸¦ ¸Î´Â °æ¿ì 
+    4. ì…€í”„ì¡°ì¸, self join
+    - 1ê°œì˜ í…Œì´ë¸”ì„ ì‚¬ìš©í•˜ëŠ” ì¡°ì¸
+    - í…Œì´ë¸” ìŠ¤ìŠ¤ë¡œê°€ ìì‹ ê³¼ ê´€ê³„ë¥¼ ë§ºëŠ” ê²½ìš° 
 */
 
--- Á÷¿ø Å×ÀÌºí
+-- ì§ì› í…Œì´ë¸”
 create table tblSelf (
-    seq number primary key,                    -- Á÷¿ø¹øÈ£(PK)
-    name varchar2(30) not null,                -- Á÷¿ø¸í
-    department varchar2(50) null,              -- ºÎ¼­¸í
-    super number null references tblSelf(seq)  -- ÁıÇÕÀÌ ¶È°°À» »ÓÀÌ´Ù. -- »ó»ç¹øÈ£(FK)
+    seq number primary key,                    -- ì§ì›ë²ˆí˜¸(PK)
+    name varchar2(30) not null,                -- ì§ì›ëª…
+    department varchar2(50) null,              -- ë¶€ì„œëª…
+    super number null references tblSelf(seq)  -- ì§‘í•©ì´ ë˜‘ê°™ì„ ë¿ì´ë‹¤. -- ìƒì‚¬ë²ˆí˜¸(FK)
 );
 
 
-insert into tblSelf values(1, 'È«»çÀå', null, null);
-insert into tblSelf values(2, '±èºÎÀå', '¿µ¾÷ºÎ', 1); 
-insert into tblSelf values(3, 'ÀÌ°úÀå', '¿µ¾÷ºÎ', 2); 
-insert into tblSelf values(4, 'Á¤´ë¸®', '¿µ¾÷ºÎ', 3); 
-insert into tblSelf values(5, 'ÃÖ»ç¿ø', '¿µ¾÷ºÎ', 4); 
-insert into tblSelf values(6, '¹ÚºÎÀå', '°³¹ßºÎ', 1); 
-insert into tblSelf values(7, '¹ÚºÎÀå', '°³¹ßºÎ', 6); 
+insert into tblSelf values(1, 'í™ì‚¬ì¥', null, null);
+insert into tblSelf values(2, 'ê¹€ë¶€ì¥', 'ì˜ì—…ë¶€', 1); 
+insert into tblSelf values(3, 'ì´ê³¼ì¥', 'ì˜ì—…ë¶€', 2); 
+insert into tblSelf values(4, 'ì •ëŒ€ë¦¬', 'ì˜ì—…ë¶€', 3); 
+insert into tblSelf values(5, 'ìµœì‚¬ì›', 'ì˜ì—…ë¶€', 4); 
+insert into tblSelf values(6, 'ë°•ë¶€ì¥', 'ê°œë°œë¶€', 1); 
+insert into tblSelf values(7, 'ë°•ë¶€ì¥', 'ê°œë°œë¶€', 6); 
 
 select * from tblSelf;
 
--- Á÷¿ø ¸í´ÜÀ» °¡Á®¿Ã°Çµ¥ »ó»çµµ °¡Á®¿Í¶ó
+-- ì§ì› ëª…ë‹¨ì„ ê°€ì ¸ì˜¬ê±´ë° ìƒì‚¬ë„ ê°€ì ¸ì™€ë¼
 --1. join
 --2. subquery 
 select
-b.name as "Á÷¿ø¸í",
-a.name as "»ó»ç¸í"
+b.name as "ì§ì›ëª…",
+a.name as "ìƒì‚¬ëª…"
 from tblSelf a
-    inner join tblSelf b -- Á÷¿ø
+    inner join tblSelf b -- ì§ì›
         on a.seq = b.super;    
--- Á¶ÀÎ½Ã¿¡ ¾Õ¿¡ ÀÖ´Â Á¤º¸°¡ ¸ÕÀú³ª¿À´Âµ¥ 
--- ±Ùµ¥ È«»çÀåÀÌ¶ó´Â ¾Ö´Â ¾ø´Ù. 
+-- ì¡°ì¸ì‹œì— ì•ì— ìˆëŠ” ì •ë³´ê°€ ë¨¼ì €ë‚˜ì˜¤ëŠ”ë° 
+-- ê·¼ë° í™ì‚¬ì¥ì´ë¼ëŠ” ì• ëŠ” ì—†ë‹¤. 
 
 select
-b.name as "Á÷¿ø¸í",
-a.name as "»ó»ç¸í"
+b.name as "ì§ì›ëª…",
+a.name as "ìƒì‚¬ëª…"
 from tblSelf a
-    right outer join tblSelf b -- Á÷¿ø >> right ÀÌ±äÇÑµ¥
+    right outer join tblSelf b -- ì§ì› >> right ì´ê¸´í•œë°
         on a.seq = b.super;    
 
 select
 a.*,
-( select name from tblSelf where seq = a.super ) as "»ó»ç¸í"
-from tblSelf a; -- Á÷¿ø
--- ¿¬°ü¼­ºêÄõ¸®¸¦ »ç¿ëÇÏ´Â ¹æ¹ıÀÎµ¥ ÀÌ°Ç joinº¸´Ù Á¶±İ´õ Á÷°üÀû? 
--- ÀÚ±â°¡ ÀÚ±â¸¦ ÂüÁ¶ÇÏ´Â °ü°è 
+( select name from tblSelf where seq = a.super ) as "ìƒì‚¬ëª…"
+from tblSelf a; -- ì§ì›
+-- ì—°ê´€ì„œë¸Œì¿¼ë¦¬ë¥¼ ì‚¬ìš©í•˜ëŠ” ë°©ë²•ì¸ë° ì´ê±´ joinë³´ë‹¤ ì¡°ê¸ˆë” ì§ê´€ì ? 
+-- ìê¸°ê°€ ìê¸°ë¥¼ ì°¸ì¡°í•˜ëŠ” ê´€ê³„ 
 
 
--- Á÷¿ø¸í + »ó»ç¸í
+-- ì§ì›ëª… + ìƒì‚¬ëª…
 select 
-    e1.first_name as "Á÷¿ø¸í",
-    e2.first_name as "¸Å´ÏÀú¸í"
+    e1.first_name as "ì§ì›ëª…",
+    e2.first_name as "ë§¤ë‹ˆì €ëª…"
 from employees e1
     inner join employees e2
         on e1.manager_id = e2.employee_id;
 
--- ¡Ú selectÀı ¼­ºêÄõ¸®¸¦ ±â¾ïÇÏÀÚ
+-- â˜… selectì ˆ ì„œë¸Œì¿¼ë¦¬ë¥¼ ê¸°ì–µí•˜ì
 select 
-    e1.first_name as "Á÷¿ø¸í",
-    (select first_name from employees where employee_id = e1.manager_id) as "¸Å´ÏÀú¸í"
+    e1.first_name as "ì§ì›ëª…",
+    (select first_name from employees where employee_id = e1.manager_id) as "ë§¤ë‹ˆì €ëª…"
 from employees e1;
 
 /*
-    5. ÀüÃ¼ ¿ÜºÎ Á¶ÀÎ, Full Outer Join
-    - ¼­·Î ÂüÁ¶ÇÏ°í ÀÖ´Â °ü°è¿¡¼­ »ç¿ë
+    5. ì „ì²´ ì™¸ë¶€ ì¡°ì¸, Full Outer Join
+    - ì„œë¡œ ì°¸ì¡°í•˜ê³  ìˆëŠ” ê´€ê³„ì—ì„œ ì‚¬ìš©
 */
-select * from tblmen;   -- couple > ¿©ÀÚ Å×ÀÌºí ÂüÁ¶
-select * from tblwomen; -- couple > ³²ÀÚ Å×ÀÌºí ÂüÁ¶
+select * from tblmen;   -- couple > ì—¬ì í…Œì´ë¸” ì°¸ì¡°
+select * from tblwomen; -- couple > ë‚¨ì í…Œì´ë¸” ì°¸ì¡°
 
--- Ä¿ÇÃ(³²ÀÚ¸í + ¿©ÀÚ¸í) 
+-- ì»¤í”Œ(ë‚¨ìëª… + ì—¬ìëª…) 
 select
-    w.name as "¿©ÀÚ",
-    m.name as "³²ÀÚ"
-from tblmen m -- ÀÚ½Ä
-    inner join tblwomen w -- ºÎ¸ğ
+    w.name as "ì—¬ì",
+    m.name as "ë‚¨ì"
+from tblmen m -- ìì‹
+    inner join tblwomen w -- ë¶€ëª¨
         -- on m.name = w.couple; 
-        on w.couple =  m.name ; -- ÀÌ°Åµµ µ¿ÀÏÇÏ´Ù. 
+        on w.couple =  m.name ; -- ì´ê±°ë„ ë™ì¼í•˜ë‹¤. 
         
--- ¿©ÀÚÀÇ ÀÌ¸§°ú ³²ÀÚÀÇ ÀÌ¸§ 
--- ÀÚ½ÄÅ×ÀÌºíÀÌ ¸ŞÀÎÀÎµ¥ ±×°Å¸¸À¸·Î Á¤º¸¸¦ ¾òÀ» ¼ö ¾ø¾î¼­ ºÎ¸ğÅ×ÀÌºíÀ» ²ø¾î¿À´Â °ÍÀÌ´Ù.
+-- ì—¬ìì˜ ì´ë¦„ê³¼ ë‚¨ìì˜ ì´ë¦„ 
+-- ìì‹í…Œì´ë¸”ì´ ë©”ì¸ì¸ë° ê·¸ê±°ë§Œìœ¼ë¡œ ì •ë³´ë¥¼ ì–»ì„ ìˆ˜ ì—†ì–´ì„œ ë¶€ëª¨í…Œì´ë¸”ì„ ëŒì–´ì˜¤ëŠ” ê²ƒì´ë‹¤.
 
--- Ä¿ÇÃ(³²ÀÚ¸í + ¿©ÀÚ¸í) + ¼Ö·Î(³²ÀÚ) 
+-- ì»¤í”Œ(ë‚¨ìëª… + ì—¬ìëª…) + ì†”ë¡œ(ë‚¨ì) 
 
-
-select
-    m.name as "³²ÀÚ", -- ¼ø¼­»ó ÀÌÂÊ¿¡ left ±âÁØÅ×ÀÌºí Àâ´Â°Ô ³ªÀ½
-    w.name as "¿©ÀÚ"
-from tblmen m -- ÀÚ½Ä --> ¸ŞÀÎÀÓ 
-    left outer join tblwomen w -- ºÎ¸ğ
-        on w.couple =  m.name ; -- ÀÌ°Åµµ µ¿ÀÏÇÏ´Ù. 
 
 select
-    w.name as "¿©ÀÚ",
-    m.name as "³²ÀÚ" 
+    m.name as "ë‚¨ì", -- ìˆœì„œìƒ ì´ìª½ì— left ê¸°ì¤€í…Œì´ë¸” ì¡ëŠ”ê²Œ ë‚˜ìŒ
+    w.name as "ì—¬ì"
+from tblmen m -- ìì‹ --> ë©”ì¸ì„ 
+    left outer join tblwomen w -- ë¶€ëª¨
+        on w.couple =  m.name ; -- ì´ê±°ë„ ë™ì¼í•˜ë‹¤. 
+
+select
+    w.name as "ì—¬ì",
+    m.name as "ë‚¨ì" 
 from tblmen m 
     full outer join tblwomen w 
         on w.couple =  m.name ; 

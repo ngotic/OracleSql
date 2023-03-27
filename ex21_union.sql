@@ -2,79 +2,79 @@
 
     ex21_union.sql
     
-    °ü°è ´ë¼ö ¿¬»ê
-    1. ¼¿·º¼Ç > select where
-    2. ÇÁ·ÎÁ§¼Ç > select column
-    3. Á¶ÀÎ > a join b
-    4. ÇÕÁýÇÕ, Â÷ÁýÇÏºê ±³ÁýÇÕ
+    ê´€ê³„ ëŒ€ìˆ˜ ì—°ì‚°
+    1. ì…€ë ‰ì…˜ > select where
+    2. í”„ë¡œì ì…˜ > select column
+    3. ì¡°ì¸ > a join b
+    4. í•©ì§‘í•©, ì°¨ì§‘í•˜ë¸Œ êµì§‘í•©
     
     union 
-    - ÇÕÁýÇÕ
+    - í•©ì§‘í•©
     
     intersect 
-    - ±³ÁýÇÕ
+    - êµì§‘í•©
     
     minus 
-    - Â÷ÁýÇÕ
+    - ì°¨ì§‘í•©
     
 */  
 
--- Á¶ÀÎ: ÄÃ·³ + ÄÃ·³
--- À¯´Ï¿Â : ·¹ÄÚµå + ·¹ÄÚµå
--- select * from tblMen + select * from tblWomen; °á°ú¼ÂÀ» ÇÕÄ¡´Â °ÍÀÌ´Ù.
+-- ì¡°ì¸: ì»¬ëŸ¼ + ì»¬ëŸ¼
+-- ìœ ë‹ˆì˜¨ : ë ˆì½”ë“œ + ë ˆì½”ë“œ
+-- select * from tblMen + select * from tblWomen; ê²°ê³¼ì…‹ì„ í•©ì¹˜ëŠ” ê²ƒì´ë‹¤.
 
-select * from tblMen    -- ÀÌÁ¤µµ µé¿©¾²±â¸¦ ÇÑ´Ù.
+select * from tblMen    -- ì´ì •ë„ ë“¤ì—¬ì“°ê¸°ë¥¼ í•œë‹¤.
 union 
-select * from tblWomen; -- ³²ÀÚ 10¸í, ¿©ÀÚ 10¸íÀÌ ÇÑ²¨¹ø¿¡ ¼¯¿© ÀÖ´Ù.
+select * from tblWomen; -- ë‚¨ìž 10ëª…, ì—¬ìž 10ëª…ì´ í•œêº¼ë²ˆì— ì„žì—¬ ìžˆë‹¤.
 
---- È¸»ç ºÎ¼­º° > °Ô½ÃÆÇ ------------------
--- ÅëÀ¸·Î ~
-select * from °Ô½ÃÆÇ; -- 4Ãµ¸¸°Ç
+--- íšŒì‚¬ ë¶€ì„œë³„ > ê²Œì‹œíŒ ------------------
+-- í†µìœ¼ë¡œ ~
+select * from ê²Œì‹œíŒ; -- 4ì²œë§Œê±´
 
--- ³ª´²¼­ ~
-select * from ¿µ¾÷ºÎ°Ô½ÃÆÇ; -- Ãµ¸¸°Ç
-select * from ÃÑ¹«ºÎ°Ô½ÃÆÇ; -- 2Ãµ¸¸°Ç
-select * from °³¹ßºÎ°Ô½ÃÆÇ; -- Ãµ¸¸°Ç
+-- ë‚˜ëˆ ì„œ ~
+select * from ì˜ì—…ë¶€ê²Œì‹œíŒ; -- ì²œë§Œê±´
+select * from ì´ë¬´ë¶€ê²Œì‹œíŒ; -- 2ì²œë§Œê±´
+select * from ê°œë°œë¶€ê²Œì‹œíŒ; -- ì²œë§Œê±´
 
---- »çÀå´Ô > ¸ðµç ºÎ¼­ÀÇ °Ô½ÃÆÇ > ÇÑ¹ø¿¡ ¿­¶÷
--- ÇÑ¹ø¿¡ ~
-select * from ¿µ¾÷ºÎ°Ô½ÃÆÇ
+--- ì‚¬ìž¥ë‹˜ > ëª¨ë“  ë¶€ì„œì˜ ê²Œì‹œíŒ > í•œë²ˆì— ì—´ëžŒ
+-- í•œë²ˆì— ~
+select * from ì˜ì—…ë¶€ê²Œì‹œíŒ
 union
-select * from ÃÑ¹«ºÎ°Ô½ÃÆÇ
+select * from ì´ë¬´ë¶€ê²Œì‹œíŒ
 union
-select * from °³¹ßºÎ°Ô½ÃÆÇ;
+select * from ê°œë°œë¶€ê²Œì‹œíŒ;
 -----------------------------------------
 
--- SNS > °Ô½Ã¹° > ³âµµº°·Î~ > ½ÎÀÌ¿ùµå
-select * from °Ô½ÃÆÇ2020;
-select * from °Ô½ÃÆÇ2021;
-select * from °Ô½ÃÆÇ2022;
-select * from °Ô½ÃÆÇ2023;
+-- SNS > ê²Œì‹œë¬¼ > ë…„ë„ë³„ë¡œ~ > ì‹¸ì´ì›”ë“œ
+select * from ê²Œì‹œíŒ2020;
+select * from ê²Œì‹œíŒ2021;
+select * from ê²Œì‹œíŒ2022;
+select * from ê²Œì‹œíŒ2023;
 
-select * from °Ô½ÃÆÇ2023 where °Ë»ö; 
--- ³»¿ªÀ» ³ª´©´Â ÀÌÀ¯´Â ÀÌ·¸°Ô Å×ÀÌºíÀÌ ³ª´µ¾îÁ³À» ¼öµµ ÀÖ°í 
--- ³ª´©´Â ÀÌÀ¯´Â °Ë»öÀÌ °úºÎÇÏ°¡ ¿À´Ï±î ... 
+select * from ê²Œì‹œíŒ2023 where ê²€ìƒ‰; 
+-- ë‚´ì—­ì„ ë‚˜ëˆ„ëŠ” ì´ìœ ëŠ” ì´ë ‡ê²Œ í…Œì´ë¸”ì´ ë‚˜ë‰˜ì–´ì¡Œì„ ìˆ˜ë„ ìžˆê³  
+-- ë‚˜ëˆ„ëŠ” ì´ìœ ëŠ” ê²€ìƒ‰ì´ ê³¼ë¶€í•˜ê°€ ì˜¤ë‹ˆê¹Œ ... 
 
-select * from °Ô½ÃÆÇ2020
+select * from ê²Œì‹œíŒ2020
 union
-select * from °Ô½ÃÆÇ2021
+select * from ê²Œì‹œíŒ2021
 union
-select * from °Ô½ÃÆÇ2022
+select * from ê²Œì‹œíŒ2022
 union
-select * from °Ô½ÃÆÇ2023
-where °Ë»ö;
+select * from ê²Œì‹œíŒ2023
+where ê²€ìƒ‰;
 
--- Æò¼Ò¿¡ ³ª´²¼­ ÀúÀåÇß´Ù°¡ ³ªÁß¿¡ ÀüÃ¼ °Ë»öÀ» ÇÏ±âÀ§ÇØ ÇÕÃÄ¼­ °Ë»ö
+-- í‰ì†Œì— ë‚˜ëˆ ì„œ ì €ìž¥í–ˆë‹¤ê°€ ë‚˜ì¤‘ì— ì „ì²´ ê²€ìƒ‰ì„ í•˜ê¸°ìœ„í•´ í•©ì³ì„œ ê²€ìƒ‰
 
--- ¡Ú Á¶°Ç > ½ºÅ°¸¶(ÄÃ·³ÀÇ ¼ø¼­¿Í °³¼ö, ÀÚ·áÇü)°¡ µ¿ÀÏÇØ¾ß ÇÑ´Ù.
--- ¡Ú Á¶°Ç> µ¥ÀÌÅÍÀÇ ¼ºÁúÀÌ µ¿ÀÏÇØ¾ß ÇÑ´Ù.
-select * from tblCountry -- 5°³ Ä®·³
+-- â˜… ì¡°ê±´ > ìŠ¤í‚¤ë§ˆ(ì»¬ëŸ¼ì˜ ìˆœì„œì™€ ê°œìˆ˜, ìžë£Œí˜•)ê°€ ë™ì¼í•´ì•¼ í•œë‹¤.
+-- â˜… ì¡°ê±´> ë°ì´í„°ì˜ ì„±ì§ˆì´ ë™ì¼í•´ì•¼ í•œë‹¤.
+select * from tblCountry -- 5ê°œ ì¹¼ëŸ¼
 union
-select * from tblInsa;   -- 10°³ Ä®·³
+select * from tblInsa;   -- 10ê°œ ì¹¼ëŸ¼
 
-select name, capital, population from tblCountry  -- ¼ºÁúÀÌ ¸ÂÁö°¡ ¾Ê´Ù.
+select name, capital, population from tblCountry  -- ì„±ì§ˆì´ ë§žì§€ê°€ ì•Šë‹¤.
 union 
-select name, buseo, basicpay from tblInsa;        -- ¼ºÁúÀÌ ¸ÂÁö°¡ ¾Ê´Ù.
+select name, buseo, basicpay from tblInsa;        -- ì„±ì§ˆì´ ë§žì§€ê°€ ì•Šë‹¤.
 
 
 create table tblUnionA ( 
@@ -85,37 +85,37 @@ create table tblUnionB (
     name varchar2(30) not null
 );
 
-insert into tblUnionA values ('°­¾ÆÁö');
-insert into tblUnionA values ('°í¾çÀÌ');
-insert into tblUnionA values ('Åä³¢');
-insert into tblUnionA values ('°ÅºÏÀÌ');
-insert into tblUnionA values ('º´¾Æ¸®');
+insert into tblUnionA values ('ê°•ì•„ì§€');
+insert into tblUnionA values ('ê³ ì–‘ì´');
+insert into tblUnionA values ('í† ë¼');
+insert into tblUnionA values ('ê±°ë¶ì´');
+insert into tblUnionA values ('ë³‘ì•„ë¦¬');
 
-insert into tblUnionB values ('È£¶ûÀÌ');
-insert into tblUnionB values ('»çÀÚ');
-insert into tblUnionB values ('°­¾ÆÁö');
-insert into tblUnionB values ('ÄÚ³¢¸®');
-insert into tblUnionB values ('°í¾çÀÌ');
+insert into tblUnionB values ('í˜¸ëž‘ì´');
+insert into tblUnionB values ('ì‚¬ìž');
+insert into tblUnionB values ('ê°•ì•„ì§€');
+insert into tblUnionB values ('ì½”ë¼ë¦¬');
+insert into tblUnionB values ('ê³ ì–‘ì´');
 
 select * from tblUnionA;
 select * from tblUnionB;
 
---[ union > ¼öÇÐ ÁýÇÕÀÇ °³³ä > ÇÕÁýÇÕ > Áßº¹°ª Çã¿ëX ]
+--[ union > ìˆ˜í•™ ì§‘í•©ì˜ ê°œë… > í•©ì§‘í•© > ì¤‘ë³µê°’ í—ˆìš©X ]
 select * from tblUnionA
 union 
 select * from tblUnionB;
 
--- union all > Áßº¹°ª Çã¿ë O
+-- union all > ì¤‘ë³µê°’ í—ˆìš© O
 select * from tblUnionA
 union ALL
 select * from tblUnionB;
 
--- intersect > ±³ÁýÇÕ
+-- intersect > êµì§‘í•©
 select * from tblUnionA
 intersect
 select * from tblUnionB;
 
--- minus > Â÷ÁýÇÕ
+-- minus > ì°¨ì§‘í•©
 select * from tblUnionA
 minus 
 select * from tblUnionB;

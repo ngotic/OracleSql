@@ -1,91 +1,91 @@
 /*
 ex07_order.sql
     
-                                                  - select¹®
-    [ WITH <Sub Query> ]                          - withÀı 
-    SELECT column_list                            - selectÀı    // : ÀÌ µÎ°³ºÎÅÍ ½ÃÀÛ
-    FROM table_name                               - fromÀı
-    [ WHERE search_condition]                     - whereÀı
-    [ GROUP BY group_by_expression]               - group byÀı
-    { HAVING search_condition]                    - havingÀı
-    [ ORDER BY order_expression [ASC | DESC] ]    - order byÀı
+                                                  - selectë¬¸
+    [ WITH <Sub Query> ]                          - withì ˆ 
+    SELECT column_list                            - selectì ˆ    // : ì´ ë‘ê°œë¶€í„° ì‹œì‘
+    FROM table_name                               - fromì ˆ
+    [ WHERE search_condition]                     - whereì ˆ
+    [ GROUP BY group_by_expression]               - group byì ˆ
+    { HAVING search_condition]                    - havingì ˆ
+    [ ORDER BY order_expression [ASC | DESC] ]    - order byì ˆ
     
-    select Ä®·³¸®½ºÆ®                --3. ¿øÇÏ´Â Ä®·³µéÀ» °¡Á®¿Í¼­
-    from Å×ÀÌºí                     --1. Å×ÀÌºí·ÎºÎÅÍ
-    where Á¶°Ç                      --2. ¿øÇÏ´Â ÇàµéÀ» 
-    order by Á¤·Ä±âÁØ;               --4. ¼ø¼­´ë·Î Á¤ÇÑ´Ù. > order by´Â ¸ğµçÀı Áß¿¡ ²ÃÂî´Ù.
+    select ì¹¼ëŸ¼ë¦¬ìŠ¤íŠ¸                --3. ì›í•˜ëŠ” ì¹¼ëŸ¼ë“¤ì„ ê°€ì ¸ì™€ì„œ
+    from í…Œì´ë¸”                     --1. í…Œì´ë¸”ë¡œë¶€í„°
+    where ì¡°ê±´                      --2. ì›í•˜ëŠ” í–‰ë“¤ì„ 
+    order by ì •ë ¬ê¸°ì¤€;               --4. ìˆœì„œëŒ€ë¡œ ì •í•œë‹¤. > order byëŠ” ëª¨ë“ ì ˆ ì¤‘ì— ê¼´ì°Œë‹¤.
 
-    order by Àı
-    - °á°ú¼ÂÀÇ Á¤·Ä(O)
-    - ¿øº» Å×ÀÌºíÀÇ Á¤·Ä(»ç¿ëÀÚ°¡ °ü¿© ºÒ°¡´ÉÇÏ´Ù > ¿À¶óÅ¬ )
-    - order by 'Á¤·ÄÄÃ·³' [asc|desc]                     > ±âÁØ Á¤·ÄÄÃ·³ÀÌ ¿Â´Ù. »ı·«ÇÏ¸é ¿À¸§Â÷¼øÀÌ´Ù. 
+    order by ì ˆ
+    - ê²°ê³¼ì…‹ì˜ ì •ë ¬(O)
+    - ì›ë³¸ í…Œì´ë¸”ì˜ ì •ë ¬(ì‚¬ìš©ìê°€ ê´€ì—¬ ë¶ˆê°€ëŠ¥í•˜ë‹¤ > ì˜¤ë¼í´ )
+    - order by 'ì •ë ¬ì»¬ëŸ¼' [asc|desc]                     > ê¸°ì¤€ ì •ë ¬ì»¬ëŸ¼ì´ ì˜¨ë‹¤. ìƒëµí•˜ë©´ ì˜¤ë¦„ì°¨ìˆœì´ë‹¤. 
 */
 
 
-select * from tblCountry;  -- ÀÌ·± Å×ÀÌºíÀÌ ÀÖ°í ÀÌ Å×ÀÌºíÁ» Á¤·ÄÇØÁà! ´©±º°¡ ¿äÃ»ÇÑ´Ù. 
+select * from tblCountry;  -- ì´ëŸ° í…Œì´ë¸”ì´ ìˆê³  ì´ í…Œì´ë¸”ì¢€ ì •ë ¬í•´ì¤˜! ëˆ„êµ°ê°€ ìš”ì²­í•œë‹¤. 
 
 select * from tblCountry order by name asc;
 
-select * from tblCountry order by population desc; -- ÀÎ±¸¼ö°¡ ¸¹Àº ³ª¶ó·Î Á¤·ÄÇØÁÖ¼¼¿ä. 
-               -- null ÄÃ·³À» ´ë»óÀ¸·Î Á¤·Ä ~ ! Å«ÂÊÀ¸·Î ÆíÀÔÀÌ µÇ¼­ Á¤·ÄµÈ´Ù. > ±×·¡¼­ nullÀ» »©¸é µÈ´Ù.
-select * from tblCountry where population is not null order by population desc; -- ÀÌ»óÅÂ¿¡¼­ ÄÉ³Ä¸¦ »«´Ù. 
+select * from tblCountry order by population desc; -- ì¸êµ¬ìˆ˜ê°€ ë§ì€ ë‚˜ë¼ë¡œ ì •ë ¬í•´ì£¼ì„¸ìš”. 
+               -- null ì»¬ëŸ¼ì„ ëŒ€ìƒìœ¼ë¡œ ì •ë ¬ ~ ! í°ìª½ìœ¼ë¡œ í¸ì…ì´ ë˜ì„œ ì •ë ¬ëœë‹¤. > ê·¸ë˜ì„œ nullì„ ë¹¼ë©´ ëœë‹¤.
+select * from tblCountry where population is not null order by population desc; -- ì´ìƒíƒœì—ì„œ ì¼€ëƒë¥¼ ëº€ë‹¤. 
 
-select * from tblInsa order by name asc; -- ¹®ÀÚ¿­ + ¿À¸§Â÷¼ø 
-select * from tblInsa order by basicpay; -- ¼ıÀÚ + ¿À¸§Â÷¼ø  > ±Ş¿©°¡ ³·Àº »ç¶÷ºÎÅÍ ¿À¸¥»ç¶÷¹èÄ¡ 
-select * from tblInsa order by ibsadate; -- ³¯Â¥ + ¿À¸§Â÷¼ø 
+select * from tblInsa order by name asc; -- ë¬¸ìì—´ + ì˜¤ë¦„ì°¨ìˆœ 
+select * from tblInsa order by basicpay; -- ìˆ«ì + ì˜¤ë¦„ì°¨ìˆœ  > ê¸‰ì—¬ê°€ ë‚®ì€ ì‚¬ëŒë¶€í„° ì˜¤ë¥¸ì‚¬ëŒë°°ì¹˜ 
+select * from tblInsa order by ibsadate; -- ë‚ ì§œ + ì˜¤ë¦„ì°¨ìˆœ 
 
 
-select * from tblInsa order by buseo asc; -- Á¤·Ä±âÁØÀÌ Áßº¹ÀÌ ÀÏ¾î³­´Ù. °³¹ßºÎ°¡ °³¸¹´Ù.
+select * from tblInsa order by buseo asc; -- ì •ë ¬ê¸°ì¤€ì´ ì¤‘ë³µì´ ì¼ì–´ë‚œë‹¤. ê°œë°œë¶€ê°€ ê°œë§ë‹¤.
 
--- ´ÙÁß Á¤·Ä 
+-- ë‹¤ì¤‘ ì •ë ¬ 
 
-select * from tblInsa order by buseo asc, city asc; -- °³¹ßºÎ°¡ °³¸¹À¸´Ï±î ±× »çÀÌ¿¡¼­µµ ½ÃÆ¼±âÁØÀ¸·Î Á¤·Ä 
+select * from tblInsa order by buseo asc, city asc; -- ê°œë°œë¶€ê°€ ê°œë§ìœ¼ë‹ˆê¹Œ ê·¸ ì‚¬ì´ì—ì„œë„ ì‹œí‹°ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ 
 
-select * from tblInsa order by buseo asc, city asc, name asc; -- ³»°¡ ¹º°¡¸¦ ÇÏ°í½ÍÀºµ¥ ¿À¶óÅ¬¿¡¼­µµ ÀÚ¹Ù¿¡¼­µµ ÇØ¼­ °ãÄ£´Ù.
--- ÀÌ°É db¿¡¼­ ÇÒÁö ¾Æ´Ï¸é ÀÚ¹Ù´Ü¿¡¼­ ÇÒÁö °í¹ÎµÈ´Ù. 
+select * from tblInsa order by buseo asc, city asc, name asc; -- ë‚´ê°€ ë­”ê°€ë¥¼ í•˜ê³ ì‹¶ì€ë° ì˜¤ë¼í´ì—ì„œë„ ìë°”ì—ì„œë„ í•´ì„œ ê²¹ì¹œë‹¤.
+-- ì´ê±¸ dbì—ì„œ í• ì§€ ì•„ë‹ˆë©´ ìë°”ë‹¨ì—ì„œ í• ì§€ ê³ ë¯¼ëœë‹¤. 
 
 select 
     name, buseo, jikwi
 from tblInsa
-    order by buseo, jikwi, name;  -- ¿©·¯°³ ±âÁØÀ¸·Î Á¤·Ä 
+    order by buseo, jikwi, name;  -- ì—¬ëŸ¬ê°œ ê¸°ì¤€ìœ¼ë¡œ ì •ë ¬ 
     
     
-    ------ ¢Õ
+    ------ â†•
     
     
 select 
     name, buseo, jikwi
 from tblInsa
-    order by 2, 3, 1; -- ÄÃ·³¼ø¼­°¡ ¹øÈ£´Ù. > ±ÇÀå x °¡µ¶¼ºÀÌ ³·´Ù. > À¯Áöº¸¼ö¿¡ Ãë¾àÇÏ´Ù. 
+    order by 2, 3, 1; -- ì»¬ëŸ¼ìˆœì„œê°€ ë²ˆí˜¸ë‹¤. > ê¶Œì¥ x ê°€ë…ì„±ì´ ë‚®ë‹¤. > ìœ ì§€ë³´ìˆ˜ì— ì·¨ì•½í•˜ë‹¤. 
 
 
--- °¡°øµÈ °ªÀ» > where Àı¿¡ ¾²´ø°ÅÃ³·³
--- °¡°øµÈ °ªÀ» > order by Àı¿¡´Ù°¡ ¾µ ¼ö ÀÖ´Ù.
+-- ê°€ê³µëœ ê°’ì„ > where ì ˆì— ì“°ë˜ê±°ì²˜ëŸ¼
+-- ê°€ê³µëœ ê°’ì„ > order by ì ˆì—ë‹¤ê°€ ì“¸ ìˆ˜ ìˆë‹¤.
 
-select * from tblInsa order by basicpay desc; -- Çã°æ¿î È«±æµ¿
-select * from tblInsa order by basicpay + sudang desc; -- Çã°æ¿î È«±æµ¿ > ¼øÀ§°¡ ¹Ù²ï´Ù. 
--- ÀÌ·±½ÄÀ¸·Î Á¶ÀÛÇÑ °ªÀ» order by·Î ³ÖÀ» ¼ö ÀÖ´Ù. 
+select * from tblInsa order by basicpay desc; -- í—ˆê²½ìš´ í™ê¸¸ë™
+select * from tblInsa order by basicpay + sudang desc; -- í—ˆê²½ìš´ í™ê¸¸ë™ > ìˆœìœ„ê°€ ë°”ë€ë‹¤. 
+-- ì´ëŸ°ì‹ìœ¼ë¡œ ì¡°ì‘í•œ ê°’ì„ order byë¡œ ë„£ì„ ìˆ˜ ìˆë‹¤. 
 
--- Á÷À§¼øÀ¸·Î Á¤·Ä: ºÎÀå > °úÀå > ´ë¸® > »ç¿ø > ÀÚ¹Ù´Â ¾ê³×µéÀ» °¢°¢¿¡ ´ëÀÀÇÏ´Â ¼ıÀÚ·Î ¸¸µé¾ú¾ú´Ù.
+-- ì§ìœ„ìˆœìœ¼ë¡œ ì •ë ¬: ë¶€ì¥ > ê³¼ì¥ > ëŒ€ë¦¬ > ì‚¬ì› > ìë°”ëŠ” ì–˜ë„¤ë“¤ì„ ê°ê°ì— ëŒ€ì‘í•˜ëŠ” ìˆ«ìë¡œ ë§Œë“¤ì—ˆì—ˆë‹¤.
 select 
     name, jikwi
 from tblInsa
     order by jikwi desc;
     
--- °ú,ºÎ,´ë,»ç¸¦ ¿ì¸®°¡ ¿øÇÏ´Â ¼ıÀÚ·Î ÇÏ°í ½Í´Ù. 
+-- ê³¼,ë¶€,ëŒ€,ì‚¬ë¥¼ ìš°ë¦¬ê°€ ì›í•˜ëŠ” ìˆ«ìë¡œ í•˜ê³  ì‹¶ë‹¤. 
 
 select 
     name, jikwi,
     case
-        when jikwi = 'ºÎÀå' then 1
-        when jikwi = '°úÀå' then 2
-        when jikwi = '´ë¸®' then 3
-        when jikwi = '»ç¿ø' then 4
-    end as ¼ø¼­ -- alias¸¦ ¾ÈºÙÀÌ¸é order by ¿·¿¡ ºÙÀÏ°Íµµ ¾ø´Ù.
+        when jikwi = 'ë¶€ì¥' then 1
+        when jikwi = 'ê³¼ì¥' then 2
+        when jikwi = 'ëŒ€ë¦¬' then 3
+        when jikwi = 'ì‚¬ì›' then 4
+    end as ìˆœì„œ -- aliasë¥¼ ì•ˆë¶™ì´ë©´ order by ì˜†ì— ë¶™ì¼ê²ƒë„ ì—†ë‹¤.
     
 from tblInsa
-    order by ¼ø¼­ asc; -- ³»°¡ ¿øÇÏ´Â Á÷À§¼øÀ¸·Î Ãâ·ÂµÇ¾ú´Ù. 
-    -- »õ·Î¿î Ä®·³À» ¸¸µé¾î¼­ ±×±âÁØÀ» Á¤·ÄÇÑ´Ù. 
+    order by ìˆœì„œ asc; -- ë‚´ê°€ ì›í•˜ëŠ” ì§ìœ„ìˆœìœ¼ë¡œ ì¶œë ¥ë˜ì—ˆë‹¤. 
+    -- ìƒˆë¡œìš´ ì¹¼ëŸ¼ì„ ë§Œë“¤ì–´ì„œ ê·¸ê¸°ì¤€ì„ ì •ë ¬í•œë‹¤. 
     
 
 
@@ -95,58 +95,58 @@ from tblInsa
 select 
     name, jikwi,
     case
-        when jikwi = 'ºÎÀå' then 1
-        when jikwi = '°úÀå' then 2
-        when jikwi = '´ë¸®' then 3
-        when jikwi = '»ç¿ø' then 4
-    end as ¼ø¼­ -- alias¸¦ ¾ÈºÙÀÌ¸é order by ¿·¿¡ ºÙÀÏ°Íµµ ¾ø´Ù. > ¿©±â¼± case ~ end°¡ Ä®·³ÀÌ´Ù. 
+        when jikwi = 'ë¶€ì¥' then 1
+        when jikwi = 'ê³¼ì¥' then 2
+        when jikwi = 'ëŒ€ë¦¬' then 3
+        when jikwi = 'ì‚¬ì›' then 4
+    end as ìˆœì„œ -- aliasë¥¼ ì•ˆë¶™ì´ë©´ order by ì˜†ì— ë¶™ì¼ê²ƒë„ ì—†ë‹¤. > ì—¬ê¸°ì„  case ~ endê°€ ì¹¼ëŸ¼ì´ë‹¤. 
     
 from tblInsa
-    order by 3 asc; -- ÀÌ·¸°Ô 3À¸·Î ÇØµµ µÈ´Ù.
-    -- »õ·Î¿î Ä®·³À» ¸¸µé¾î¼­ ±×±âÁØÀ» Á¤·ÄÇÑ´Ù. 
+    order by 3 asc; -- ì´ë ‡ê²Œ 3ìœ¼ë¡œ í•´ë„ ëœë‹¤.
+    -- ìƒˆë¡œìš´ ì¹¼ëŸ¼ì„ ë§Œë“¤ì–´ì„œ ê·¸ê¸°ì¤€ì„ ì •ë ¬í•œë‹¤. 
 
 select name, jikwi
 from tblInsa 
 order by 
 (case
-        when jikwi = 'ºÎÀå' then 1
-        when jikwi = '°úÀå' then 2
-        when jikwi = '´ë¸®' then 3
-        when jikwi = '»ç¿ø' then 4
-end) asc; -- alias¸¦ ¾ÈºÙÀÌ¸é order by ¿·¿¡ ºÙÀÏ°Íµµ ¾ø´Ù.
---> ¿©±â¼± case ~ end°¡ Ä®·³ÀÌ¾úÀ¸¹Ç·Î Â©¶ó¼­ ³ÖÀº °ÍÀÌ´Ù.
---> ¿ä·¸°Ô ÇÏ¸é ¼ø¼­ ºÎºĞÀÇ Ä®·³À» ¾ø¾Ù ¼ö ÀÖ´Ù.
--- case end´Â select ¹®¿¡µµ µé¾î°¡°í order by¿¡µµ µé¾î°£´Ù.
--- case¹®À» whereÀı¿¡µµ µé¾î°£´Ù. 
+        when jikwi = 'ë¶€ì¥' then 1
+        when jikwi = 'ê³¼ì¥' then 2
+        when jikwi = 'ëŒ€ë¦¬' then 3
+        when jikwi = 'ì‚¬ì›' then 4
+end) asc; -- aliasë¥¼ ì•ˆë¶™ì´ë©´ order by ì˜†ì— ë¶™ì¼ê²ƒë„ ì—†ë‹¤.
+--> ì—¬ê¸°ì„  case ~ endê°€ ì¹¼ëŸ¼ì´ì—ˆìœ¼ë¯€ë¡œ ì§¤ë¼ì„œ ë„£ì€ ê²ƒì´ë‹¤.
+--> ìš”ë ‡ê²Œ í•˜ë©´ ìˆœì„œ ë¶€ë¶„ì˜ ì¹¼ëŸ¼ì„ ì—†ì•¨ ìˆ˜ ìˆë‹¤.
+-- case endëŠ” select ë¬¸ì—ë„ ë“¤ì–´ê°€ê³  order byì—ë„ ë“¤ì–´ê°„ë‹¤.
+-- caseë¬¸ì„ whereì ˆì—ë„ ë“¤ì–´ê°„ë‹¤. 
 
 select name, jikwi
 from tblInsa 
-where case  -- where ¿·¿¡µµ µé¾î°£´Ù °Á ÄÃ·³ÀÌ¶ó »ı°¢ÇØ¶ó
-    when jikwi = 'ºÎÀå' then 1
-    when jikwi = '°úÀå' then 2
-    when jikwi = '´ë¸®' then 3
-    when jikwi = '»ç¿ø' then 4
+where case  -- where ì˜†ì—ë„ ë“¤ì–´ê°„ë‹¤ ê± ì»¬ëŸ¼ì´ë¼ ìƒê°í•´ë¼
+    when jikwi = 'ë¶€ì¥' then 1
+    when jikwi = 'ê³¼ì¥' then 2
+    when jikwi = 'ëŒ€ë¦¬' then 3
+    when jikwi = 'ì‚¬ì›' then 4
     end = 1
 order by case 
-    when jikwi = 'ºÎÀå' then 1
-    when jikwi = '°úÀå' then 2
-    when jikwi = '´ë¸®' then 3
-    when jikwi = '»ç¿ø' then 4
+    when jikwi = 'ë¶€ì¥' then 1
+    when jikwi = 'ê³¼ì¥' then 2
+    when jikwi = 'ëŒ€ë¦¬' then 3
+    when jikwi = 'ì‚¬ì›' then 4
     end asc;
     
--- ¼ºº°¼øÀ¸·Î Á¤·Ä : ³²ÀÚ > ¿©ÀÚ     
+-- ì„±ë³„ìˆœìœ¼ë¡œ ì •ë ¬ : ë‚¨ì > ì—¬ì     
 -- 771212 - 1022432    
 select * from tblInsa;
 
 select * from tblInsa
-    order by ¼ºº° asc;
+    order by ì„±ë³„ asc;
 
--- case end¹®À¸·Î ³»°¡ Ä®·³À» Á÷Á¢ ¸¸µç´Ù. 
+-- case endë¬¸ìœ¼ë¡œ ë‚´ê°€ ì¹¼ëŸ¼ì„ ì§ì ‘ ë§Œë“ ë‹¤. 
 select 
     case 
-        when ssn like '%-1%' then '³²ÀÚ'
-        when ssn like '%-2%' then '¿©ÀÚ'
-    end as ¼ºº°-- ÀÌ°Ô ÇÏ³ªÀÇ ÄÃ·³ÀÌ´Ù. ³»°¡ °¡°øÇØ¼­ ¸¸µç ÄÃ·³ÀÌ´Ù. 
+        when ssn like '%-1%' then 'ë‚¨ì'
+        when ssn like '%-2%' then 'ì—¬ì'
+    end as ì„±ë³„-- ì´ê²Œ í•˜ë‚˜ì˜ ì»¬ëŸ¼ì´ë‹¤. ë‚´ê°€ ê°€ê³µí•´ì„œ ë§Œë“  ì»¬ëŸ¼ì´ë‹¤. 
 from tblInsa;
     
--- ¿ø·¡ Å×ÀÌºí¿¡ ÀÖ´Â Ä®·³ÀÌ´ø ÄÃ·³ÀÌµç µ¿µîÇÏ´Ù. 
+-- ì›ë˜ í…Œì´ë¸”ì— ìˆëŠ” ì¹¼ëŸ¼ì´ë˜ ì»¬ëŸ¼ì´ë“  ë™ë“±í•˜ë‹¤. 

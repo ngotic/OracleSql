@@ -1,67 +1,67 @@
 /*
     ex23_pseudo.sql
     
-    ÀÇ»çÄÃ·³, Pseudo Column
-    - ½ÇÁ¦ ÄÃ·³ÀÌ ¾Æ´Ñµ¥ ÄÃ·³Ã³·³ Çàµ¿ÇÏ´Â ¿ä¼Ò
+    ì˜ì‚¬ì»¬ëŸ¼, Pseudo Column
+    - ì‹¤ì œ ì»¬ëŸ¼ì´ ì•„ë‹Œë° ì»¬ëŸ¼ì²˜ëŸ¼ í–‰ë™í•˜ëŠ” ìš”ì†Œ
     
     rownum 
-    - ¿À¶óÅ¬ Àü¿ë
-    - row num > Çà¹øÈ£ > ·¹ÄÚµåÀÇ ÀÏ·Ã¹øÈ£
-    - fromÀıÀÌ ½ÇÇàµÉ ¶§ °¢ ·¹ÄÚµå¿¡ ÀÏ·Ã¹øÈ£¸¦ ÇÒ´çÇÑ´Ù.(****)
-    - whereÀıÀÇ ¿µÇâÀ» ¹ŞÀ¸¸é ÀÏ·Ã¹øÈ£¸¦ ´Ù½Ã Á¤ºñÇÑ´Ù.(reindexing) (****) > ÀÏ·Ã¹øÈ£ º¯È­!!!
-    - rownumÀ» »ç¿ë > ¼­ºê Äõ¸®¸¦ ÀÚÁÖ »ç¿ëÇÑ´Ù.
+    - ì˜¤ë¼í´ ì „ìš©
+    - row num > í–‰ë²ˆí˜¸ > ë ˆì½”ë“œì˜ ì¼ë ¨ë²ˆí˜¸
+    - fromì ˆì´ ì‹¤í–‰ë  ë•Œ ê° ë ˆì½”ë“œì— ì¼ë ¨ë²ˆí˜¸ë¥¼ í• ë‹¹í•œë‹¤.(****)
+    - whereì ˆì˜ ì˜í–¥ì„ ë°›ìœ¼ë©´ ì¼ë ¨ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ ì •ë¹„í•œë‹¤.(reindexing) (****) > ì¼ë ¨ë²ˆí˜¸ ë³€í™”!!!
+    - rownumì„ ì‚¬ìš© > ì„œë¸Œ ì¿¼ë¦¬ë¥¼ ìì£¼ ì‚¬ìš©í•œë‹¤.
 */
 
 select
-    name, buseo,     -- ÄÃ·³(¼Ó¼º)   > output > °´Ã¼¿¡ Æ¯¼º¿¡ µû¶ó ´Ù¸¥ °ªÀ» °¡Áø´Ù.(°³ÀÎ µ¥ÀÌÅÍ)
-    sysdate,         -- ÇÔ¼ö        > output > ¸ğµç ·¹ÄÚµå°¡ µ¿ÀÏÇÑ °ªÀ» °¡Áø´Ù.(Á¤Àû µ¥ÀÌÅÍ)
-    substr(name, 2), -- ÇÔ¼ö        > input + output > °´Ã¼¸¶´Ù ´Ù¸¥ °ªÀ» °¡Áø´Ù. 
-    '»ó¼ö',            -- »ó¼ö        > output > ¸ğµç ·¹ÄÚµå°¡ µ¿ÀÏÇÑ °ªÀ» °¡Áø´Ù. ( Á¤Àû µ¥ÀÌÅÍ )
-    rownum           -- ÀÇ»ç Ä®·³ > output > °´Ã¼ÀÇ Æ¯¼º¿¡ µû¶ó ´Ù¸¥ °ªÀ» °¡Áø´Ù.(°³ÀÎ µ¥ÀÌÅÍ )
+    name, buseo,     -- ì»¬ëŸ¼(ì†ì„±)   > output > ê°ì²´ì— íŠ¹ì„±ì— ë”°ë¼ ë‹¤ë¥¸ ê°’ì„ ê°€ì§„ë‹¤.(ê°œì¸ ë°ì´í„°)
+    sysdate,         -- í•¨ìˆ˜        > output > ëª¨ë“  ë ˆì½”ë“œê°€ ë™ì¼í•œ ê°’ì„ ê°€ì§„ë‹¤.(ì •ì  ë°ì´í„°)
+    substr(name, 2), -- í•¨ìˆ˜        > input + output > ê°ì²´ë§ˆë‹¤ ë‹¤ë¥¸ ê°’ì„ ê°€ì§„ë‹¤. 
+    'ìƒìˆ˜',            -- ìƒìˆ˜        > output > ëª¨ë“  ë ˆì½”ë“œê°€ ë™ì¼í•œ ê°’ì„ ê°€ì§„ë‹¤. ( ì •ì  ë°ì´í„° )
+    rownum           -- ì˜ì‚¬ ì¹¼ëŸ¼ > output > ê°ì²´ì˜ íŠ¹ì„±ì— ë”°ë¼ ë‹¤ë¥¸ ê°’ì„ ê°€ì§„ë‹¤.(ê°œì¸ ë°ì´í„° )
 from tblInsa;
 
--- ¼ıÀÚµéÀÌ ÁÖ¸£¸¤ ³ª¿Â´Ù. ±×°Ô ÀÏ·Ã¹øÈ£ °°ÀÌ ³ª¿Â´Ù.
+-- ìˆ«ìë“¤ì´ ì£¼ë¥´ë¥µ ë‚˜ì˜¨ë‹¤. ê·¸ê²Œ ì¼ë ¨ë²ˆí˜¸ ê°™ì´ ë‚˜ì˜¨ë‹¤.
 
--- °Ô½ÃÆÇ > ÆäÀÌÂ¡ : ÆäÀÌÁö ±â¹ıÀ» ¾µ ¶§ rownumÀ» ¾´´Ù. 
--- 1ÆäÀÌÁö > rownum between 1 and 20 
--- 2ÆäÀÌÁö > rownum between 21 and 40 
--- 3ÆäÀÌÁö > rownum between 41 and 60 
+-- ê²Œì‹œíŒ > í˜ì´ì§• : í˜ì´ì§€ ê¸°ë²•ì„ ì“¸ ë•Œ rownumì„ ì“´ë‹¤. 
+-- 1í˜ì´ì§€ > rownum between 1 and 20 
+-- 2í˜ì´ì§€ > rownum between 21 and 40 
+-- 3í˜ì´ì§€ > rownum between 41 and 60 
 
 select name, buseo, rownum from tblInsa;
-select name, buseo, rownum from tblInsa where rownum = 1;  -- ¾ê´Â µÈ´Ù!!!! ÀÎµ¦½º Á¤·Ä¾øÀÌ Ã¹¹ø¤Š·Î ¹Ù·Î Ã£¾Æ¼­
-select name, buseo, rownum from tblInsa where rownum <= 5; -- ¾êµµ ÀÏÄ¡°¡ µÇ´Ï±î ÀÎµ¦½º Á¤·ÄÀÌ ÇÊ¿ä°¡ ¾øÀ½
+select name, buseo, rownum from tblInsa where rownum = 1;  -- ì–˜ëŠ” ëœë‹¤!!!! ì¸ë±ìŠ¤ ì •ë ¬ì—†ì´ ì²«ë²ˆì¨°ë¡œ ë°”ë¡œ ì°¾ì•„ì„œ
+select name, buseo, rownum from tblInsa where rownum <= 5; -- ì–˜ë„ ì¼ì¹˜ê°€ ë˜ë‹ˆê¹Œ ì¸ë±ìŠ¤ ì •ë ¬ì´ í•„ìš”ê°€ ì—†ìŒ
 
-select name, buseo, rownum from tblInsa where rownum = 10; -- ¾ÈµÊ¾ÈµÊ!!
-select name, buseo, rownum from tblInsa where rownum = 2;  -- ÀÌ·±°Å´Â ¾ÈµÈ´Ù.
--- ÀÌ·±°Å´Â ¾ÈµÈ´Ù. ¡Ú 1º¸´Ù Å« °ª ÇÏ³ª µü ÁöÁ¤Àº ¾ÈµÊ > Á¶°ÇÀ» ¸¸Á·ÇÏ´Â ±âÁØÀÌ ¾ø´Ù. 
+select name, buseo, rownum from tblInsa where rownum = 10; -- ì•ˆë¨ì•ˆë¨!!
+select name, buseo, rownum from tblInsa where rownum = 2;  -- ì´ëŸ°ê±°ëŠ” ì•ˆëœë‹¤.
+-- ì´ëŸ°ê±°ëŠ” ì•ˆëœë‹¤. â˜… 1ë³´ë‹¤ í° ê°’ í•˜ë‚˜ ë”± ì§€ì •ì€ ì•ˆë¨ > ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ê¸°ì¤€ì´ ì—†ë‹¤. 
 
-select name, buseo, rownum from tblInsa where rownum > 5; -- ÀÌ°Íµµ ¾ÈµÈ´Ù. 
+select name, buseo, rownum from tblInsa where rownum > 5; -- ì´ê²ƒë„ ì•ˆëœë‹¤. 
 
-
-
-select 
-    name, buseo, rownum
-from tblInsa; --1. *** ÀÌ ½ÃÁ¡ÀÇ µ¥ÀÌÅÍ¸¦ °¡Áö°í rownumÀÌ ÀÌ¹Ì ÇÒ´çµÇ¾î ÀÖ´Ù. 
 
 
 select 
     name, buseo, rownum
-from tblInsa          -- fromÀı·Î °¡Á®¿Â µ¥ÀÌÅÍÁß¿¡ Ã¹¹øÂ° »ç¶÷ Ã£´Â´Ù. 
-    where rownum = 1; --2. Á¶°Ç, rownum¿¡ 1ÀÌ µé¾ú´Ï??
+from tblInsa; --1. *** ì´ ì‹œì ì˜ ë°ì´í„°ë¥¼ ê°€ì§€ê³  rownumì´ ì´ë¯¸ í• ë‹¹ë˜ì–´ ìˆë‹¤. 
+
+
+select 
+    name, buseo, rownum
+from tblInsa          -- fromì ˆë¡œ ê°€ì ¸ì˜¨ ë°ì´í„°ì¤‘ì— ì²«ë²ˆì§¸ ì‚¬ëŒ ì°¾ëŠ”ë‹¤. 
+    where rownum = 1; --2. ì¡°ê±´, rownumì— 1ì´ ë“¤ì—ˆë‹ˆ??
     
 select 
     name, buseo, rownum
 from tblInsa
-    where rownum = 3;   -- ÀÌ°Ô ¿Ö ¾ÈµÉ±î? rownum=3Àº ºĞ¸íÈ÷ ÀÖ´Âµª...?
-    -- Å»¶ôÀÌ µÇ¹ö¸®¸é »ç¶óÁø°Å´Ù.
-    -- rownumÀ» Á¶°ÇÀ¸·Î »ç¿ë > ¹İµå½Ã 1~Á¶°Ç ¹üÀ§ > Á¶°Ç¿¡ Æ÷ÇÔ
+    where rownum = 3;   -- ì´ê²Œ ì™œ ì•ˆë ê¹Œ? rownum=3ì€ ë¶„ëª…íˆ ìˆëŠ”ë...?
+    -- íƒˆë½ì´ ë˜ë²„ë¦¬ë©´ ì‚¬ë¼ì§„ê±°ë‹¤.
+    -- rownumì„ ì¡°ê±´ìœ¼ë¡œ ì‚¬ìš© > ë°˜ë“œì‹œ 1~ì¡°ê±´ ë²”ìœ„ > ì¡°ê±´ì— í¬í•¨
 
 
 
--- order by ¶ûÀº ¾²±â°¡ ¾Ö¸ÅÇÏ´Ù. rownumµµ °°ÀÌ ÀçÁ¤·ÄµÈ´Ù.  
+-- order by ë‘ì€ ì“°ê¸°ê°€ ì• ë§¤í•˜ë‹¤. rownumë„ ê°™ì´ ì¬ì •ë ¬ëœë‹¤.  
 select 
     name, buseo, rownum
-from tblInsa         -- 1. »ı¼º(+rownum)
+from tblInsa         -- 1. ìƒì„±(+rownum)
     order by name;  
     
 
@@ -70,21 +70,21 @@ select
 from tblInsa
     order by basicpay desc;
 
--- rownumÀº fromÀıÀÌ ÇÒ´çµÉ ¶§ ½ÇÇàµÈ´Ù. ±Ùµ¥ order by´Â ¸¶Áö¸·¿¡ ½ÇÇàµÈ´Ù.
--- ÀÌ°Í¶§¹®¿¡ ... ¹®Á¦´Ù!! ¼ø¼­¶§¹®¿¡ ±â´ÉÀÌ ¿øÇÏ´Â ´ë·Î µÇÁö ¾Ê´Â´Ù.
--- rownumÀº order byÀü¿¡ ¸Å°³Áø ³ÑÀÌ¶ó order by³¯·Á¹ö¸®¸é µÚ¼¯ÀÌ´Â °ÍÀÌ´Ù.
+-- rownumì€ fromì ˆì´ í• ë‹¹ë  ë•Œ ì‹¤í–‰ëœë‹¤. ê·¼ë° order byëŠ” ë§ˆì§€ë§‰ì— ì‹¤í–‰ëœë‹¤.
+-- ì´ê²ƒë•Œë¬¸ì— ... ë¬¸ì œë‹¤!! ìˆœì„œë•Œë¬¸ì— ê¸°ëŠ¥ì´ ì›í•˜ëŠ” ëŒ€ë¡œ ë˜ì§€ ì•ŠëŠ”ë‹¤.
+-- rownumì€ order byì „ì— ë§¤ê°œì§„ ë„˜ì´ë¼ order byë‚ ë ¤ë²„ë¦¬ë©´ ë’¤ì„ì´ëŠ” ê²ƒì´ë‹¤.
 
--- ÀÌ·¯´Ï±î ÁÁ´Ù. 
-select name, buseo, basicpay, rownum  -- ÀÎ¶óÀÎºäÂÊÀÇ rownum°ú ¾ÈÂÊ rownumÀÌ ¿ÏÀü ´Ù¸£´Ù. 
--- ¡Ú ¾ÈÂÊÀÇ rownumÀ¸·Î ½ÇÇàµÇÁö ¾Ê´Â´Ù.
+-- ì´ëŸ¬ë‹ˆê¹Œ ì¢‹ë‹¤. 
+select name, buseo, basicpay, rownum  -- ì¸ë¼ì¸ë·°ìª½ì˜ rownumê³¼ ì•ˆìª½ rownumì´ ì™„ì „ ë‹¤ë¥´ë‹¤. 
+-- â˜… ì•ˆìª½ì˜ rownumìœ¼ë¡œ ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
 from (select 
           name, buseo, basicpay, rownum 
       from tblInsa
           order by basicpay desc);
 
 
-select name, buseo, basicpay, rownum, rnum  -- ±Ùµ¥ alias·Î ÀÎ¶óÀÎºäÀÇ rownum¸¦ °¡Á®¿À¸é??
--- ¡Ú ¾ÈÂÊÀÇ rownumÀ¸·Î ½ÇÇàµÇÁö ¾Ê´Â´Ù.
+select name, buseo, basicpay, rownum, rnum  -- ê·¼ë° aliasë¡œ ì¸ë¼ì¸ë·°ì˜ rownumë¥¼ ê°€ì ¸ì˜¤ë©´??
+-- â˜… ì•ˆìª½ì˜ rownumìœ¼ë¡œ ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
 from (select 
           name, buseo, basicpay, rownum as rnum 
       from tblInsa
@@ -92,76 +92,76 @@ from (select
           where rownum <= 5;
           
 
--- ÀÎ±¸¼ö°¡ °¡Àå ¸¹Àº ³ª¶ó 1~3µî 
+-- ì¸êµ¬ìˆ˜ê°€ ê°€ì¥ ë§ì€ ë‚˜ë¼ 1~3ë“± 
 select * from tblCountry;
 
--- 1. ¿øÇÏ´Â Á¤·ÄÀ» ¸ÕÀúÇØ¾ß ÇÑ´Ù.
+-- 1. ì›í•˜ëŠ” ì •ë ¬ì„ ë¨¼ì €í•´ì•¼ í•œë‹¤.
 select * from tblCountry where population is not null order by population desc;
 select rownum from tblCountry where population is not null order by population desc;
 
--- 2. À§ÀÇ °á°ú¼ÂÀ» °¡Áö°í ÇÑ¹ø´õ rownumÀ» ¸¸µé±â > from Àı ½ÇÇà 
+-- 2. ìœ„ì˜ ê²°ê³¼ì…‹ì„ ê°€ì§€ê³  í•œë²ˆë” rownumì„ ë§Œë“¤ê¸° > from ì ˆ ì‹¤í–‰ 
 select * from (select * from tblCountry where population is not null order by population desc)
     where rownum <= 3;
 
 
 
--- tblInsa. ±Ş¿©°¡ 3µî 
+-- tblInsa. ê¸‰ì—¬ê°€ 3ë“± 
 select * from tblInsa; 
--- °ÅÀÇ °ø½ÄÀÌ´Ù. > 1+1 Á¤µµÀÌ´Ù.
+-- ê±°ì˜ ê³µì‹ì´ë‹¤. > 1+1 ì •ë„ì´ë‹¤.
 
--- 1. ±Ş¿© ¼øÀ¸·Î Á¤·Ä
+-- 1. ê¸‰ì—¬ ìˆœìœ¼ë¡œ ì •ë ¬
 select * from tblInsa order by basicpay desc;
 
 select rownum from tblInsa order by basicpay desc;
 
--- 2. ¿øÇÏ´Â ¼ø¼­´ë·Î Á¤·Ä °á°ú¼Â> fromÀı Àû¿ë > rownum ´Ù½Ã ¸Å±ä´Ù.
+-- 2. ì›í•˜ëŠ” ìˆœì„œëŒ€ë¡œ ì •ë ¬ ê²°ê³¼ì…‹> fromì ˆ ì ìš© > rownum ë‹¤ì‹œ ë§¤ê¸´ë‹¤.
 select a.*, rownum from(select * from tblInsa order by basicpay desc) a where rownum = 1;
 select a.*, rownum from(select * from tblInsa order by basicpay desc) a where rownum <= 5;
 select a.*, rownum from(select * from tblInsa order by basicpay desc) a where rownum = 3;
 
--- ¡Ú rownumÀÌ = 1 ÀÌ ¾Æ´Ñ »óÅÂÀÏ ¶§ ½á¸Ô´Â ¹æ¹ı 
---------------------- ¾ÈÂÊÀº °íÁ¤ÀÌ µÇ¹ö·Á °¡Àå ¹Ù±ù¿¡¼­ where ·Î °Ë»öÇØµµ µÈ´Ù. ---------------------
+-- â˜… rownumì´ = 1 ì´ ì•„ë‹Œ ìƒíƒœì¼ ë•Œ ì¨ë¨¹ëŠ” ë°©ë²• 
+--------------------- ì•ˆìª½ì€ ê³ ì •ì´ ë˜ë²„ë ¤ ê°€ì¥ ë°”ê¹¥ì—ì„œ where ë¡œ ê²€ìƒ‰í•´ë„ ëœë‹¤. ---------------------
 select * from (select a.*, rownum as rnum from(select * from tblInsa order by basicpay desc) a)
-    where rnum = 3; -- ÀÌ·¯¸é ¸®indexingÀÌ µÈ´Ù. 
--- °¡Àå ¹Ù±ù rownumµµ ÀÖ´Âµ¥ ¾È¾´´Ù.
+    where rnum = 3; -- ì´ëŸ¬ë©´ ë¦¬indexingì´ ëœë‹¤. 
+-- ê°€ì¥ ë°”ê¹¥ rownumë„ ìˆëŠ”ë° ì•ˆì“´ë‹¤.
 
----- ¡Ú select°¡ ¼¼¹ø °¡¿îµ¥ select¿¡¼­ ³ª¿Â rownumÀ» »ç¿ëÇÏ´Â ¹æ¹ı ¡Ú ---- °¡Àå ¾ÈÂÊÀº Á¤·Ä±âÁØ ¼ÂÆÃ
+---- â˜… selectê°€ ì„¸ë²ˆ ê°€ìš´ë° selectì—ì„œ ë‚˜ì˜¨ rownumì„ ì‚¬ìš©í•˜ëŠ” ë°©ë²• â˜… ---- ê°€ì¥ ì•ˆìª½ì€ ì •ë ¬ê¸°ì¤€ ì…‹íŒ…
 select * from (select  a.*, rownum as rnum from(select * from tblInsa order by basicpay desc) a)
     where rnum = 3;
--- Çà¹øÈ£¿Í °ü·ÃµÈ ÇÔ¼öµéµµ ÀÖ´Ù. 
+-- í–‰ë²ˆí˜¸ì™€ ê´€ë ¨ëœ í•¨ìˆ˜ë“¤ë„ ìˆë‹¤. 
 
--- tblComedian. 5¹øÂ° ¶×¶×ÇÑ »ç¶÷?
+-- tblComedian. 5ë²ˆì§¸ ëš±ëš±í•œ ì‚¬ëŒ?
 
 select * from tblComedian;
--- ¡Ú °ø½ÄÃ³·³ ¿Ü¿ö¾ß ÇÏ´Â ºÎºĞ ¡Ú
--- 1. Á¤·ÄÀ» ÇÑ´Ù. Á¤·Ä±âÁØµµ ¼ÂÆÃ
+-- â˜… ê³µì‹ì²˜ëŸ¼ ì™¸ì›Œì•¼ í•˜ëŠ” ë¶€ë¶„ â˜…
+-- 1. ì •ë ¬ì„ í•œë‹¤. ì •ë ¬ê¸°ì¤€ë„ ì…‹íŒ…
 select * from tblComedian order by weight desc;
 
--- 2. ¼­ºêÄõ¸® > rownum º°ÄªÀ» µî·Ï
+-- 2. ì„œë¸Œì¿¼ë¦¬ > rownum ë³„ì¹­ì„ ë“±ë¡
 select a.*, rownum as rnum from (select * from tblComedian order by weight desc) a;
 
--- 3. ¼­ºêÄõ¸® Ã³¸®½ÃÄÑ¼­ rownum º°ÄªÀ» ¸ŞÀÎÄõ¸®¿¡¼­ °¡Á®´Ù°¡ »ç¿ëÇÑ´Ù.
+-- 3. ì„œë¸Œì¿¼ë¦¬ ì²˜ë¦¬ì‹œì¼œì„œ rownum ë³„ì¹­ì„ ë©”ì¸ì¿¼ë¦¬ì—ì„œ ê°€ì ¸ë‹¤ê°€ ì‚¬ìš©í•œë‹¤.
 select * from (select a.*, rownum as rnum from (select * from tblComedian order by weight desc) a)
 where rnum = 5;
 
--- 1. tblInsa. ³²ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (³»¸²Â÷¼ø)¼øÀ§´ë·Î °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
-select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa order by ±Ş¿© desc; -- 1. Á¤·Ä ¹× > 'ÇÊ¿äÇÑ Ä®·³ ÇÑÁ¤'
+-- 1. tblInsa. ë‚¨ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ë‚´ë¦¼ì°¨ìˆœ)ìˆœìœ„ëŒ€ë¡œ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
+select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa order by ê¸‰ì—¬ desc; -- 1. ì •ë ¬ ë° > 'í•„ìš”í•œ ì¹¼ëŸ¼ í•œì •'
 
-select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa order by ±Ş¿© desc) a;
+select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa order by ê¸‰ì—¬ desc) a;
 
 -- rank, dense_rank, row_number()
-select * from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa order by ±Ş¿© desc) a);
+select * from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa order by ê¸‰ì—¬ desc) a);
 
--- 2. tblInsa. ¿©ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (¿À¸§Â÷¼ø)¼øÀ§´ë·Î °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
--- 1. Á¤·Ä, Ä®·³ ÇÑÁ¤
-select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa where substr(ssn,8, 1) ='2' order by ±Ş¿©;
+-- 2. tblInsa. ì—¬ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ì˜¤ë¦„ì°¨ìˆœ)ìˆœìœ„ëŒ€ë¡œ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
+-- 1. ì •ë ¬, ì¹¼ëŸ¼ í•œì •
+select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa where substr(ssn,8, 1) ='2' order by ê¸‰ì—¬;
 select * from tblInsa;
--- > ´ä 
-select a.*,rownum as rnum from ( select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa where substr(ssn,8, 1) ='2' order by ±Ş¿© ) a;
+-- > ë‹µ 
+select a.*,rownum as rnum from ( select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa where substr(ssn,8, 1) ='2' order by ê¸‰ì—¬ ) a;
 
 
 
--- 3. tblInsa. ¿©ÀÚ ÀÎ¿ø¼ö°¡ (°¡Àå ¸¹Àº ºÎ¼­ ¹× ÀÎ¿ø¼ö) °¡Á®¿À½Ã¿À.
+-- 3. tblInsa. ì—¬ì ì¸ì›ìˆ˜ê°€ (ê°€ì¥ ë§ì€ ë¶€ì„œ ë° ì¸ì›ìˆ˜) ê°€ì ¸ì˜¤ì‹œì˜¤.
 --1
 select buseo, count(*) from tblInsa where substr(ssn,8, 1) ='2' group by buseo order by count(*) desc;
 
@@ -169,7 +169,7 @@ select a.*, rownum as rnum from (select buseo, count(*) from tblInsa where subst
 
 select * from (select a.*, rownum as rnum from (select buseo, count(*) from tblInsa where substr(ssn,8, 1) ='2' group by buseo order by count(*) desc) a) where rnum =1;
 
--- 4. tblInsa. Áö¿ªº° ÀÎ¿ø¼ö (³»¸²Â÷¼ø)¼øÀ§¸¦ °¡Á®¿À½Ã¿À.(city, ÀÎ¿ø¼ö)
+-- 4. tblInsa. ì§€ì—­ë³„ ì¸ì›ìˆ˜ (ë‚´ë¦¼ì°¨ìˆœ)ìˆœìœ„ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.(city, ì¸ì›ìˆ˜)
 
 select * from tblInsa;
 
@@ -177,15 +177,15 @@ select city, count(*) from tblInsa group by city order by count(*) desc;
 
 select a.*, rownum from (select city, count(*) from tblInsa group by city order by count(*) desc) a;
 
--- 5. tblInsa. ºÎ¼­º° ÀÎ¿ø¼ö°¡ °¡Àå ¸¹Àº ºÎ¼­ ¹×¿ø¼ö Ãâ·Â.
+-- 5. tblInsa. ë¶€ì„œë³„ ì¸ì›ìˆ˜ê°€ ê°€ì¥ ë§ì€ ë¶€ì„œ ë°ì›ìˆ˜ ì¶œë ¥.
 select buseo, count(*) as cnt from tblInsa group by buseo order by count(*) desc;
 
 select  buseo, cnt, rownum as rnum from (select buseo, count(*) as cnt from tblInsa group by buseo order by count(*) desc) a;
 
--- from Àı ÀÎ¶óÀÎºä¸¦ ¿¬¼âÀûÀ¸·Î »ç¿ë
+-- from ì ˆ ì¸ë¼ì¸ë·°ë¥¼ ì—°ì‡„ì ìœ¼ë¡œ ì‚¬ìš©
 select buseo, cnt from (select  a.*, rownum as rnum from (select buseo, count(*) as cnt from tblInsa group by buseo order by count(*) desc) a) where rnum = 1;
 
--- 6. tblInsa. ³²ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (³»¸²Â÷¼ø) 3~5µî±îÁö °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
+-- 6. tblInsa. ë‚¨ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ë‚´ë¦¼ì°¨ìˆœ) 3~5ë“±ê¹Œì§€ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
 -- 1. 
 select name, buseo, jikwi, basicpay+sudang from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc;
 
@@ -195,39 +195,39 @@ select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang from
 minus
 select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a where rownum <=2;
 
--- ´ä
+-- ë‹µ
 select * from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a ) where rnum >=  3 and rnum <=5;
 
--- 7. tblInsa. ÀÔ»çÀÏÀÌ ºü¸¥ ¼ø¼­·Î 5¼øÀ§±îÁö¸¸ °¡Á®¿À½Ã¿À.
+-- 7. tblInsa. ì…ì‚¬ì¼ì´ ë¹ ë¥¸ ìˆœì„œë¡œ 5ìˆœìœ„ê¹Œì§€ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblInsa order by ibsadate;
 
---> ´ä
+--> ë‹µ
 select a.*, rownum from (select * from tblInsa order by ibsadate) a where rownum <=5;
 
 
--- 8. tblhousekeeping. ÁöÃâ ³»¿ª(°¡°İ * ¼ö·®) Áß °¡Àå ¸¹Àº ±İ¾×À» ÁöÃâÇÑ ³»¿ª 3°¡Áö¸¦ °¡Á®¿À½Ã¿À.
+-- 8. tblhousekeeping. ì§€ì¶œ ë‚´ì—­(ê°€ê²© * ìˆ˜ëŸ‰) ì¤‘ ê°€ì¥ ë§ì€ ê¸ˆì•¡ì„ ì§€ì¶œí•œ ë‚´ì—­ 3ê°€ì§€ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select t.*, price*qty from tblhousekeeping t order by price*qty desc;
 
--- ´ä
+-- ë‹µ
 select a.*, rownum from (select t.*, price*qty from tblhousekeeping t order by price*qty desc) a where rownum <= 3;
 
--- 9. tblinsa. Æò±Õ ±Ş¿© 2À§ÀÎ ºÎ¼­¿¡ ¼ÓÇÑ Á÷¿øµéÀ» °¡Á®¿À½Ã¿À.
-select buseo, round(avg(basicpay + sudang)) as ±Ş¿© from tblinsa group by buseo order by ±Ş¿© desc;
+-- 9. tblinsa. í‰ê·  ê¸‰ì—¬ 2ìœ„ì¸ ë¶€ì„œì— ì†í•œ ì§ì›ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select buseo, round(avg(basicpay + sudang)) as ê¸‰ì—¬ from tblinsa group by buseo order by ê¸‰ì—¬ desc;
 
-select buseo, rownum as rnum from (select buseo, round(avg(basicpay + sudang)) as ±Ş¿© from tblinsa group by buseo order by ±Ş¿© desc) ;
+select buseo, rownum as rnum from (select buseo, round(avg(basicpay + sudang)) as ê¸‰ì—¬ from tblinsa group by buseo order by ê¸‰ì—¬ desc) ;
 
--- ´ä
+-- ë‹µ
 select *
 from tblinsa
-where buseo = (select buseo from (select buseo, rownum as rnum from (select buseo, round(avg(basicpay + sudang)) as ±Ş¿© from tblinsa group by buseo order by ±Ş¿© desc)) where rnum = 2 );
+where buseo = (select buseo from (select buseo, rownum as rnum from (select buseo, round(avg(basicpay + sudang)) as ê¸‰ì—¬ from tblinsa group by buseo order by ê¸‰ì—¬ desc)) where rnum = 2 );
 
--- 10. tbltodo. µî·Ï ÈÄ °¡Àå ºü¸£°Ô ¿Ï·áÇÑ ÇÒÀÏÀ» ¼ø¼­´ë·Î 5°³ °¡Á®¿À½Ã¿À.
+-- 10. tbltodo. ë“±ë¡ í›„ ê°€ì¥ ë¹ ë¥´ê²Œ ì™„ë£Œí•œ í• ì¼ì„ ìˆœì„œëŒ€ë¡œ 5ê°œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 
 select * from tbltodo;
--- completedate°¡ null ÀÌ ¾Æ´Ñ °Í Ã¼Å© 
+-- completedateê°€ null ì´ ì•„ë‹Œ ê²ƒ ì²´í¬ 
 select * from tbltodo where completedate is not null order by adddate;
 
--- ½Ã°£ÀÌ ÃÊ´ÜÀ§·Î µé¾îÀÖ³× ? 
+-- ì‹œê°„ì´ ì´ˆë‹¨ìœ„ë¡œ ë“¤ì–´ìˆë„¤ ? 
 select a.*, completedate - adddate as test from (select * from tbltodo where completedate is not null order by adddate) a order by test ;
 
 select a.*, rownum as rnum from (select a.*, completedate - adddate as test from (select * from tbltodo where completedate is not null order by adddate) a order by test) a;
@@ -235,70 +235,70 @@ select a.*, rownum as rnum from (select a.*, completedate - adddate as test from
 select * from (select a.*, rownum as rnum from (select * from (select * from tbltodo where completedate is not null order by adddate) order by completedate - adddate) a) where rnum <= 5;
 
 
--- 11. tblinsa. ³²ÀÚ Á÷¿ø Áß¿¡¼­ ±Ş¿©¸¦ 3¹øÂ°·Î ¸¹ÀÌ ¹Ş´Â Á÷¿ø°ú 9¹øÂ°·Î ¸¹ÀÌ ¹Ş´Â Á÷¿øÀÇ ±Ş¿© Â÷¾×Àº ¾ó¸¶ÀÎ°¡?
--- ´ä
+-- 11. tblinsa. ë‚¨ì ì§ì› ì¤‘ì—ì„œ ê¸‰ì—¬ë¥¼ 3ë²ˆì§¸ë¡œ ë§ì´ ë°›ëŠ” ì§ì›ê³¼ 9ë²ˆì§¸ë¡œ ë§ì´ ë°›ëŠ” ì§ì›ì˜ ê¸‰ì—¬ ì°¨ì•¡ì€ ì–¼ë§ˆì¸ê°€?
+-- ë‹µ
 with thirdPay as (
-select ±Ş¿© from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a ) where rnum =  3),
+select ê¸‰ì—¬ from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a ) where rnum =  3),
 ninethPay as (
-select ±Ş¿© from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ±Ş¿© from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a ) where rnum =  9)
-select (select ±Ş¿© from thirdPay)
-- (select ±Ş¿© from ninethPay ) as Â÷ÀÌ
+select ê¸‰ì—¬ from (select a.*, rownum as rnum from (select name, buseo, jikwi, basicpay+sudang as ê¸‰ì—¬ from tblInsa where substr(ssn,8,1) = '1' order by basicpay+sudang desc) a ) where rnum =  9)
+select (select ê¸‰ì—¬ from thirdPay)
+- (select ê¸‰ì—¬ from ninethPay ) as ì°¨ì´
 from dual;
 
 -------------------------------------------------------------------------------------------------
 
 
--- 1. tblInsa. ³²ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (³»¸²Â÷¼ø)¼øÀ§´ë·Î °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
+-- 1. tblInsa. ë‚¨ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ë‚´ë¦¼ì°¨ìˆœ)ìˆœìœ„ëŒ€ë¡œ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
 select a.*, rownum from (select name, buseo, jikwi, (basicpay + sudang) as salary 
                                     from tblInsa
                                        where substr(ssn, 8, 1) = '1'
                                           order by (basicpay + sudang) desc) a;
 
--- 2. tblInsa. ¿©ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (¿À¸§Â÷¼ø)¼øÀ§´ë·Î °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
+-- 2. tblInsa. ì—¬ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ì˜¤ë¦„ì°¨ìˆœ)ìˆœìœ„ëŒ€ë¡œ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
 select a.*, rownum from (select name, buseo, jikwi, (basicpay + sudang) as salary 
                                     from tblInsa
                                        where substr(ssn, 8, 1) = '2'
                                           order by (basicpay + sudang) asc) a;
 
--- 3. tblInsa. ¿©ÀÚ ÀÎ¿ø¼ö°¡ (°¡Àå ¸¹Àº ºÎ¼­ ¹× ÀÎ¿ø¼ö) °¡Á®¿À½Ã¿À.
+-- 3. tblInsa. ì—¬ì ì¸ì›ìˆ˜ê°€ (ê°€ì¥ ë§ì€ ë¶€ì„œ ë° ì¸ì›ìˆ˜) ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from (select buseo, count(*) as cnt from tblinsa where substr(ssn, 8, 1) = '2'
    group by buseo order by count(*) desc) where rownum = 1;
 
 
--- 4. tblInsa. Áö¿ªº° ÀÎ¿ø¼ö (³»¸²Â÷¼ø)¼øÀ§¸¦ °¡Á®¿À½Ã¿À.(city, ÀÎ¿ø¼ö)
+-- 4. tblInsa. ì§€ì—­ë³„ ì¸ì›ìˆ˜ (ë‚´ë¦¼ì°¨ìˆœ)ìˆœìœ„ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.(city, ì¸ì›ìˆ˜)
 select city, count(*) as cnt from tblinsa
    group by city order by count(*) desc;
 
--- 5. tblInsa. ºÎ¼­º° ÀÎ¿ø¼ö°¡ °¡Àå ¸¹Àº ºÎ¼­ ¹×¿ø¼ö Ãâ·Â.
+-- 5. tblInsa. ë¶€ì„œë³„ ì¸ì›ìˆ˜ê°€ ê°€ì¥ ë§ì€ ë¶€ì„œ ë°ì›ìˆ˜ ì¶œë ¥.
 select * from (select buseo, count(*) as cnt from tblinsa
    group by buseo order by count(*) desc) where rownum = 1;
 
--- 6. tblInsa. ³²ÀÚ ±Ş¿©(±âº»±Ş+¼ö´ç)À» (³»¸²Â÷¼ø) 3~5µî±îÁö °¡Á®¿À½Ã¿À. (ÀÌ¸§, ºÎ¼­, Á÷À§, ±Ş¿©, ¼øÀ§ Ãâ·Â)
+-- 6. tblInsa. ë‚¨ì ê¸‰ì—¬(ê¸°ë³¸ê¸‰+ìˆ˜ë‹¹)ì„ (ë‚´ë¦¼ì°¨ìˆœ) 3~5ë“±ê¹Œì§€ ê°€ì ¸ì˜¤ì‹œì˜¤. (ì´ë¦„, ë¶€ì„œ, ì§ìœ„, ê¸‰ì—¬, ìˆœìœ„ ì¶œë ¥)
 select * from (select a.*, rownum as rnum from (select name, buseo, jikwi, (basicpay + sudang) as salary from tblinsa    order by (basicpay + sudang) desc) a) where rnum between 3 and 5;
 
--- 7. tblInsa. ÀÔ»çÀÏÀÌ ºü¸¥ ¼ø¼­·Î 5¼øÀ§±îÁö¸¸ °¡Á®¿À½Ã¿À.
+-- 7. tblInsa. ì…ì‚¬ì¼ì´ ë¹ ë¥¸ ìˆœì„œë¡œ 5ìˆœìœ„ê¹Œì§€ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from (select * from tblinsa order by ibsadate asc) where rownum <= 5;
 
--- 8. tblhousekeeping. ÁöÃâ ³»¿ª(°¡°İ * ¼ö·®) Áß °¡Àå ¸¹Àº ±İ¾×À» ÁöÃâÇÑ ³»¿ª 3°¡Áö¸¦ °¡Á®¿À½Ã¿À.
+-- 8. tblhousekeeping. ì§€ì¶œ ë‚´ì—­(ê°€ê²© * ìˆ˜ëŸ‰) ì¤‘ ê°€ì¥ ë§ì€ ê¸ˆì•¡ì„ ì§€ì¶œí•œ ë‚´ì—­ 3ê°€ì§€ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from (select * from tblhousekeeping
    order by (price * qty) desc) where rownum <= 3;
 
--- 9. tblinsa. Æò±Õ ±Ş¿© 2À§ÀÎ ºÎ¼­¿¡ ¼ÓÇÑ Á÷¿øµéÀ» °¡Á®¿À½Ã¿À.
+-- 9. tblinsa. í‰ê·  ê¸‰ì—¬ 2ìœ„ì¸ ë¶€ì„œì— ì†í•œ ì§ì›ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from (select a.*, rownum as rnum from (select buseo, avg(basicpay) from tblinsa
    group by buseo
       order by avg(basicpay) desc) a) where rnum = 2;
 
--- 10. tbltodo. µî·Ï ÈÄ °¡Àå ºü¸£°Ô ¿Ï·áÇÑ ÇÒÀÏÀ» ¼ø¼­´ë·Î 5°³ °¡Á®¿À½Ã¿À.
-select a.*, round((completedate - adddate) * 24 * 60) || 'ºĞ' from (select * from tbltodo
+-- 10. tbltodo. ë“±ë¡ í›„ ê°€ì¥ ë¹ ë¥´ê²Œ ì™„ë£Œí•œ í• ì¼ì„ ìˆœì„œëŒ€ë¡œ 5ê°œ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select a.*, round((completedate - adddate) * 24 * 60) || 'ë¶„' from (select * from tbltodo
    order by (completedate - adddate) asc) a where rownum <= 5;
 
--- 11. tblinsa. ³²ÀÚ Á÷¿ø Áß¿¡¼­ ±Ş¿©¸¦ 3¹øÂ°·Î ¸¹ÀÌ ¹Ş´Â Á÷¿ø°ú 9¹øÂ°·Î ¸¹ÀÌ ¹Ş´Â Á÷¿øÀÇ ±Ş¿© Â÷¾×Àº ¾ó¸¶ÀÎ°¡?
+-- 11. tblinsa. ë‚¨ì ì§ì› ì¤‘ì—ì„œ ê¸‰ì—¬ë¥¼ 3ë²ˆì§¸ë¡œ ë§ì´ ë°›ëŠ” ì§ì›ê³¼ 9ë²ˆì§¸ë¡œ ë§ì´ ë°›ëŠ” ì§ì›ì˜ ê¸‰ì—¬ ì°¨ì•¡ì€ ì–¼ë§ˆì¸ê°€?
 select () - () from dual;
 
 select 
    (select basicpay from (select basicpay, rownum as rnum from (select basicpay from tblinsa where substr(ssn, 8, 1) = '1' order by basicpay desc)) where rnum = 3)
    -
-   (select basicpay from (select basicpay, rownum as rnum from (select basicpay from tblinsa where substr(ssn, 8, 1) = '1' order by basicpay desc)) where rnum = 9) as "±Ş¿© Â÷¾×"
+   (select basicpay from (select basicpay, rownum as rnum from (select basicpay from tblinsa where substr(ssn, 8, 1) = '1' order by basicpay desc)) where rnum = 9) as "ê¸‰ì—¬ ì°¨ì•¡"
 from dual;   
 
 

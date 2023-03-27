@@ -3,108 +3,108 @@
 
     ex26_hierarchical.sql 
     
-    °èÃþÇü Äõ¸®, Hierarchical Query 
-    - ¿À¶óÅ¬ Àü¿ë > µÇ°Ô ÆíÇØ¼­ ´Ù¸¥ db¿¡ ÀÖ¾úÀ¸¸é ÁÁ°Ú´Ù. 
-    - ·¹ÄÚµå °ü°è°¡ ¼­·Î »óÇÏ ¼öÁ÷±¸Á¶ÀÏ ¶§ »ç¿ë
-    - ¼­·Î ´Ù¸¥ Å×ÀÌºí°£ÀÇ °ü°è°¡ ¼öÁ÷ ±¸Á¶ÀÏ ¶§ »ç¿ë
-    - ÀÚ±â ÂüÁ¶¸¦ ÇÏ´Â Å×ÀÌºí¿¡¼­ »ç¿ë
-    - ex) Ä«Å×°í¸®, ´äº¯Çü °Ô½ÃÆÇ, Á¶Á÷µµ... Æ®¸® ±¸Á¶¿¡ »ç¿ë 
+    ê³„ì¸µí˜• ì¿¼ë¦¬, Hierarchical Query 
+    - ì˜¤ë¼í´ ì „ìš© > ë˜ê²Œ íŽ¸í•´ì„œ ë‹¤ë¥¸ dbì— ìžˆì—ˆìœ¼ë©´ ì¢‹ê² ë‹¤. 
+    - ë ˆì½”ë“œ ê´€ê³„ê°€ ì„œë¡œ ìƒí•˜ ìˆ˜ì§êµ¬ì¡°ì¼ ë•Œ ì‚¬ìš©
+    - ì„œë¡œ ë‹¤ë¥¸ í…Œì´ë¸”ê°„ì˜ ê´€ê³„ê°€ ìˆ˜ì§ êµ¬ì¡°ì¼ ë•Œ ì‚¬ìš©
+    - ìžê¸° ì°¸ì¡°ë¥¼ í•˜ëŠ” í…Œì´ë¸”ì—ì„œ ì‚¬ìš©
+    - ex) ì¹´í…Œê³ ë¦¬, ë‹µë³€í˜• ê²Œì‹œíŒ, ì¡°ì§ë„... íŠ¸ë¦¬ êµ¬ì¡°ì— ì‚¬ìš© 
     
-    1. °èÃþÇüÅÂÀÇ µ¥ÀÌÅÍ
-    2. Å×ÀÌºí »óÀÇ °ü°è °í·Á
+    1. ê³„ì¸µí˜•íƒœì˜ ë°ì´í„°
+    2. í…Œì´ë¸” ìƒì˜ ê´€ê³„ ê³ ë ¤
     
-    ÄÄÇ»ÅÍ
-        - º»Ã¼
-            - ¸ÞÀÎº¸µå
-            - ±×·¡ÇÈ Ä«µå
+    ì»´í“¨í„°
+        - ë³¸ì²´
+            - ë©”ì¸ë³´ë“œ
+            - ê·¸ëž˜í”½ ì¹´ë“œ
             - CPU 
-            - ¸Þ¸ð¸®
-        - ¸ð´ÏÅÍ
-            - ¸ð´ÏÅÍ¾Ï
-            - º¸È£ÇÊ¸§
+            - ë©”ëª¨ë¦¬
+        - ëª¨ë‹ˆí„°
+            - ëª¨ë‹ˆí„°ì•”
+            - ë³´í˜¸í•„ë¦„
    
 */
 
--- Æ®¸®±¸Á¶¸¦ DB¿¡ ÀúÀåÇÒ ¶§ ÀúÀåÀÌ ºÒÆíÇÏ´Ù. 
--- °ü°èÇü db´Â Â÷¿ø¼ö¸¦ Ç¥ÇöÇÏ±â Èûµé´Ù. > Ç¥´Â 2Â÷¿ø ¹è¿­ 
+-- íŠ¸ë¦¬êµ¬ì¡°ë¥¼ DBì— ì €ìž¥í•  ë•Œ ì €ìž¥ì´ ë¶ˆíŽ¸í•˜ë‹¤. 
+-- ê´€ê³„í˜• dbëŠ” ì°¨ì›ìˆ˜ë¥¼ í‘œí˜„í•˜ê¸° íž˜ë“¤ë‹¤. > í‘œëŠ” 2ì°¨ì› ë°°ì—´ 
 
 create table tblComputer (
-    seq number primary key,                      -- ½Äº°ÀÚ(PK)
-    name varchar2(50) not null,                  -- ºÎÇ°¸í 
-    qty number not null,                         -- ¼ö·®
-    pseq number null references tblComputer(seq) -- ¡Ú ºÎ¸ðºÎÇ°(FK) 
+    seq number primary key,                      -- ì‹ë³„ìž(PK)
+    name varchar2(50) not null,                  -- ë¶€í’ˆëª… 
+    qty number not null,                         -- ìˆ˜ëŸ‰
+    pseq number null references tblComputer(seq) -- â˜… ë¶€ëª¨ë¶€í’ˆ(FK) 
 );
 
-insert into tblComputer values(1, 'ÄÄÇ»ÅÍ', 1, null); -- ºÎ¸ð°¡ ¾ø´Â ¾Öµé Á¸Àç
-insert into tblComputer values(2, 'º»Ã¼', 1, 1); 
-insert into tblComputer values(3, '¸ÞÀÎº¸µå', 1, 2); 
-insert into tblComputer values(4, '±×·¡ÇÈÄ«µå', 1, 2); 
+insert into tblComputer values(1, 'ì»´í“¨í„°', 1, null); -- ë¶€ëª¨ê°€ ì—†ëŠ” ì• ë“¤ ì¡´ìž¬
+insert into tblComputer values(2, 'ë³¸ì²´', 1, 1); 
+insert into tblComputer values(3, 'ë©”ì¸ë³´ë“œ', 1, 2); 
+insert into tblComputer values(4, 'ê·¸ëž˜í”½ì¹´ë“œ', 1, 2); 
 insert into tblComputer values(5, 'CPU', 1, 2); 
-insert into tblComputer values(6, '¸Þ¸ð¸®', 2, 2); 
+insert into tblComputer values(6, 'ë©”ëª¨ë¦¬', 2, 2); 
 
-insert into tblComputer values(7, '¸ð´ÏÅÍ', 1, 1); 
-insert into tblComputer values(8, '¸ð´ÏÅÍ¾Ï', 1, 7); 
-insert into tblComputer values(9, 'º¸È£ÇÊ¸§', 1, 7); 
+insert into tblComputer values(7, 'ëª¨ë‹ˆí„°', 1, 1); 
+insert into tblComputer values(8, 'ëª¨ë‹ˆí„°ì•”', 1, 7); 
+insert into tblComputer values(9, 'ë³´í˜¸í•„ë¦„', 1, 7); 
 
 
--- Case 2. > °èÃþÇü ÇüÅÂ´Â ÀÚ±âÂüÁ¶ÀÏ¶§ ¾¸ ÀÌ·±°Ç ??? ¸ÓÁö 
+-- Case 2. > ê³„ì¸µí˜• í˜•íƒœëŠ” ìžê¸°ì°¸ì¡°ì¼ë•Œ ì”€ ì´ëŸ°ê±´ ??? ë¨¸ì§€ 
 create table tblCategoryBig (
-    seq number primary key,                 --½Äº°ÀÚ(PK)
-    name varchar2(100) not null             --Ä«Å×°í¸®¸í
+    seq number primary key,                 --ì‹ë³„ìž(PK)
+    name varchar2(100) not null             --ì¹´í…Œê³ ë¦¬ëª…
 );
 
 create table tblCategoryMedium (
-    seq number primary key,                             --½Äº°ÀÚ(PK)
-    name varchar2(100) not null,                        --Ä«Å×°í¸®¸í
-    pseq number not null references tblCategoryBig(seq) --ºÎ¸ðÄ«Å×°í¸®(FK)
+    seq number primary key,                             --ì‹ë³„ìž(PK)
+    name varchar2(100) not null,                        --ì¹´í…Œê³ ë¦¬ëª…
+    pseq number not null references tblCategoryBig(seq) --ë¶€ëª¨ì¹´í…Œê³ ë¦¬(FK)
 );
 
 create table tblCategorySmall (
-    seq number primary key,                                 --½Äº°ÀÚ(PK)
-    name varchar2(100) not null,                            --Ä«Å×°í¸®¸í
-    pseq number not null references tblCategoryMedium(seq)  --ºÎ¸ðÄ«Å×°í¸®(FK)
+    seq number primary key,                                 --ì‹ë³„ìž(PK)
+    name varchar2(100) not null,                            --ì¹´í…Œê³ ë¦¬ëª…
+    pseq number not null references tblCategoryMedium(seq)  --ë¶€ëª¨ì¹´í…Œê³ ë¦¬(FK)
 );
 
-insert into tblCategoryBig values (1, 'Ä«Å×°í¸®');
+insert into tblCategoryBig values (1, 'ì¹´í…Œê³ ë¦¬');
 
-insert into tblCategoryMedium values (1, 'ÄÄÇ»ÅÍ¿ëÇ°', 1);
-insert into tblCategoryMedium values (2, '¿îµ¿¿ëÇ°', 1);
-insert into tblCategoryMedium values (3, '¸Ô°Å¸®', 1);
+insert into tblCategoryMedium values (1, 'ì»´í“¨í„°ìš©í’ˆ', 1);
+insert into tblCategoryMedium values (2, 'ìš´ë™ìš©í’ˆ', 1);
+insert into tblCategoryMedium values (3, 'ë¨¹ê±°ë¦¬', 1);
 
-insert into tblCategorySmall values (1, 'ÇÏµå¿þ¾î', 1);
-insert into tblCategorySmall values (2, '¼ÒÇÁÆ®¿þ¾î', 1);
-insert into tblCategorySmall values (3, '¼Ò¸ðÇ°', 1);
+insert into tblCategorySmall values (1, 'í•˜ë“œì›¨ì–´', 1);
+insert into tblCategorySmall values (2, 'ì†Œí”„íŠ¸ì›¨ì–´', 1);
+insert into tblCategorySmall values (3, 'ì†Œëª¨í’ˆ', 1);
 
-insert into tblCategorySmall values (4, 'Å×´Ï½º', 2);
-insert into tblCategorySmall values (5, '°ñÇÁ', 2);
-insert into tblCategorySmall values (6, '´Þ¸®±â', 2);
+insert into tblCategorySmall values (4, 'í…Œë‹ˆìŠ¤', 2);
+insert into tblCategorySmall values (5, 'ê³¨í”„', 2);
+insert into tblCategorySmall values (6, 'ë‹¬ë¦¬ê¸°', 2);
 
-insert into tblCategorySmall values (7, '¹ÐÅ°Æ®', 3);
-insert into tblCategorySmall values (8, 'º£ÀÌÄ¿¸®', 3);
-insert into tblCategorySmall values (9, 'µµ½Ã¶ô', 3);
-
-
--- ¾îµô°¡³ª ±¸Á¶°¡ Á¸ÀçÇÑ´Ù. °èÃþÇüÀ» »ç¿ëÇÒ ¼ö ÀÖÀ» Áö °í¹ÎÀ» ÇØºÁ¶ó
--- Áß°£ > ÃÖ»óÀ§ > ÃÖÇÏÀ§ >
+insert into tblCategorySmall values (7, 'ë°€í‚¤íŠ¸', 3);
+insert into tblCategorySmall values (8, 'ë² ì´ì»¤ë¦¬', 3);
+insert into tblCategorySmall values (9, 'ë„ì‹œë½', 3);
 
 
--- tblComputer > ¾Ö¸ÅÇÏ´Ù. Æ®¸®±¸Á¶ °°Àº ´À³¦ÀÌ ¾Èµç´Ù. 
--- 1. Á¶ÀÎ
+-- ì–´ë”œê°€ë‚˜ êµ¬ì¡°ê°€ ì¡´ìž¬í•œë‹¤. ê³„ì¸µí˜•ì„ ì‚¬ìš©í•  ìˆ˜ ìžˆì„ ì§€ ê³ ë¯¼ì„ í•´ë´ë¼
+-- ì¤‘ê°„ > ìµœìƒìœ„ > ìµœí•˜ìœ„ >
+
+
+-- tblComputer > ì• ë§¤í•˜ë‹¤. íŠ¸ë¦¬êµ¬ì¡° ê°™ì€ ëŠë‚Œì´ ì•ˆë“ ë‹¤. 
+-- 1. ì¡°ì¸
 select
-    c1.name as "ºÎÇ°¸í",
-    c2.name as "ºÎ¸ðºÎÇ°¸í"
-from tblComputer c1 -- ÀÚ½ÄºÎÇ° > ÂüÁ¶¸¦ ÇØ¾ßÇÑ´Ù. 
-    inner join tblComputer c2 -- ºÎ¸ðºÎÇ° > ÂüÁ¶¸¦ ´çÇÏ°í
+    c1.name as "ë¶€í’ˆëª…",
+    c2.name as "ë¶€ëª¨ë¶€í’ˆëª…"
+from tblComputer c1 -- ìžì‹ë¶€í’ˆ > ì°¸ì¡°ë¥¼ í•´ì•¼í•œë‹¤. 
+    inner join tblComputer c2 -- ë¶€ëª¨ë¶€í’ˆ > ì°¸ì¡°ë¥¼ ë‹¹í•˜ê³ 
         on c2.seq = c1.pseq; 
 
--- 2. °èÃþÇü Äõ¸®
+-- 2. ê³„ì¸µí˜• ì¿¼ë¦¬
 /*
 
-    start withÀý + connect by Àý
+    start withì ˆ + connect by ì ˆ
     
-    °èÃþÇü Äõ¸® ÀÇ»ç Ä®·³
-    a. prior > ÀÚ±â¿Í ¿¬°üµÈ ºÎ¸ð ·¹ÄÚµå ÂüÁ¶
-    b. level > ¼¼´ë¼ö(depth) > 1ºÎÅÍ½ÃÀÛ
+    ê³„ì¸µí˜• ì¿¼ë¦¬ ì˜ì‚¬ ì¹¼ëŸ¼
+    a. prior > ìžê¸°ì™€ ì—°ê´€ëœ ë¶€ëª¨ ë ˆì½”ë“œ ì°¸ì¡°
+    b. level > ì„¸ëŒ€ìˆ˜(depth) > 1ë¶€í„°ì‹œìž‘
     
 */
 
@@ -114,46 +114,46 @@ from tblComputer
     start with seq = 1
         connect by prior seq = pseq;
         
--- ÀÌ·¸°ÔÇÏ¸é prior¿Í levelÀ» ¾µ ¼ö ÀÖ´Ù.        
+-- ì´ë ‡ê²Œí•˜ë©´ priorì™€ levelì„ ì“¸ ìˆ˜ ìžˆë‹¤.        
         
         
         
--- lpad(Ã¤¿ï°Í, ¸î°³?)        
+-- lpad(ì±„ìš¸ê²ƒ, ëª‡ê°œ?)        
 
--- ¼¿ÇÁÁ¶ÀÎÀÇ ´À³¦ÀÌ ³ª¿Â´Ù.
+-- ì…€í”„ì¡°ì¸ì˜ ëŠë‚Œì´ ë‚˜ì˜¨ë‹¤.
 select 
     seq, 
-    lpad(' ', (level-1) * 5) || name,  -- levelÀ» ÀÌ¿ëÇØ¼­ ½Ã°¢ÀûÀÎ È¿°ú¸¦ ÁØ´Ù. > µé¿©¾²±âÈ¿°ú
-    prior name,    -- ÀÚ¸´¼ö ¿ªÇÒÇÑ´Ù.
+    lpad(' ', (level-1) * 5) || name,  -- levelì„ ì´ìš©í•´ì„œ ì‹œê°ì ì¸ íš¨ê³¼ë¥¼ ì¤€ë‹¤. > ë“¤ì—¬ì“°ê¸°íš¨ê³¼
+    prior name,    -- ìžë¦¿ìˆ˜ ì—­í• í•œë‹¤.
     level
 from tblComputer
-    start with seq = 1  -- ºÎ¸ð ºÎÇ°½ÃÄö½º, ÀÚ½ÄºÎÇ° ½ÃÄö½º
-        connect by prior seq = pseq; -- ÇöÀç ·¹ÄÚµå¿Í ºÎ¸ð ·¹ÄÚµå¸¦ ¿¬°áÇÏ´Â Á¶°Ç(Á¶ÀÎ on ¿ªÇÒ)
-        -- on c2.seq = c1.pseq;  ÀÌ·¸°Ô¿Í µ¿ÀÏÇÏ´Ù. 
-        -- ¿©±ä Å×ÀÌºíÀÌ ÇÏ³­µ¥? prior ¶§¹®¿¡ ±×·¸´Ù.
-        -- ÀÚ±â¿Í ºÎ¸ðÀÇ ¿¬°áÀÌ prior ¶§¹®¿¡ ±×·¸´Ù.
-        -- pseq´Â ÀÚ±â ÀÚ½ÅÀÌ ´©±¸´Ù? ¶ó°í ¾Ë·ÁÁØ´Ù. 
-        -- prior seq ´Â ºÎ¸ð¿ªÇÒ·Î¼­ÀÇ ½ÃÄö½º¸¦ Ã£À½ 
+    start with seq = 1  -- ë¶€ëª¨ ë¶€í’ˆì‹œí€€ìŠ¤, ìžì‹ë¶€í’ˆ ì‹œí€€ìŠ¤
+        connect by prior seq = pseq; -- í˜„ìž¬ ë ˆì½”ë“œì™€ ë¶€ëª¨ ë ˆì½”ë“œë¥¼ ì—°ê²°í•˜ëŠ” ì¡°ê±´(ì¡°ì¸ on ì—­í• )
+        -- on c2.seq = c1.pseq;  ì´ë ‡ê²Œì™€ ë™ì¼í•˜ë‹¤. 
+        -- ì—¬ê¸´ í…Œì´ë¸”ì´ í•˜ë‚œë°? prior ë•Œë¬¸ì— ê·¸ë ‡ë‹¤.
+        -- ìžê¸°ì™€ ë¶€ëª¨ì˜ ì—°ê²°ì´ prior ë•Œë¬¸ì— ê·¸ë ‡ë‹¤.
+        -- pseqëŠ” ìžê¸° ìžì‹ ì´ ëˆ„êµ¬ë‹¤? ë¼ê³  ì•Œë ¤ì¤€ë‹¤. 
+        -- prior seq ëŠ” ë¶€ëª¨ì—­í• ë¡œì„œì˜ ì‹œí€€ìŠ¤ë¥¼ ì°¾ìŒ 
 
--- levelÀº 1ºÎÅÍ    
+-- levelì€ 1ë¶€í„°    
 
--- ÀÏÁ¾ÀÇ ºÎºÐÁýÇÕÀ» »Ì¾Æ¿Â´Ù. ¼Ò±×·ì¸¸ º¸°í ½Í´Ù. 
+-- ì¼ì¢…ì˜ ë¶€ë¶„ì§‘í•©ì„ ë½‘ì•„ì˜¨ë‹¤. ì†Œê·¸ë£¹ë§Œ ë³´ê³  ì‹¶ë‹¤. 
 select 
     seq, 
     lpad(' ', (level-1) * 5) || name,  
-    prior name,    -- ÀÚ¸´¼ö ¿ªÇÒÇÑ´Ù.
+    prior name,    -- ìžë¦¿ìˆ˜ ì—­í• í•œë‹¤.
     level
-from tblComputer        -- ¸ð´ÏÅÍ¹øÈ£¸¦ ¾Æ´Ï±î ±×°É·Î ÁöÁ¤ 
-    start with seq = 7  -- ³»°¡ º¸°í½ÍÀº ¾Öµé¸¸ °¡Á®¿Ã ¼ö ÀÖ´Ù. 
+from tblComputer        -- ëª¨ë‹ˆí„°ë²ˆí˜¸ë¥¼ ì•„ë‹ˆê¹Œ ê·¸ê±¸ë¡œ ì§€ì • 
+    start with seq = 7  -- ë‚´ê°€ ë³´ê³ ì‹¶ì€ ì• ë“¤ë§Œ ê°€ì ¸ì˜¬ ìˆ˜ ìžˆë‹¤. 
         connect by prior seq = pseq; 
 
 select 
     seq, 
     lpad(' ', (level-1) * 5) || name,  
-    prior name,    -- ÀÚ¸´¼ö ¿ªÇÒÇÑ´Ù.
+    prior name,    -- ìžë¦¿ìˆ˜ ì—­í• í•œë‹¤.
     level
-from tblComputer        -- ¸ð´ÏÅÍ¹øÈ£¸¦ ¾Æ´Ï±î ±×°É·Î ÁöÁ¤ 
-    start with seq = (select seq from tblComputer where name ='º»Ã¼')
+from tblComputer        -- ëª¨ë‹ˆí„°ë²ˆí˜¸ë¥¼ ì•„ë‹ˆê¹Œ ê·¸ê±¸ë¡œ ì§€ì • 
+    start with seq = (select seq from tblComputer where name ='ë³¸ì²´')
         connect by prior seq = pseq; 
 
 
@@ -161,26 +161,26 @@ from tblComputer        -- ¸ð´ÏÅÍ¹øÈ£¸¦ ¾Æ´Ï±î ±×°É·Î ÁöÁ¤
 select 
     seq, 
     lpad(' ', (level-1) * 5) || name,  
-    prior name,    -- ÀÚ¸´¼ö ¿ªÇÒÇÑ´Ù.
+    prior name,    -- ìžë¦¿ìˆ˜ ì—­í• í•œë‹¤.
     level
 from tblComputer        
-    start with pseq is null -- ·çÆ®°¡ ¿©·¯°³ÀÏ ¼öµµ ÀÖ±äÇÔ
+    start with pseq is null -- ë£¨íŠ¸ê°€ ì—¬ëŸ¬ê°œì¼ ìˆ˜ë„ ìžˆê¸´í•¨
         connect by prior seq = pseq; 
 
 
 select * from tblSelf;
 select 
-lpad(' ', (level-1)*2) || name as "Á÷¿ø¸í"
+lpad(' ', (level-1)*2) || name as "ì§ì›ëª…"
  from tblSelf 
     start with seq = 1
-        connect by super = prior seq; -- ÀÚ½ÄÅ×ÀÌºíÀÇ seq¿¡´Ù°¡ prior
-                 -- ºÎ¸ðÅ×ÀÌºíÀÇ super
+        connect by super = prior seq; -- ìžì‹í…Œì´ë¸”ì˜ seqì—ë‹¤ê°€ prior
+                 -- ë¶€ëª¨í…Œì´ë¸”ì˜ super
                  
 select * from tblCategoryBig;
 select * from tblCategoryMedium where pseq = 1;
 select * from tblCategorySmall where pseq = 2;
                  
--- ¾ê¸¦ ÇÑ²¨¹ø¿¡ º¸°í½Í´Ù!? joinÀ» ÇØ¶ó 
+-- ì–˜ë¥¼ í•œêº¼ë²ˆì— ë³´ê³ ì‹¶ë‹¤!? joinì„ í•´ë¼ 
 
 
 select * 
@@ -190,8 +190,8 @@ from tblCategoryBig b
             inner join tblCategorySmall s
                 on m.seq = s.pseq;
                 
--- »óÀ§ Ä«Å×°í¸®, ÁßÀ§ Ä«Å×°í¸® ÇÑ¹ø¿¡ °¡Á®¿À°í ½Í¾î¼­ joinÀ» Çß´Ù.
--- ±×·±µ¥ ¾ê³×µéÀÌ ¹Ýº¹ÇØ¼­ ³ª¿Íµµ ¹Ýº¹ ¾ÈµÇ°Ô ÇÏ°í ½Í´Ù.... 
+-- ìƒìœ„ ì¹´í…Œê³ ë¦¬, ì¤‘ìœ„ ì¹´í…Œê³ ë¦¬ í•œë²ˆì— ê°€ì ¸ì˜¤ê³  ì‹¶ì–´ì„œ joinì„ í–ˆë‹¤.
+-- ê·¸ëŸ°ë° ì–˜ë„¤ë“¤ì´ ë°˜ë³µí•´ì„œ ë‚˜ì™€ë„ ë°˜ë³µ ì•ˆë˜ê²Œ í•˜ê³  ì‹¶ë‹¤.... 
 
 
 
@@ -199,13 +199,13 @@ from tblCategoryBig b
 
     1. SQL
     
-    3. ¼³°è(¸ðµ¨¸µ)
+    3. ì„¤ê³„(ëª¨ë¸ë§)
     
-    ---------------------------- ¼ö¾÷ > ³»ÀÏÂë ³¡³¯ µí
+    ---------------------------- ìˆ˜ì—… > ë‚´ì¼ì¯¤ ëë‚  ë“¯
     
     2. PL/SQL
     
-    -------------------------- ¼ö¾÷(¿ÀÀü) + ÇÁ·ÎÁ§Æ®(¿ÀÈÄ) > ÇÁ·ÎÁ§Æ®(Á¾ÀÏ) 
+    -------------------------- ìˆ˜ì—…(ì˜¤ì „) + í”„ë¡œì íŠ¸(ì˜¤í›„) > í”„ë¡œì íŠ¸(ì¢…ì¼) 
     
 */
 

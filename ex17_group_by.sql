@@ -9,56 +9,56 @@
     [order by order_expression [asc|desc]];
     
     
-    // _> Ãß°¡ *** 
+    // _> ì¶”ê°€ *** 
     
-    select ÄÃ·³ ¸®½ºÆ® 
+    select ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ 
     
-    group by Àı 
-    - ·¹ÄÚµå¸¦ ´ë»óÀ¸·Î ±×·ìÀ» ³ª´©´Â ¿ªÇÒ
-    - Æ¯Á¤ Ä®·³À» ´ë»óÀ¸·Î °°Àº °ªÀ» °¡Áö´Â ·¹ÄÚµåµé³¢¸® ±×·ìÀ» ¹­´Â ¿ªÇÒ
-    - ±×·ìÀ» ¿Ö ³ª´©´ÂÁö? > °¢°¢ÀÇ ³ª´²Áø ±×·ìÀ» ´ë»ó > Áı°èÇÔ¼ö¸¦ Àû¿ëÇÏ±â À§ÇØ¼­!!!!
+    group by ì ˆ 
+    - ë ˆì½”ë“œë¥¼ ëŒ€ìƒìœ¼ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆ„ëŠ” ì—­í• 
+    - íŠ¹ì • ì¹¼ëŸ¼ì„ ëŒ€ìƒìœ¼ë¡œ ê°™ì€ ê°’ì„ ê°€ì§€ëŠ” ë ˆì½”ë“œë“¤ë¼ë¦¬ ê·¸ë£¹ì„ ë¬¶ëŠ” ì—­í• 
+    - ê·¸ë£¹ì„ ì™œ ë‚˜ëˆ„ëŠ”ì§€? > ê°ê°ì˜ ë‚˜ëˆ ì§„ ê·¸ë£¹ì„ ëŒ€ìƒ > ì§‘ê³„í•¨ìˆ˜ë¥¼ ì ìš©í•˜ê¸° ìœ„í•´ì„œ!!!!
     
 
 */
 
 select * from tblComedian;
 
--- tblInsa. ºÎ¼­º° Æò±Ş ±Ş¿©? 
+-- tblInsa. ë¶€ì„œë³„ í‰ê¸‰ ê¸‰ì—¬? 
 
 select * from tblInsa; 
 
-select avg(basicpay) from tblInsa; -- 155¸¸¿ø, 60¸í
+select avg(basicpay) from tblInsa; -- 155ë§Œì›, 60ëª…
 
-select distinct buseo from tblInsa; -- 7°³
+select distinct buseo from tblInsa; -- 7ê°œ
 
-select round(avg(basicpay)) from tblInsa where buseo = 'ÃÑ¹«ºÎ'; -- 171
-select round(avg(basicpay)) from tblInsa where buseo = '°³¹ßºÎ'; -- 138
-select round(avg(basicpay)) from tblInsa where buseo = '¿µ¾÷ºÎ'; -- 160
-select round(avg(basicpay)) from tblInsa where buseo = '±âÈ¹ºÎ'; -- 185
-select round(avg(basicpay)) from tblInsa where buseo = 'ÀÎ»çºÎ'; -- 153
-select round(avg(basicpay)) from tblInsa where buseo = 'ÀÚÀçºÎ'; -- 141
-select round(avg(basicpay)) from tblInsa where buseo = 'È«º¸ºÎ'; -- 145
--- ÀÌ ÀÛ¾÷À» ÁÙÀÌ·Á°í groupby¸¦ ÇÑ´Ù.
+select round(avg(basicpay)) from tblInsa where buseo = 'ì´ë¬´ë¶€'; -- 171
+select round(avg(basicpay)) from tblInsa where buseo = 'ê°œë°œë¶€'; -- 138
+select round(avg(basicpay)) from tblInsa where buseo = 'ì˜ì—…ë¶€'; -- 160
+select round(avg(basicpay)) from tblInsa where buseo = 'ê¸°íšë¶€'; -- 185
+select round(avg(basicpay)) from tblInsa where buseo = 'ì¸ì‚¬ë¶€'; -- 153
+select round(avg(basicpay)) from tblInsa where buseo = 'ìì¬ë¶€'; -- 141
+select round(avg(basicpay)) from tblInsa where buseo = 'í™ë³´ë¶€'; -- 145
+-- ì´ ì‘ì—…ì„ ì¤„ì´ë ¤ê³  groupbyë¥¼ í•œë‹¤.
 
-select * from tblInsa group by buseo; -- ÀÌ´ë·Î´Â ½ÇÇàÀÌ ¾ÈµÈ´Ù. ¿¡·¯°¡ ³­´Ù. 
--- ÄÃ·³¸®½ºÆ® ¶§¹®ÀÌ´Ù. group by´Â ÄÃ·³¸®½ºÆ®¿¡ ¾Æ¹«°Å³ª ÀûÀ» ¼ö ¾ø´Ù. Á¦¾àÀÌ ÀÖ´Ù. 
--- 1. Áı°èÇÔ¼ö
--- 2. group by ÀÇ ±âÁØ ÄÃ·³
+select * from tblInsa group by buseo; -- ì´ëŒ€ë¡œëŠ” ì‹¤í–‰ì´ ì•ˆëœë‹¤. ì—ëŸ¬ê°€ ë‚œë‹¤. 
+-- ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ ë•Œë¬¸ì´ë‹¤. group byëŠ” ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ì— ì•„ë¬´ê±°ë‚˜ ì ì„ ìˆ˜ ì—†ë‹¤. ì œì•½ì´ ìˆë‹¤. 
+-- 1. ì§‘ê³„í•¨ìˆ˜
+-- 2. group by ì˜ ê¸°ì¤€ ì»¬ëŸ¼
 
 select 
 buseo, avg(basicpay)
 from tblInsa
     group by buseo;
 
--- ³²ÀÚ ¸î¸í? ¿©ÀÚ ¸î¸í? > ³²³àº° °¢°¢ ¸î¸íÀÎÁö? 
--- ³²ÀÚ ±×·ì, ¿©ÀÚ ±×·ìÀÇ Ä«¿îÆ®¸¦ ¼¼¾ß ÇÑ´Ù. 
+-- ë‚¨ì ëª‡ëª…? ì—¬ì ëª‡ëª…? > ë‚¨ë…€ë³„ ê°ê° ëª‡ëª…ì¸ì§€? 
+-- ë‚¨ì ê·¸ë£¹, ì—¬ì ê·¸ë£¹ì˜ ì¹´ìš´íŠ¸ë¥¼ ì„¸ì•¼ í•œë‹¤. 
 select * from tblComedian;
 
-select count(*), gender from  -- ´©°¡ ´©±ºÁö ¸ğ¸£´Ï±î ±âÁØÀ» ½áÁØ´Ù.
+select count(*), gender from  -- ëˆ„ê°€ ëˆ„êµ°ì§€ ëª¨ë¥´ë‹ˆê¹Œ ê¸°ì¤€ì„ ì¨ì¤€ë‹¤.
 tblComedian 
     group by gender;
     
--- ´ë·úº° ±¹°¡¼ö ? 
+-- ëŒ€ë¥™ë³„ êµ­ê°€ìˆ˜ ? 
 select 
 count(*), continent
 from tblCountry
@@ -66,24 +66,24 @@ group by continent;
 
 select 
     buseo, 
-    count(*) as "ºÎ¼­º° ÀÎ¿ø¼ö",
-    sum(basicpay) as "ºÎ¼­º° ±Ş¿© ÇÕ",
-    avg(basicpay) as "ºÎ¼­º° Æò±Õ ±Ş¿©",
-    max(ibsadate) as "ºÎ¼­º° ¸·³»ÀÇ ÀÔ»çÀÏ",
-    min(ibsadate) as "ºÎ¼­º° °íÂüÀÇ ÀÔ»çÀÏ"
+    count(*) as "ë¶€ì„œë³„ ì¸ì›ìˆ˜",
+    sum(basicpay) as "ë¶€ì„œë³„ ê¸‰ì—¬ í•©",
+    avg(basicpay) as "ë¶€ì„œë³„ í‰ê·  ê¸‰ì—¬",
+    max(ibsadate) as "ë¶€ì„œë³„ ë§‰ë‚´ì˜ ì…ì‚¬ì¼",
+    min(ibsadate) as "ë¶€ì„œë³„ ê³ ì°¸ì˜ ì…ì‚¬ì¼"
 from tblInsa
     group by buseo;
     
 select 
 gender,
-round(avg(height)) as "³²³àº° Æò±Õ Å°" ,
-round(avg(weight), 1) as "³²³àº° Æò±Õ ¸ö¹«°Ô" ,
-max(height) as "Å°°¡ °¡Àå Å«»ç¶÷",
-min(height) as "Å°°¡ °¡Àå ÀÛÀº»ç¶÷"
+round(avg(height)) as "ë‚¨ë…€ë³„ í‰ê·  í‚¤" ,
+round(avg(weight), 1) as "ë‚¨ë…€ë³„ í‰ê·  ëª¸ë¬´ê²Œ" ,
+max(height) as "í‚¤ê°€ ê°€ì¥ í°ì‚¬ëŒ",
+min(height) as "í‚¤ê°€ ê°€ì¥ ì‘ì€ì‚¬ëŒ"
 from tblComedian
     group by gender ;
     
--- Á÷¾÷º° ÀÎ¿ø¼ö? > ¸¹Àº > Àû°Ô ¼øÀ¸·Î Åë°è¸¦ ±¸ÇÑ´Ù. 
+-- ì§ì—…ë³„ ì¸ì›ìˆ˜? > ë§ì€ > ì ê²Œ ìˆœìœ¼ë¡œ í†µê³„ë¥¼ êµ¬í•œë‹¤. 
 select 
 job,
 count(*)
@@ -92,91 +92,91 @@ group by job
 -- order by count(*) desc;
 order by job; 
 
--- Á÷¾÷ ÀÌ¸§¼øÀ¸·Îµµ Á¤·Ä
+-- ì§ì—… ì´ë¦„ìˆœìœ¼ë¡œë„ ì •ë ¬
 
 --select 
 --    round(avg(basicpay)), --OK
 --    buseo,     -- OK
---    name               -- ÀÌ°Í¶§¹®¿¡ ¿¡·¯°¡ ³­´Ù. 
+--    name               -- ì´ê²ƒë•Œë¬¸ì— ì—ëŸ¬ê°€ ë‚œë‹¤. 
 --from tblInsa
 --    group by buseo;
 
--- 1Â÷ ±×·ì(ºÎ¼­) > 2Â÷ ±×·ì(Á÷À§)
+-- 1ì°¨ ê·¸ë£¹(ë¶€ì„œ) > 2ì°¨ ê·¸ë£¹(ì§ìœ„)
 
-select -- 1Â÷±×·ì 
-buseo as "ºÎ¼­¸í",
-count(*) as "ÀÎ¿ø¼ö"
+select -- 1ì°¨ê·¸ë£¹ 
+buseo as "ë¶€ì„œëª…",
+count(*) as "ì¸ì›ìˆ˜"
 from tblInsa 
     group by buseo;
         
-select -- 2Â÷±×·ì >> ¼¼¼¼ÇÏ°Ô ¸¹¾ÆÁø´Ù. 
-buseo as "ºÎ¼­¸í",
-jikwi as "Á÷À§¸í",
-count(*) as "ÀÎ¿ø¼ö"
+select -- 2ì°¨ê·¸ë£¹ >> ì„¸ì„¸í•˜ê²Œ ë§ì•„ì§„ë‹¤. 
+buseo as "ë¶€ì„œëª…",
+jikwi as "ì§ìœ„ëª…",
+count(*) as "ì¸ì›ìˆ˜"
 from tblInsa 
     group by buseo, jikwi
         order by buseo, jikwi;
 
--- ¼ºº° ÀÎ¿ø¼ö?
+-- ì„±ë³„ ì¸ì›ìˆ˜?
 select 
 count(*), 
-substr(ssn,8,1) as °¡°ø
+substr(ssn,8,1) as ê°€ê³µ
 from tblInsa
-group by substr(ssn,8,1); --?? ±×·ìÀ» ³ª´­·Á¸é Àû¾îµµ µ¿ÀÏÇÑ °ªµéÀ» °¡Áø Áı´ÜÀÌ ÇÊ¿äÇÏ´Ù. 
--- group byÀÇ Á¶°Çµµ ÄÃ·³ ±×ÀÚÃ¼°¡ ¾Æ´Ï¶ó °¡°øµÈ Á¶°ÇÀ¸·Î group by¸¦ ¸¸µé ¼ö ÀÖ´Ù. 
--- group by¿¡´Â alias·Î ¸ø¾´´Ù.
+group by substr(ssn,8,1); --?? ê·¸ë£¹ì„ ë‚˜ëˆŒë ¤ë©´ ì ì–´ë„ ë™ì¼í•œ ê°’ë“¤ì„ ê°€ì§„ ì§‘ë‹¨ì´ í•„ìš”í•˜ë‹¤. 
+-- group byì˜ ì¡°ê±´ë„ ì»¬ëŸ¼ ê·¸ìì²´ê°€ ì•„ë‹ˆë¼ ê°€ê³µëœ ì¡°ê±´ìœ¼ë¡œ group byë¥¼ ë§Œë“¤ ìˆ˜ ìˆë‹¤. 
+-- group byì—ëŠ” aliasë¡œ ëª»ì“´ë‹¤.
 
--- instr > indexOfÀÌ´Ù. 
-select instr('hellow','w') -- wÀÇ À§Ä¡´Â 6
+-- instr > indexOfì´ë‹¤. 
+select instr('hellow','w') -- wì˜ ìœ„ì¹˜ëŠ” 6
 from dual;
 
 
--- Áö¿ªº° ÀÎ¿ø¼ö ? 
--- ¼­¿ïÆ¯º°½Ã ±¤Áø±¸ ±ä°í¶û·Î13±æ 5 ~ 42
--- ±¤ÁÖ±¤¿ª½Ã ~
--- °æ±âµµ ~ 
--- ÀÌ°É ±×·ìÀ¸·Î ¸ø¾²°í ¾ÕºÎºĞÀ» Â©¶ó³»¾ßÇÑ´Ù. 
+-- ì§€ì—­ë³„ ì¸ì›ìˆ˜ ? 
+-- ì„œìš¸íŠ¹ë³„ì‹œ ê´‘ì§„êµ¬ ê¸´ê³ ë‘ë¡œ13ê¸¸ 5 ~ 42
+-- ê´‘ì£¼ê´‘ì—­ì‹œ ~
+-- ê²½ê¸°ë„ ~ 
+-- ì´ê±¸ ê·¸ë£¹ìœ¼ë¡œ ëª»ì“°ê³  ì•ë¶€ë¶„ì„ ì§¤ë¼ë‚´ì•¼í•œë‹¤. 
 select 
-substr(address, 1, instr(address,' ') -1 ) -- ' '°ø¹éÀÇ ÁöÁ¡Àº µü ±× ºÎºĞÀÓ ±×·¡¼­ °³¼ö¸¸Å­ Â¥¸£´Ï±î -1
+substr(address, 1, instr(address,' ') -1 ) -- ' 'ê³µë°±ì˜ ì§€ì ì€ ë”± ê·¸ ë¶€ë¶„ì„ ê·¸ë˜ì„œ ê°œìˆ˜ë§Œí¼ ì§œë¥´ë‹ˆê¹Œ -1
 from tblAddressBook
     group by substr(address, 1, instr(address,' ') -1 ); 
     
--- °¡°øÇÑ °ÍÀ¸·Î group byÇÏ´Â ¿¬½À
+-- ê°€ê³µí•œ ê²ƒìœ¼ë¡œ group byí•˜ëŠ” ì—°ìŠµ
 
 
--- ÀÌ¸ŞÀÏ »çÀÌÆ®º° ÀÎ¿ø¼ö
+-- ì´ë©”ì¼ ì‚¬ì´íŠ¸ë³„ ì¸ì›ìˆ˜
 -- prevent@gmail.com
 -- international_dog@duam.net
 -- small@gmail.com
 -- daughter@daum.net 
 
 select 
-    substr(email, instr(email, '@')+1), -- 1Â÷ÀûÀ¸·Î °¡°øÇØº¸°í 
+    substr(email, instr(email, '@')+1), -- 1ì°¨ì ìœ¼ë¡œ ê°€ê³µí•´ë³´ê³  
     count(*)
 from tblAddressBook
     group by substr(email, instr(email, '@')+1)
         order by count(*) desc;
         
         
--- ±Ş¿©º° ±×·ì > ÀÎ¿ø¼ö?
- -- 100¸¸¿ø ÀÌÇÏ
- -- 100¸¸¿ø ~ 200¸¸¿ø ÀÌ»ó
- -- 200¸¸¿ø ÀÌ»ó
+-- ê¸‰ì—¬ë³„ ê·¸ë£¹ > ì¸ì›ìˆ˜?
+ -- 100ë§Œì› ì´í•˜
+ -- 100ë§Œì› ~ 200ë§Œì› ì´ìƒ
+ -- 200ë§Œì› ì´ìƒ
 select 
     basicpay,
     floor(basicpay / 1000000)
     from tblInsa;
 
 select 
-    (floor(basicpay / 1000000)+1) *100 || '¸¸¿ø ÀÌÇÏ' as "±Ş¿©´ë",
+    (floor(basicpay / 1000000)+1) *100 || 'ë§Œì› ì´í•˜' as "ê¸‰ì—¬ëŒ€",
     count(*)
     from tblInsa
         group by floor(basicpay / 1000000)
             order by floor(basicpay / 1000000) asc;
 
--- floor¸¦ ½áº¸ÀÚ 
+-- floorë¥¼ ì¨ë³´ì 
 
--- ÇÑÀÏ? ¾ÈÇÑÀÏ? °¢°¢ ¸î°³? completedateÀÇ Á¸Àç À¯¹«¿¡ µû¶ó ´Ş¶óÁø´Ù. 
+-- í•œì¼? ì•ˆí•œì¼? ê°ê° ëª‡ê°œ? completedateì˜ ì¡´ì¬ ìœ ë¬´ì— ë”°ë¼ ë‹¬ë¼ì§„ë‹¤. 
 select 
 completedate,
 count(*) from tblTodo
@@ -185,27 +185,27 @@ group by completedate;
 
 select 
     case 
-        when completedate is null then '¾ÈÇÑÀÏ' 
-        when completedate is not null then 'ÇÑÀÏ'
+        when completedate is null then 'ì•ˆí•œì¼' 
+        when completedate is not null then 'í•œì¼'
     end
     from tblTodo
         group by case 
-        when completedate is null then '¾ÈÇÑÀÏ'  
-        when completedate is not null then 'ÇÑÀÏ' 
+        when completedate is null then 'ì•ˆí•œì¼'  
+        when completedate is not null then 'í•œì¼' 
     end;
 
 -- select * from traffic_accident;
--- traffic_accident. °¢ ±³Åë ¼ö´Ü º°(ÁöÇÏÃ¶, Ã¶µµ, Ç×°ø±â, ¼±¹Ú, ÀÚµ¿Â÷) ¹ß»ıÇÑ ÃÑ ±³Åë »ç°í ¹ß»ı ¼ö, ÃÑ »ç¸ÁÀÚ ¼ö, »ç°Ç ´ç Æò±Õ »ç¸ÁÀÚ ¼ö¸¦ °¡Á®¿À½Ã¿À.
--- ÀÌ°Ç Å×ÀÌºíÀÌ ¾ø´Ù.
+-- traffic_accident. ê° êµí†µ ìˆ˜ë‹¨ ë³„(ì§€í•˜ì² , ì² ë„, í•­ê³µê¸°, ì„ ë°•, ìë™ì°¨) ë°œìƒí•œ ì´ êµí†µ ì‚¬ê³  ë°œìƒ ìˆ˜, ì´ ì‚¬ë§ì ìˆ˜, ì‚¬ê±´ ë‹¹ í‰ê·  ì‚¬ë§ì ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+-- ì´ê±´ í…Œì´ë¸”ì´ ì—†ë‹¤.
 
--- tblZoo. Á¾·ù(family)º° Æò±Õ ´Ù¸®ÀÇ °¹¼ö¸¦ °¡Á®¿À½Ã¿À.
+-- tblZoo. ì¢…ë¥˜(family)ë³„ í‰ê·  ë‹¤ë¦¬ì˜ ê°¯ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblZoo;
-select floor(avg(leg)) "Æò±Õ´Ù¸® °³¼ö" from tblZoo group by family;
+select floor(avg(leg)) "í‰ê· ë‹¤ë¦¬ ê°œìˆ˜" from tblZoo group by family;
 
--- tblZoo. »çÀÌÁî¿Í Á¾·ùº°·Î ±×·ìÀ» ³ª´©°í °¢ ±×·ìÀÇ °¹¼ö¸¦ °¡Á®¿À½Ã¿À.
-select sizeof "»çÀÌÁî", family "Á¾·ù", count(*) "°¢ ±×·ì°³¼ö" from tblZoo group by sizeof, family;
+-- tblZoo. ì‚¬ì´ì¦ˆì™€ ì¢…ë¥˜ë³„ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆ„ê³  ê° ê·¸ë£¹ì˜ ê°¯ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select sizeof "ì‚¬ì´ì¦ˆ", family "ì¢…ë¥˜", count(*) "ê° ê·¸ë£¹ê°œìˆ˜" from tblZoo group by sizeof, family;
 
--- tblAddressBook. ÀÌ¸ŞÀÏÀÌ ½º³×ÀÌÅ© ¸í¸í¹ıÀ¸·Î ¸¸µé¾îÁø »ç¶÷µé Áß¿¡¼­ ¿©ÀÚÀÌ¸ç, 20´ëÀÌ¸ç, Å°°¡ 150~160cm »çÀÌ¸ç, °íÇâÀÌ ¼­¿ï ¶Ç´Â ÀÎÃµÀÎ »ç¶÷µé¸¸ °¡Á®¿À½Ã¿À.
+-- tblAddressBook. ì´ë©”ì¼ì´ ìŠ¤ë„¤ì´í¬ ëª…ëª…ë²•ìœ¼ë¡œ ë§Œë“¤ì–´ì§„ ì‚¬ëŒë“¤ ì¤‘ì—ì„œ ì—¬ìì´ë©°, 20ëŒ€ì´ë©°, í‚¤ê°€ 150~160cm ì‚¬ì´ë©°, ê³ í–¥ì´ ì„œìš¸ ë˜ëŠ” ì¸ì²œì¸ ì‚¬ëŒë“¤ë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select *
 from tblAddressBook;
 
@@ -215,38 +215,38 @@ where email like '%a_%' escape 'a' and
       gender ='f' and
       age >= 20 and age <30 and
       height >150 and height < 160 and
-      hometown in ('¼­¿ï', 'ÀÎÃµ') ; 
+      hometown in ('ì„œìš¸', 'ì¸ì²œ') ; 
 
 /*
- group by Àı
- - ·¹ÄÚµå¸¦ ´ë»óÀ¸·Î ±×·ìÀ» ³ª´©´Â ¿ªÇÒ
- - Æ¯Á¤ Ä®·³À» ´ë»óÀ¸·Î °°Àº °ªÀ» °¡Áö´Â ·¹ÄÚµåµé³¢¸® ±×·ìÀ» ¹­´Â ¿ªÇÒ
- - ±×·ìÀ» ¿Ö ³ª´©´Â°ÅÁö? > °¢°¢ÀÇ ³ª´²Áø ±×·ìÀ» ´ë»ó > Áı°è ÇÔ¼ö¸¦ Àû¿ëÇÏ±â À§ÇØ¼­ !!!(***************)
+ group by ì ˆ
+ - ë ˆì½”ë“œë¥¼ ëŒ€ìƒìœ¼ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆ„ëŠ” ì—­í• 
+ - íŠ¹ì • ì¹¼ëŸ¼ì„ ëŒ€ìƒìœ¼ë¡œ ê°™ì€ ê°’ì„ ê°€ì§€ëŠ” ë ˆì½”ë“œë“¤ë¼ë¦¬ ê·¸ë£¹ì„ ë¬¶ëŠ” ì—­í• 
+ - ê·¸ë£¹ì„ ì™œ ë‚˜ëˆ„ëŠ”ê±°ì§€? > ê°ê°ì˜ ë‚˜ëˆ ì§„ ê·¸ë£¹ì„ ëŒ€ìƒ > ì§‘ê³„ í•¨ìˆ˜ë¥¼ ì ìš©í•˜ê¸° ìœ„í•´ì„œ !!!(***************)
  
-select ÄÃ·³¸®½ºÆ®  --5. ÄÃ·³À» ¼±ÅÃ
-from Å×ÀÌºí       --1. Å×ÀÌºí·ÎºÎÅÍ
-where Á¶°Ç        --2. ¿øÇÏ´Â ·¹ÄÚµå¸¦ 
-group by ±âÁØ     --3. ±×·ìÀ» ³ª´²¼­
-havingÀı          --4. ±×·ì¿¡ ´ëÇÑ Á¶°Ç
-order by Á¤·Ä     --6. Á¤·ÄÇÑ´Ù.
+select ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸  --5. ì»¬ëŸ¼ì„ ì„ íƒ
+from í…Œì´ë¸”       --1. í…Œì´ë¸”ë¡œë¶€í„°
+where ì¡°ê±´        --2. ì›í•˜ëŠ” ë ˆì½”ë“œë¥¼ 
+group by ê¸°ì¤€     --3. ê·¸ë£¹ì„ ë‚˜ëˆ ì„œ
+havingì ˆ          --4. ê·¸ë£¹ì— ëŒ€í•œ ì¡°ê±´
+order by ì •ë ¬     --6. ì •ë ¬í•œë‹¤.
 
 -- from, where, group by, having, select, order by
  
- select¹®(***)
- 1. °¢ÀıÀÇ ¿ªÇÒ
- 2. °¢ÀıÀÇ ½ÇÇà¼ø¼­
+ selectë¬¸(***)
+ 1. ê°ì ˆì˜ ì—­í• 
+ 2. ê°ì ˆì˜ ì‹¤í–‰ìˆœì„œ
  
- ** whereÀı vs havingÀı 
+ ** whereì ˆ vs havingì ˆ 
  
- havingÀı > groupÀ¸·Î ºĞ·ùµÈ ÇÏ³ªÀÇ Ä«Å×°í¸®¿¡ ´ëÇÑ Á¶°ÇÀÌ´Ù. 
- - Á¶°ÇÀı
- - group byÀ¸·ÎºÎÅÍ ³ª¿Â ¼Â¿¡ ´ëÇÑ Á¶°Ç(½ÇÇà ¼ø¼­: group by > having)
- - ÁıÇÕ¿¡ ´ëÇÑ Áú¹® > Áı°è ÇÔ¼ö°ªÀ» Á¶°ÇÀ¸·Î »ç¿ë 
+ havingì ˆ > groupìœ¼ë¡œ ë¶„ë¥˜ëœ í•˜ë‚˜ì˜ ì¹´í…Œê³ ë¦¬ì— ëŒ€í•œ ì¡°ê±´ì´ë‹¤. 
+ - ì¡°ê±´ì ˆ
+ - group byìœ¼ë¡œë¶€í„° ë‚˜ì˜¨ ì…‹ì— ëŒ€í•œ ì¡°ê±´(ì‹¤í–‰ ìˆœì„œ: group by > having)
+ - ì§‘í•©ì— ëŒ€í•œ ì§ˆë¬¸ > ì§‘ê³„ í•¨ìˆ˜ê°’ì„ ì¡°ê±´ìœ¼ë¡œ ì‚¬ìš© 
  
- whereÀı  > from¿¡¼­ ³ª¿ÂÅ×ÀÌºí¿¡¼­ °³°³ÀÎ¿¡ ´ëÇÑ Á¶°ÇÀ» °Ç´Ù.
- - Á¶°ÇÀı
- - fromÀ¸·ÎºÎÅÍ ³ª¿Â ¼Â¿¡ ´ëÇÑ Á¶°Ç(½ÇÇà ¼ø¼­ : from > where)
- - °³ÀÎ¿¡ ´ëÇÑ Áú¹®(Çà) > ÄÃ·³°ªÀ» Á¶°ÇÀ¸·Î »ç¿ë
+ whereì ˆ  > fromì—ì„œ ë‚˜ì˜¨í…Œì´ë¸”ì—ì„œ ê°œê°œì¸ì— ëŒ€í•œ ì¡°ê±´ì„ ê±´ë‹¤.
+ - ì¡°ê±´ì ˆ
+ - fromìœ¼ë¡œë¶€í„° ë‚˜ì˜¨ ì…‹ì— ëŒ€í•œ ì¡°ê±´(ì‹¤í–‰ ìˆœì„œ : from > where)
+ - ê°œì¸ì— ëŒ€í•œ ì§ˆë¬¸(í–‰) > ì»¬ëŸ¼ê°’ì„ ì¡°ê±´ìœ¼ë¡œ ì‚¬ìš©
  
  
 */
@@ -260,14 +260,14 @@ group by buseo; --2.
 select 
     count(*), buseo           --4.
 from tblInsa                  --1.
-    where city = '¼­¿ï'        --2.
+    where city = 'ì„œìš¸'        --2.
         group by buseo;       --3.
 
 select 
     count(*), buseo            -- 4.
 from tblInsa                   -- 1. 
     where basicpay >= 2500000  -- 2. 
-        group by buseo;        -- 3. °É·¯Áø »óÅÂ¿¡¼­ group by°¡ µÈ´Ù. 
+        group by buseo;        -- 3. ê±¸ëŸ¬ì§„ ìƒíƒœì—ì„œ group byê°€ ëœë‹¤. 
 
 select max(basicpay) from tblInsa group by buseo;
 
@@ -283,29 +283,29 @@ from tblInsa
 
 select 
     buseo, 
-    round(avg(basicpay))    --3. ³ª´µ¾îÁø ±×·ìº°·Î Áı°èÇÔ¼ö¸¦ °¢°¢ ±¸ÇÑ´Ù. 
-from tblInsa                --1. 60¸íÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù. 
-    group by buseo;         --2. 60¸íÀÇ ´ë»óÀ¸·Î > ºÎ¼­·Î ±×·ìÀ» ³ª´«´Ù. 
+    round(avg(basicpay))    --3. ë‚˜ë‰˜ì–´ì§„ ê·¸ë£¹ë³„ë¡œ ì§‘ê³„í•¨ìˆ˜ë¥¼ ê°ê° êµ¬í•œë‹¤. 
+from tblInsa                --1. 60ëª…ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤. 
+    group by buseo;         --2. 60ëª…ì˜ ëŒ€ìƒìœ¼ë¡œ > ë¶€ì„œë¡œ ê·¸ë£¹ì„ ë‚˜ëˆˆë‹¤. 
 
 
 select 
     buseo,
     round(avg(basicpay))
 from tblInsa
-    where basicpay >= 1500000  -- 1. 60¸íÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù.
-        group by buseo;        -- 2. 60¸íÀ» ´ë»óÀ» Á¶°Ç¿¡ ¸Â´Â Á÷¿ø¸¸ ³²±ä´Ù.
-                               -- 3. whereÀıÀ» ¸¸Á·ÇÑ Á÷¿øµéÀ» ´ë»óÀ¸·Î ±×·ìÀ» ³ª´«´Ù. 
+    where basicpay >= 1500000  -- 1. 60ëª…ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+        group by buseo;        -- 2. 60ëª…ì„ ëŒ€ìƒì„ ì¡°ê±´ì— ë§ëŠ” ì§ì›ë§Œ ë‚¨ê¸´ë‹¤.
+                               -- 3. whereì ˆì„ ë§Œì¡±í•œ ì§ì›ë“¤ì„ ëŒ€ìƒìœ¼ë¡œ ê·¸ë£¹ì„ ë‚˜ëˆˆë‹¤. 
 
 select 
     buseo,
     round(avg(basicpay))
-from tblInsa                                 --1. 60¸íÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù.
-        group by buseo                       --2. 60¸íÀ» ´ë»óÀ¸·Î > ºÎ¼­·Î ±×·ìÀ» ³ª´«´Ù. 
-            having avg(basicpay) >= 1500000; --3. ±×·ìº° Áı°èÇÔ¼ö°ªÀ» Á¶°ÇÀ¸·Î ÇÊÅÍ¸µ 
+from tblInsa                                 --1. 60ëª…ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+        group by buseo                       --2. 60ëª…ì„ ëŒ€ìƒìœ¼ë¡œ > ë¶€ì„œë¡œ ê·¸ë£¹ì„ ë‚˜ëˆˆë‹¤. 
+            having avg(basicpay) >= 1500000; --3. ê·¸ë£¹ë³„ ì§‘ê³„í•¨ìˆ˜ê°’ì„ ì¡°ê±´ìœ¼ë¡œ í•„í„°ë§ 
 
--- havingÀº ·¹ÄÚµå¸¦ ´ë»óÀ¸·Î ÇÏÁö ¾Ê´Â´Ù. ±×·ìµé ÁßÀÇ ÇÏ³ªÀÇ Ä«Å×°í¸®¸¦ º¸°í ÇÊÅÍ¸µÀ» ÇÑ´Ù.
--- ºÎ¼­Áß¿¡ Á¶°ÇÀ» ¸¸Á·ÇÏ´Â ºÎ¼­¸¦ °É·¯³»´Â ¿ªÇÒÀ» ÇÑ´Ù. 
--- ex) ¸¸¾à¿¡ È«º¸ºÎ°¡ avg(basicpay) >= 1500000; Á¶°Ç¿¡ ¸ÂÁö ¾ÊÀ¸¸é ÇÊÅÍ¸µÀÌ µÈ´Ù. 
+-- havingì€ ë ˆì½”ë“œë¥¼ ëŒ€ìƒìœ¼ë¡œ í•˜ì§€ ì•ŠëŠ”ë‹¤. ê·¸ë£¹ë“¤ ì¤‘ì˜ í•˜ë‚˜ì˜ ì¹´í…Œê³ ë¦¬ë¥¼ ë³´ê³  í•„í„°ë§ì„ í•œë‹¤.
+-- ë¶€ì„œì¤‘ì— ì¡°ê±´ì„ ë§Œì¡±í•˜ëŠ” ë¶€ì„œë¥¼ ê±¸ëŸ¬ë‚´ëŠ” ì—­í• ì„ í•œë‹¤. 
+-- ex) ë§Œì•½ì— í™ë³´ë¶€ê°€ avg(basicpay) >= 1500000; ì¡°ê±´ì— ë§ì§€ ì•Šìœ¼ë©´ í•„í„°ë§ì´ ëœë‹¤. 
 
 select 
     buseo, 
@@ -313,25 +313,25 @@ select
 from tblInsa                                 -- 1. 
     where basicpay >= 1500000                -- 2.
         group by buseo                       -- 3.
-            having avg(basicpay) >= 2200000  -- 4. havingÀ¸·Î Æò±Õ±Ş¿©°¡ 220¸¸¿ø ÀÌ»óÀÎ ¾Öµé¸¸ °É·¯¶ó 
+            having avg(basicpay) >= 2200000  -- 4. havingìœ¼ë¡œ í‰ê· ê¸‰ì—¬ê°€ 220ë§Œì› ì´ìƒì¸ ì• ë“¤ë§Œ ê±¸ëŸ¬ë¼ 
                 order by avg(basicpay) desc; -- 6.
 
 select name, buseo, jikwi from tblInsa where basicpay >= 1500000 order by buseo;
 
--- tblZoo. Ã¼¿ÂÀÌ º¯¿ÂÀÎ Á¾·ù Áß ¾Æ°¡¹Ì È£Èí°ú Æó È£ÈíÀ» ÇÏ´Â Á¾µéÀÇ °¹¼ö¸¦ °¡Á®¿À½Ã¿À.
-select breath, count(*) "°¹¼ö"
+-- tblZoo. ì²´ì˜¨ì´ ë³€ì˜¨ì¸ ì¢…ë¥˜ ì¤‘ ì•„ê°€ë¯¸ í˜¸í¡ê³¼ í í˜¸í¡ì„ í•˜ëŠ” ì¢…ë“¤ì˜ ê°¯ìˆ˜ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+select breath, count(*) "ê°¯ìˆ˜"
 from tblZoo
 where thermo = 'variable' 
 group by breath;
 
 
--- tblAddressBook. °ü¸®ÀÚÀÇ ½Ç¼ö·Î ¸î¸î »ç¶÷µéÀÇ ÀÌ¸ŞÀÏ ÁÖ¼Ò°¡ Áßº¹µÇ¾ú´Ù. Áßº¹µÈ ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¸ °¡Á®¿À½Ã¿À.
+-- tblAddressBook. ê´€ë¦¬ìì˜ ì‹¤ìˆ˜ë¡œ ëª‡ëª‡ ì‚¬ëŒë“¤ì˜ ì´ë©”ì¼ ì£¼ì†Œê°€ ì¤‘ë³µë˜ì—ˆë‹¤. ì¤‘ë³µëœ ì´ë©”ì¼ ì£¼ì†Œë§Œ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select email --, count(*)
 from tblAddressBook
 group by email
 having count(*) >= 2;
 
--- tblAddressBook. ¼º¾¾º° ÀÎ¿ø¼ö°¡ 100¸í ÀÌ»ó µÇ´Â ¼º¾¾µéÀ» °¡Á®¿À½Ã¿À.
+-- tblAddressBook. ì„±ì”¨ë³„ ì¸ì›ìˆ˜ê°€ 100ëª… ì´ìƒ ë˜ëŠ” ì„±ì”¨ë“¤ì„ ê°€ì ¸ì˜¤ì‹œì˜¤.
 select * from tblAddressBook;
 
 select substr(name,1,1) -- , count(*)
@@ -340,38 +340,38 @@ group by substr(name,1,1)
 having  count(*) >= 100;
 
 
--- tblAddressBook. '°Ç¹°ÁÖ'¿Í '°Ç¹°ÁÖÀÚÁ¦ºĞ'µéÀÇ °ÅÁÖÁö°¡ ¼­¿ï°ú Áö¹æÀÇ ºñÀ²ÀÌ ¾î¶»°Ô µÇ´À³Ä?
-select job, count(*) "¼ö",
+-- tblAddressBook. 'ê±´ë¬¼ì£¼'ì™€ 'ê±´ë¬¼ì£¼ìì œë¶„'ë“¤ì˜ ê±°ì£¼ì§€ê°€ ì„œìš¸ê³¼ ì§€ë°©ì˜ ë¹„ìœ¨ì´ ì–´ë–»ê²Œ ë˜ëŠëƒ?
+select job, count(*) "ìˆ˜",
 
 sum(case 
-    when instr(address,'¼­¿ï') <> 0 then 1 else 0
-end) "¼­¿ï·¯",
+    when instr(address,'ì„œìš¸') <> 0 then 1 else 0
+end) "ì„œìš¸ëŸ¬",
 sum(case 
-    when instr(address,'¼­¿ï') = 0 then 1 else 0
-end) "Áö¹æ·¯",
+    when instr(address,'ì„œìš¸') = 0 then 1 else 0
+end) "ì§€ë°©ëŸ¬",
 round( sum(case 
-    when instr(address,'¼­¿ï') <> 0 then 1 else 0
-end)/count(address),2)*100 ||'%' "¼­¿ïÀÇ ºñÀ² ",
+    when instr(address,'ì„œìš¸') <> 0 then 1 else 0
+end)/count(address),2)*100 ||'%' "ì„œìš¸ì˜ ë¹„ìœ¨ ",
 
 round( sum(case 
-    when instr(address,'¼­¿ï') <> 0 then 0 else 1
-end)/count(address),2)*100 ||'%' "Áö¹æÀÇ ºñÀ² "
+    when instr(address,'ì„œìš¸') <> 0 then 0 else 1
+end)/count(address),2)*100 ||'%' "ì§€ë°©ì˜ ë¹„ìœ¨ "
 
 from
 tblADdressBook
 group by job
-having job='°Ç¹°ÁÖ' or job='°Ç¹°ÁÖÀÚÁ¦ºĞ';
+having job='ê±´ë¬¼ì£¼' or job='ê±´ë¬¼ì£¼ìì œë¶„';
 
 
 
-select instr(address,'¼­¿ï')
+select instr(address,'ì„œìš¸')
 from tblAddressBook;
 
-select count(address) "¼­¿ï·¯" from tblAddressBook where job='°Ç¹°ÁÖ' and instr(address,'¼­¿ï')<>0 ;
-select count(address) "Áö¹æ·¯ "from tblAddressBook where job='°Ç¹°ÁÖ' and instr(address,'¼­¿ï') = 0 ;
-select count(address) "¼­¿ï·¯" from tblAddressBook where job='°Ç¹°ÁÖÀÚÁ¦ºĞ' and instr(address,'¼­¿ï')<>0 ;
-select count(address) "Áö¹æ·¯ "from tblAddressBook where job='°Ç¹°ÁÖÀÚÁ¦ºĞ' and instr(address,'¼­¿ï') = 0 ;
-select count(address) from tblAddressBook where job='°Ç¹°ÁÖÀÚÁ¦ºĞ';
+select count(address) "ì„œìš¸ëŸ¬" from tblAddressBook where job='ê±´ë¬¼ì£¼' and instr(address,'ì„œìš¸')<>0 ;
+select count(address) "ì§€ë°©ëŸ¬ "from tblAddressBook where job='ê±´ë¬¼ì£¼' and instr(address,'ì„œìš¸') = 0 ;
+select count(address) "ì„œìš¸ëŸ¬" from tblAddressBook where job='ê±´ë¬¼ì£¼ìì œë¶„' and instr(address,'ì„œìš¸')<>0 ;
+select count(address) "ì§€ë°©ëŸ¬ "from tblAddressBook where job='ê±´ë¬¼ì£¼ìì œë¶„' and instr(address,'ì„œìš¸') = 0 ;
+select count(address) from tblAddressBook where job='ê±´ë¬¼ì£¼ìì œë¶„';
 
 
 /*
@@ -379,7 +379,7 @@ select count(address) from tblAddressBook where job='°Ç¹°ÁÖÀÚÁ¦ºĞ';
 cube()
 
 rollup()
-    -group by ¹İÈ¯ °á°ú¿¡¼­ ÀÚ¼¼ÇÏ°Ô Ç¥Çö
+    -group by ë°˜í™˜ ê²°ê³¼ì—ì„œ ìì„¸í•˜ê²Œ í‘œí˜„
     
 
 */
@@ -418,16 +418,16 @@ from tblInsa
     group by rollup(buseo, jikwi, city);
 
  
--- Àß½á¸ÔÀ¸¸é º¸°í¼­ ¸¸µé±â ÁÁ´Ù.  > ÀÌ·¸°Ô ¾ÈÇØÁÖ¸é ¼ö¸¹Àº Äõ¸®¸¦ ³¯·Á¾ß ÇÑ´Ù. 
--- ÀÌ°Í¿¡ ´ëÇÑ »ı»ê¼ºÀ» µµ¿ÍÁØ´Ù. 
--- ±Ùµ¥ format ÇüÅÂ°¡ ÀÌ·± ÇüÅÂ¶ó¼­ ¾È¾²´Â °æ¿ìµµ ¸¹À½ 
+-- ì˜ì¨ë¨¹ìœ¼ë©´ ë³´ê³ ì„œ ë§Œë“¤ê¸° ì¢‹ë‹¤.  > ì´ë ‡ê²Œ ì•ˆí•´ì£¼ë©´ ìˆ˜ë§ì€ ì¿¼ë¦¬ë¥¼ ë‚ ë ¤ì•¼ í•œë‹¤. 
+-- ì´ê²ƒì— ëŒ€í•œ ìƒì‚°ì„±ì„ ë„ì™€ì¤€ë‹¤. 
+-- ê·¼ë° format í˜•íƒœê°€ ì´ëŸ° í˜•íƒœë¼ì„œ ì•ˆì“°ëŠ” ê²½ìš°ë„ ë§ìŒ 
 
 
 /*
      cube()
-     - group by °á°ú¿¡¼­ Áı°è °á°ú¸¦ ´õ ÀÚ¼¼ÇÏ°Ô ¹İÈ¯
-     - rollup() º¸´Ù Á» ´õ ÀÚ¼¼ÇÏ°Ô Ç¥Çö 
-     - rollup() ¿¡ ºñÇØ Á» ´õ ´Ù¾çÇÑ ±âÁØÀ¸·Î Áß°£ Áı°è Ãß°¡ 
+     - group by ê²°ê³¼ì—ì„œ ì§‘ê³„ ê²°ê³¼ë¥¼ ë” ìì„¸í•˜ê²Œ ë°˜í™˜
+     - rollup() ë³´ë‹¤ ì¢€ ë” ìì„¸í•˜ê²Œ í‘œí˜„ 
+     - rollup() ì— ë¹„í•´ ì¢€ ë” ë‹¤ì–‘í•œ ê¸°ì¤€ìœ¼ë¡œ ì¤‘ê°„ ì§‘ê³„ ì¶”ê°€ 
 */
 
 
@@ -438,7 +438,7 @@ select
 from tblInsa
     group by cube(buseo);
     
--- 1Â÷ ±×·ìÀº rollup°ú cube´Â °°´Ù. ¼ø¼­¸¸ °°´Ù.
+-- 1ì°¨ ê·¸ë£¹ì€ rollupê³¼ cubeëŠ” ê°™ë‹¤. ìˆœì„œë§Œ ê°™ë‹¤.
 
 select 
     buseo,
@@ -466,5 +466,5 @@ select
 from tblInsa
     group by cube(buseo, jikwi, city);
     
--- Àû´çÇÑ Â÷¿ø¼ö¿¡¼­ cube¸¦ ½á¶ó.. ¹èº¸´Ù ¹è²ÅÀÌ ???     
+-- ì ë‹¹í•œ ì°¨ì›ìˆ˜ì—ì„œ cubeë¥¼ ì¨ë¼.. ë°°ë³´ë‹¤ ë°°ê¼½ì´ ???     
     

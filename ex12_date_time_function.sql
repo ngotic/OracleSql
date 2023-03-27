@@ -2,158 +2,158 @@
 
     ex11_date_time_function.sql
     
-    ³¯Â¥ ½Ã°£ ÇÔ¼ö 
+    ë‚ ì§œ ì‹œê°„ í•¨ìˆ˜ 
     
     1. sysdate
-    - ÇöÀç ½Ã½ºÅÛÀÇ ½Ã°¢À» ¹İÈ¯
+    - í˜„ì¬ ì‹œìŠ¤í…œì˜ ì‹œê°ì„ ë°˜í™˜
     - Calendar.getInstance()
-    - date sysdate     > ¼Ò°ıÈ£°¡ »ı·«µÇ¾ú´Ù.
+    - date sysdate     > ì†Œê´„í˜¸ê°€ ìƒëµë˜ì—ˆë‹¤.
     
 */
 
--- YYYY-MM-DD HH24:MI:SS > ÀÌ ¹®ÀÚ¿­À» ±â¾ïÇÏÀÚ. 
+-- YYYY-MM-DD HH24:MI:SS > ì´ ë¬¸ìì—´ì„ ê¸°ì–µí•˜ì. 
 
-select sysdate from dual;  -- 23/03/16 > Æ÷¸ËÀ» ¹Ù²Ü ¼øÀÖ´Âµ¥ ÅøÀÇ ¿É¼ÇÀ» °Çµå·Áµµ µÇ±äÇÏ´Âµ¥ ±ÇÀå x
+select sysdate from dual;  -- 23/03/16 > í¬ë§·ì„ ë°”ê¿€ ìˆœìˆëŠ”ë° íˆ´ì˜ ì˜µì…˜ì„ ê±´ë“œë ¤ë„ ë˜ê¸´í•˜ëŠ”ë° ê¶Œì¥ x
 
 /*
-    ³¯Â¥ ¿¬»ê
+    ë‚ ì§œ ì—°ì‚°
     +, -
-    1. ½Ã°¢ - ½Ã°¢ = ½Ã°£
-    2. ½Ã°¢ + ½Ã°£ = ½Ã°¢
-    3. ½Ã°¢ - ½Ã°£ = 
+    1. ì‹œê° - ì‹œê° = ì‹œê°„
+    2. ì‹œê° + ì‹œê°„ = ì‹œê°
+    3. ì‹œê° - ì‹œê°„ = 
     
 */
 
--- 1. ½Ã°¢ - ½Ã°¢ = ½Ã°£(ÀÏ)
+-- 1. ì‹œê° - ì‹œê° = ì‹œê°„(ì¼)
 
 select
     name,
     ibsadate,
-    round(sysdate - ibsadate) as "±Ù¹«ÀÏ¼ö",
-    round((sysdate - ibsadate) / 365) as "±Ù¹«³â¼ö", -- »ç¿ë±İÁö > 1³â¿¡ 365°¡ ¾Æ´Ò¼ö ÀÖ¾î¼­ ¿ÀÂ÷¹üÀ§°¡ »ı±ä´Ù. 
-    round((sysdate - ibsadate)* 24) as "±Ù¹«½Ã¼ö",
-    round((sysdate - ibsadate)* 24*60) as "±Ù¹«ºĞ¼ö",
-    round((sysdate - ibsadate)* 24*60*60) as "±Ù¹«ÃÊ¼ö"
+    round(sysdate - ibsadate) as "ê·¼ë¬´ì¼ìˆ˜",
+    round((sysdate - ibsadate) / 365) as "ê·¼ë¬´ë…„ìˆ˜", -- ì‚¬ìš©ê¸ˆì§€ > 1ë…„ì— 365ê°€ ì•„ë‹ìˆ˜ ìˆì–´ì„œ ì˜¤ì°¨ë²”ìœ„ê°€ ìƒê¸´ë‹¤. 
+    round((sysdate - ibsadate)* 24) as "ê·¼ë¬´ì‹œìˆ˜",
+    round((sysdate - ibsadate)* 24*60) as "ê·¼ë¬´ë¶„ìˆ˜",
+    round((sysdate - ibsadate)* 24*60*60) as "ê·¼ë¬´ì´ˆìˆ˜"
 from tblInsa;
--- 1³âÀº 365°¡ ¾Æ´Ï´Ù.
+-- 1ë…„ì€ 365ê°€ ì•„ë‹ˆë‹¤.
 
 select 
     title,
     adddate,
     completedate,
     completedate - adddate,
-    round((completedate - adddate) * 24, 1) as "½ÇÇàÇÏ±â±îÁö°É¸°½Ã°£",
-    completedate - adddate as "½ÇÇàÇÏ±â±îÁö°É¸°½Ã°£" -- ÀÌ°Å´Â µÈ´Ù. 
-    -- completedate - adddate as "½ÇÇàÇÏ±â±îÁö °É¸° ½Ã°£" -- ¿¡·¯°¡ ³­´Ù. ½Äº°ÀÚ°¡ ³Ê¹« ±æ´Ù. 
-    -- ORA-00972: identifier is too long ÀÌ°Ô ÇÑ±ÛÀÌ¶ó 30¹ÙÀÌÆ®°¡ ³ÑÀ½ utf-8ÀÌ´Ï±î ÇÑ±ÛÀÚ´ç 3¹ÙÀÌÆ®´Ù. 
+    round((completedate - adddate) * 24, 1) as "ì‹¤í–‰í•˜ê¸°ê¹Œì§€ê±¸ë¦°ì‹œê°„",
+    completedate - adddate as "ì‹¤í–‰í•˜ê¸°ê¹Œì§€ê±¸ë¦°ì‹œê°„" -- ì´ê±°ëŠ” ëœë‹¤. 
+    -- completedate - adddate as "ì‹¤í–‰í•˜ê¸°ê¹Œì§€ ê±¸ë¦° ì‹œê°„" -- ì—ëŸ¬ê°€ ë‚œë‹¤. ì‹ë³„ìê°€ ë„ˆë¬´ ê¸¸ë‹¤. 
+    -- ORA-00972: identifier is too long ì´ê²Œ í•œê¸€ì´ë¼ 30ë°”ì´íŠ¸ê°€ ë„˜ìŒ utf-8ì´ë‹ˆê¹Œ í•œê¸€ìë‹¹ 3ë°”ì´íŠ¸ë‹¤. 
 from tblTodo
     --where  round((completedate - adddate) * 24, 1) <= 1;
     order by round((completedate - adddate) * 24, 1) desc;
--- as "½Äº°ÀÚ"
+-- as "ì‹ë³„ì"
 
--- 2. ½Ã°¢ + ½Ã°£(ÀÏ) = ½Ã°¢
--- 3. ½Ã°¢ - ½Ã°£(ÀÏ) = ½Ã°¢
+-- 2. ì‹œê° + ì‹œê°„(ì¼) = ì‹œê°
+-- 3. ì‹œê° - ì‹œê°„(ì¼) = ì‹œê°
 select 
     sysdate,
-    sysdate + 100 as "100ÀÏµÚ",
-    sysdate - 100 as "100ÀÏÀü", -- ÀÚ¹Ùº¸´Ù ÆíÇÏ´Ù. 
-    sysdate + ( 3 / 24 ) as "3½Ã°£ÈÄ",
-    sysdate - ( 5 / 24 ) as "5½Ã°£Àü",
-    sysdate + ( 30 / 60 / 24 ) as "30ºĞµÚ"
+    sysdate + 100 as "100ì¼ë’¤",
+    sysdate - 100 as "100ì¼ì „", -- ìë°”ë³´ë‹¤ í¸í•˜ë‹¤. 
+    sysdate + ( 3 / 24 ) as "3ì‹œê°„í›„",
+    sysdate - ( 5 / 24 ) as "5ì‹œê°„ì „",
+    sysdate + ( 30 / 60 / 24 ) as "30ë¶„ë’¤"
 from dual;
 
 /*
 
-    ½Ã°¢ - ½Ã°¢ = ½Ã°£(ÀÏ)
+    ì‹œê° - ì‹œê° = ì‹œê°„(ì¼)
     
     months_between()
     - number months_between(date, date)
-    - ½Ã°¢ - ½Ã°¢ = ½Ã°£(¿ù) 
+    - ì‹œê° - ì‹œê° = ì‹œê°„(ì›”) 
     
-    add_months() > ½Ã°¢¿¡´Ù°¡ ½Ã°£À» ´õÇÑ´Ù. 
-    - number add_months(date, ½Ã°£) 
-    - ½Ã°¢ + ½Ã°£(¿ù) = ½Ã°¢ 
+    add_months() > ì‹œê°ì—ë‹¤ê°€ ì‹œê°„ì„ ë”í•œë‹¤. 
+    - number add_months(date, ì‹œê°„) 
+    - ì‹œê° + ì‹œê°„(ì›”) = ì‹œê° 
 */
 select 
     name, 
-    round(sysdate - ibsadate) as "±Ù¹«ÀÏ¼ö",
-    round((sysdate - ibsadate)/365) as "±Ù¹«ÀÏ¼ö", -- ½Å·Ú X
-    round(months_between(sysdate, ibsadate)) as "±Ù¹«¿ù¼ö", -- ½Å·Ú O
-    months_between(sysdate, ibsadate) as ³ë¶ó¿îµå,
-    round(months_between(sysdate, ibsadate)/12) as "±Ù¹«³â¼ö"
+    round(sysdate - ibsadate) as "ê·¼ë¬´ì¼ìˆ˜",
+    round((sysdate - ibsadate)/365) as "ê·¼ë¬´ì¼ìˆ˜", -- ì‹ ë¢° X
+    round(months_between(sysdate, ibsadate)) as "ê·¼ë¬´ì›”ìˆ˜", -- ì‹ ë¢° O
+    months_between(sysdate, ibsadate) as ë…¸ë¼ìš´ë“œ,
+    round(months_between(sysdate, ibsadate)/12) as "ê·¼ë¬´ë…„ìˆ˜"
 from tblInsa;
--- ÀÌ°Ô ¸î°³¿ùÀÌ Áö³ª°í ¸î³âÀÌ Áö³ª´ÂÁö Ç¥Çö?? 
--- ¿¬»ê ÇÑ¹øÀ¸·Î´Â »ç½Ç ¿ÀÂ÷ ¶§¹®¿¡ Á¤È®ÇÏ°Ô Ç¥ÇöÇÏ±â´Â Èûµé´Ù. 
+-- ì´ê²Œ ëª‡ê°œì›”ì´ ì§€ë‚˜ê³  ëª‡ë…„ì´ ì§€ë‚˜ëŠ”ì§€ í‘œí˜„?? 
+-- ì—°ì‚° í•œë²ˆìœ¼ë¡œëŠ” ì‚¬ì‹¤ ì˜¤ì°¨ ë•Œë¬¸ì— ì •í™•í•˜ê²Œ í‘œí˜„í•˜ê¸°ëŠ” í˜ë“¤ë‹¤. 
 
 select
     sysdate,
-    sysdate + 10,          -- 10ÀÏ µÚ    23/03/26
-    sysdate + 30,          -- ÇÑ´Ş µÚ??  23/04/15
-    add_months(sysdate, 1), -- ÇÑ´Ş µÚ??
-    add_months(sysdate, -3), -- 3°³¿ù Àü 
-    add_months(sysdate, 3*12) -- 3³â µÚ 
+    sysdate + 10,          -- 10ì¼ ë’¤    23/03/26
+    sysdate + 30,          -- í•œë‹¬ ë’¤??  23/04/15
+    add_months(sysdate, 1), -- í•œë‹¬ ë’¤??
+    add_months(sysdate, -3), -- 3ê°œì›” ì „ 
+    add_months(sysdate, 3*12) -- 3ë…„ ë’¤ 
 from dual;
 
 /*
-    ½Ã°¢ - ½Ã°¢
-    1. ÀÏ, ½Ã, ºĞ, ÃÊ > ¿¬»êÀÚ(-) 
-    2. ¿ù, ³â > months_between() 
+    ì‹œê° - ì‹œê°
+    1. ì¼, ì‹œ, ë¶„, ì´ˆ > ì—°ì‚°ì(-) 
+    2. ì›”, ë…„ > months_between() 
 
-    ½Ã°¢ +- ½Ã°£
-    1. ÀÏ, ½Ã, ºĞ, ÃÊ > ¿¬»êÀÚ(+,-)
-    2. ¿ù, ³â > add_months()
+    ì‹œê° +- ì‹œê°„
+    1. ì¼, ì‹œ, ë¶„, ì´ˆ > ì—°ì‚°ì(+,-)
+    2. ì›”, ë…„ > add_months()
 
 */
 
 -- employees
 
--- 1. ÀüÃ¼ ÀÌ¸§(first_name + last_name)ÀÌ °¡Àå ±ä -> ÂªÀº »ç¶÷ ¼øÀ¸·Î Á¤·ÄÇØ¼­ °¡Á®¿À±â
---    > ÄÃ·³ ¸®½ºÆ® > fullname(first_name + last_name), length(fullname)
-select first_name || last_name as ÀÌ¸§, length(first_name || last_name) as ±æÀÌ
+-- 1. ì „ì²´ ì´ë¦„(first_name + last_name)ì´ ê°€ì¥ ê¸´ -> ì§§ì€ ì‚¬ëŒ ìˆœìœ¼ë¡œ ì •ë ¬í•´ì„œ ê°€ì ¸ì˜¤ê¸°
+--    > ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ > fullname(first_name + last_name), length(fullname)
+select first_name || last_name as ì´ë¦„, length(first_name || last_name) as ê¸¸ì´
 from employees
 order by length(first_name || last_name) desc;
 
--- 2. ÀüÃ¼ ÀÌ¸§(first_name + last_name)ÀÌ °¡Àå ±ä »ç¶÷Àº ¸î±ÛÀÚ? °¡Àå ÂªÀº »ç¶÷Àº ¸î±ÛÀÚ? Æò±Õ ¸î±ÛÀÚ?
---    > ÄÃ·³ ¸®½ºÆ® > ¼ıÀÚ 3°³ ÄÃ·³
-select max(length(first_name || last_name)) as ÃÖ´ë, min(length(first_name || last_name)) as ÃÖ¼Ò, trunc(avg(length(first_name || last_name))) as Æò±Õ
+-- 2. ì „ì²´ ì´ë¦„(first_name + last_name)ì´ ê°€ì¥ ê¸´ ì‚¬ëŒì€ ëª‡ê¸€ì? ê°€ì¥ ì§§ì€ ì‚¬ëŒì€ ëª‡ê¸€ì? í‰ê·  ëª‡ê¸€ì?
+--    > ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ > ìˆ«ì 3ê°œ ì»¬ëŸ¼
+select max(length(first_name || last_name)) as ìµœëŒ€, min(length(first_name || last_name)) as ìµœì†Œ, trunc(avg(length(first_name || last_name))) as í‰ê· 
 from employees;
 
--- 3. last_nameÀÌ 4ÀÚÀÎ »ç¶÷µéÀÇ first_nameÀ» °¡Á®¿À±â
---    > ÄÃ·³ ¸®½ºÆ® > first_name, last_name
---    > Á¤·Ä(first_name, ¿À¸§Â÷¼ø)
+-- 3. last_nameì´ 4ìì¸ ì‚¬ëŒë“¤ì˜ first_nameì„ ê°€ì ¸ì˜¤ê¸°
+--    > ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ > first_name, last_name
+--    > ì •ë ¬(first_name, ì˜¤ë¦„ì°¨ìˆœ)
 select first_name, last_name
 from employees
 where length(last_name)=4
 order by first_name;
 
--- decode( ³ª case end ) 
+-- decode( ë‚˜ case end ) 
 
--- 4. tblInsa. ºÎÀå ¸î¸í? °úÀå ¸î¸í? ´ë¸® ¸î¸í? »ç¿ø ¸î¸í?
+-- 4. tblInsa. ë¶€ì¥ ëª‡ëª…? ê³¼ì¥ ëª‡ëª…? ëŒ€ë¦¬ ëª‡ëª…? ì‚¬ì› ëª‡ëª…?
 
 select 
-    count(decode(jikwi, 'ºÎÀå', 1)) as ºÎÀå,
-    count(decode(jikwi, '°úÀå', 1)) as °úÀå,
-    count(decode(jikwi, '´ë¸®', 1)) as ´ë¸®,
-    count(decode(jikwi, '»ç¿ø', 1)) as »ç¿ø
+    count(decode(jikwi, 'ë¶€ì¥', 1)) as ë¶€ì¥,
+    count(decode(jikwi, 'ê³¼ì¥', 1)) as ê³¼ì¥,
+    count(decode(jikwi, 'ëŒ€ë¦¬', 1)) as ëŒ€ë¦¬,
+    count(decode(jikwi, 'ì‚¬ì›', 1)) as ì‚¬ì›
 from tblInsa;
 
--- 5. tblInsa. °£ºÎ(ºÎÀå, °úÀå) ¸î¸í? »ç¿ø(´ë¸®, »ç¿ø) ¸î¸í?
+-- 5. tblInsa. ê°„ë¶€(ë¶€ì¥, ê³¼ì¥) ëª‡ëª…? ì‚¬ì›(ëŒ€ë¦¬, ì‚¬ì›) ëª‡ëª…?
 select 
-    count(decode(jikwi, 'ºÎÀå', 1, '°úÀå', 1)) as "°£ºÎ(ºÎÀå, °úÀå)",
-    count(decode(jikwi, '´ë¸®', 1, '»ç¿ø', 1)) as "»ç¿ø(´ë¸®, »ç¿ø)"
+    count(decode(jikwi, 'ë¶€ì¥', 1, 'ê³¼ì¥', 1)) as "ê°„ë¶€(ë¶€ì¥, ê³¼ì¥)",
+    count(decode(jikwi, 'ëŒ€ë¦¬', 1, 'ì‚¬ì›', 1)) as "ì‚¬ì›(ëŒ€ë¦¬, ì‚¬ì›)"
 from tblInsa;
 
--- 6. tblInsa. ±âÈ¹ºÎ, ¿µ¾÷ºÎ, ÃÑ¹«ºÎ, °³¹ßºÎÀÇ °¢°¢ Æò±Õ ±Ş¿©?
+-- 6. tblInsa. ê¸°íšë¶€, ì˜ì—…ë¶€, ì´ë¬´ë¶€, ê°œë°œë¶€ì˜ ê°ê° í‰ê·  ê¸‰ì—¬?
 select 
-    avg(decode(buseo, '±âÈ¹ºÎ', basicpay)) as "±âÈ¹ºÎ",
-    avg(decode(buseo, '¿µ¾÷ºÎ', basicpay)) as "¿µ¾÷ºÎ",
-    avg(decode(buseo, 'ÃÑ¹«ºÎ', basicpay)) as "ÃÑ¹«ºÎ",
-    avg(decode(buseo, '°³¹ßºÎ', basicpay)) as "°³¹ßºÎ"
+    avg(decode(buseo, 'ê¸°íšë¶€', basicpay)) as "ê¸°íšë¶€",
+    avg(decode(buseo, 'ì˜ì—…ë¶€', basicpay)) as "ì˜ì—…ë¶€",
+    avg(decode(buseo, 'ì´ë¬´ë¶€', basicpay)) as "ì´ë¬´ë¶€",
+    avg(decode(buseo, 'ê°œë°œë¶€', basicpay)) as "ê°œë°œë¶€"
 from tblInsa;
 
 select * from tblInsa;
 
--- 7. tblInsa. ³²ÀÚ Á÷¿ø °¡Àå ³ªÀÌ°¡ ¸¹Àº »ç¶÷ÀÌ ¸î³âµµ ÅÂ»ı? ¿©ÀÚ Á÷¿ø °¡Àå ³ªÀÌ°¡ ¾î¸° »ç¶÷ÀÌ ¸î³âµµ ÅÂ»ı?
+-- 7. tblInsa. ë‚¨ì ì§ì› ê°€ì¥ ë‚˜ì´ê°€ ë§ì€ ì‚¬ëŒì´ ëª‡ë…„ë„ íƒœìƒ? ì—¬ì ì§ì› ê°€ì¥ ë‚˜ì´ê°€ ì–´ë¦° ì‚¬ëŒì´ ëª‡ë…„ë„ íƒœìƒ?
 
 select max(substr(ssn,1,2))
 from tblInsa
@@ -169,9 +169,9 @@ select
 from tblInsa;
 
 select * from tblInsa;
--- 7. tblInsa. ³²ÀÚ Á÷¿ø °¡Àå ³ªÀÌ°¡ ¸¹Àº »ç¶÷ÀÌ ¸î³âµµ ÅÂ»ı? ¿©ÀÚ Á÷¿ø °¡Àå ³ªÀÌ°¡ ¾î¸° »ç¶÷ÀÌ ¸î³âµµ ÅÂ»ı?
+-- 7. tblInsa. ë‚¨ì ì§ì› ê°€ì¥ ë‚˜ì´ê°€ ë§ì€ ì‚¬ëŒì´ ëª‡ë…„ë„ íƒœìƒ? ì—¬ì ì§ì› ê°€ì¥ ë‚˜ì´ê°€ ì–´ë¦° ì‚¬ëŒì´ ëª‡ë…„ë„ íƒœìƒ?
 select 
-    min(decode(substr(ssn,8, 1 ), '2', substr(ssn, 0 ,2))) as ³²ÀÚ³ªÀÌ¸¹Àº,
-    max(decode(substr(ssn,8, 1 ), '1', substr(ssn, 0 ,2))) as ¿©ÀÚ³ªÀÌÀûÀº
+    min(decode(substr(ssn,8, 1 ), '2', substr(ssn, 0 ,2))) as ë‚¨ìë‚˜ì´ë§ì€,
+    max(decode(substr(ssn,8, 1 ), '1', substr(ssn, 0 ,2))) as ì—¬ìë‚˜ì´ì ì€
 from tblInsa;
 

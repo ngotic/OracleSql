@@ -4,43 +4,43 @@
 
     1. DDL 
         - Data Definition Language
-        - µ¥ÀÌÅÍ Á¤ÀÇ¾î
-        - Å×ÀÌºí, ºä, »ç¿ëÀÚ, ÀÎµ¦½º, Æ®¸®°Å µîÀÇ µ¥ÀÌÅÍº£ÀÌ½º ¿ÀºêÁ§Æ®¸¦ »ı¼º/¼öÁ¤/»èÁ¦ÇÏ´Â ¸í·É¾î
-        a. create: »ı¼º
-        b. drop: »èÁ¦
-        c. alter: ¼öÁ¤
+        - ë°ì´í„° ì •ì˜ì–´
+        - í…Œì´ë¸”, ë·°, ì‚¬ìš©ì, ì¸ë±ìŠ¤, íŠ¸ë¦¬ê±° ë“±ì˜ ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±/ìˆ˜ì •/ì‚­ì œí•˜ëŠ” ëª…ë ¹ì–´
+        a. create: ìƒì„±
+        b. drop: ì‚­ì œ
+        c. alter: ìˆ˜ì •
         
-     Å×ÀÌºí Á¶ÀÛÇÏ±â
+     í…Œì´ë¸” ì¡°ì‘í•˜ê¸°
      
-     create table Å×ÀÌºí¸í
+     create table í…Œì´ë¸”ëª…
      (
-        ÄÃ·³ Á¤ÀÇ,
-        ÄÃ·³ Á¤ÀÇ,
-        ÄÃ·³ Á¤ÀÇ,
-        ÄÃ·³ Á¤ÀÇ,
-        ÄÃ·³ Á¤ÀÇ,
-        ÄÃ·³¸í ÀÚ·áÇü(±æÀÌ) NULL Á¦¾à»çÇ× [ Á¦¾à ¼±¾ğ¹® ]
+        ì»¬ëŸ¼ ì •ì˜,
+        ì»¬ëŸ¼ ì •ì˜,
+        ì»¬ëŸ¼ ì •ì˜,
+        ì»¬ëŸ¼ ì •ì˜,
+        ì»¬ëŸ¼ ì •ì˜,
+        ì»¬ëŸ¼ëª… ìë£Œí˜•(ê¸¸ì´) NULL ì œì•½ì‚¬í•­ [ ì œì•½ ì„ ì–¸ë¬¸ ]
      );
-    Á¦¾à»çÇ×, Constraint
-    - ÇØ´ç Ä®·³¿¡ µé¾î°¥ µ¥ÀÌÅÍ(°ª)¿¡ ´ëÇÑ Á¶°Ç
-        - Á¶°ÇÀ» ¸¸Á·ÇÏ¸é > ´ëÀÔ
-        - Á¶°ÇÀ» ºÒ¸¸Á·ÇÏ¸é > ¿¡·¯¹ß»ı
-    - À¯È¿¼º °Ë»ç µµ±¸
-    - µ¥ÀÌÅÍº£ÀÌ½º > µ¥ÀÌÅÍ °ü¸® > µ¥ÀÌÅÍ ¹«°á¼º(***)À» º¸ÀåÇÏ´Â µµ±¸
+    ì œì•½ì‚¬í•­, Constraint
+    - í•´ë‹¹ ì¹¼ëŸ¼ì— ë“¤ì–´ê°ˆ ë°ì´í„°(ê°’)ì— ëŒ€í•œ ì¡°ê±´
+        - ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´ > ëŒ€ì…
+        - ì¡°ê±´ì„ ë¶ˆë§Œì¡±í•˜ë©´ > ì—ëŸ¬ë°œìƒ
+    - ìœ íš¨ì„± ê²€ì‚¬ ë„êµ¬
+    - ë°ì´í„°ë² ì´ìŠ¤ > ë°ì´í„° ê´€ë¦¬ > ë°ì´í„° ë¬´ê²°ì„±(***)ì„ ë³´ì¥í•˜ëŠ” ë„êµ¬
     
     
     1. NOT NULL
-    - ÇØ´ç ÄÃ·³ÀÌ ¹İµå½Ã °ªÀ» °¡Á®¾ß ÇÑ´Ù.
-    - ÇØ´ç ÄÃ·³¿¡ °ªÀÌ ¾øÀ¸¸é ¿¡·¯¹ß»ı
-    - ÇÊ¼ö°ª 
+    - í•´ë‹¹ ì»¬ëŸ¼ì´ ë°˜ë“œì‹œ ê°’ì„ ê°€ì ¸ì•¼ í•œë‹¤.
+    - í•´ë‹¹ ì»¬ëŸ¼ì— ê°’ì´ ì—†ìœ¼ë©´ ì—ëŸ¬ë°œìƒ
+    - í•„ìˆ˜ê°’ 
     
     2. PRIMARY KEY
-    - ±âº»Å° 
-    - Å×ÀÌºí¿¡¼­ Çà°ú ÇàÀ» ±¸ºĞÇÏ±â À§ÇÑ ¼ö´ÜÀÌ´Ù. 
-    - ÇàÀ» ½Äº°ÇÏ´Â ´ëÇ¥ ÄÃ·³À» ÁöÁ¤ÇÏ´Â ¿ªÇÒ 
-    - ¸ğµç Å×ÀÌºíÀº ¹İµå½Ã 1°³ÀÇ Å°º»Å°°¡ Á¸ÀçÇØ¾ßÇÑ´Ù.(*****************)
-    - Áßº¹°ªÀ» °¡Áú ¼ö ¾ø´Ù. > UNIQUE µµ ±×·¸´Ù. ±Ùµ¥ UNIQUE´Â nullÀÌ µÉ¼ö ÀÖ´Ù.
-    - °ªÀ» ¹İµå½Ã °¡Áø´Ù. > not null
+    - ê¸°ë³¸í‚¤ 
+    - í…Œì´ë¸”ì—ì„œ í–‰ê³¼ í–‰ì„ êµ¬ë¶„í•˜ê¸° ìœ„í•œ ìˆ˜ë‹¨ì´ë‹¤. 
+    - í–‰ì„ ì‹ë³„í•˜ëŠ” ëŒ€í‘œ ì»¬ëŸ¼ì„ ì§€ì •í•˜ëŠ” ì—­í•  
+    - ëª¨ë“  í…Œì´ë¸”ì€ ë°˜ë“œì‹œ 1ê°œì˜ í‚¤ë³¸í‚¤ê°€ ì¡´ì¬í•´ì•¼í•œë‹¤.(*****************)
+    - ì¤‘ë³µê°’ì„ ê°€ì§ˆ ìˆ˜ ì—†ë‹¤. > UNIQUE ë„ ê·¸ë ‡ë‹¤. ê·¼ë° UNIQUEëŠ” nullì´ ë ìˆ˜ ìˆë‹¤.
+    - ê°’ì„ ë°˜ë“œì‹œ ê°€ì§„ë‹¤. > not null
     - Not NULL + Unique > Primary Key 
     
     
@@ -48,29 +48,29 @@
     pass
     
     4. UNIQUE 
-    - À¯ÀÏÇÏ´Ù. > Çàµé°£¿¡ µ¿ÀÏÇÑ °ªÀ» °¡Áú ¼ö ¾ø´Ù.
-    - NULLÀº °¡Áú ¼ö ÀÖ´Ù. 
-    ex) °æÇ°
-        - °í°´(¹øÈ£(PK), ÀÌ¸§,  ÁÖ¼Ò,  ´çÃ·(UQ)) 
-                1.     È«±æµ¿, ¼­¿ï,  1µî
-                2.     ¾Æ¹«°³,  ºÎ»ê , null
-                3.     ÇÏÇÏÇÏ,  ¼­¿ï,  2µî 
-                4.     È£È£È£,  ÀÎÃµ,  3µî 
-    ex) ÃÊµîÇĞ±³ ±³½Ç 
-    - ÇĞ»ı(¹øÈ£(PK), ÀÌ¸§, Á÷Ã¥(UQ))
-        1. È«±æµ¿, ¹İÀå 
-        2. ¾Æ¹«°³, ºÎ¹İÀå
-        3. ÇÏÇÏÇÏ, null
-        4. È£È£È£, Ã¼À°ºÎÀå
+    - ìœ ì¼í•˜ë‹¤. > í–‰ë“¤ê°„ì— ë™ì¼í•œ ê°’ì„ ê°€ì§ˆ ìˆ˜ ì—†ë‹¤.
+    - NULLì€ ê°€ì§ˆ ìˆ˜ ìˆë‹¤. 
+    ex) ê²½í’ˆ
+        - ê³ ê°(ë²ˆí˜¸(PK), ì´ë¦„,  ì£¼ì†Œ,  ë‹¹ì²¨(UQ)) 
+                1.     í™ê¸¸ë™, ì„œìš¸,  1ë“±
+                2.     ì•„ë¬´ê°œ,  ë¶€ì‚° , null
+                3.     í•˜í•˜í•˜,  ì„œìš¸,  2ë“± 
+                4.     í˜¸í˜¸í˜¸,  ì¸ì²œ,  3ë“± 
+    ex) ì´ˆë“±í•™êµ êµì‹¤ 
+    - í•™ìƒ(ë²ˆí˜¸(PK), ì´ë¦„, ì§ì±…(UQ))
+        1. í™ê¸¸ë™, ë°˜ì¥ 
+        2. ì•„ë¬´ê°œ, ë¶€ë°˜ì¥
+        3. í•˜í•˜í•˜, null
+        4. í˜¸í˜¸í˜¸, ì²´ìœ¡ë¶€ì¥
         
-    -- pk´Â ¹øÈ£¸¦ ¾È°¡Á®µµ ¿¡·¯               
+    -- pkëŠ” ë²ˆí˜¸ë¥¼ ì•ˆê°€ì ¸ë„ ì—ëŸ¬               
     5. CHECK
-        - »ç¿ëÀÚ Á¤ÀÇ Á¦¾à Á¶°Ç
-        - whereÀı°ú µ¿ÀÏÇÑ Á¶°ÇÀ» ÄÃ·³¿¡ Àû¿ëÇÑ´Ù. 
+        - ì‚¬ìš©ì ì •ì˜ ì œì•½ ì¡°ê±´
+        - whereì ˆê³¼ ë™ì¼í•œ ì¡°ê±´ì„ ì»¬ëŸ¼ì— ì ìš©í•œë‹¤. 
     
     6. DEFAULT 
-        - ±âº»°ª ¼³Á¤ÀÌ´Ù. 
-        - insert/update ÀÛ¾÷ ¶§ °ªÀ» ´ëÀÔÇÏÁö ¾ÊÀ¸¸é, ¹Ì¸® ÁØºñÇØ³õÀº ±âº»°ªÀ» ´ë½Å ³Ö´Â ¿ªÇÒ 
+        - ê¸°ë³¸ê°’ ì„¤ì •ì´ë‹¤. 
+        - insert/update ì‘ì—… ë•Œ ê°’ì„ ëŒ€ì…í•˜ì§€ ì•Šìœ¼ë©´, ë¯¸ë¦¬ ì¤€ë¹„í•´ë†“ì€ ê¸°ë³¸ê°’ì„ ëŒ€ì‹  ë„£ëŠ” ì—­í•  
         
     
         
@@ -96,111 +96,111 @@ select NVL(col2,'x') from TAB1 where col1='a';
 create table tblMemo(
     seq number(3) null,
     name varchar2(30) null,
-    memo varchar2(1000) null,   -- nullÇã¿ë
+    memo varchar2(1000) null,   -- nullí—ˆìš©
     regdate date null
 );
 
 drop table tblMemo;
 
 
--- insert into Å×ÀÌºí(ÄÃ·³¸®½ºÆ®) values(°ª¸®½ºÆ®) ;
+-- insert into í…Œì´ë¸”(ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸) values(ê°’ë¦¬ìŠ¤íŠ¸) ;
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, '¾Æ¹«°³', null, sysdate); -- ¸Ş¸ğ³»¿ë »ı·«
+            values(2, 'ì•„ë¬´ê°œ', null, sysdate); -- ë©”ëª¨ë‚´ìš© ìƒëµ
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(3,  null,   null,  null); -- ¸Ş¸ğ³»¿ë »ı·«
+            values(3,  null,   null,  null); -- ë©”ëª¨ë‚´ìš© ìƒëµ
 
 insert into tblMemo(seq, name, memo, regdate) 
             values(null,  null,   null,  null); 
             
 insert into tblMemo(seq, name, memo, regdate) 
-            values(4,  'È«±æµ¿',   '¸Ş¸ğÀÔ´Ï´Ù.',  '2023-03-15');    -- 2023-03-15 ÀÚµ¿ Çüº¯È¯ µÈ´Ù.          
+            values(4,  'í™ê¸¸ë™',   'ë©”ëª¨ì…ë‹ˆë‹¤.',  '2023-03-15');    -- 2023-03-15 ìë™ í˜•ë³€í™˜ ëœë‹¤.          
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(4,  'È«±æµ¿',   '¸Ş¸ğÀÔ´Ï´Ù.',  '2023-03-15 12:30:50');  -- ÀÌ°Ç Çüº¯È¯ ¾ÈµÈ´Ù.
+            values(4,  'í™ê¸¸ë™',   'ë©”ëª¨ì…ë‹ˆë‹¤.',  '2023-03-15 12:30:50');  -- ì´ê±´ í˜•ë³€í™˜ ì•ˆëœë‹¤.
             
 insert into tblMemo(seq, name, memo, regdate) 
-            values(4,  'È«±æµ¿',   '¸Ş¸ğÀÔ´Ï´Ù.',  to_date('2023-03-15 12:30:50','yyyy-mm-dd hh24:mi:ss'));  -- to_date¾²¸é Àß µå°¨           
+            values(4,  'í™ê¸¸ë™',   'ë©”ëª¨ì…ë‹ˆë‹¤.',  to_date('2023-03-15 12:30:50','yyyy-mm-dd hh24:mi:ss'));  -- to_dateì“°ë©´ ì˜ ë“œê°           
             
--- Àı´ë »ı¼º ±İÁö´Ù. ÀüºÎ´Ù nullÀÌ´Ù. ±× ¾î¶² ´©±¸µµ ÀÌ·± ÇüÅÂ·Î µ¥ÀÌÅÍ¸¦ ¸¸µéÁö ¾Ê´Â´Ù.  > ¸ğµç ÄÃ·³ÀÌ null Çã¿ëÇÏ´Â °æ¿ì´Â ¾ø´Ù. 
+-- ì ˆëŒ€ ìƒì„± ê¸ˆì§€ë‹¤. ì „ë¶€ë‹¤ nullì´ë‹¤. ê·¸ ì–´ë–¤ ëˆ„êµ¬ë„ ì´ëŸ° í˜•íƒœë¡œ ë°ì´í„°ë¥¼ ë§Œë“¤ì§€ ì•ŠëŠ”ë‹¤.  > ëª¨ë“  ì»¬ëŸ¼ì´ null í—ˆìš©í•˜ëŠ” ê²½ìš°ëŠ” ì—†ë‹¤. 
             
 select * from tblMemo;
 
 drop table tblMemo;
 
--- nullÀÌ µğÆúÆ®´Ù. 
+-- nullì´ ë””í´íŠ¸ë‹¤. 
 create table tblMemo(
     seq number(3) not null,
     name varchar2(30) null,
-    memo varchar2(1000) not null,   -- nullÇã¿ë > ÇÊ¼ö°ªµéÀº not null
+    memo varchar2(1000) not null,   -- nullí—ˆìš© > í•„ìˆ˜ê°’ë“¤ì€ not null
     regdate date null
 );
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, '¾Æ¹«°³', null, sysdate); -- ¸Ş¸ğ°¡ not nullÀÌ¶ó¼­ ¾Èµé¾î°£´Ù. 
---ORA-01400: cannot insert NULL into ("HR"."TBLMEMO"."MEMO") -- hrÀÌ ¼ÒÀ¯ÇÏ´Â ~ tblmemo¿¡´Â ¸ø³Ö´Â´Ù. 
+            values(2, 'ì•„ë¬´ê°œ', null, sysdate); -- ë©”ëª¨ê°€ not nullì´ë¼ì„œ ì•ˆë“¤ì–´ê°„ë‹¤. 
+--ORA-01400: cannot insert NULL into ("HR"."TBLMEMO"."MEMO") -- hrì´ ì†Œìœ í•˜ëŠ” ~ tblmemoì—ëŠ” ëª»ë„£ëŠ”ë‹¤. 
 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(3, 'È«±æµ¿', '', sysdate); -- ºó¹®ÀÚ('') > ¿À¶óÅ¬Àº null·Î Ãë±ŞÇÑ´Ù. ¿À¶óÅ¬Àº ºó¹®ÀÚ¸¦ null·Î Ãë±ŞÇÑ´Ù. 
+            values(3, 'í™ê¸¸ë™', '', sysdate); -- ë¹ˆë¬¸ì('') > ì˜¤ë¼í´ì€ nullë¡œ ì·¨ê¸‰í•œë‹¤. ì˜¤ë¼í´ì€ ë¹ˆë¬¸ìë¥¼ nullë¡œ ì·¨ê¸‰í•œë‹¤. 
 
 select * from tblMemo;
 
 
--- PK¸¦ ¸¸µå´Â ¹ı 
+-- PKë¥¼ ë§Œë“œëŠ” ë²• 
 
 create table tblMemo(
     seq number(3) not null,
     name varchar2(30) null,
-    memo varchar2(1000) not null,   -- nullÇã¿ë > ÇÊ¼ö°ªµéÀº not null
+    memo varchar2(1000) not null,   -- nullí—ˆìš© > í•„ìˆ˜ê°’ë“¤ì€ not null
     regdate date null
-); -- Å×ÀÌºíÀ» Àß¸ø¸¸µé¾ú´Ù. 
+); -- í…Œì´ë¸”ì„ ì˜ëª»ë§Œë“¤ì—ˆë‹¤. 
 
 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
             
             
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
             
--- µ¿ÀÏ°ªÀÌ µÎ°³ µé¾î°£´Ù. 
+-- ë™ì¼ê°’ì´ ë‘ê°œ ë“¤ì–´ê°„ë‹¤. 
 
 
 
 create table tblMemo(
-    seq number(3) primary key, -- not null ´ë½Å¿¡ ÀÌ·¸°Ô ¾´´Ù. primary key  > ÀÌÄ£±¸´Â À¯ÀÏÇÏ´Ù. nullÀÌ ¾ÈµÈ´Ù. 
+    seq number(3) primary key, -- not null ëŒ€ì‹ ì— ì´ë ‡ê²Œ ì“´ë‹¤. primary key  > ì´ì¹œêµ¬ëŠ” ìœ ì¼í•˜ë‹¤. nullì´ ì•ˆëœë‹¤. 
     name varchar2(30) null,
-    memo varchar2(1000) not null,   -- nullÇã¿ë > ÇÊ¼ö°ªµéÀº not null
+    memo varchar2(1000) not null,   -- nullí—ˆìš© > í•„ìˆ˜ê°’ë“¤ì€ not null
     regdate date null
 ); 
 
 drop table tblMemo;
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
             
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
             
--- ORA-00001: unique constraint (HR.SYS_C007236) violated > Unique Á¦¾à »çÇ×À» À§¹İÇß´Ù°í ÇÏ´Â °ÍÀÌ´Ù. 
--- seq´Â °°Àº °ªÀ» µÎ°³¸¦ °¡ÁöÁö ¸øÇÏ´Âµ¥ ±×°É À§¹İÇÔ
+-- ORA-00001: unique constraint (HR.SYS_C007236) violated > Unique ì œì•½ ì‚¬í•­ì„ ìœ„ë°˜í–ˆë‹¤ê³  í•˜ëŠ” ê²ƒì´ë‹¤. 
+-- seqëŠ” ê°™ì€ ê°’ì„ ë‘ê°œë¥¼ ê°€ì§€ì§€ ëª»í•˜ëŠ”ë° ê·¸ê±¸ ìœ„ë°˜í•¨
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- ÀÌ°Ç Àßµé¾î°£´Ù.
+            values(2, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ì´ê±´ ì˜ë“¤ì–´ê°„ë‹¤.
                  
  insert into tblMemo(seq, name, memo, regdate) 
-            values(null, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- ÀÌ°Ç Àßµé¾î°£´Ù.           
+            values(null, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ì´ê±´ ì˜ë“¤ì–´ê°„ë‹¤.           
 -- ORA-01400: cannot insert NULL into ("HR"."TBLMEMO"."SEQ")
 
 
@@ -213,45 +213,45 @@ from dual;
 drop table tblMemo;
 
 create table tblMemo(
-    seq number(3) primary key, -- not null ´ë½Å¿¡ ÀÌ·¸°Ô ¾´´Ù. primary key  > ÀÌÄ£±¸´Â À¯ÀÏÇÏ´Ù. nullÀÌ ¾ÈµÈ´Ù. 
-    name varchar2(30) unique,  -- ÀÛ¼ºÀÚÀÌ¸§ÀÌ À¯´ÏÅ©ÇÏ´Ù(unique) > ÀÌ¸§ÀÌ Áßº¹µÉ ¼ö ¾ø´Ù. > 1»ç¶÷ÀÌ µü 1°³ÀÇ ±ÛÀÛ¼º °¡´É
-    memo varchar2(1000) not null,   -- nullÇã¿ë > ÇÊ¼ö°ªµéÀº not null
+    seq number(3) primary key, -- not null ëŒ€ì‹ ì— ì´ë ‡ê²Œ ì“´ë‹¤. primary key  > ì´ì¹œêµ¬ëŠ” ìœ ì¼í•˜ë‹¤. nullì´ ì•ˆëœë‹¤. 
+    name varchar2(30) unique,  -- ì‘ì„±ìì´ë¦„ì´ ìœ ë‹ˆí¬í•˜ë‹¤(unique) > ì´ë¦„ì´ ì¤‘ë³µë  ìˆ˜ ì—†ë‹¤. > 1ì‚¬ëŒì´ ë”± 1ê°œì˜ ê¸€ì‘ì„± ê°€ëŠ¥
+    memo varchar2(1000) not null,   -- nullí—ˆìš© > í•„ìˆ˜ê°’ë“¤ì€ not null
     regdate date null
 ); 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
             
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate);
+            values(2, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate);
 --ORA-00001: unique constraint (HR.SYS_C007238) violated
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, '¾Æ¹«°³', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- ÀÌÁ¦´Â µÈ´Ù. 
+            values(2, 'ì•„ë¬´ê°œ', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ì´ì œëŠ” ëœë‹¤. 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(3, null, '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- ÀÌÁ¦´Â µÈ´Ù. 
+            values(3, null, 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ì´ì œëŠ” ëœë‹¤. 
 select * from tblMemo;
 drop table tblMemo;
 
 create table tblMemo(
-    seq number(3) primary key,   -- ¹İµå½Ã ÇÊ¿ä 
+    seq number(3) primary key,   -- ë°˜ë“œì‹œ í•„ìš” 
     name varchar2(30),           
     memo varchar2(1000),              
     regdate date,
-    priority number check(priority between 1 and 3 )             -- 1(Áß¿ä), 2(º¸Åë), 3(»ç¼Ò)
+    priority number check(priority between 1 and 3 )             -- 1(ì¤‘ìš”), 2(ë³´í†µ), 3(ì‚¬ì†Œ)
 ); 
---  check°¡ where¶ó´Â Å°¿öµå¶ó°í »ı°¢ÇÑ´Ù. ³»°¡ ¿øÇÏ´Â Å×ÀÌºíÀ» Ã£´Â Á¶°ÇÀÌ¶ó »ı°¢ 
+--  checkê°€ whereë¼ëŠ” í‚¤ì›Œë“œë¼ê³  ìƒê°í•œë‹¤. ë‚´ê°€ ì›í•˜ëŠ” í…Œì´ë¸”ì„ ì°¾ëŠ” ì¡°ê±´ì´ë¼ ìƒê° 
 
-select * from tblMemo where priority between 1 and 3 ; -- whereÀı¿¡´Ù°¡ ¾´ ³»¿ëÀ» ±×´ë·Î check¾È¿¡´Ù°¡ ³Ö´Â´Ù. 
+select * from tblMemo where priority between 1 and 3 ; -- whereì ˆì—ë‹¤ê°€ ì“´ ë‚´ìš©ì„ ê·¸ëŒ€ë¡œ checkì•ˆì—ë‹¤ê°€ ë„£ëŠ”ë‹¤. 
 
 
 
 insert into tblMemo(seq, name, memo, regdate, priority) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 1);
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 1);
             
 insert into tblMemo(seq, name, memo, regdate, priority) 
-            values(2, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 10);
--- ORA-02290: check constraint (HR.SYS_C007240) violated Ã¼Å©Á¦¾à¿¡ ¾î±ß³²
+            values(2, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 10);
+-- ORA-02290: check constraint (HR.SYS_C007240) violated ì²´í¬ì œì•½ì— ì–´ê¸‹ë‚¨
 
 
 
@@ -259,21 +259,21 @@ drop table tblMemo;
 
 
 create table tblMemo(
-    seq number(3) primary key,   -- ¹İµå½Ã ÇÊ¿ä 
+    seq number(3) primary key,   -- ë°˜ë“œì‹œ í•„ìš” 
     name varchar2(30),           
     memo varchar2(1000),              
     regdate date,
-    priority number check(priority between 1 and 3 ) ,            -- 1(Áß¿ä), 2(º¸Åë), 3(»ç¼Ò)
-    category varchar2(30) check(category in ('ÇÒÀÏ' ,'Àåº¸±â', '°øºÎ'))
+    priority number check(priority between 1 and 3 ) ,            -- 1(ì¤‘ìš”), 2(ë³´í†µ), 3(ì‚¬ì†Œ)
+    category varchar2(30) check(category in ('í• ì¼' ,'ì¥ë³´ê¸°', 'ê³µë¶€'))
 ); 
 
 insert into tblMemo(seq, name, memo, regdate, priority, category) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 1, 'ÇÒÀÏ');
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 1, 'í• ì¼');
 
 select * from tblMemo;
 
 insert into tblMemo(seq, name, memo, regdate, priority, category) 
-            values(2, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 1, '½ºÅ¸µğ');
+            values(2, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 1, 'ìŠ¤íƒ€ë””');
 
 select * from tblMemo;
 
@@ -282,53 +282,53 @@ drop table tblMemo;
 
 
 
--- check¾È¿¡ whereÀı¿¡´Ù°¡ ¾²´Â °ÍÀ» ¾ò´Â´Ù. 
+-- checkì•ˆì— whereì ˆì—ë‹¤ê°€ ì“°ëŠ” ê²ƒì„ ì–»ëŠ”ë‹¤. 
 create table tblMemo(
-    seq number(3) primary key,   -- ¹İµå½Ã ÇÊ¿ä 
-    name varchar2(30) check(length(name) > 1), -- ¾ø¿¡ Ä®·³µé°í¿À°í check Á¦¾à¾²¸é ÃÖ¼Ò°ªµµ ÅëÁ¦°¡´ÉÇÏ´Ù.           
+    seq number(3) primary key,   -- ë°˜ë“œì‹œ í•„ìš” 
+    name varchar2(30) check(length(name) > 1), -- ì—†ì— ì¹¼ëŸ¼ë“¤ê³ ì˜¤ê³  check ì œì•½ì“°ë©´ ìµœì†Œê°’ë„ í†µì œê°€ëŠ¥í•˜ë‹¤.           
     memo varchar2(1000),              
     regdate date,
-    priority number check(priority between 1 and 3 ) ,            -- 1(Áß¿ä), 2(º¸Åë), 3(»ç¼Ò)
-    category varchar2(30) check(category in ('ÇÒÀÏ' ,'Àåº¸±â', '°øºÎ'))
+    priority number check(priority between 1 and 3 ) ,            -- 1(ì¤‘ìš”), 2(ë³´í†µ), 3(ì‚¬ì†Œ)
+    category varchar2(30) check(category in ('í• ì¼' ,'ì¥ë³´ê¸°', 'ê³µë¶€'))
 ); 
 
 insert into tblMemo(seq, name, memo, regdate, priority, category) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 1, 'ÇÒÀÏ');
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 1, 'í• ì¼');
             
             
 insert into tblMemo(seq, name, memo, regdate, priority, category) 
-            values(1, 'È«', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate, 1, 'ÇÒÀÏ');
+            values(1, 'í™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate, 1, 'í• ì¼');
 -- ORA-02290: check constraint (HR.SYS_C007249) violated
 
 drop table tblMemo;
 
--- ¸Ş¸ğ Å×ÀÌºí 
+-- ë©”ëª¨ í…Œì´ë¸” 
 create table tblMemo(
-    seq number(3) primary key,   -- ¹İµå½Ã ÇÊ¿ä 
-    name varchar2(30) default 'ÀÍ¸í', -- ¾ø¿¡ Ä®·³µé°í¿À°í check Á¦¾à¾²¸é ÃÖ¼Ò°ªµµ ÅëÁ¦°¡´ÉÇÏ´Ù.           
+    seq number(3) primary key,   -- ë°˜ë“œì‹œ í•„ìš” 
+    name varchar2(30) default 'ìµëª…', -- ì—†ì— ì¹¼ëŸ¼ë“¤ê³ ì˜¤ê³  check ì œì•½ì“°ë©´ ìµœì†Œê°’ë„ í†µì œê°€ëŠ¥í•˜ë‹¤.           
     memo varchar2(1000),              
     regdate date default sysdate
 ); 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(1, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- °ªÀ» ´Ù ÁÖ¸é default´Â µ¿ÀÛÇÏÁö ¾Ê´Â´Ù. 
+            values(1, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ê°’ì„ ë‹¤ ì£¼ë©´ defaultëŠ” ë™ì‘í•˜ì§€ ì•ŠëŠ”ë‹¤. 
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(2, 'È«±æµ¿', '¸Ş¸ğÀÔ´Ï´Ù.', '2023-01-01'); -- °ªÀ» ´Ù ÁÖ¸é default´Â µ¿ÀÛÇÏÁö ¾Ê´Â´Ù. - - °¡  > 23/01/01 ¿©·¸ µå°¨
+            values(2, 'í™ê¸¸ë™', 'ë©”ëª¨ì…ë‹ˆë‹¤.', '2023-01-01'); -- ê°’ì„ ë‹¤ ì£¼ë©´ defaultëŠ” ë™ì‘í•˜ì§€ ì•ŠëŠ”ë‹¤. - - ê°€  > 23/01/01 ì—¬ë ‡ ë“œê°
 
 select * from tblMemo;
 
 insert into tblMemo(seq, name, memo, regdate) 
-            values(3, null, '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- °ªÀ» ´Ù ÁÖ¸é default´Â µ¿ÀÛÇÏÁö ¾Ê´Â´Ù. 
--- ³»°¡ ¸í½ÃÀûÀ¸·Î nullÀÌ µå°¨ 
+            values(3, null, 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ê°’ì„ ë‹¤ ì£¼ë©´ defaultëŠ” ë™ì‘í•˜ì§€ ì•ŠëŠ”ë‹¤. 
+-- ë‚´ê°€ ëª…ì‹œì ìœ¼ë¡œ nullì´ ë“œê° 
 select * from tblMemo;            
             
--- ¾Æ¿¹ Ä®·³ ÀÌ¸§°ú Ä®·³ ¸®½ºÆ®¸¦ »©¶ó
+-- ì•„ì˜ˆ ì¹¼ëŸ¼ ì´ë¦„ê³¼ ì¹¼ëŸ¼ ë¦¬ìŠ¤íŠ¸ë¥¼ ë¹¼ë¼
 insert into tblMemo(seq, memo, regdate) 
-            values(4, '¸Ş¸ğÀÔ´Ï´Ù.', sysdate); -- ÀÌ·¡¾ß ÀÍ¸íÀÌ µé¾î°£´Ù. 
+            values(4, 'ë©”ëª¨ì…ë‹ˆë‹¤.', sysdate); -- ì´ë˜ì•¼ ìµëª…ì´ ë“¤ì–´ê°„ë‹¤. 
             
 insert into tblMemo(seq, memo, regdate) 
-            values(5, '¸Ş¸ğÀÔ´Ï´Ù.', default); -- default¶ó´Â »ó¼ö°¡ ÀÖ´Ù.  ÇØ´ç ÄÃ·³À» ³ÖÀ» ¶§ default¸¦ ³Ö¾î¶ó 
+            values(5, 'ë©”ëª¨ì…ë‹ˆë‹¤.', default); -- defaultë¼ëŠ” ìƒìˆ˜ê°€ ìˆë‹¤.  í•´ë‹¹ ì»¬ëŸ¼ì„ ë„£ì„ ë•Œ defaultë¥¼ ë„£ì–´ë¼ 
             
 select * from tblMemo;            
 
@@ -336,84 +336,84 @@ select * from tblMemo;
 select buseo, count(*) 
 from tblInsa
 group by buseo
-having buseo='ÃÑ¹«ºÎ'; -- havingÀ¸·Î ´ÜÀÏÄ®·³ Á¶°Çµµ °¡´ÉÇÏ´Ù. 
+having buseo='ì´ë¬´ë¶€'; -- havingìœ¼ë¡œ ë‹¨ì¼ì¹¼ëŸ¼ ì¡°ê±´ë„ ê°€ëŠ¥í•˜ë‹¤. 
 
 
 /*
 
-    Á¦¾à »çÇ×À» ¸¸µå´Â ¹æ¹ı
-    1. ÄÃ·³ ¼öÁØ¿¡¼­ ¸¸µå´Â ¹æ¹ı
-        - ¾îÁ¦ ¼ö¾÷ ³»¿ë
-        - ÄÃ·³ ¼±¾ğ + Á¦¾à ¼±¾ğ > µ¿½Ã¿¡ °°ÀÌ ! 
+    ì œì•½ ì‚¬í•­ì„ ë§Œë“œëŠ” ë°©ë²•
+    1. ì»¬ëŸ¼ ìˆ˜ì¤€ì—ì„œ ë§Œë“œëŠ” ë°©ë²•
+        - ì–´ì œ ìˆ˜ì—… ë‚´ìš©
+        - ì»¬ëŸ¼ ì„ ì–¸ + ì œì•½ ì„ ì–¸ > ë™ì‹œì— ê°™ì´ ! 
         
-    2. Å×ÀÌºí ¼öÁØ¿¡¼­ ¸¸µå´Â ¹æ¹ı
-        - ÄÃ·³ ¼±¾ğ°ú Á¦¾à ¼±¾ğÀ» ºĞ¸®ÇØ¼­ °ü¸® 
+    2. í…Œì´ë¸” ìˆ˜ì¤€ì—ì„œ ë§Œë“œëŠ” ë°©ë²•
+        - ì»¬ëŸ¼ ì„ ì–¸ê³¼ ì œì•½ ì„ ì–¸ì„ ë¶„ë¦¬í•´ì„œ ê´€ë¦¬ 
     
-    3. ¿ÜºÎ¿¡¼­ ¸¸µå´Â ¹æ¹ı  > ´ÙÀ½ÁÖ¿¡ ÇÒµí!? 
-        - alter ¸í·É¾î
-        - Å×ÀÌºí ¼±¾ğ°ú Á¦¾à ¼±¾ğÀ» ºĞ¸®ÇØ¼­ °ü¸®  > dbaµéÀÌ ¸¹ÀÌ ¾²´Âµ¥ °ü¸®´É·ÂÀÌ ¾øÀ¸¸é ÃßÃµÇÏÁö ¾Ê´Â´Ù.
+    3. ì™¸ë¶€ì—ì„œ ë§Œë“œëŠ” ë°©ë²•  > ë‹¤ìŒì£¼ì— í• ë“¯!? 
+        - alter ëª…ë ¹ì–´
+        - í…Œì´ë¸” ì„ ì–¸ê³¼ ì œì•½ ì„ ì–¸ì„ ë¶„ë¦¬í•´ì„œ ê´€ë¦¬  > dbaë“¤ì´ ë§ì´ ì“°ëŠ”ë° ê´€ë¦¬ëŠ¥ë ¥ì´ ì—†ìœ¼ë©´ ì¶”ì²œí•˜ì§€ ì•ŠëŠ”ë‹¤.
         
-    ÀÌ ¼¼°¡Áö°¡ ¶È°°Àºµ¥ µ¿ÀÏÇÑ ÄÚµå¸¦ Àú±â¿¡ Àû³Ä Àú±â¿¡ Àû³ÄÀÇ Â÷ÀÌ´Ù.     
+    ì´ ì„¸ê°€ì§€ê°€ ë˜‘ê°™ì€ë° ë™ì¼í•œ ì½”ë“œë¥¼ ì €ê¸°ì— ì ëƒ ì €ê¸°ì— ì ëƒì˜ ì°¨ì´ë‹¤.     
     
     
 */
 
 drop table tblMemo;
 
--- ¸Ş¸ğ Å×ÀÌºí 
+-- ë©”ëª¨ í…Œì´ë¸” 
 create table tblMemo( 
-    -- seq number(3) primary key,    -- ÄÃ·³ »ı¼º°ú µ¿½Ã¿¡
-    -- seq number(3) [ constraint Á¦¾à»çÇ×¸í] Á¦¾àÁ¾·ù, -- ÀÌ°Ô ¿ø¸® FMÀÌ´Ù. ÀÌ¹æ½ÄÀÌ ±ÇÀå»çÇ×ÀÌ´Ù. 
-    -- Á¦¾à»çÇ×µµ object´Ù. °´Ã¼´Ù ¿ì¸®°¡ ¸¸µå´Â °Í, ¿ì¸®°¡ ÀÌ¸§À» ºÙ¿©ÁÙ ¼ö ÀÖ´Ù. 
-    seq number(3) constraint tblMemo_seq_pk primary key, -- ÀÌ°Ô ¿ø·¡ ¸ğ½ÀÀÌ´Ù. 
+    -- seq number(3) primary key,    -- ì»¬ëŸ¼ ìƒì„±ê³¼ ë™ì‹œì—
+    -- seq number(3) [ constraint ì œì•½ì‚¬í•­ëª…] ì œì•½ì¢…ë¥˜, -- ì´ê²Œ ì›ë¦¬ FMì´ë‹¤. ì´ë°©ì‹ì´ ê¶Œì¥ì‚¬í•­ì´ë‹¤. 
+    -- ì œì•½ì‚¬í•­ë„ objectë‹¤. ê°ì²´ë‹¤ ìš°ë¦¬ê°€ ë§Œë“œëŠ” ê²ƒ, ìš°ë¦¬ê°€ ì´ë¦„ì„ ë¶™ì—¬ì¤„ ìˆ˜ ìˆë‹¤. 
+    seq number(3) constraint tblMemo_seq_pk primary key, -- ì´ê²Œ ì›ë˜ ëª¨ìŠµì´ë‹¤. 
     
-    name varchar2(30) default 'ÀÍ¸í', -- ¿·¿¡ Ä®·³µé°í¿À°í check Á¦¾à¾²¸é ÃÖ¼Ò°ªµµ ÅëÁ¦°¡´ÉÇÏ´Ù.           
+    name varchar2(30) default 'ìµëª…', -- ì˜†ì— ì¹¼ëŸ¼ë“¤ê³ ì˜¤ê³  check ì œì•½ì“°ë©´ ìµœì†Œê°’ë„ í†µì œê°€ëŠ¥í•˜ë‹¤.           
     member varchar2(1000),              
     regdate date default sysdate
 ); 
 select * from tblMemo;
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
 -- ORA-00001: unique constraint (HR.TBLMEMO_SEQ_PK) violated 
--- ÇÑ¹ø´õ È£Ãâ½Ã Á¦¾àÁ¶°Ç ¶§¹®¿¡ ¿¡·¯°¡ ³­´Ù. > TBLMEMO_SEQ_PK ÀÌ ÀÌ¸§À» °¡Áö°í ÀÇÁöÇØ¼­ Ã£´Â´Ù. 
+-- í•œë²ˆë” í˜¸ì¶œì‹œ ì œì•½ì¡°ê±´ ë•Œë¬¸ì— ì—ëŸ¬ê°€ ë‚œë‹¤. > TBLMEMO_SEQ_PK ì´ ì´ë¦„ì„ ê°€ì§€ê³  ì˜ì§€í•´ì„œ ì°¾ëŠ”ë‹¤. 
 
 
 drop table tblMemo;
 
--- ¸Ş¸ğ Å×ÀÌºí 
+-- ë©”ëª¨ í…Œì´ë¸” 
 create table tblMemo( 
     seq number(3) primary key, 
     
-    name varchar2(30) default 'ÀÍ¸í',        
+    name varchar2(30) default 'ìµëª…',        
     member varchar2(1000),              
     regdate date default sysdate
 ); 
 select * from tblMemo;
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
--- ORA-00001: unique constraint (HR.SYS_C007256) violated ÀÌ·¸°Ô ¶á´Ù. ¿À¶óÅ¬ÀÌ ¿ì¸®°¡ ÀÌ¸§À» ¾ÈÁ¤ÇØÁà¼­ ÀÌ·¸°Ô ¶á´Ù. 
--- ÀÓÀÇÀÇ ÄÚµå¸íÀ¸·Î ¶ç¿öÁÖ´Âµ¥ ¿ì¸®°¡ ÀÌ¸§À» ÁÖ¸é ¾îµğºÎºĞ¿¡¼­ ¹®Á¦ ¿´´ÂÁö ¾Ë·ÁÁØ´Ù. Å×ÀÌºíÀÌ ¹é°³´Ï±î ÀÌ°É... ¿¡·¯·Î±×°¡ ÂïÈ÷¸é Ã£±â°¡ ½±´Ù´Â °Í 
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
+-- ORA-00001: unique constraint (HR.SYS_C007256) violated ì´ë ‡ê²Œ ëœ¬ë‹¤. ì˜¤ë¼í´ì´ ìš°ë¦¬ê°€ ì´ë¦„ì„ ì•ˆì •í•´ì¤˜ì„œ ì´ë ‡ê²Œ ëœ¬ë‹¤. 
+-- ì„ì˜ì˜ ì½”ë“œëª…ìœ¼ë¡œ ë„ì›Œì£¼ëŠ”ë° ìš°ë¦¬ê°€ ì´ë¦„ì„ ì£¼ë©´ ì–´ë””ë¶€ë¶„ì—ì„œ ë¬¸ì œ ì˜€ëŠ”ì§€ ì•Œë ¤ì¤€ë‹¤. í…Œì´ë¸”ì´ ë°±ê°œë‹ˆê¹Œ ì´ê±¸... ì—ëŸ¬ë¡œê·¸ê°€ ì°íˆë©´ ì°¾ê¸°ê°€ ì‰½ë‹¤ëŠ” ê²ƒ 
 
 drop table tblMemo;
 create table tblMemo( 
-    -- ÄÃ·³¸®½ºÆ®µé 
+    -- ì»¬ëŸ¼ë¦¬ìŠ¤íŠ¸ë“¤ 
     seq number(3), 
-    name varchar2(30) default 'ÀÍ¸í',        
+    name varchar2(30) default 'ìµëª…',        
     member varchar2(1000),              
     regdate date,
-    -- Á¦¾à»çÇ×µé
-    constraint tblmemo_seq_pk  primary key(seq), -- ´ë½Å¿¡ ÀÌ·¸°Ô ÄÃ·³¸çÀ» ³Ö¾îÁØ´Ù.
+    -- ì œì•½ì‚¬í•­ë“¤
+    constraint tblmemo_seq_pk  primary key(seq), -- ëŒ€ì‹ ì— ì´ë ‡ê²Œ ì»¬ëŸ¼ë©°ì„ ë„£ì–´ì¤€ë‹¤.
     constraint tblmemo_name_uq unique(name),
     constraint tblmemo_memo_ck check(length(member) >= 10) 
 ); 
 
--- constraint ÀÌ¸§ Á¦¾àÁ¾·ù(Ä®·³¸í)
+-- constraint ì´ë¦„ ì œì•½ì¢…ë¥˜(ì¹¼ëŸ¼ëª…)
 
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
--- ORA-02290: check constraint (HR.TBLMEMO_MEMO_CK) violated > ¾Æ~ ³»°¡ ¸Ş¸ğ³»¿ëÀ» Âª°Ô ÀÔ·ÂÇß±¸³ª~ 
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
+-- ORA-02290: check constraint (HR.TBLMEMO_MEMO_CK) violated > ì•„~ ë‚´ê°€ ë©”ëª¨ë‚´ìš©ì„ ì§§ê²Œ ì…ë ¥í–ˆêµ¬ë‚˜~ 
 
 
 
--- ¾Æ¹«·± Á¦¾àÀÌ ¾ø´Â »óÅÂ
+-- ì•„ë¬´ëŸ° ì œì•½ì´ ì—†ëŠ” ìƒíƒœ
 create table tblMemo( 
     seq number(3) , 
     name varchar2(30), 
@@ -421,17 +421,17 @@ create table tblMemo(
     regdate date 
 ); 
 
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
-insert into tblMemo(seq, name, member ,regdate) values(1, 'È«±æµ¿', '¸Ş¸ğ', sysdate);
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
+insert into tblMemo(seq, name, member ,regdate) values(1, 'í™ê¸¸ë™', 'ë©”ëª¨', sysdate);
 
 select * from tblMemo;
 
--- ¿ÜºÎ¿¡¼­ pk¸¦ ¾²´Â°Ç db·Î ¹ä¸Ô°í »ç´Â »ç¶÷µéÀÌ ¸¹ÀÌ ¾²±âµµ ÇÑ´Ù.
-alter table tblMemo -- ÀÌ¹Ì Áßº¹µÈ »óÅÂÀÏ ¶§ ÀÌ Á¶°ÇÀ» °É¸é ¿¡·¯°¡ ¶á´Ù. ORA-02437: cannot validate (HR.TBLMEMO_SEQ_PK) - primary key violated
+-- ì™¸ë¶€ì—ì„œ pkë¥¼ ì“°ëŠ”ê±´ dbë¡œ ë°¥ë¨¹ê³  ì‚¬ëŠ” ì‚¬ëŒë“¤ì´ ë§ì´ ì“°ê¸°ë„ í•œë‹¤.
+alter table tblMemo -- ì´ë¯¸ ì¤‘ë³µëœ ìƒíƒœì¼ ë•Œ ì´ ì¡°ê±´ì„ ê±¸ë©´ ì—ëŸ¬ê°€ ëœ¬ë‹¤. ORA-02437: cannot validate (HR.TBLMEMO_SEQ_PK) - primary key violated
     add constraint tblmemo_seq_pk primary key(seq);
 
 drop table tblMemo;
--- ´Ù½Ã Å×ÀÌºí ¸¸µé°í °ªÀ» ³Ö±âÀü¿¡ À§¿¡ Á¦¾à»çÇ× °Ç´Ù.
+-- ë‹¤ì‹œ í…Œì´ë¸” ë§Œë“¤ê³  ê°’ì„ ë„£ê¸°ì „ì— ìœ„ì— ì œì•½ì‚¬í•­ ê±´ë‹¤.
 
 
 

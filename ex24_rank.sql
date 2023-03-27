@@ -1,23 +1,23 @@
 /*
 ex24_rank.sql
 
-¼øÀ§ÇÔ¼ö
-- rownumÀÇ »ç¿ëÀ» ¿©·¯°¡Áö ¿ëµµ·Î ±¸ÇöÇØ³õÀº ÇÔ¼ö
+ìˆœìœ„í•¨ìˆ˜
+- rownumì˜ ì‚¬ìš©ì„ ì—¬ëŸ¬ê°€ì§€ ìš©ë„ë¡œ êµ¬í˜„í•´ë†“ì€ í•¨ìˆ˜
 
-** over ¾È¿¡ order by´Â ÇÊ¼ö,,,, 
+** over ì•ˆì— order byëŠ” í•„ìˆ˜,,,, 
 
 1. rank() over()
-    - rank() over(order by ÄÃ·³¸í [asc|desc])
-    - ¼øÀ§ ºÎ¿©½Ã, Áßº¹°ªÀÌ ¹ß»ıÇÏ¸é µ¿ÀÏÇÑ ¼øÀ§¸¦ ºÎ¿©ÇÏ°í, Áßº¹°ªÀÇ °³¼ö¸¸Å­ °Ç³Ê¶Ù±â ÇÑ´Ù.
+    - rank() over(order by ì»¬ëŸ¼ëª… [asc|desc])
+    - ìˆœìœ„ ë¶€ì—¬ì‹œ, ì¤‘ë³µê°’ì´ ë°œìƒí•˜ë©´ ë™ì¼í•œ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ê³ , ì¤‘ë³µê°’ì˜ ê°œìˆ˜ë§Œí¼ ê±´ë„ˆë›°ê¸° í•œë‹¤.
     
 2. dense_rank() over()
-    - dense_rank() over(order by ÄÃ·³¸í [asc|desc])
-    - ¼øÀ§ ºÎ¿©½Ã, Áßº¹°ªÀÌ ¹ß»ıÇÏ¸é µ¿ÀÏÇÑ ¼øÀ§¸¦ ºÎ¿©ÇÏ°í, ±× µÚÀÇ ¼øÀ§´Â °Ç³Ê¶Ù±â ¾ÈÇÏ°í ¼øÂ÷ÀûÀ¸·Î ºÎ¿©ÇÑ´Ù.
+    - dense_rank() over(order by ì»¬ëŸ¼ëª… [asc|desc])
+    - ìˆœìœ„ ë¶€ì—¬ì‹œ, ì¤‘ë³µê°’ì´ ë°œìƒí•˜ë©´ ë™ì¼í•œ ìˆœìœ„ë¥¼ ë¶€ì—¬í•˜ê³ , ê·¸ ë’¤ì˜ ìˆœìœ„ëŠ” ê±´ë„ˆë›°ê¸° ì•ˆí•˜ê³  ìˆœì°¨ì ìœ¼ë¡œ ë¶€ì—¬í•œë‹¤.
     
 3. row_number() over()
-    - row_number() over(order by ÄÃ·³¸í [asc|desc])
-    - ¼øÀ§ ºÎ¿©½Ã, Áßº¹°ª°ú »ó°ü¾øÀÌ ¼øÂ÷ÀûÀ¸·Î ºÎ¿©
-    - Á÷Á¢ rownumÀ» »ç¿ëÇÑ °á°ú¿Í µ¿ÀÏ 
+    - row_number() over(order by ì»¬ëŸ¼ëª… [asc|desc])
+    - ìˆœìœ„ ë¶€ì—¬ì‹œ, ì¤‘ë³µê°’ê³¼ ìƒê´€ì—†ì´ ìˆœì°¨ì ìœ¼ë¡œ ë¶€ì—¬
+    - ì§ì ‘ rownumì„ ì‚¬ìš©í•œ ê²°ê³¼ì™€ ë™ì¼ 
 */
 
 select a.*, rownum from (select name, buseo, basicpay from tblInsa order by basicpay desc) a;
@@ -28,11 +28,11 @@ select name, buseo, basicpay, dense_rank() over(order by basicpay desc) as  rnum
 
 select name, buseo, basicpay, row_number() over(order by basicpay desc) as  rnum from tblInsa;
 
--- ±Ş¿© 5À§ 
+-- ê¸‰ì—¬ 5ìœ„ 
 select name, buseo, basicpay,
        row_number() over(order by basicpay desc) as  rnum 
 from tblInsa
-    where rnum = 5; -- alias°¡ ¾È½áÁø´Ù.... !? > ½ÇÇà¼ø¼­ ¶§¹®¿¡ from . where ¼øÀÎµ¥ rnumÀÌ ¾ÆÁ÷Àº ¾È»ı°åÀ¸´Ï whereÀı¿¡¼­ ¸ø¾´´Ù. 
+    where rnum = 5; -- aliasê°€ ì•ˆì¨ì§„ë‹¤.... !? > ì‹¤í–‰ìˆœì„œ ë•Œë¬¸ì— from . where ìˆœì¸ë° rnumì´ ì•„ì§ì€ ì•ˆìƒê²¼ìœ¼ë‹ˆ whereì ˆì—ì„œ ëª»ì“´ë‹¤. 
     
 
 select name, buseo, basicpay,
@@ -40,66 +40,66 @@ select name, buseo, basicpay,
 from tblInsa
     where (row_number() over(order by basicpay desc)) = 5; 
     
--- alias°¡ ¾È½áÁø´Ù.... !? > ½ÇÇà¼ø¼­ ¶§¹®¿¡ from . where ¼øÀÎµ¥ rnumÀÌ ¾ÆÁ÷Àº ¾È»ı°åÀ¸´Ï whereÀı¿¡¼­ ¸ø¾´´Ù.  
--- ½ÇÆĞ!! ¼øÀ§ ÇÔ¼öµµ whereÀı¿¡ ¸øÀû´Â´Ù.
--- °á·ĞÀº ¾êµµ ¼­ºêÄõ¸®·Î ¸¸µé¾î¾ß ÇÑ´Ù.  > ¼øÀ§¸¦ Á¶ÀÛÇÏ·Á¸é Àû¾îµµ ¼­ºêÄõ¸®°¡ ÇÊ¼ö´Ù. 
+-- aliasê°€ ì•ˆì¨ì§„ë‹¤.... !? > ì‹¤í–‰ìˆœì„œ ë•Œë¬¸ì— from . where ìˆœì¸ë° rnumì´ ì•„ì§ì€ ì•ˆìƒê²¼ìœ¼ë‹ˆ whereì ˆì—ì„œ ëª»ì“´ë‹¤.  
+-- ì‹¤íŒ¨!! ìˆœìœ„ í•¨ìˆ˜ë„ whereì ˆì— ëª»ì ëŠ”ë‹¤.
+-- ê²°ë¡ ì€ ì–˜ë„ ì„œë¸Œì¿¼ë¦¬ë¡œ ë§Œë“¤ì–´ì•¼ í•œë‹¤.  > ìˆœìœ„ë¥¼ ì¡°ì‘í•˜ë ¤ë©´ ì ì–´ë„ ì„œë¸Œì¿¼ë¦¬ê°€ í•„ìˆ˜ë‹¤. 
 
--- rownumÀ» Á÷Á¢¾²´Â°Åº¸´Ù ÇÑ´Ü°è »ı·«°úÁ¤ÀÌ ÀÖ¾î¼­ Á¶±İÀº ÁÙ¾ú´Ù. 
+-- rownumì„ ì§ì ‘ì“°ëŠ”ê±°ë³´ë‹¤ í•œë‹¨ê³„ ìƒëµê³¼ì •ì´ ìˆì–´ì„œ ì¡°ê¸ˆì€ ì¤„ì—ˆë‹¤. 
 select * from ( select 
                     name, buseo, basicpay,
                     row_number() over(order by basicpay desc) as rnum 
                 from tblInsa )
                         where rnum = 5;
                         
--- ÀÌ ¹æ¹ıµµ ¾à°£Àº È£ºÒÈ£°¡ °¥¸°´Ù. ¼øÀ§ÇÔ¼ö ¾µ ¶§´Â ¼øÀ§ÇÔ¼ö¸¦ ¾²°í ~ 
+-- ì´ ë°©ë²•ë„ ì•½ê°„ì€ í˜¸ë¶ˆí˜¸ê°€ ê°ˆë¦°ë‹¤. ìˆœìœ„í•¨ìˆ˜ ì“¸ ë•ŒëŠ” ìˆœìœ„í•¨ìˆ˜ë¥¼ ì“°ê³  ~ 
     
 
 select * from (select
                     name, buseo, basicpay,
                     dense_rank() over(order by basicpay desc ) as rnum
                from tblinsa)
-                    where rnum = 8; -- º¹¼ö°³°¡ ³ª¿Ã ¼ö ÀÖ´Ù. 
+                    where rnum = 8; -- ë³µìˆ˜ê°œê°€ ë‚˜ì˜¬ ìˆ˜ ìˆë‹¤. 
     
 select * from (select
                     name, buseo, basicpay,
                     rank() over(order by basicpay desc ) as rnum
                from tblinsa)
-                    where rnum = 9; -- rank_over¿¡¼­ °Ç³Ê¶Ù±â ´çÇÏ¸é Ã£Áö ¸øÇÑ´Ù.
+                    where rnum = 9; -- rank_overì—ì„œ ê±´ë„ˆë›°ê¸° ë‹¹í•˜ë©´ ì°¾ì§€ ëª»í•œë‹¤.
 
 
 
 select name, buseo, basicpay, rank() over(order by basicpay desc, name asc) as  rnum from tblInsa;
--- 2Â÷Á¤·ÄÀ» ³ÖÀ¸¸é ºñ±³ ±âÁØÀÌ ´Ã¾î³ª°Ô µÈ´Ù. 1Â÷ Á¤·Ä¿¡¼± µ¿¼øÀ§°¡ ¶Ç ¼øÀ§°¡ ¸Ş°ÜÁú¼öµµ ÀÖ´Ù.
+-- 2ì°¨ì •ë ¬ì„ ë„£ìœ¼ë©´ ë¹„êµ ê¸°ì¤€ì´ ëŠ˜ì–´ë‚˜ê²Œ ëœë‹¤. 1ì°¨ ì •ë ¬ì—ì„  ë™ìˆœìœ„ê°€ ë˜ ìˆœìœ„ê°€ ë©”ê²¨ì§ˆìˆ˜ë„ ìˆë‹¤.
 
-update tblInsa set sudang = 200000 where name = 'ÀÌ¹ÌÀÎ';
+update tblInsa set sudang = 200000 where name = 'ì´ë¯¸ì¸';
 
 select name, buseo, basicpay, sudang, rank() over(order by basicpay desc, sudang desc) as  rnum from tblInsa;
 
--- ´ÙÁß Á¤·Äµµ °³ÀÔÀÌ µÇ¼­ µî¼ö¿¡ ¿µÇâÀ» ¹ÌÄ£´Ù. 
+-- ë‹¤ì¤‘ ì •ë ¬ë„ ê°œì…ì´ ë˜ì„œ ë“±ìˆ˜ì— ì˜í–¥ì„ ë¯¸ì¹œë‹¤. 
 
 /*
-    ±×·ìº° ¼øÀ§ ±¸ÇÏ±â 
-    - ¼øÀ§ ÇÔ¼ö + group by 
+    ê·¸ë£¹ë³„ ìˆœìœ„ êµ¬í•˜ê¸° 
+    - ìˆœìœ„ í•¨ìˆ˜ + group by 
     
 */
 
--- ±Ş¿© + ¼øÀ§ 
+-- ê¸‰ì—¬ + ìˆœìœ„ 
 select 
     name, buseo, basicpay
 from tblInsa;
 
-select -- ±Ş¿©¼øÀ¸·Î ¼øÀ§¸¦ ¸Å±ä °Í 
+select -- ê¸‰ì—¬ìˆœìœ¼ë¡œ ìˆœìœ„ë¥¼ ë§¤ê¸´ ê²ƒ 
     name, buseo, basicpay,
     dense_rank() over( order by basicpay desc) as rnum
 from tblInsa;
 
--- ºÎ¼­º°( ±Ş¿© + ¼øÀ§ ) > ÀüÁ¦Á¶°ÇÀ» °Ç´Ù. 
+-- ë¶€ì„œë³„( ê¸‰ì—¬ + ìˆœìœ„ ) > ì „ì œì¡°ê±´ì„ ê±´ë‹¤. 
 select 
     name, buseo, basicpay,
     dense_rank() over(partition by buseo order by basicpay desc) as rnum 
 from tblInsa;
--- group by buseo; ¾È½áÁø´Ù. > ±Ùµ¥ ÀÌ°Ô rank °ü·Ã Áı°è ÇÔ¼ö°¡ ±×·±°Í 
--- order by´Â ²À ½áÁà¾ß ÇÏ³×? 
+-- group by buseo; ì•ˆì¨ì§„ë‹¤. > ê·¼ë° ì´ê²Œ rank ê´€ë ¨ ì§‘ê³„ í•¨ìˆ˜ê°€ ê·¸ëŸ°ê²ƒ 
+-- order byëŠ” ê¼­ ì¨ì¤˜ì•¼ í•˜ë„¤? 
 
 select 
     name, buseo, basicpay,

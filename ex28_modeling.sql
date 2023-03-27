@@ -2,231 +2,231 @@
 
     ex28_modeling.sql
     
-    ÁÖÁ¦ > ±âÁ¸ÀÇ ´Ù¸¥ ½Ã½ºÅÛ or »çÀÌÆ®µé »ç¿ëÇØº¸¸é¼­ ±â´ÉÆÄ¾Ç > ¿ä±¸»çÇ× ÃßÃâ : ±âÈ¹ÀÇµµ Á¤ÇÏ±â - ±âº»ÀûÀÎ ±â´É ÆÄ¾Ç > µ¥ÀÌÅÍ ¸ðµ¨¸µ [> Ãß°¡ÀûÀÎ ±â´É µµÃâ ]
+    ì£¼ì œ > ê¸°ì¡´ì˜ ë‹¤ë¥¸ ì‹œìŠ¤í…œ or ì‚¬ì´íŠ¸ë“¤ ì‚¬ìš©í•´ë³´ë©´ì„œ ê¸°ëŠ¥íŒŒì•… > ìš”êµ¬ì‚¬í•­ ì¶”ì¶œ : ê¸°íšì˜ë„ ì •í•˜ê¸° - ê¸°ë³¸ì ì¸ ê¸°ëŠ¥ íŒŒì•… > ë°ì´í„° ëª¨ë¸ë§ [> ì¶”ê°€ì ì¸ ê¸°ëŠ¥ ë„ì¶œ ]
     
-    µ¥ÀÌÅÍº£ÀÌ½º ¼³°è
-    1. ¿ä±¸»çÇ× ¼öÁý ¹× ºÐ¼®
-    2. °³³ä µ¥ÀÌÅÍ ¸ðµ¨¸µ
-    3. ³í¸® µ¥ÀÌÅÍ ¸ðµ¨¸µ
-    4. ¹°¸® µ¥ÀÌÅÍ ¸ðµ¨¸µ
-    5. µ¥ÀÌÅÍº£ÀÌ½º ±¸Ãà 
+    ë°ì´í„°ë² ì´ìŠ¤ ì„¤ê³„
+    1. ìš”êµ¬ì‚¬í•­ ìˆ˜ì§‘ ë° ë¶„ì„
+    2. ê°œë… ë°ì´í„° ëª¨ë¸ë§
+    3. ë…¼ë¦¬ ë°ì´í„° ëª¨ë¸ë§
+    4. ë¬¼ë¦¬ ë°ì´í„° ëª¨ë¸ë§
+    5. ë°ì´í„°ë² ì´ìŠ¤ êµ¬ì¶• 
     
-    µ¥ÀÌÅÍ ¸ðµ¨¸µ
-    - ¿ä±¸ ºÐ¼® ±â¹Ý > ¼öÁýÇÑ µ¥ÀÌÅÍ > ºÐ¼® > ÀúÀå ±¸Á¶ »ý¼º > µµ½ÄÈ­ > ERD(»êÃâ¹°) 
-    - µ¥ÀÌÅÍ ÀúÀåÇÏ±â À§ÇÑ µ¥ÀÌÅÍ ±¸Á¶¸¦ ¼³°èÇÏ´Â ÀÛ¾÷ 
-    - DBMS Á¾·ù¸¦ °áÁ¤ÇÏÁö ¾Ê´Â´Ù.
+    ë°ì´í„° ëª¨ë¸ë§
+    - ìš”êµ¬ ë¶„ì„ ê¸°ë°˜ > ìˆ˜ì§‘í•œ ë°ì´í„° > ë¶„ì„ > ì €ìž¥ êµ¬ì¡° ìƒì„± > ë„ì‹í™” > ERD(ì‚°ì¶œë¬¼) 
+    - ë°ì´í„° ì €ìž¥í•˜ê¸° ìœ„í•œ ë°ì´í„° êµ¬ì¡°ë¥¼ ì„¤ê³„í•˜ëŠ” ìž‘ì—… 
+    - DBMS ì¢…ë¥˜ë¥¼ ê²°ì •í•˜ì§€ ì•ŠëŠ”ë‹¤.
     
-    [-> °³³ä µ¥ÀÌÅÍ ¸ðµ¨¸µ > °£´ÜÇÏ°Ô Ç¥ÇöÇÑ ¼³°èµµ > Å×ÀÌºí + ÄÃ·³ + °ü°è : ·¯ÇÁÇÏ°Ô ½ºÄÉÄ¡ ] : ¾ê¸¦ ¸¸µå´Â ÅøÀÌ ¾ø¾ú´Ù. 
+    [-> ê°œë… ë°ì´í„° ëª¨ë¸ë§ > ê°„ë‹¨í•˜ê²Œ í‘œí˜„í•œ ì„¤ê³„ë„ > í…Œì´ë¸” + ì»¬ëŸ¼ + ê´€ê³„ : ëŸ¬í”„í•˜ê²Œ ìŠ¤ì¼€ì¹˜ ] : ì–˜ë¥¼ ë§Œë“œëŠ” íˆ´ì´ ì—†ì—ˆë‹¤. 
 
-    - ³í¸® µ¥ÀÌÅÍ ¸ðµ¨¸µ > °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º ¼ºÁú ¹Ý¿µ > ¼Ó¼º + µµ¸ÞÀÎ + Å° > Á¦´ë·ÎµÈ ¼³°èµµ 
-    - ¹°¸® µ¥ÀÌÅÍ ¸ðµ¨¸µ > Æ¯Á¤ DBMS °áÁ¤ > ¿À¶óÅ¬ > ¿À¶óÅ¬¿¡ Á¾¼ÓÀûÀÎ ¸ðµç °ÍµéÀÌ Ãß°¡·Î ¼³°è > ¿À¶óÅ¬ ¼±Á¤ + ¹Ý¿µ > ¹°¸®Àû ¼³Á¤...
+    - ë…¼ë¦¬ ë°ì´í„° ëª¨ë¸ë§ > ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ ì„±ì§ˆ ë°˜ì˜ > ì†ì„± + ë„ë©”ì¸ + í‚¤ > ì œëŒ€ë¡œëœ ì„¤ê³„ë„ 
+    - ë¬¼ë¦¬ ë°ì´í„° ëª¨ë¸ë§ > íŠ¹ì • DBMS ê²°ì • > ì˜¤ë¼í´ > ì˜¤ë¼í´ì— ì¢…ì†ì ì¸ ëª¨ë“  ê²ƒë“¤ì´ ì¶”ê°€ë¡œ ì„¤ê³„ > ì˜¤ë¼í´ ì„ ì • + ë°˜ì˜ > ë¬¼ë¦¬ì  ì„¤ì •...
     
     
     1. ERD, Entity Relationship Diagram
-    - ¿£ÅÍÆ¼°£ÀÇ °ü°è¸¦ Ç¥ÇöÇÑ ±×¸²
-    - °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º ¸ðµ¨¸µ ±â¹ý Áß ÇÏ³ª 
-    - ¼Õ, ¿ÀÇÇ½º, Àü¹®Æ²(exERD, ER-Win µî ) 
+    - ì—”í„°í‹°ê°„ì˜ ê´€ê³„ë¥¼ í‘œí˜„í•œ ê·¸ë¦¼
+    - ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ ëª¨ë¸ë§ ê¸°ë²• ì¤‘ í•˜ë‚˜ 
+    - ì†, ì˜¤í”¼ìŠ¤, ì „ë¬¸í‹€(exERD, ER-Win ë“± ) 
     
-    2. Entity, ¿£Æ¼Æ¼
-    - ´Ù¸¥ Entity¿Í ºÐ·ùµÉ ¼ö ÀÖ°í, ´Ù¸¥ Entity¿¡ ´ëÇØ Á¤ÇØÁø °ü°è¸¦ ¸ÎÀ» ¼ö ÀÖ´Â µ¥ÀÌÅÍ ´ÜÀ§
-    - ¸±·¹ÀÌ¼Ç = °´Ã¼ = ·¹ÄÚµå = ¿£ÅÍÆ¼ = Å×ÀÌºí(Çà)
-        a. ÇÐ»ý Á¤º¸ °ü¸® ( Á¤º¸µéÀÌ ¼öÁýÀÌ µÈ´Ù. 
-            - Á¤º¸ ¼öÁý : ¾Æ¾Æµð, ÇÐ»ý¸í, ³ªÀÌ, ÁÖ¼Ò, ¿¬¶ôÃ³...  ÀÌ°É ¹­¾ú´õ´Ï ÇÐ»ý ÇÑ¸íÀÇ µ¥ÀÌÅÍ´Ù. ÀÌ°É ½ÇÁ¦·Î ¹­´Â´Ù.
-            - ÇÐ»ý(_¾ÆÀÌµð_, ÇÐ»ý¸í, ³ªÀÌ, ÁÖ¼Ò, ¿¬¶ôÃ³) > ÀÌ¶§ ÀÌ ÇÐ»ýÀ» Entity¶ó°í ºÎ¸¥´Ù. 
-            ¾ê³×µéÀº ¼Ó¼ºÀÌ¶ó°í ÇÑ´Ù. ±Ùµ¥ ÀÌ ¼Ó¼ºÁß¿£ ½Äº°ÀÚ ¿ªÇÒÀ» ÇÏ´Â ¾Ö°¡ ÀÖ´Ù. 
-        b. °­ÀÇ½Ç Á¤º¸ °ü¸® 
-            - Á¤º¸ ¼öÁý: °­ÀÇ½Ç È£¼ö, Å©±â, ÀÎ¿ø¼ö, ¿ëµµ, ¸éÀû...
-            - °­ÀÇ½Ç(°­ÀÇ½Ç È£¼ö, Å©±â, ÀÎ¿ø¼ö, ¿ëµµ, ¸éÀû) 
-        - ÀÌ·±½ÄÀ¸·Î °ü°è°¡ ÀÖ´Â Á¤º¸¸¦ ¸ð¾ÆµÐ °ÍÀÌ´Ù. 
-    3. Attribute, ¼Ó¼º
-    - ¿£Æ¼Æ¼¸¦ ±¸¼ºÇÏ´Â Á¤º¸
-    - ÄÃ·³
-    4. Entity Relationship, ¿£Æ¼Æ¼ °ü°è
-    - ÇÐ»ý(ÀÌ¸§,³ªÀÌ...)
-    - ±³»ç(ÀÌ¸§,´ã´ç°ú¸ñ..)
-    - ÇÐ±Þ(ÇÐ³â,¹Ý..)
-    - ÇÐ»ý <-> ÇÐ±Þ <-> ±³»ç : Entity Relationship ÀÌ¶ó°í ºÎ¸¥´Ù.
-    - ºñµð¿À Àå¸£, ºñµð¿À ·£Æ®, ·£Æ®¶û ¸â¹ö °ü°è¸¦ ¸Î°í ÀÖ´Âµ¥ ÀÌ·±°Ô relationshipÀÌ´Ù. 
+    2. Entity, ì—”í‹°í‹°
+    - ë‹¤ë¥¸ Entityì™€ ë¶„ë¥˜ë  ìˆ˜ ìžˆê³ , ë‹¤ë¥¸ Entityì— ëŒ€í•´ ì •í•´ì§„ ê´€ê³„ë¥¼ ë§ºì„ ìˆ˜ ìžˆëŠ” ë°ì´í„° ë‹¨ìœ„
+    - ë¦´ë ˆì´ì…˜ = ê°ì²´ = ë ˆì½”ë“œ = ì—”í„°í‹° = í…Œì´ë¸”(í–‰)
+        a. í•™ìƒ ì •ë³´ ê´€ë¦¬ ( ì •ë³´ë“¤ì´ ìˆ˜ì§‘ì´ ëœë‹¤. 
+            - ì •ë³´ ìˆ˜ì§‘ : ì•„ì•„ë””, í•™ìƒëª…, ë‚˜ì´, ì£¼ì†Œ, ì—°ë½ì²˜...  ì´ê±¸ ë¬¶ì—ˆë”ë‹ˆ í•™ìƒ í•œëª…ì˜ ë°ì´í„°ë‹¤. ì´ê±¸ ì‹¤ì œë¡œ ë¬¶ëŠ”ë‹¤.
+            - í•™ìƒ(_ì•„ì´ë””_, í•™ìƒëª…, ë‚˜ì´, ì£¼ì†Œ, ì—°ë½ì²˜) > ì´ë•Œ ì´ í•™ìƒì„ Entityë¼ê³  ë¶€ë¥¸ë‹¤. 
+            ì–˜ë„¤ë“¤ì€ ì†ì„±ì´ë¼ê³  í•œë‹¤. ê·¼ë° ì´ ì†ì„±ì¤‘ì—” ì‹ë³„ìž ì—­í• ì„ í•˜ëŠ” ì• ê°€ ìžˆë‹¤. 
+        b. ê°•ì˜ì‹¤ ì •ë³´ ê´€ë¦¬ 
+            - ì •ë³´ ìˆ˜ì§‘: ê°•ì˜ì‹¤ í˜¸ìˆ˜, í¬ê¸°, ì¸ì›ìˆ˜, ìš©ë„, ë©´ì ...
+            - ê°•ì˜ì‹¤(ê°•ì˜ì‹¤ í˜¸ìˆ˜, í¬ê¸°, ì¸ì›ìˆ˜, ìš©ë„, ë©´ì ) 
+        - ì´ëŸ°ì‹ìœ¼ë¡œ ê´€ê³„ê°€ ìžˆëŠ” ì •ë³´ë¥¼ ëª¨ì•„ë‘” ê²ƒì´ë‹¤. 
+    3. Attribute, ì†ì„±
+    - ì—”í‹°í‹°ë¥¼ êµ¬ì„±í•˜ëŠ” ì •ë³´
+    - ì»¬ëŸ¼
+    4. Entity Relationship, ì—”í‹°í‹° ê´€ê³„
+    - í•™ìƒ(ì´ë¦„,ë‚˜ì´...)
+    - êµì‚¬(ì´ë¦„,ë‹´ë‹¹ê³¼ëª©..)
+    - í•™ê¸‰(í•™ë…„,ë°˜..)
+    - í•™ìƒ <-> í•™ê¸‰ <-> êµì‚¬ : Entity Relationship ì´ë¼ê³  ë¶€ë¥¸ë‹¤.
+    - ë¹„ë””ì˜¤ ìž¥ë¥´, ë¹„ë””ì˜¤ ëžœíŠ¸, ëžœíŠ¸ëž‘ ë©¤ë²„ ê´€ê³„ë¥¼ ë§ºê³  ìžˆëŠ”ë° ì´ëŸ°ê²Œ relationshipì´ë‹¤. 
     
     
-    ERD¸¦ ±×¸®´Â ¹ý > Entity, Attribute, Relationship µîÀ» Ç¥ÇöÇÏ´Â ¹æ¹ý 
-    ÀÌ·±°É ¾î¶»°Ô ±×¸®´ÂÁö¿¡ ´ëÇÑ ¾ê±â´Ù. 
+    ERDë¥¼ ê·¸ë¦¬ëŠ” ë²• > Entity, Attribute, Relationship ë“±ì„ í‘œí˜„í•˜ëŠ” ë°©ë²• 
+    ì´ëŸ°ê±¸ ì–´ë–»ê²Œ ê·¸ë¦¬ëŠ”ì§€ì— ëŒ€í•œ ì–˜ê¸°ë‹¤. 
     
     1. Entity 
-    - »ç°¢Çü
-    - ÀÌ¸§À» ÀÛ¼º
-    - ERD³»¿¡ µ¿ÀÏÇÑ ¿£Æ¼Æ¼ ¸íÀº »ç¿ë±ÝÁö 
+    - ì‚¬ê°í˜•
+    - ì´ë¦„ì„ ìž‘ì„±
+    - ERDë‚´ì— ë™ì¼í•œ ì—”í‹°í‹° ëª…ì€ ì‚¬ìš©ê¸ˆì§€ 
     
     2. Attribute
-    - µ¿±×¶ó¹Ì
-    - ¿£ÅÍÆ¼¿¡ ¿¬°á
-    - Ãß°¡ Ç¥±â»çÇ× (¼Ó¼º¿¡ ´ëÇÑ ¼ºÁú ±â¼ú)
+    - ë™ê·¸ë¼ë¯¸
+    - ì—”í„°í‹°ì— ì—°ê²°
+    - ì¶”ê°€ í‘œê¸°ì‚¬í•­ (ì†ì„±ì— ëŒ€í•œ ì„±ì§ˆ ê¸°ìˆ )
         a. NN, Not null
-            - ÇØ´ç ¼Ó¼ºÀº ¹Ýµå½Ã ÀÛ¼ºÇØ¾ß ÇÑ´Ù.
-            - ÇÊ¼ö°ª
+            - í•´ë‹¹ ì†ì„±ì€ ë°˜ë“œì‹œ ìž‘ì„±í•´ì•¼ í•œë‹¤.
+            - í•„ìˆ˜ê°’
         b. ND, Not Duplicate
-            - ÇØ´ç ¼Ó¼ºÀº Áßº¹µÉ ¼ö ¾ø´Ù.
-            - À¯ÀÏ°ª(Unique)
-        1. Áßº¹µÇ¸é ¾ÈµÇ°í, »ý·«µÇ¸é ¾ÈµÈ´Ù.(NN, ND)
-            - #*¼Ó¼º¸í
+            - í•´ë‹¹ ì†ì„±ì€ ì¤‘ë³µë  ìˆ˜ ì—†ë‹¤.
+            - ìœ ì¼ê°’(Unique)
+        1. ì¤‘ë³µë˜ë©´ ì•ˆë˜ê³ , ìƒëžµë˜ë©´ ì•ˆëœë‹¤.(NN, ND)
+            - #*ì†ì„±ëª…
             
-        2. »ý·«µÇ¸é ¾ÈµÈ´Ù.(NN)
-            -*¼Ó¼º¸í
+        2. ìƒëžµë˜ë©´ ì•ˆëœë‹¤.(NN)
+            -*ì†ì„±ëª…
             
-        3. Áßº¹µÇ¸é ¾ÈµÈ´Ù.(ND)
-            -#¼Ó¼º¸í
-        4. Áßº¹µÇµµ µÇ°í, »ý·«µÇµµ µÈ´Ù.
-            - ¼Ó¼º¸í
-            - o¼Ó¼º¸í
+        3. ì¤‘ë³µë˜ë©´ ì•ˆëœë‹¤.(ND)
+            -#ì†ì„±ëª…
+        4. ì¤‘ë³µë˜ë„ ë˜ê³ , ìƒëžµë˜ë„ ëœë‹¤.
+            - ì†ì„±ëª…
+            - oì†ì„±ëª…
             - optional
             
     3. Relationship
-    - ¸¶¸§¸ð
-    - ¿£Æ¼Æ¼¿Í ¿£Æ¼Æ¼ÀÇ °ü°è
-    - °¡Àå Áß¿äÇÑ Ç¥Çö(****)
+    - ë§ˆë¦„ëª¨
+    - ì—”í‹°í‹°ì™€ ì—”í‹°í‹°ì˜ ê´€ê³„
+    - ê°€ìž¥ ì¤‘ìš”í•œ í‘œí˜„(****)
     
-        A¿£Æ¼Æ¼ : B¿£Æ¼Æ¼
+        Aì—”í‹°í‹° : Bì—”í‹°í‹°
         a. 1:1
-            - ÀÏ´ëÀÏ
+            - ì¼ëŒ€ì¼
         b. 1:0
         c. 1:N
-            - ÀÏ´ë´Ù
+            - ì¼ëŒ€ë‹¤
         d. N:M
-            - ´Ù´ë´Ù
+            - ë‹¤ëŒ€ë‹¤
         
-        ºñµð¿À ´ë¿©Á¡ 
+        ë¹„ë””ì˜¤ ëŒ€ì—¬ì  
         
-        1. ¿£Æ¼Æ¼ Á¤ÀÇ
-            - Àå¸£ 
-            - ºñµð¿À
-            - È¸¿ø
-            - ´ë¿©
+        1. ì—”í‹°í‹° ì •ì˜
+            - ìž¥ë¥´ 
+            - ë¹„ë””ì˜¤
+            - íšŒì›
+            - ëŒ€ì—¬
             
-        2. ¼Ó¼º Á¤ÀÇ
+        2. ì†ì„± ì •ì˜
             -
-        3. ½Äº°ÀÚ ¼±¾ð
-            -±âº»Å°
-        ------------------------ °³³äÀû ¸ðµ¨¸µ
-        4. ³í¸® ¸ðµ¨¸µ 
+        3. ì‹ë³„ìž ì„ ì–¸
+            -ê¸°ë³¸í‚¤
+        ------------------------ ê°œë…ì  ëª¨ë¸ë§
+        4. ë…¼ë¦¬ ëª¨ë¸ë§ 
         
-            - 1~3À» ¹Ýº¹ > Àü¹®ÀûÀ¸·Î ±×¸®±â 
-        ------------------------ ³í¸® ¸ðµ¨¸µ
-        5. ¹°¸® µ¥ÀÌÅÍ ¸ðµ¨¸µ > ¿À¶óÅ¬ ¸Â°Ô ±¸Ã¼È­!!!
-            - ¹°¸®¸í(½Äº°ÀÚ) »ý¼º > name
-            - ÀÚ·áÇü > varchar2 
-            - ±æÀÌ > 30 
-            - µµ¸ÞÀÎ > 2~5ÀÚ ÀÌ³»ÀÇ ÇÑ±Û 
-            - Á¦¾à»çÇ× »ý¼º
-        ------------------------- ¹°¸®¸ðµ¨¸µ
+            - 1~3ì„ ë°˜ë³µ > ì „ë¬¸ì ìœ¼ë¡œ ê·¸ë¦¬ê¸° 
+        ------------------------ ë…¼ë¦¬ ëª¨ë¸ë§
+        5. ë¬¼ë¦¬ ë°ì´í„° ëª¨ë¸ë§ > ì˜¤ë¼í´ ë§žê²Œ êµ¬ì²´í™”!!!
+            - ë¬¼ë¦¬ëª…(ì‹ë³„ìž) ìƒì„± > name
+            - ìžë£Œí˜• > varchar2 
+            - ê¸¸ì´ > 30 
+            - ë„ë©”ì¸ > 2~5ìž ì´ë‚´ì˜ í•œê¸€ 
+            - ì œì•½ì‚¬í•­ ìƒì„±
+        ------------------------- ë¬¼ë¦¬ëª¨ë¸ë§
         
-        ¸ðµ¨¸µ ÀÛ¾÷ > ERD(³í¸®, ¹°¸®) > [Á¤±ÔÈ­] > ¾ÈÁ¤¼º ³ô°í, È¿À²Àû ±¸Á¶·Î º¯°æ > ERD °¡´É
-        ¼÷·ÃµÇ¸é Á¤±ÔÈ­¸¦ ¾È°ÅÃÄµµ µÉ Á¤µµ·Î ¾ÈÁ¤¼º ³ô°Ô ¸¸µç´Ù. >>>>> 
+        ëª¨ë¸ë§ ìž‘ì—… > ERD(ë…¼ë¦¬, ë¬¼ë¦¬) > [ì •ê·œí™”] > ì•ˆì •ì„± ë†’ê³ , íš¨ìœ¨ì  êµ¬ì¡°ë¡œ ë³€ê²½ > ERD ê°€ëŠ¥
+        ìˆ™ë ¨ë˜ë©´ ì •ê·œí™”ë¥¼ ì•ˆê±°ì³ë„ ë  ì •ë„ë¡œ ì•ˆì •ì„± ë†’ê²Œ ë§Œë“ ë‹¤. >>>>> 
         
-        Á¤±ÔÈ­, Normalization 
-        - ÀÚ·áÀÇ ¼Õ½ÇÀÌ³ª, ºÒÇÊ¿äÇÑ Á¤º¸¸¦ ¾ø¾Ö°í, µ¥ÀÌÅÍÀÇ ÀÏ°ü¼ºÀ» À¯ÁöÇÏ¸ç, µ¥ÀÌÅÍ Á¾¼Ó¼ºÀ» ÃÖ¼ÒÈ­ÇÏ±â À§ÇØ
-        ERD¸¦ ¼öÁ¤ÇÏ´Â ÀÛ¾÷
-        ( Ã³À½ºÎÅÍ ÀßÇÏ´Â »ç¶÷Àº Á¤±ÔÈ­ »óÅÂ·Î ÀÌ¹Ì Â« )
-        - ¿ì¸®°¡ ¸¸µç Å×ÀÌºí(ERD) > ºñÁ¤Çü, ºñÁ¤±ÔÈ­ »óÅÂ > Á¤±ÔÈ­ > Á¤±ÔÈ­µÈ ±¸Á¶ ERD 
-        - Á¦ 1Á¤±ÔÈ­ > Á¦ 2 Á¤±ÔÈ­ > Á¦ 3 Á¤±ÔÈ­ 
-        - Á¦ 1~3 Á¤±ÔÈ­
+        ì •ê·œí™”, Normalization 
+        - ìžë£Œì˜ ì†ì‹¤ì´ë‚˜, ë¶ˆí•„ìš”í•œ ì •ë³´ë¥¼ ì—†ì• ê³ , ë°ì´í„°ì˜ ì¼ê´€ì„±ì„ ìœ ì§€í•˜ë©°, ë°ì´í„° ì¢…ì†ì„±ì„ ìµœì†Œí™”í•˜ê¸° ìœ„í•´
+        ERDë¥¼ ìˆ˜ì •í•˜ëŠ” ìž‘ì—…
+        ( ì²˜ìŒë¶€í„° ìž˜í•˜ëŠ” ì‚¬ëžŒì€ ì •ê·œí™” ìƒíƒœë¡œ ì´ë¯¸ ì§¬ )
+        - ìš°ë¦¬ê°€ ë§Œë“  í…Œì´ë¸”(ERD) > ë¹„ì •í˜•, ë¹„ì •ê·œí™” ìƒíƒœ > ì •ê·œí™” > ì •ê·œí™”ëœ êµ¬ì¡° ERD 
+        - ì œ 1ì •ê·œí™” > ì œ 2 ì •ê·œí™” > ì œ 3 ì •ê·œí™” 
+        - ì œ 1~3 ì •ê·œí™”
             
-        -> ÀÌ·± »óÅÂ¸¦ À¯ÁöÇÏ¸é¼­
-        °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º ½Ã½ºÅÛÀÌ ÁöÇâÇÏ´Â µ¥ÀÌÅÍº£ÀÌ½º »óÅÂ
-        1. ¿øÀÚ°ªÀ» °¡Áø´Ù.
-        2. ÃÖ´ëÇÑ nullÀ» °¡ÁöÁö ¾Ê´Â´Ù.
-        3. Áßº¹°ªÀ» °¡ÁöÁö ¾Ê´Â´Ù.
+        -> ì´ëŸ° ìƒíƒœë¥¼ ìœ ì§€í•˜ë©´ì„œ
+        ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ ì‹œìŠ¤í…œì´ ì§€í–¥í•˜ëŠ” ë°ì´í„°ë² ì´ìŠ¤ ìƒíƒœ
+        1. ì›ìžê°’ì„ ê°€ì§„ë‹¤.
+        2. ìµœëŒ€í•œ nullì„ ê°€ì§€ì§€ ì•ŠëŠ”ë‹¤.
+        3. ì¤‘ë³µê°’ì„ ê°€ì§€ì§€ ì•ŠëŠ”ë‹¤.
         
-        -> ÀÌ·± »óÅÂ¸¦ ¹èÁ¦ÇÏ°íÀÚ ÇÑ´Ù. 
-        ÀÌ»ó Çö»ó
-        1. »ðÀÔ ÀÌ»ó, Insertion Anomaly
-            - Å×ÀÌºí¿¡ µ¥ÀÌÅÍ¸¦ »ðÀÔÇÒ ¶§, ¿øÇÏÁö ¾Ê´Â µ¥ÀÌÅÍ±îÁö °°ÀÌ ³Ö¾î¾ß ÇÏ´Â »óÈ²
-        2. °»½Å ÀÌ»ó, Update Anomaly
-            - µ¿ÀÏÇÑ µ¥ÀÌÅÍ°¡ 2°³ ÀÌ»óÀÇ Å×ÀÌºí¿¡ µ¿½Ã Á¸Àç > µÑ Áß 1°³¸¸ ¼öÁ¤ ¹ß»ý 
-            -> µÑ Áß ¾î´À°ÍÀÌ ¿Ã¹Ù¸¥Áö ? ¾Ë¼ö°¡ ¾ø´Ù.
-        3. »èÁ¦ ÀÌ»ó, Delete Anomaly 
-            - Å×ÀÌºíÀÇ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÒ ¶§, ¿øÇÏÁö ¾Ê´Â µ¥ÀÌÅÍ±îÁö °°ÀÌ Áö¿ö¾ß ÇÏ´Â »óÈ²
+        -> ì´ëŸ° ìƒíƒœë¥¼ ë°°ì œí•˜ê³ ìž í•œë‹¤. 
+        ì´ìƒ í˜„ìƒ
+        1. ì‚½ìž… ì´ìƒ, Insertion Anomaly
+            - í…Œì´ë¸”ì— ë°ì´í„°ë¥¼ ì‚½ìž…í•  ë•Œ, ì›í•˜ì§€ ì•ŠëŠ” ë°ì´í„°ê¹Œì§€ ê°™ì´ ë„£ì–´ì•¼ í•˜ëŠ” ìƒí™©
+        2. ê°±ì‹  ì´ìƒ, Update Anomaly
+            - ë™ì¼í•œ ë°ì´í„°ê°€ 2ê°œ ì´ìƒì˜ í…Œì´ë¸”ì— ë™ì‹œ ì¡´ìž¬ > ë‘˜ ì¤‘ 1ê°œë§Œ ìˆ˜ì • ë°œìƒ 
+            -> ë‘˜ ì¤‘ ì–´ëŠê²ƒì´ ì˜¬ë°”ë¥¸ì§€ ? ì•Œìˆ˜ê°€ ì—†ë‹¤.
+        3. ì‚­ì œ ì´ìƒ, Delete Anomaly 
+            - í…Œì´ë¸”ì˜ ë°ì´í„°ë¥¼ ì‚­ì œí•  ë•Œ, ì›í•˜ì§€ ì•ŠëŠ” ë°ì´í„°ê¹Œì§€ ê°™ì´ ì§€ì›Œì•¼ í•˜ëŠ” ìƒí™©
         
-        -> ÃÖ´ëÇÑ µ¥ÀÌÅÍº£ÀÌ½º°¡ ÁÁ¾ÆÇÏ°íÀÚ ÇÏ´Â ¸ð½ÀÀ¸·Î ¹Ù²Ù°íÀÚ ÇÑ´Ù.
+        -> ìµœëŒ€í•œ ë°ì´í„°ë² ì´ìŠ¤ê°€ ì¢‹ì•„í•˜ê³ ìž í•˜ëŠ” ëª¨ìŠµìœ¼ë¡œ ë°”ê¾¸ê³ ìž í•œë‹¤.
         
-        ÇÔ¼ö Á¾¼Ó, Functional Dependency 
-        - 1°³ÀÇ Å×ÀÌºí ³» ÄÃ·³³¢¸®ÀÇ °ü°è¸¦ Ç¥ÇöÇÑ´Ù.
-        - *** Á¤±ÔÈ­¶õ 'ºÎºÐ ÇÔ¼ö Á¾¼Ó'ÀÌ³ª 'ÀÌÇàÇÔ¼ö Á¾¼Ó'À» ¸ðµÎ ¾ø¾Ö°í,(3Á¤±ÔÇü±îÁö °¡Á¤)
-              ¸ðµç ÄÃ·³ °ü°è¸¦ '¿ÏÀü ÇÔ¼ö Á¾¼Ó'À¸·Î ¸¸µå´Â ÀÛ¾÷ÀÌ´Ù. 
+        í•¨ìˆ˜ ì¢…ì†, Functional Dependency 
+        - 1ê°œì˜ í…Œì´ë¸” ë‚´ ì»¬ëŸ¼ë¼ë¦¬ì˜ ê´€ê³„ë¥¼ í‘œí˜„í•œë‹¤.
+        - *** ì •ê·œí™”ëž€ 'ë¶€ë¶„ í•¨ìˆ˜ ì¢…ì†'ì´ë‚˜ 'ì´í–‰í•¨ìˆ˜ ì¢…ì†'ì„ ëª¨ë‘ ì—†ì• ê³ ,(3ì •ê·œí˜•ê¹Œì§€ ê°€ì •)
+              ëª¨ë“  ì»¬ëŸ¼ ê´€ê³„ë¥¼ 'ì™„ì „ í•¨ìˆ˜ ì¢…ì†'ìœ¼ë¡œ ë§Œë“œëŠ” ìž‘ì—…ì´ë‹¤. 
               
-        1. ¿ÏÀü ÇÔ¼ö Á¾¼Ó, Full Functional Dependency
-        2. ºÎºÐ ÇÔ¼ö Á¾¼Ó, Partial Functional Dependency
-        3. ÀÌÇà ÇÔ¼ö Á¾¼Ó, Transitive Functional Dependency
+        1. ì™„ì „ í•¨ìˆ˜ ì¢…ì†, Full Functional Dependency
+        2. ë¶€ë¶„ í•¨ìˆ˜ ì¢…ì†, Partial Functional Dependency
+        3. ì´í–‰ í•¨ìˆ˜ ì¢…ì†, Transitive Functional Dependency
         
-        Á¤±ÔÈ­ 
-        - ºñÁ¤±ÔÈ­ > Á¤±ÔÈ­
+        ì •ê·œí™” 
+        - ë¹„ì •ê·œí™” > ì •ê·œí™”
         - 1NF > 2NF > 3NF(Normal Form)
         
-        Á¦ 1Á¤±ÔÈ­, 1NF
-        - ¸ðµç ÄÃ·³(¼Ó¼º)Àº ¿øÀÚ°ªÀ» °¡Áø´Ù.
-        - ´ÙÁß°ª(¿©·¯°³·Î ºÐ¸® °¡´ÉÇÑ °ª)À» 1°³ÀÇ ÄÃ·³¾È¿¡ ³ÖÁö ¾Ê´Â´Ù.
-        - ´ÙÁß°ªÀ» °¡Áö´Â ÄÃ·³ Ã£±â > ¾ø¾Ö´Â ÀÛ¾÷
+        ì œ 1ì •ê·œí™”, 1NF
+        - ëª¨ë“  ì»¬ëŸ¼(ì†ì„±)ì€ ì›ìžê°’ì„ ê°€ì§„ë‹¤.
+        - ë‹¤ì¤‘ê°’(ì—¬ëŸ¬ê°œë¡œ ë¶„ë¦¬ ê°€ëŠ¥í•œ ê°’)ì„ 1ê°œì˜ ì»¬ëŸ¼ì•ˆì— ë„£ì§€ ì•ŠëŠ”ë‹¤.
+        - ë‹¤ì¤‘ê°’ì„ ê°€ì§€ëŠ” ì»¬ëŸ¼ ì°¾ê¸° > ì—†ì• ëŠ” ìž‘ì—…
         
-        Á¦ 2 Á¤±ÔÈ­, 2NG
-        - ±âº»Å°(PK)°¡ ¾Æ´Ñ ¸ðµç ³ª¸ÓÁö Ä®·³Àº ±âº»Å°¿¡ ¿ÏÀü ÇÔ¼ö Á¾¼ÓµÇ¾î¾ß ÇÑ´Ù.
-        - ºÎºÐ ÇÔ¼ö Á¾¼Ó °Ë»ö!!> ºÎºÐ ÇÔ¼ö Á¾¼Ó Á¦°Å!!
-        - ÁÖ·Î º¹ÇÕÅ°¸¦ °¡Áö´Â Å×ÀÌºí¿¡¼­ ¹ß°ßµÈ´Ù.
-            - ÀÏºÎ ÄÃ·³ÀÌ º¹ÇÕÅ° ÀÏºÎ¿¡¸¸ Á¾¼ÓµÇ´Â Çö»óÀ» Á¦°ÅÇÏ´Â Á¤±ÔÈ­´Ù.
+        ì œ 2 ì •ê·œí™”, 2NG
+        - ê¸°ë³¸í‚¤(PK)ê°€ ì•„ë‹Œ ëª¨ë“  ë‚˜ë¨¸ì§€ ì¹¼ëŸ¼ì€ ê¸°ë³¸í‚¤ì— ì™„ì „ í•¨ìˆ˜ ì¢…ì†ë˜ì–´ì•¼ í•œë‹¤.
+        - ë¶€ë¶„ í•¨ìˆ˜ ì¢…ì† ê²€ìƒ‰!!> ë¶€ë¶„ í•¨ìˆ˜ ì¢…ì† ì œê±°!!
+        - ì£¼ë¡œ ë³µí•©í‚¤ë¥¼ ê°€ì§€ëŠ” í…Œì´ë¸”ì—ì„œ ë°œê²¬ëœë‹¤.
+            - ì¼ë¶€ ì»¬ëŸ¼ì´ ë³µí•©í‚¤ ì¼ë¶€ì—ë§Œ ì¢…ì†ë˜ëŠ” í˜„ìƒì„ ì œê±°í•˜ëŠ” ì •ê·œí™”ë‹¤.
             
-        ** ±Ùµ¥ º¹ÇÕÅ°¸¦ Àß »ç¿ë¾ÈÇÏ±âµµ ÇÑ´Ù. °¡»óÅ°¸¦ »ý¼ºÇØ¼­ > PK·Î ¸¸µç´Ù. > seq °°Àº°Å
-        º¹ÇÕÅ°¸¦ ½È¾îÇÏ´Â »ç¶÷µéÀÌ ¸¹´Ù. ¿Ö³Ä¸é Äõ¸®¸¦ Â¥±â Èûµå´Ï±î ±×·¸´Ù.
+        ** ê·¼ë° ë³µí•©í‚¤ë¥¼ ìž˜ ì‚¬ìš©ì•ˆí•˜ê¸°ë„ í•œë‹¤. ê°€ìƒí‚¤ë¥¼ ìƒì„±í•´ì„œ > PKë¡œ ë§Œë“ ë‹¤. > seq ê°™ì€ê±°
+        ë³µí•©í‚¤ë¥¼ ì‹«ì–´í•˜ëŠ” ì‚¬ëžŒë“¤ì´ ë§Žë‹¤. ì™œëƒë©´ ì¿¼ë¦¬ë¥¼ ì§œê¸° íž˜ë“œë‹ˆê¹Œ ê·¸ë ‡ë‹¤.
             
-        Á¦ 3 Á¤±ÔÈ­, 3NF
-        - ±âº»Å°(PK)°¡ ¾Æ´Ñ ¸ðµç ³ª¸ÓÁö ÄÃ·³Àº ±âº»Å°¿¡ ¿ÏÀü ÇÔ¼ö Á¾¼ÓÀÌ¾î¾ß ÇÑ´Ù.
-        - ÀÌÇà ÇÔ¼ö Á¾¼Ó °Ë»ö!!> ÀÌÇà ÇÔ¼ö Á¾¼Ó Á¦°Å!!
-        - ÄÃ·³ÀÌ ±âº»Å°°¡ ¾Æ´Ñ ´Ù¸¥ Å°¿¡ Á¾¼ÓµÇ´Â Çö»óÀ» Á¦°ÅÇÏ´Â Á¤±ÔÈ­.
+        ì œ 3 ì •ê·œí™”, 3NF
+        - ê¸°ë³¸í‚¤(PK)ê°€ ì•„ë‹Œ ëª¨ë“  ë‚˜ë¨¸ì§€ ì»¬ëŸ¼ì€ ê¸°ë³¸í‚¤ì— ì™„ì „ í•¨ìˆ˜ ì¢…ì†ì´ì–´ì•¼ í•œë‹¤.
+        - ì´í–‰ í•¨ìˆ˜ ì¢…ì† ê²€ìƒ‰!!> ì´í–‰ í•¨ìˆ˜ ì¢…ì† ì œê±°!!
+        - ì»¬ëŸ¼ì´ ê¸°ë³¸í‚¤ê°€ ì•„ë‹Œ ë‹¤ë¥¸ í‚¤ì— ì¢…ì†ë˜ëŠ” í˜„ìƒì„ ì œê±°í•˜ëŠ” ì •ê·œí™”.
         
-        ¿ªÁ¤±ÔÈ­
-        - Á¤±ÔÈ­µÈ °á°ú¸¦ ´Ù½Ã ¿ø·¡´ë·Î µÇµ¹¸®´Â ÀÛ¾÷ 
-        - 2°³·Î ³ª´µ¾îÁø Å×ÀÌºíÀ» ´Ù½Ã ÇÏ³ª·Î ÇÕÄ¡´Â ÀÛ¾÷ÀÌ´Ù.
-        - ¼ö¾÷ Áß »ç¿ë ±ÝÁö!!
+        ì—­ì •ê·œí™”
+        - ì •ê·œí™”ëœ ê²°ê³¼ë¥¼ ë‹¤ì‹œ ì›ëž˜ëŒ€ë¡œ ë˜ëŒë¦¬ëŠ” ìž‘ì—… 
+        - 2ê°œë¡œ ë‚˜ë‰˜ì–´ì§„ í…Œì´ë¸”ì„ ë‹¤ì‹œ í•˜ë‚˜ë¡œ í•©ì¹˜ëŠ” ìž‘ì—…ì´ë‹¤.
+        - ìˆ˜ì—… ì¤‘ ì‚¬ìš© ê¸ˆì§€!!
         
 */
 
--- º¹ÇÕÅ° »ý¼ºÇÏ±â + »ç¿ëÇÏ±â
+-- ë³µí•©í‚¤ ìƒì„±í•˜ê¸° + ì‚¬ìš©í•˜ê¸°
 create table tblStudent (
-    seq number primary key,     -- ¹øÈ£(PK)
-    name varchar2(30) not null  -- ÇÐ»ý¸í
+    seq number primary key,     -- ë²ˆí˜¸(PK)
+    name varchar2(30) not null  -- í•™ìƒëª…
 );
 
--- °ú¸ñ
+-- ê³¼ëª©
 create table tblSubject (
-    seq number primary key,       -- ¹øÈ£
-    name varchar2(30) not null    -- °ú¸ñ
+    seq number primary key,       -- ë²ˆí˜¸
+    name varchar2(30) not null    -- ê³¼ëª©
 );
 
--- ¼ö°­ ½ÅÃ»
+-- ìˆ˜ê°• ì‹ ì²­
 create table tblRegister (
-    -- ÄÃ·³ ¼öÁØ¿¡¼­´Â º¹ÇÕÅ°¸¦ ÁöÁ¤ÇÒ ¼ö ¾ø´Ù. !!!!
-    -- student_seq number primary key, -- µÎ Ä®·³À¸·Î pk ¸¸µé°í ½ÍÀ» ¶© ÀÌ°Ô ¾ÈµÈ´Ù.
-    -- subject_seq number primary key, -- µÎ Ä®·³À¸·Î pk ¸¸µé°í ½ÍÀ» ¶© ÀÌ°Ô ¾ÈµÈ´Ù.
+    -- ì»¬ëŸ¼ ìˆ˜ì¤€ì—ì„œëŠ” ë³µí•©í‚¤ë¥¼ ì§€ì •í•  ìˆ˜ ì—†ë‹¤. !!!!
+    -- student_seq number primary key, -- ë‘ ì¹¼ëŸ¼ìœ¼ë¡œ pk ë§Œë“¤ê³  ì‹¶ì„ ë• ì´ê²Œ ì•ˆëœë‹¤.
+    -- subject_seq number primary key, -- ë‘ ì¹¼ëŸ¼ìœ¼ë¡œ pk ë§Œë“¤ê³  ì‹¶ì„ ë• ì´ê²Œ ì•ˆëœë‹¤.
     regdate date default sysdate
 ); --ORA-02260: table can have only one primary key
 
 create table tblRegister (
-    -- ÄÃ·³ ¼öÁØ¿¡¼­´Â º¹ÇÕÅ°¸¦ ÁöÁ¤ÇÒ ¼ö ¾ø´Ù. !!!!
-    student_seq number, -- µÎ Ä®·³À¸·Î pk ¸¸µé°í ½ÍÀ» ¶© ÀÌ°Ô ¾ÈµÈ´Ù.
-    subject_seq number, -- µÎ Ä®·³À¸·Î pk ¸¸µé°í ½ÍÀ» ¶© ÀÌ°Ô ¾ÈµÈ´Ù.
+    -- ì»¬ëŸ¼ ìˆ˜ì¤€ì—ì„œëŠ” ë³µí•©í‚¤ë¥¼ ì§€ì •í•  ìˆ˜ ì—†ë‹¤. !!!!
+    student_seq number, -- ë‘ ì¹¼ëŸ¼ìœ¼ë¡œ pk ë§Œë“¤ê³  ì‹¶ì„ ë• ì´ê²Œ ì•ˆëœë‹¤.
+    subject_seq number, -- ë‘ ì¹¼ëŸ¼ìœ¼ë¡œ pk ë§Œë“¤ê³  ì‹¶ì„ ë• ì´ê²Œ ì•ˆëœë‹¤.
     regdate date default sysdate,
     
-    constraint register_pk primary key(student_seq, subject_seq) -- º¹ÇÕÅ° ¼±¾ð
+    constraint register_pk primary key(student_seq, subject_seq) -- ë³µí•©í‚¤ ì„ ì–¸
 );
--- constraint³ª alter·Î °¡´É
+-- constraintë‚˜ alterë¡œ ê°€ëŠ¥
 
--- **** ÀÌ·¸°Ô¸¸ ÇÏ¸é ¾ÈµÇ°í FKµµ ¸¸µé¾î¾ß ÇÑ´Ù.
+-- **** ì´ë ‡ê²Œë§Œ í•˜ë©´ ì•ˆë˜ê³  FKë„ ë§Œë“¤ì–´ì•¼ í•œë‹¤.
 drop table tblRegister;
 
 
 create table tblRegister (
-    -- ÄÃ·³ ¼öÁØ¿¡¼­´Â º¹ÇÕÅ°¸¦ ÁöÁ¤ÇÒ ¼ö ¾ø´Ù. !!!!
+    -- ì»¬ëŸ¼ ìˆ˜ì¤€ì—ì„œëŠ” ë³µí•©í‚¤ë¥¼ ì§€ì •í•  ìˆ˜ ì—†ë‹¤. !!!!
     student_seq number references tblStudent(seq), 
     subject_seq number references tblSubject(seq), 
     regdate date default sysdate,
-    constraint register_pk primary key(student_seq, subject_seq) -- º¹ÇÕÅ° ¼±¾ð
+    constraint register_pk primary key(student_seq, subject_seq) -- ë³µí•©í‚¤ ì„ ì–¸
 );
 
 drop table tblRegister;
@@ -234,25 +234,25 @@ drop table tblRegister;
 create table tblScore(
     seq number primary key,
     score number not null,
-    --- º¹ÇÕÅ°¸¦ ÂüÁ¶ÇÏ´Â ¿Ü·¡Å°´Â ÄÃ·³ ¼öÁØÀ¸·Î ¼±¾ðÇÒ ¼ö ¾ø´Ù.
+    --- ë³µí•©í‚¤ë¥¼ ì°¸ì¡°í•˜ëŠ” ì™¸ëž˜í‚¤ëŠ” ì»¬ëŸ¼ ìˆ˜ì¤€ìœ¼ë¡œ ì„ ì–¸í•  ìˆ˜ ì—†ë‹¤.
     student_seq number,
     subject_seq number,
     constraint score_f foreign key(student_seq, subject_seq) references tblRegister(student_seq, subject_seq)
 );
 
--- ÇÐ»ý Á¤º¸°¡ µé¾î°¡°í 
-insert into tblStudent values (1, 'È«±æµ¿');
-insert into tblStudent values (2, '¾Æ¹«°³');
-insert into tblStudent values (3, 'ÇÏÇÏÇÏ');
+-- í•™ìƒ ì •ë³´ê°€ ë“¤ì–´ê°€ê³  
+insert into tblStudent values (1, 'í™ê¸¸ë™');
+insert into tblStudent values (2, 'ì•„ë¬´ê°œ');
+insert into tblStudent values (3, 'í•˜í•˜í•˜');
 
--- ±× ÇÐ»ýÀÌ ¼ö°­ÇÏ´Â °ú¸ñµé Á¤º¸°¡ µé¾î°¡°í 
-insert into tblSubject values (1, 'ÀÚ¹Ù');
-insert into tblSubject values (2, '¿À¶óÅ¬');
+-- ê·¸ í•™ìƒì´ ìˆ˜ê°•í•˜ëŠ” ê³¼ëª©ë“¤ ì •ë³´ê°€ ë“¤ì–´ê°€ê³  
+insert into tblSubject values (1, 'ìžë°”');
+insert into tblSubject values (2, 'ì˜¤ë¼í´');
 insert into tblSubject values (3, 'JDBC');
 insert into tblSubject values (4, 'JSP');
 insert into tblSubject values (5, 'Spring');
 
--- ½ÅÃ»³¯Â¥
+-- ì‹ ì²­ë‚ ì§œ
 insert into tblRegister values (1, 1, sysdate);
 insert into tblRegister values (1, 2, sysdate);
 insert into tblRegister values (1, 3, sysdate);
@@ -263,7 +263,7 @@ insert into tblRegister values (2, 1, sysdate);
 insert into tblRegister values (3, 2, sysdate);
 insert into tblRegister values (3, 5, sysdate);
 
--- Á¡¼ö°¡ ³ª¿Ô¾î ~
+-- ì ìˆ˜ê°€ ë‚˜ì™”ì–´ ~
 insert into tblScore values (1, 100, 1, 1);
 insert into tblScore values (2, 90,  1, 2);
 insert into tblScore values (3, 80,  1, 3);
@@ -275,102 +275,102 @@ select * from tblSubject;
 select * from tblRegister;
 select * from tblScore;
 
--- ÇÐ»ý + °ú¸ñ > ¼ö°­ ½ÅÃ» > ¸ñ·Ï
+-- í•™ìƒ + ê³¼ëª© > ìˆ˜ê°• ì‹ ì²­ > ëª©ë¡
 select 
-    st.name as "ÇÐ»ý¸í",
-    sj.name as "°ú¸ñ¸í"
+    st.name as "í•™ìƒëª…",
+    sj.name as "ê³¼ëª©ëª…"
 from tblStudent st
     inner join tblRegister r
         on st.seq = r.student_seq
             inner join tblSubject sj
                 on sj.seq = r.subject_seq;
 
--- ¼ö°­ ¸ñ·Ïº¸´Ù °³¼ö°¡ Âá¾îµéÀ½ score¸¦ °³ÀÔ½ÃÄ×´õ´Ï ÁÙ¾îµç °Í
--- ÇÐ»ý + °ú¸ñ > ¼ö°­ ½ÅÃ» > ¸ñ·Ï
+-- ìˆ˜ê°• ëª©ë¡ë³´ë‹¤ ê°œìˆ˜ê°€ ì­ì–´ë“¤ìŒ scoreë¥¼ ê°œìž…ì‹œì¼°ë”ë‹ˆ ì¤„ì–´ë“  ê²ƒ
+-- í•™ìƒ + ê³¼ëª© > ìˆ˜ê°• ì‹ ì²­ > ëª©ë¡
 select 
-    st.name as "ÇÐ»ý¸í",
-    sj.name as "°ú¸ñ¸í",
-    sc.score as "¼ºÀû"
+    st.name as "í•™ìƒëª…",
+    sj.name as "ê³¼ëª©ëª…",
+    sc.score as "ì„±ì "
 from tblStudent st
     inner join tblRegister r
         on st.seq = r.student_seq
             inner join tblSubject sj
                 on sj.seq = r.subject_seq
-                    inner join tblScore sc -- µÎ°³ÀÇ FK
+                    inner join tblScore sc -- ë‘ê°œì˜ FK
                         on r.student_seq = sc.student_seq 
-                            and r.subject_seq = sc.subject_seq; -- ´ÜÁö ºñ±³ Á¶°ÇÀÌ ´Ã¾î³²
+                            and r.subject_seq = sc.subject_seq; -- ë‹¨ì§€ ë¹„êµ ì¡°ê±´ì´ ëŠ˜ì–´ë‚¨
 
--- ¼ö°­ ½ÅÃ»Àº Çß´Âµ¥ ¾ÆÁ÷ ½ÃÇèÀ» ¾Èº» Ä£±¸µéÀÌ ºüÁ®³ª°¨
--- ÀÌ·¸°Ô ºüÁ®³ª°£ Ä£±¸µéµµ ³ª´Â °°ÀÌ Æ÷ÇÔ½ÃÅ°°í ½ÍÀ» ¶§ left outer joinÀ» ÇÏ¸é µÈ´Ù. 
+-- ìˆ˜ê°• ì‹ ì²­ì€ í–ˆëŠ”ë° ì•„ì§ ì‹œí—˜ì„ ì•ˆë³¸ ì¹œêµ¬ë“¤ì´ ë¹ ì ¸ë‚˜ê°
+-- ì´ë ‡ê²Œ ë¹ ì ¸ë‚˜ê°„ ì¹œêµ¬ë“¤ë„ ë‚˜ëŠ” ê°™ì´ í¬í•¨ì‹œí‚¤ê³  ì‹¶ì„ ë•Œ left outer joinì„ í•˜ë©´ ëœë‹¤. 
 select 
-    st.name as "ÇÐ»ý¸í",
-    sj.name as "°ú¸ñ¸í",
-    sc.score as "¼ºÀû"
+    st.name as "í•™ìƒëª…",
+    sj.name as "ê³¼ëª©ëª…",
+    sc.score as "ì„±ì "
 from tblStudent st
     inner join tblRegister r
         on st.seq = r.student_seq
             inner join tblSubject sj
                 on sj.seq = r.subject_seq
-                    left outer join tblScore sc -- µÎ°³ÀÇ FK
+                    left outer join tblScore sc -- ë‘ê°œì˜ FK
                         on r.student_seq = sc.student_seq 
-                            and r.subject_seq = sc.subject_seq; -- ´ÜÁö ºñ±³ Á¶°ÇÀÌ ´Ã¾î³²
+                            and r.subject_seq = sc.subject_seq; -- ë‹¨ì§€ ë¹„êµ ì¡°ê±´ì´ ëŠ˜ì–´ë‚¨
 
 
--- º¹ÇÕÅ°¸¦ ¾µ ¶§ÀÇ ÀåÁ¡Àº ÀÖ´À³Ä? .... ¸ð¸£°Ú´Ù. > ±×³É ¶È°°¾Æ. ÆíÇÑ°Å ½á! 
+-- ë³µí•©í‚¤ë¥¼ ì“¸ ë•Œì˜ ìž¥ì ì€ ìžˆëŠëƒ? .... ëª¨ë¥´ê² ë‹¤. > ê·¸ëƒ¥ ë˜‘ê°™ì•„. íŽ¸í•œê±° ì¨! 
 
 
 /*
 
-¼³°è ÀÛ¾÷À» ÇØº¸ÀÚ
-    µ¥ÀÌÅÍ ¼³°è > 
+ì„¤ê³„ ìž‘ì—…ì„ í•´ë³´ìž
+    ë°ì´í„° ì„¤ê³„ > 
     
-    ÁÖÁ¦´Â ÅëÀÏ
+    ì£¼ì œëŠ” í†µì¼
     
-    ³×ÀÌ¹ö ¿µÈ­(https://movie.naver.com/)
+    ë„¤ì´ë²„ ì˜í™”(https://movie.naver.com/)
     
-    1. ¿µÈ­ ·©Å·¿¡ µé¾î°¡¼­ ¾î¶² µ¥ÀÌÅÍÀÎÁö ÆÄ¾Ç > 50°³?? ¼øÀ§ ¿µÈ­Á¦¸ñ
-    -- ¿µÈ­´©¸£¸é ¿µÈ­¿¡ ´ëÇÑ »ó¼¼Á¤º¸ ³ª¿Â´Ù. ÀÌ°Íµµ ¿ä±¸ÇÏ´Â Å¸°ÙÀÌ´Ù. ¸ðµç ¿µÈ­Á¤º¸¸¦ Å¸°ÙÀ¸·Î ÇÑ´Ù.
-    -- ¸ðµç µ¥ÀÌÅÍ¿¡ ´ëÇÑ ¼³°è¸¦ ÇÏ´Â °ÍÀÌ ¿ä±¸»çÇ×ÀÌÀÚ ÁÖÁ¦
+    1. ì˜í™” ëž­í‚¹ì— ë“¤ì–´ê°€ì„œ ì–´ë–¤ ë°ì´í„°ì¸ì§€ íŒŒì•… > 50ê°œ?? ìˆœìœ„ ì˜í™”ì œëª©
+    -- ì˜í™”ëˆ„ë¥´ë©´ ì˜í™”ì— ëŒ€í•œ ìƒì„¸ì •ë³´ ë‚˜ì˜¨ë‹¤. ì´ê²ƒë„ ìš”êµ¬í•˜ëŠ” íƒ€ê²Ÿì´ë‹¤. ëª¨ë“  ì˜í™”ì •ë³´ë¥¼ íƒ€ê²Ÿìœ¼ë¡œ í•œë‹¤.
+    -- ëª¨ë“  ë°ì´í„°ì— ëŒ€í•œ ì„¤ê³„ë¥¼ í•˜ëŠ” ê²ƒì´ ìš”êµ¬ì‚¬í•­ì´ìž ì£¼ì œ
     
     abcdefg~~~~~ > 
     
-    1. µ¥ÀÌÅÍ ¼öÁý + ºÐ¼®
-        - µ¥ÀÌÅÍ ÀÎ½Ä
-        - µ¥ÀÌÅÍº£ÀÌ½º ÀúÀåÇÒ µ¥ÀÌÅÍ¸¦ ¼±º°ÇÏÀÚ 
+    1. ë°ì´í„° ìˆ˜ì§‘ + ë¶„ì„
+        - ë°ì´í„° ì¸ì‹
+        - ë°ì´í„°ë² ì´ìŠ¤ ì €ìž¥í•  ë°ì´í„°ë¥¼ ì„ ë³„í•˜ìž 
         
-    2. ERD ÀÛ¼º(****)
-        a. °³³äÀû ¸ðµ¨¸µ > »êÃâ¹°(v)
-        b. ³í¸® ¸ðµ¨¸µ   > »êÃâ¹°(v)
-        c. ¹°¸® ¸ðµ¨¸µ   > »êÃâ¹°(v)
+    2. ERD ìž‘ì„±(****)
+        a. ê°œë…ì  ëª¨ë¸ë§ > ì‚°ì¶œë¬¼(v)
+        b. ë…¼ë¦¬ ëª¨ë¸ë§   > ì‚°ì¶œë¬¼(v)
+        c. ë¬¼ë¦¬ ëª¨ë¸ë§   > ì‚°ì¶œë¬¼(v)
     
-    3. DDL ÀÛ¼º
-        - create ¹® ÀÛ¼º
-        a. Å×ÀÌºí
-        b. ½ÃÄö½º
-        c. ºä
-        - ½ºÅ©¸³Æ® > »êÃâ¹° (v)
+    3. DDL ìž‘ì„±
+        - create ë¬¸ ìž‘ì„±
+        a. í…Œì´ë¸”
+        b. ì‹œí€€ìŠ¤
+        c. ë·°
+        - ìŠ¤í¬ë¦½íŠ¸ > ì‚°ì¶œë¬¼ (v)
         
-    4. DML ÀÛ¼º
-        - µ¥ÀÌÅÍ Ãß°¡
-        - insert¹®
-        - ½ºÅ©¸³Æ® > »êÃâ¹°(v)(x)
-        - 50Æí ¿µÈ­
+    4. DML ìž‘ì„±
+        - ë°ì´í„° ì¶”ê°€
+        - insertë¬¸
+        - ìŠ¤í¬ë¦½íŠ¸ > ì‚°ì¶œë¬¼(v)(x)
+        - 50íŽ¸ ì˜í™”
         
-   5. select ¹® > °ËÁõ¿ë
-      a. Á¶È¸¼ö ¼ø¼­´ë·Î °¡Á®¿À½Ã¿À.(¼øÀ§, ¿µÈ­¸í, º¯µ¿Æø)
-      b. '¹Ú¼º¿õ' ¹è¿ì°¡ Ãâ¿¬ÇÑ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      c. '±èÁÖÈ¯' °¨µ¶ÀÌ Á¦ÀÛÇÑ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      d. ³²ÀÚµéÀÌ ¼±È£ÇÏ´Â ¿µÈ­¸¦ °¡Á®¿À½Ã¿À. > 
-      e. 20´ë°¡ ¼±È£ÇÏ´Â ¿µÈ­¸¦ °¡Á®¿À½Ã¿À. >
-      f. 'ÁÁ¾Æ¿ä'¸¦ 20,000°³ ÀÌ»ó ¹ÞÀº ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      g. ÇÑÁÙÆò °³¼ö°¡ 40,000°³ ÀÌ»ó ´Þ¸° ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      h. ³×Æ¼Áð °ü¶÷°´ ÆòÁ¡ÀÌ 4.5ÀÌ»óÀÎ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      i. ¿µÈ­ÀÇ ¸í´ë»ç¸¦ ¿µÈ­ Á¦¸ñ°ú ÇÔ²² °¡Á®¿À½Ã¿À.(¸í´ë»ç ¹è¿ì¸íµµ °°ÀÌ)
-      j. µî·ÏµÈ 50°³ÀÇ ¿µÈ­Áß °¡Àå ¸¹Àº ¿µÈ­¿¡ Âü¿©ÇÑ ¹è¿ì¸¦ °¡Á®¿À½Ã¿À.
-      k. 'µå¶ó¸¶'¿Í 'ÄÚ¹Ìµð' 2°³ Àå¸£¿¡ ¼ÓÇÑ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      l. ·±Å¸ÀÓÀÌ 120ºÐ ¹Ì¸¸ÀÎ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      m. ¼ºÀÎ °ü¶÷°¡ ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
-      n. ´©Àû °ü°´ 100,000¸íÀÌ ³Ñ´Â ¿µÈ­¸¦ °¡Á®¿À½Ã¿À.
+   5. select ë¬¸ > ê²€ì¦ìš©
+      a. ì¡°íšŒìˆ˜ ìˆœì„œëŒ€ë¡œ ê°€ì ¸ì˜¤ì‹œì˜¤.(ìˆœìœ„, ì˜í™”ëª…, ë³€ë™í­)
+      b. 'ë°•ì„±ì›…' ë°°ìš°ê°€ ì¶œì—°í•œ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      c. 'ê¹€ì£¼í™˜' ê°ë…ì´ ì œìž‘í•œ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      d. ë‚¨ìžë“¤ì´ ì„ í˜¸í•˜ëŠ” ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤. > 
+      e. 20ëŒ€ê°€ ì„ í˜¸í•˜ëŠ” ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤. >
+      f. 'ì¢‹ì•„ìš”'ë¥¼ 20,000ê°œ ì´ìƒ ë°›ì€ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      g. í•œì¤„í‰ ê°œìˆ˜ê°€ 40,000ê°œ ì´ìƒ ë‹¬ë¦° ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      h. ë„¤í‹°ì¦Œ ê´€ëžŒê° í‰ì ì´ 4.5ì´ìƒì¸ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      i. ì˜í™”ì˜ ëª…ëŒ€ì‚¬ë¥¼ ì˜í™” ì œëª©ê³¼ í•¨ê»˜ ê°€ì ¸ì˜¤ì‹œì˜¤.(ëª…ëŒ€ì‚¬ ë°°ìš°ëª…ë„ ê°™ì´)
+      j. ë“±ë¡ëœ 50ê°œì˜ ì˜í™”ì¤‘ ê°€ìž¥ ë§Žì€ ì˜í™”ì— ì°¸ì—¬í•œ ë°°ìš°ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      k. 'ë“œë¼ë§ˆ'ì™€ 'ì½”ë¯¸ë””' 2ê°œ ìž¥ë¥´ì— ì†í•œ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      l. ëŸ°íƒ€ìž„ì´ 120ë¶„ ë¯¸ë§Œì¸ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      m. ì„±ì¸ ê´€ëžŒê°€ ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
+      n. ëˆ„ì  ê´€ê° 100,000ëª…ì´ ë„˜ëŠ” ì˜í™”ë¥¼ ê°€ì ¸ì˜¤ì‹œì˜¤.
 */      
 
 desc employees;

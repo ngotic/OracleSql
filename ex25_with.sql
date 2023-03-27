@@ -2,7 +2,7 @@
 
     ex25_with.sql
     
-    [with <sub query> ]  - withÀı
+    [with <sub query> ]  - withì ˆ
     select column_list
     from table_name
     [where search_condition]
@@ -10,31 +10,31 @@
     [having search_condition]
     [order by order_expression [asc|desc]];
     
-    withÀı
-    - ÀÎ¶óÀÎºä(fromÀı ¼­ºêÄõ¸®)¿¡ ÀÌ¸§À» ºÙÀÌ´Â ±â¼ú
+    withì ˆ
+    - ì¸ë¼ì¸ë·°(fromì ˆ ì„œë¸Œì¿¼ë¦¬)ì— ì´ë¦„ì„ ë¶™ì´ëŠ” ê¸°ìˆ 
     
-    with ÀÓ½ÃÅ×ÀÌºí¸í as (
-        °á°ú¼Â select¹®
+    with ì„ì‹œí…Œì´ë¸”ëª… as (
+        ê²°ê³¼ì…‹ selectë¬¸
     )
-    select ¹®; 
+    select ë¬¸; 
     
-    withÀı ½ÇÇà ¹æ½Ä ]
-    1. Materialize ¹æ½Ä > ÀÓ½Ã Å×ÀÌºíÀÌ 2¹øÀÌ»ó »ç¿ëµÇ¸é ³»ºÎ¿¡ ÀÓ½Ã Å×ÀÌºí »ı¼º + ¹İº¹ Àç»ç¿ë > withÀı ¸ÕÀú 
-    -- Ã³À½ È£Ãâ½Ã ÀÓ½Ã·Î ¸Ş¸ğ¸®¿¡ ¸¸µé°í ±×°ÍÀ» Àç»ç¿ëÇÑ´Ù. : ÀÌÁ¡ > ¼Óµµ»óÀÇ ÀÌµæÀÌ´Ù. Ãß°¡ÀûÀÎ ÀÌµæÀ» º¼ ¼ö ÀÖ´Ù. 
+    withì ˆ ì‹¤í–‰ ë°©ì‹ ]
+    1. Materialize ë°©ì‹ > ì„ì‹œ í…Œì´ë¸”ì´ 2ë²ˆì´ìƒ ì‚¬ìš©ë˜ë©´ ë‚´ë¶€ì— ì„ì‹œ í…Œì´ë¸” ìƒì„± + ë°˜ë³µ ì¬ì‚¬ìš© > withì ˆ ë¨¼ì € 
+    -- ì²˜ìŒ í˜¸ì¶œì‹œ ì„ì‹œë¡œ ë©”ëª¨ë¦¬ì— ë§Œë“¤ê³  ê·¸ê²ƒì„ ì¬ì‚¬ìš©í•œë‹¤. : ì´ì  > ì†ë„ìƒì˜ ì´ë“ì´ë‹¤. ì¶”ê°€ì ì¸ ì´ë“ì„ ë³¼ ìˆ˜ ìˆë‹¤. 
     
-    2. Inline ¹æ½Ä > ÀÓ½Ã Å×ÀÌºí »ı¼º¾øÀÌ ¸Å¹ø ÀÎ¶óÀÎ Äõ¸®¸¦ ¹İº¹ ½ÇÇà > ÀÏ¹İÀûÀ¸·Î ¸ŞÀÎÄõ¸® ¸ÕÀú ½ÇÇàµÇ°í ¼­ºêÄõ¸® °°ÀÌ ½ÇÇà
+    2. Inline ë°©ì‹ > ì„ì‹œ í…Œì´ë¸” ìƒì„±ì—†ì´ ë§¤ë²ˆ ì¸ë¼ì¸ ì¿¼ë¦¬ë¥¼ ë°˜ë³µ ì‹¤í–‰ > ì¼ë°˜ì ìœ¼ë¡œ ë©”ì¸ì¿¼ë¦¬ ë¨¼ì € ì‹¤í–‰ë˜ê³  ì„œë¸Œì¿¼ë¦¬ ê°™ì´ ì‹¤í–‰
     
-    -- [ ÇÑ¹ø ½ø ½ºÄµÇÔ ±×¸®°í µ¿ÀÏ Å×ÀÌºíÀÌ ¿©·¯°³ ÀÖ³ª È®ÀÎÇØ¼­ ÀÖÀ¸¸é 1¹ø, ¾Æ´Ï¸é 2¹ø ]
+    -- [ í•œë²ˆ ìµ ìŠ¤ìº”í•¨ ê·¸ë¦¬ê³  ë™ì¼ í…Œì´ë¸”ì´ ì—¬ëŸ¬ê°œ ìˆë‚˜ í™•ì¸í•´ì„œ ìˆìœ¼ë©´ 1ë²ˆ, ì•„ë‹ˆë©´ 2ë²ˆ ]
         
 */
 
-select * from (select name, buseo, jikwi from tblInsa where city = '¼­¿ï');
+select * from (select name, buseo, jikwi from tblInsa where city = 'ì„œìš¸');
 
-with seoul as (select name, buseo, jikwi from tblInsa where city ='¼­¿ï' )
+with seoul as (select name, buseo, jikwi from tblInsa where city ='ì„œìš¸' )
 select * from seoul; 
--- withÀı ´Üµ¶À¸·Î ¸ø¾´´Ù. select¹®¿¡ µş·ÁÀÖ´Â °Í 
--- ¼ø¼­»ó withÀıÀÌ ¸ÕÀú ³ª¿Â´Ù. 
--- ÀÌ·Î ÀÎÇØ¼­ ¾ò´Â ÀÌµæ : ¸ŞÀÎÄõ¸®°¡ Âª¾ÆÁø´Ù. 
+-- withì ˆ ë‹¨ë…ìœ¼ë¡œ ëª»ì“´ë‹¤. selectë¬¸ì— ë”¸ë ¤ìˆëŠ” ê²ƒ 
+-- ìˆœì„œìƒ withì ˆì´ ë¨¼ì € ë‚˜ì˜¨ë‹¤. 
+-- ì´ë¡œ ì¸í•´ì„œ ì–»ëŠ” ì´ë“ : ë©”ì¸ì¿¼ë¦¬ê°€ ì§§ì•„ì§„ë‹¤. 
 
 
 select * 
@@ -42,16 +42,16 @@ select *
             inner join (select name, age, couple from tblwomen where weight > 60 ) b 
                 on a.couple = b.name;
                 
--- °¡µ¶¼ºÀÌ ¶³¾îÁø´Ù....                
--- withÀı Å×ÀÔ¸£ ÀÓ½ÃÅ×ÀÌºíÀÎµ¥ ½ÇÁ¦·Î´Â ÇÏµå¿¡ ÀúÀå x, ¸¸µé¾îÁ³´Ù°¡ ¹ö·ÁÁü 
+-- ê°€ë…ì„±ì´ ë–¨ì–´ì§„ë‹¤....                
+-- withì ˆ í…Œì…ë¥´ ì„ì‹œí…Œì´ë¸”ì¸ë° ì‹¤ì œë¡œëŠ” í•˜ë“œì— ì €ì¥ x, ë§Œë“¤ì–´ì¡Œë‹¤ê°€ ë²„ë ¤ì§ 
 with a as (select name, age ,couple from tblmen where weight < 90),
      b as (select name, age ,couple from tblwomen where weight > 60) 
     select * from a inner join b on a.couple = b.name;
             
             
--- ¼øÀ§ÇÔ¼ö or rownum 
+-- ìˆœìœ„í•¨ìˆ˜ or rownum 
 
--- ±Ş¿© 5À§
+-- ê¸‰ì—¬ 5ìœ„
 
 select
     name, buseo, basicpay,

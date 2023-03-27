@@ -1,40 +1,40 @@
 /*
-¿¬»êÀÚ, Operator
+ì—°ì‚°ìž, Operator
 
-    1. »ê¼ú ¿¬»êÀÚ
+    1. ì‚°ìˆ  ì—°ì‚°ìž
     - +, -, *, /
-    - %(¾øÀ½) > ÇÔ¼ö·Î Á¦°ø(mod())
+    - %(ì—†ìŒ) > í•¨ìˆ˜ë¡œ ì œê³µ(mod())
     
-    2. ¹®ÀÚ¿­ ¿¬»êÀÚ
-    - +(X) > ||(O) : || ÀÌ°Ô ´õÇÏ±â ¿¬»êÀÚ´Ù ¹®ÀÚ¿­¿¡ ÇØ´ç
+    2. ë¬¸ìžì—´ ì—°ì‚°ìž
+    - +(X) > ||(O) : || ì´ê²Œ ë”í•˜ê¸° ì—°ì‚°ìžë‹¤ ë¬¸ìžì—´ì— í•´ë‹¹
     
-    3. ºñ±³ ¿¬»êÀÚ
+    3. ë¹„êµ ì—°ì‚°ìž
     - >, >=, <, <= 
     - =(==), <>(!=)
-    - ³í¸®°ª ¹ÝÈ¯ > ¸í½ÃÀûÀ¸·Î Ç¥Çö ºÒ°¡´ÉÇÑ ÀÚ·áÇü > Á¶°ÇÀÌ ÇÊ¿äÇÑ »óÈ²¿¡¼­¸¸ »ç¿ë
-    - ÄÃ·³ ¸®½ºÆ®¿¡¼­ »ç¿ë ºÒ°¡
-    - Á¶°ÇÀý¿¡¼­ »ç¿ë°¡´É
+    - ë…¼ë¦¬ê°’ ë°˜í™˜ > ëª…ì‹œì ìœ¼ë¡œ í‘œí˜„ ë¶ˆê°€ëŠ¥í•œ ìžë£Œí˜• > ì¡°ê±´ì´ í•„ìš”í•œ ìƒí™©ì—ì„œë§Œ ì‚¬ìš©
+    - ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚¬ìš© ë¶ˆê°€
+    - ì¡°ê±´ì ˆì—ì„œ ì‚¬ìš©ê°€ëŠ¥
     
-    4. ³í¸® ¿¬»êÀÚ 
+    4. ë…¼ë¦¬ ì—°ì‚°ìž 
     - and(&&), or(||), not(!)
-    - ÄÃ·³ ¸®½ºÆ®¿¡¼­ »ç¿ë ºÒ°¡´É
-    - Á¶°ÇÀý¿¡¼­ »ç¿ë °¡´É
+    - ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚¬ìš© ë¶ˆê°€ëŠ¥
+    - ì¡°ê±´ì ˆì—ì„œ ì‚¬ìš© ê°€ëŠ¥
     
-    5. ´ëÀÔ ¿¬»êÀÚ 
+    5. ëŒ€ìž… ì—°ì‚°ìž 
     - = 
-    - ÄÃ·³ = °ª (> ÀÌ·² ¶§ ¾´´Ù. : ÄÃ·³¿¡´Ù°¡ °ªÀ» ³Ö´Âµ¥ ¾´´Ù. )
-    - update¹®¿¡¼­ ÀÌ Ç¥ÇöÀÌ ³ª¿Â´Ù. °Å±â ¸»°í´Â ¾µµ¥°¡ ¾ø´Ù.
+    - ì»¬ëŸ¼ = ê°’ (> ì´ëŸ´ ë•Œ ì“´ë‹¤. : ì»¬ëŸ¼ì—ë‹¤ê°€ ê°’ì„ ë„£ëŠ”ë° ì“´ë‹¤. )
+    - updateë¬¸ì—ì„œ ì´ í‘œí˜„ì´ ë‚˜ì˜¨ë‹¤. ê±°ê¸° ë§ê³ ëŠ” ì“¸ë°ê°€ ì—†ë‹¤.
     
-    6. 3Ç× ¿¬»êÀÚ 
-    - ¾øÀ½ 
-    - Á¦¾î¹® ¾øÀ½
+    6. 3í•­ ì—°ì‚°ìž 
+    - ì—†ìŒ 
+    - ì œì–´ë¬¸ ì—†ìŒ
     
-    7. Áõ°¨ ¿¬»êÀÚ 
-    - ¾øÀ½ 
+    7. ì¦ê° ì—°ì‚°ìž 
+    - ì—†ìŒ 
     
-    8. SQL ¿¬»êÀÚ
-    - ÀÚ¹Ù: instanceof, typeof µî.. 
-    - in, between, like, is µî ..(¤·¤·±¸, ¤·¤·Àý) ÀÌ¶ó°í ºÎ¸£±âµµ ÇÑ´Ù.  
+    8. SQL ì—°ì‚°ìž
+    - ìžë°”: instanceof, typeof ë“±.. 
+    - in, between, like, is ë“± ..(ã…‡ã…‡êµ¬, ã…‡ã…‡ì ˆ) ì´ë¼ê³  ë¶€ë¥´ê¸°ë„ í•œë‹¤.  
     
     
     
@@ -60,40 +60,40 @@ select * from tblCountry;
 select population, area, population + area 
 from tblCountry;
 
---select name + capital   -- ÀÌ°Ç ½ÇÇàÀÌ ¾ÈµÈ´Ù. ¿¡·¯°¡ ³­´Ù. invalid number
+--select name + capital   -- ì´ê±´ ì‹¤í–‰ì´ ì•ˆëœë‹¤. ì—ëŸ¬ê°€ ë‚œë‹¤. invalid number
 --from tblCountry; 
 
-select name || capital   -- ÀÌ°Ç ½ÇÇàÀÌ ¾ÈµÈ´Ù. ¿¡·¯°¡ ³­´Ù. invalid number
-from tblCountry;         -- ÀÌ·¸°Ô ºÙ¿©¾ß ÇÑ´Ù. 
+select name || capital   -- ì´ê±´ ì‹¤í–‰ì´ ì•ˆëœë‹¤. ì—ëŸ¬ê°€ ë‚œë‹¤. invalid number
+from tblCountry;         -- ì´ë ‡ê²Œ ë¶™ì—¬ì•¼ í•œë‹¤. 
 
 drop table tblType;
 
--- ºñ±³¿¬»êÀÚ°¡ µÇÁö ¾Ê´Â´Ù. 
--- select population > area from tblCountry;  -- ÄÃ·³ ¸®½ºÆ®¿¡´Â »ç¿ëÀÌ ºÒ°¡
+-- ë¹„êµì—°ì‚°ìžê°€ ë˜ì§€ ì•ŠëŠ”ë‹¤. 
+-- select population > area from tblCountry;  -- ì»¬ëŸ¼ ë¦¬ìŠ¤íŠ¸ì—ëŠ” ì‚¬ìš©ì´ ë¶ˆê°€
 
 select * from tblCountry where population > area; 
 
--- ÄÃ·³¸í
-select name, name || '´Ô'  -- ÀÌ·¸°Ô ÇÏ¸é Áö±ÝÀº »ó°üÀÌ ¾ø´Ù. ³ªÁß¿¡ ¿ì¸®°¡ ÀÌ°á°ú Å×ÀÌºíÀ» µýµ¥·Î °¡Á®°¡¼­ ½Äº°ÇØ¾ßÇÒ ¶§ ¹®Á¦´Ù. 
+-- ì»¬ëŸ¼ëª…
+select name, name || 'ë‹˜'  -- ì´ë ‡ê²Œ í•˜ë©´ ì§€ê¸ˆì€ ìƒê´€ì´ ì—†ë‹¤. ë‚˜ì¤‘ì— ìš°ë¦¬ê°€ ì´ê²°ê³¼ í…Œì´ë¸”ì„ ë”´ë°ë¡œ ê°€ì ¸ê°€ì„œ ì‹ë³„í•´ì•¼í•  ë•Œ ë¬¸ì œë‹¤. 
     from tblInsa;
     
--- ÄÃ·³¸í > °¡°øµÈ ÄÃ·³¸í > ¿Ã¹Ù¸¥ ÀÌ¸§À¸·Î ¼öÁ¤ > ÄÃ·³¸í ¹Ù²Ù±â > º°Äª(Alias) 
--- ½Äº°ÀÚ > "name" || "´Ô"
+-- ì»¬ëŸ¼ëª… > ê°€ê³µëœ ì»¬ëŸ¼ëª… > ì˜¬ë°”ë¥¸ ì´ë¦„ìœ¼ë¡œ ìˆ˜ì • > ì»¬ëŸ¼ëª… ë°”ê¾¸ê¸° > ë³„ì¹­(Alias) 
+-- ì‹ë³„ìž > "name" || "ë‹˜"
 
--- select name, "name" || "´Ô"     >> ¿¡·¯´Ù. > ½Äº°ÀÚ·Î ¿Ã¹Ù¸£°Ô Ç¥ÇöÀÌ µÇÁö ¾Ê´Â´Ù. invalid identifier
+-- select name, "name" || "ë‹˜"     >> ì—ëŸ¬ë‹¤. > ì‹ë³„ìžë¡œ ì˜¬ë°”ë¥´ê²Œ í‘œí˜„ì´ ë˜ì§€ ì•ŠëŠ”ë‹¤. invalid identifier
 --    from tblInsa;    
     
 
--- ¿Ã¹Ù¸¥ ¾Öµµ ÀÌ»óÇÑ ¾Öµµ º°¸íÀ» ºÙÀÏ ¼ö ÀÖ´Ù. 
-select name as name1 , name || '´Ô' as name2
+-- ì˜¬ë°”ë¥¸ ì• ë„ ì´ìƒí•œ ì• ë„ ë³„ëª…ì„ ë¶™ì¼ ìˆ˜ ìžˆë‹¤. 
+select name as name1 , name || 'ë‹˜' as name2
 from tblInsa;
-select name as "Á÷¿ø ÀÌ¸§"  -- °¡¿îµ¥ °ø¹éÀ» ³Ö°í ½Í´Ù.
-from tblInsa;              -- ½Äº°ÀÚ¿¡´Â °ø¹éÀ» ³ÖÀ» ¼ö ¾ø´Ù. 
---> ÀÌ ¶§ ¾²´Â °ÍÀÌ ½Ö µû¿ÈÇ¥´Ù. > ¸»µµ ¾ÈµÇ´Â ÀÌ¸§À» ÀÎÁ¤ÇÏ°í »ç¿ë 
+select name as "ì§ì› ì´ë¦„"  -- ê°€ìš´ë° ê³µë°±ì„ ë„£ê³  ì‹¶ë‹¤.
+from tblInsa;              -- ì‹ë³„ìžì—ëŠ” ê³µë°±ì„ ë„£ì„ ìˆ˜ ì—†ë‹¤. 
+--> ì´ ë•Œ ì“°ëŠ” ê²ƒì´ ìŒ ë”°ì˜´í‘œë‹¤. > ë§ë„ ì•ˆë˜ëŠ” ì´ë¦„ì„ ì¸ì •í•˜ê³  ì‚¬ìš© 
     
     
-select name as "select" -- ¿¹¾à¾î¶ó¼­ ¿¡·¯°¡ ³­´Ù. > ÄÄÆÄÀÏ·¯°¡ ±¸ºÐÀ» ¸øÇÑ´Ù. 
-from tblInsa; -- ½Öµû¿ÈÇ¥¸¦ ºÙÀÌ¸é µÇ±äÇÏ´Âµ¥ ÇÏÁö¸¶¶ó ... 
+select name as "select" -- ì˜ˆì•½ì–´ë¼ì„œ ì—ëŸ¬ê°€ ë‚œë‹¤. > ì»´íŒŒì¼ëŸ¬ê°€ êµ¬ë¶„ì„ ëª»í•œë‹¤. 
+from tblInsa; -- ìŒë”°ì˜´í‘œë¥¼ ë¶™ì´ë©´ ë˜ê¸´í•˜ëŠ”ë° í•˜ì§€ë§ˆë¼ ... 
     
     
     

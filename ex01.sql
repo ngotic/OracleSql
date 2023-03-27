@@ -1,10 +1,10 @@
 select * from tabs;
 
--- ´ÜÀÏ¶óÀÎ ÁÖ¼®
+-- ë‹¨ì¼ë¼ì¸ ì£¼ì„
 
 /*
 
-´ÙÁß¶óÀÎ ÁÖ¼® 
+ë‹¤ì¤‘ë¼ì¸ ì£¼ì„ 
     
 */
 
@@ -15,65 +15,65 @@ select * from tabs;
 
 /*
 
-   [ system Á¢¼Ó ]
+   [ system ì ‘ì† ]
     
-    ÀÏ¹Ý °èÁ¤ Á¢¼Ó  
-    1. °ü¸®ÀÚ »ý¼º  
-    2. ÀÌ¹Ì »ý¼ºµÇ¾î ÀÖ´Â ÀÏ¹Ý °èÁ¤ > ±³À°¿ë( Å×½ºÆ®¿ë ) > scott ¿À¶óÅ¬ Á÷¿ø ÀÌ¸§, hr(human resource) ÀÌ¶ó´Â °èÁ¤
+    ì¼ë°˜ ê³„ì • ì ‘ì†  
+    1. ê´€ë¦¬ìž ìƒì„±  
+    2. ì´ë¯¸ ìƒì„±ë˜ì–´ ìžˆëŠ” ì¼ë°˜ ê³„ì • > êµìœ¡ìš©( í…ŒìŠ¤íŠ¸ìš© ) > scott ì˜¤ë¼í´ ì§ì› ì´ë¦„, hr(human resource) ì´ë¼ëŠ” ê³„ì •
     
-    hr °èÁ¤ 
-    - ÀÏ¹Ý °èÁ¤
-    - Å×½ºÆ®¿ë »ùÇÃ µ¥ÀÌÅÍ Á¦°ø
-    - ¼³Ä¡ Á÷ÈÄ > Àá°ÜÀÖ´Â »óÅÂ > Àá±Ý ÇØÁ¦
-    - ¼³Ä¡ Á÷ÈÄ > ¾ÏÈ£ º¯°æ
+    hr ê³„ì • 
+    - ì¼ë°˜ ê³„ì •
+    - í…ŒìŠ¤íŠ¸ìš© ìƒ˜í”Œ ë°ì´í„° ì œê³µ
+    - ì„¤ì¹˜ ì§í›„ > ìž ê²¨ìžˆëŠ” ìƒíƒœ > ìž ê¸ˆ í•´ì œ
+    - ì„¤ì¹˜ ì§í›„ > ì•”í˜¸ ë³€ê²½
     
 */
 
 
-alter user hr account unlock; -- °èÁ¤ Ç®±â
-alter user hr account lock;   -- °èÁ¤ Àá±×±â
+alter user hr account unlock; -- ê³„ì • í’€ê¸°
+alter user hr account lock;   -- ê³„ì • ìž ê·¸ê¸°
 
 
-alter user hr identified by java1234; -- ¾ÏÈ£ ¹Ù²Ù±â 
+alter user hr identified by java1234; -- ì•”í˜¸ ë°”ê¾¸ê¸° 
 
 
--- ÇöÀç °èÁ¤ÀÌ º¸À¯ÇÏ°í ÀÖ´Â Å×ÀÌºí ¸ñ·Ï °¡Á®¿À±â 
+-- í˜„ìž¬ ê³„ì •ì´ ë³´ìœ í•˜ê³  ìžˆëŠ” í…Œì´ë¸” ëª©ë¡ ê°€ì ¸ì˜¤ê¸° 
 select * from tabs;
 
-select * from REGIONS;             -- ºÎ¼­ Áö¿ª ±¹°¡ ´ë·ú Á¤º¸ 
-select * from COUNTRIES;           -- ºÎ¼­ Áö¿ª ±¹°¡ Á¤º¸
-select * from LOCATIONS;           -- ºÎ¼­ Áö¿ª Á¤º¸
-select * from DEPARTMENT;          -- ºÎ¼­ Á¤º¸
-select * from JOBS;                -- Á÷¿ø Á÷¾÷ Á¤º¸ 
-select * from EMPLOYEES;           -- Á÷¿ø Á¤º¸ 
-select * from JOB_HISTORY;         -- Á÷¿ø ÀÌÁ÷ ÀÌ·Â Á¤º¸ 
+select * from REGIONS;             -- ë¶€ì„œ ì§€ì—­ êµ­ê°€ ëŒ€ë¥™ ì •ë³´ 
+select * from COUNTRIES;           -- ë¶€ì„œ ì§€ì—­ êµ­ê°€ ì •ë³´
+select * from LOCATIONS;           -- ë¶€ì„œ ì§€ì—­ ì •ë³´
+select * from DEPARTMENT;          -- ë¶€ì„œ ì •ë³´
+select * from JOBS;                -- ì§ì› ì§ì—… ì •ë³´ 
+select * from EMPLOYEES;           -- ì§ì› ì •ë³´ 
+select * from JOB_HISTORY;         -- ì§ì› ì´ì§ ì´ë ¥ ì •ë³´ 
 
 
 /*
 
-    ¿À¶óÅ¬ 
-    - µ¥ÀÌÅÍº£ÀÌ½º + µ¥ÀÌÅÍº£ÀÌ½º°ü¸® ½Ã½ºÅÛ
+    ì˜¤ë¼í´ 
+    - ë°ì´í„°ë² ì´ìŠ¤ + ë°ì´í„°ë² ì´ìŠ¤ê´€ë¦¬ ì‹œìŠ¤í…œ
     
     SQL
     - Structured Query Language 
-    - ±¸Á¶È­µÈ ÁúÀÇ ¾ð¾î
-    - ´ëÈ­Çü ¾ð¾î 
-    - ¿À¶óÅ¬ µ¥ÀÌÅÍº£ÀÌ½º <-> (SQL) <-> Å¬¶óÀÌ¾ðÆ®(°³¹ßÀÚ) 
+    - êµ¬ì¡°í™”ëœ ì§ˆì˜ ì–¸ì–´
+    - ëŒ€í™”í˜• ì–¸ì–´ 
+    - ì˜¤ë¼í´ ë°ì´í„°ë² ì´ìŠ¤ <-> (SQL) <-> í´ë¼ì´ì–¸íŠ¸(ê°œë°œìž) 
     
-    ¿À¶óÅ¬(SQL + ¸¹Àº ±â´É) ´©°¡ °øºÎ? 
-    1. µ¥ÀÌÅÍº£ÀÌ½º °ü¸®ÀÚ
+    ì˜¤ë¼í´(SQL + ë§Žì€ ê¸°ëŠ¥) ëˆ„ê°€ ê³µë¶€? 
+    1. ë°ì´í„°ë² ì´ìŠ¤ ê´€ë¦¬ìž
         - DBA 
-        - ¸ðµç ±â´É °ü¸®/Á¶ÀÛ
+        - ëª¨ë“  ê¸°ëŠ¥ ê´€ë¦¬/ì¡°ìž‘
         
-    2. µ¥ÀÌÅÍº£ÀÌ½º °³¹ßÀÚ
-        - > DBAµé Áß¿¡ °³¹ßÀÚ Ãâ½Åµµ ¸¹´Ù. 
-        - DB ÆÀ 
-        - °ÅÀÇ ´ë´Ù¼ö ±â´É °ü¸®/Á¶ÀÛ
+    2. ë°ì´í„°ë² ì´ìŠ¤ ê°œë°œìž
+        - > DBAë“¤ ì¤‘ì— ê°œë°œìž ì¶œì‹ ë„ ë§Žë‹¤. 
+        - DB íŒ€ 
+        - ê±°ì˜ ëŒ€ë‹¤ìˆ˜ ê¸°ëŠ¥ ê´€ë¦¬/ì¡°ìž‘
         
-    3. ÀÀ¿ëÇÁ·Î±×·¥ °³¹ßÀÚ
-        - ÀüºÎ or [ ÀÏºÎ »ç¿ë ] > ¼Ò±Ô¸ðÈ¸»çµéÀÌ ÀÀ¿ë ÇÁ·Î±×·¥ °³¹ßÀÚµµ DB¸¦ ÇÏ±äÇÔ
+    3. ì‘ìš©í”„ë¡œê·¸ëž¨ ê°œë°œìž
+        - ì „ë¶€ or [ ì¼ë¶€ ì‚¬ìš© ] > ì†Œê·œëª¨íšŒì‚¬ë“¤ì´ ì‘ìš© í”„ë¡œê·¸ëž¨ ê°œë°œìžë„ DBë¥¼ í•˜ê¸´í•¨
         
-    µ¥ÀÌÅÍº£ÀÌ½º Á¾·ù > °ÅÀÇ ´ëºÎºÐÀÌ °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º´Ù. 
+    ë°ì´í„°ë² ì´ìŠ¤ ì¢…ë¥˜ > ê±°ì˜ ëŒ€ë¶€ë¶„ì´ ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ë‹¤. 
     1. Oracle
     2. MS-SQL
     3. MYSQL
@@ -82,134 +82,134 @@ select * from JOB_HISTORY;         -- Á÷¿ø ÀÌÁ÷ ÀÌ·Â Á¤º¸
     6. DB2
     7. SQLite
     
-    Å¬¶óÀÌ¾ðÆ® ÇÁ·Î±×·¥ 
-    1. SQL Developer > µû·Î ¼³Ä¡
-    2. SQL Plus      > ¿À¶óÅ¬°ú °°ÀÌ ¼³Ä¡µÈ´Ù.(ÄÜ¼Ö) 
-    3. DataGrip      > *** ( ÇÐ±³ ÀÌ¸ÞÀÏ ) 
-    4. DBeaver       > ¿ÏÀü¹«·á´Ù. ***
+    í´ë¼ì´ì–¸íŠ¸ í”„ë¡œê·¸ëž¨ 
+    1. SQL Developer > ë”°ë¡œ ì„¤ì¹˜
+    2. SQL Plus      > ì˜¤ë¼í´ê³¼ ê°™ì´ ì„¤ì¹˜ëœë‹¤.(ì½˜ì†”) 
+    3. DataGrip      > *** ( í•™êµ ì´ë©”ì¼ ) 
+    4. DBeaver       > ì™„ì „ë¬´ë£Œë‹¤. ***
     5. SQLGate
-    6. Toad          > Å¬¶óÀÌ¾ðÆ® ÇÁ·Î±×·¥ ³¡ÆÇ¿Õ 
+    6. Toad          > í´ë¼ì´ì–¸íŠ¸ í”„ë¡œê·¸ëž¨ ëíŒì™• 
     
-    °ü°ÔÇü µ¥ÀÌÅÍº£ÀÌ½º
-    - µ¥ÀÌÅÍ¸¦ Ç¥Çö½ÄÀ¸·Î ÀúÀå/°ü¸®ÇÑ´Ù.
-    - SQLÀ» »ç¿ëÇÑ´Ù.
+    ê´€ê²Œí˜• ë°ì´í„°ë² ì´ìŠ¤
+    - ë°ì´í„°ë¥¼ í‘œí˜„ì‹ìœ¼ë¡œ ì €ìž¥/ê´€ë¦¬í•œë‹¤.
+    - SQLì„ ì‚¬ìš©í•œë‹¤.
     
     [ SQL ]
-    1. DBMS Á¦ÀÛ»ç¿Í µ¶¸³ÀûÀÌ´Ù. 
-       - ¸ðµç °ü°èÇü µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ °øÅëÀûÀ¸·Î Àû¿ëÇÏ±â À§ÇØ ¸¸µé¾îÁø ¾ð¾î
-       - DBMS Á¦ÀÛ»ç¿¡¼­ SQL¶õ ¾ð¾î¸¦ ÀÚ½ÅÀÇ Á¦Ç°¿¡ Àû¿ë
+    1. DBMS ì œìž‘ì‚¬ì™€ ë…ë¦½ì ì´ë‹¤. 
+       - ëª¨ë“  ê´€ê³„í˜• ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ ê³µí†µì ìœ¼ë¡œ ì ìš©í•˜ê¸° ìœ„í•´ ë§Œë“¤ì–´ì§„ ì–¸ì–´
+       - DBMS ì œìž‘ì‚¬ì—ì„œ SQLëž€ ì–¸ì–´ë¥¼ ìžì‹ ì˜ ì œí’ˆì— ì ìš©
        
-    2. Ç¥ÁØ SQL, ANSI-SQL 
-       - ¸ðµç DBMS¿¡ Àû¿ë °¡´ÉÇÑ SQL 
+    2. í‘œì¤€ SQL, ANSI-SQL 
+       - ëª¨ë“  DBMSì— ì ìš© ê°€ëŠ¥í•œ SQL 
        
-    3. °¢ Á¦ÀÛ»çº° SQL 
+    3. ê° ì œìž‘ì‚¬ë³„ SQL 
        - Oracle vs MS-SQL 
-       - ÀÚ±â³× Á¦Ç°¿¡¼­¸¸ µ¿ÀÛÇÏ´Â Ãß°¡ SQL 
-       - Oracle(¿À¶óÅ¬¿¡¸¸ Á¦°øÇÏ´Â ±â´ÉÀÌ ÀÖ´Ù.) 
-         vs Maria DB(¹«·á´Ù.)
-       - Oracle > PL/SQL  > Ã¹ DB°¡ ¿À¶óÅ¬ÀÌ¸é ÁÁ´Ù.
+       - ìžê¸°ë„¤ ì œí’ˆì—ì„œë§Œ ë™ìž‘í•˜ëŠ” ì¶”ê°€ SQL 
+       - Oracle(ì˜¤ë¼í´ì—ë§Œ ì œê³µí•˜ëŠ” ê¸°ëŠ¥ì´ ìžˆë‹¤.) 
+         vs Maria DB(ë¬´ë£Œë‹¤.)
+       - Oracle > PL/SQL  > ì²« DBê°€ ì˜¤ë¼í´ì´ë©´ ì¢‹ë‹¤.
        - MS-SQL > T-SQL   > 
        
-    ¿À¶óÅ¬ ¼ö¾÷ = ANSI-SQL(5~60%) + PL/SQL(2~30%) + ¼³°è, ±âÅ¸(10%)
-    ¿À¶óÅ¬ÀÌ ÀÚÃ¼ÀûÀ¸·Î È®ÀåÇØ¼­ ¸¸µç SQLÀº PL/SQLÀÌ´Ù. 
+    ì˜¤ë¼í´ ìˆ˜ì—… = ANSI-SQL(5~60%) + PL/SQL(2~30%) + ì„¤ê³„, ê¸°íƒ€(10%)
+    ì˜¤ë¼í´ì´ ìžì²´ì ìœ¼ë¡œ í™•ìž¥í•´ì„œ ë§Œë“  SQLì€ PL/SQLì´ë‹¤. 
     
-    ANSI-SQL(5~60%) + PL/SQL(20~30%) + ¼³°è,±âÅ¸(10%)
+    ANSI-SQL(5~60%) + PL/SQL(20~30%) + ì„¤ê³„,ê¸°íƒ€(10%)
     
-    ANSI-SQL Á¾·ù
+    ANSI-SQL ì¢…ë¥˜
     1. DDL 
         - Data Definition Language
-        - µ¥ÀÌÅÍ Á¤ÀÇ¾î
-        - Å×ÀÌºí, ºä, »ç¿ëÀÚ, ÀÎµ¦½º, Æ®¸®°Å µîÀÇ µ¥ÀÌÅÍº£ÀÌ½º ¿ÀºêÁ§Æ®¸¦ »ý¼º/¼öÁ¤/»èÁ¦ÇÏ´Â ¸í·É¾î
-        - ±¸Á¶ »ý¼º/°ü¸®ÇÏ´Â ¸í·É¾î
-        - °Ç¹° > ±âÃÊ°ø»ç(º®, ¹Ù´Ú..) 
-        a. create : »ý¼º
-        b. drop   : »èÁ¦
-        c. alter  : ¼öÁ¤
-        - µ¥ÀÌÅÍº£ÀÌ½º °ü¸®ÀÚ 
-        - µ¥ÀÌÅÍº£ÀÌ½º ´ã´çÀÚ 
-        - ÇÁ·Î±×·¡¸Ó(**)  
+        - ë°ì´í„° ì •ì˜ì–´
+        - í…Œì´ë¸”, ë·°, ì‚¬ìš©ìž, ì¸ë±ìŠ¤, íŠ¸ë¦¬ê±° ë“±ì˜ ë°ì´í„°ë² ì´ìŠ¤ ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±/ìˆ˜ì •/ì‚­ì œí•˜ëŠ” ëª…ë ¹ì–´
+        - êµ¬ì¡° ìƒì„±/ê´€ë¦¬í•˜ëŠ” ëª…ë ¹ì–´
+        - ê±´ë¬¼ > ê¸°ì´ˆê³µì‚¬(ë²½, ë°”ë‹¥..) 
+        a. create : ìƒì„±
+        b. drop   : ì‚­ì œ
+        c. alter  : ìˆ˜ì •
+        - ë°ì´í„°ë² ì´ìŠ¤ ê´€ë¦¬ìž 
+        - ë°ì´í„°ë² ì´ìŠ¤ ë‹´ë‹¹ìž 
+        - í”„ë¡œê·¸ëž˜ë¨¸(**)  
         
     2. DML 
         - Data Manipulation Language
-        - µ¥ÀÌÅÍ Á¶ÀÛ¾î
-        - µ¥ÀÌÅÍº£ÀÌ½º¿¡ µ¥ÀÌÅÍ¸¦ Ãß°¡/¼öÁ¤/»èÁ¦/Á¶È¸ÇÏ´Â ¸í·É¾î(CRUD)
-        - »ç¿ë ºóµµ°¡ °¡´É ³ôÀ½
-        a. select Á¶È¸(ÀÐ±â) > R ***** Áß¿äÇÏ´Ù. ÀÐ±âÀÛ¾÷ÀÌ ³ª¸ÓÁö ÀÛ¾÷º¸´Ù ¾ÐµµÀûÀ¸·Î ³ô´Ù. 
-                            > Äõ¸® Â§´Ù. ´ëºÎºÐÀÌ SELECT¸¦ Â¥´Â °Í
-        b. insert Ãß°¡(»ý¼º) > C
-        c. update ¼öÁ¤       > U
-        d. delete »èÁ¦       > D
-        - µ¥ÀÌÅÍº£ÀÌ½º °ü¸®ÀÚ 
-        - µ¥ÀÌÅÍº£ÀÌ½º ´ã´çÀÚ 
-        - ÇÁ·Î±×·¡¸Ó(*****)  
+        - ë°ì´í„° ì¡°ìž‘ì–´
+        - ë°ì´í„°ë² ì´ìŠ¤ì— ë°ì´í„°ë¥¼ ì¶”ê°€/ìˆ˜ì •/ì‚­ì œ/ì¡°íšŒí•˜ëŠ” ëª…ë ¹ì–´(CRUD)
+        - ì‚¬ìš© ë¹ˆë„ê°€ ê°€ëŠ¥ ë†’ìŒ
+        a. select ì¡°íšŒ(ì½ê¸°) > R ***** ì¤‘ìš”í•˜ë‹¤. ì½ê¸°ìž‘ì—…ì´ ë‚˜ë¨¸ì§€ ìž‘ì—…ë³´ë‹¤ ì••ë„ì ìœ¼ë¡œ ë†’ë‹¤. 
+                            > ì¿¼ë¦¬ ì§ ë‹¤. ëŒ€ë¶€ë¶„ì´ SELECTë¥¼ ì§œëŠ” ê²ƒ
+        b. insert ì¶”ê°€(ìƒì„±) > C
+        c. update ìˆ˜ì •       > U
+        d. delete ì‚­ì œ       > D
+        - ë°ì´í„°ë² ì´ìŠ¤ ê´€ë¦¬ìž 
+        - ë°ì´í„°ë² ì´ìŠ¤ ë‹´ë‹¹ìž 
+        - í”„ë¡œê·¸ëž˜ë¨¸(*****)  
         
     3. DCL 
             - Data Control Language
-            - µ¥ÀÌÅÍ Á¦¾î¾î
-            - °èÁ¤ ±ÇÇÑ °ü¸®, º¸¾È Á¦¾î, Æ®·£Á§¼Ç Ã³¸® µî...
+            - ë°ì´í„° ì œì–´ì–´
+            - ê³„ì • ê¶Œí•œ ê´€ë¦¬, ë³´ì•ˆ ì œì–´, íŠ¸ëžœì ì…˜ ì²˜ë¦¬ ë“±...
             a. commit
             b. rollback
             c. grant
             d. revoke
-            - µ¥ÀÌÅÍº£ÀÌ½º °ü¸®ÀÚ 
-            - µ¥ÀÌÅÍº£ÀÌ½º ´ã´çÀÚ 
-            - ÇÁ·Î±×·¡¸Ó(ÀÏºÎ)      
+            - ë°ì´í„°ë² ì´ìŠ¤ ê´€ë¦¬ìž 
+            - ë°ì´í„°ë² ì´ìŠ¤ ë‹´ë‹¹ìž 
+            - í”„ë¡œê·¸ëž˜ë¨¸(ì¼ë¶€)      
             
     4. DQL 
         - Data Query Language
-        - DML Áß¿¡ select ¸¸À» µû·Î È£Äª
+        - DML ì¤‘ì— select ë§Œì„ ë”°ë¡œ í˜¸ì¹­
             
     5. TCL
         - Transaction Control Language 
-        - DCL Áß¿¡ commit, rollback ¸¸ µû·Î È£ÄªÇÑ´Ù.
+        - DCL ì¤‘ì— commit, rollback ë§Œ ë”°ë¡œ í˜¸ì¹­í•œë‹¤.
         
-    ¿À¶óÅ¬ ÀÎÄÚµù 
-    - 1.0 ~ 8i: EUR-KR > ÀÌ¶§´Â ÀÚ¹Ù¿Í °°ÀÌ ¾µ ¶§ ÇÑ±ÛÀÌ ¸· ±úÁ³¾ú´Ù...  [ i > ÀÎÅÍ³Ý, g > ±×¸®µå ½Ã½ºÅÛ, c > cloud ] 
-    - 9i, 10g, 11g, 12c, 18c, 19c, 21c µî ÀÌ·±½ÄÀ¸·Î ¹öÀüÀÌ ¿Ã¶ó¿Â´Ù. ..  >> ¹öÀü¸¸ ±â¾ïÇÏ¸é µÈ´Ù. 
-    - 9i, 10g, 11g, 12c, 18c, 19c, 21c .. : UTF-8 ¾´´Ù. ¿äÁòÀº ±úÁú ¸®°¡ ¾ø´Ù.
+    ì˜¤ë¼í´ ì¸ì½”ë”© 
+    - 1.0 ~ 8i: EUR-KR > ì´ë•ŒëŠ” ìžë°”ì™€ ê°™ì´ ì“¸ ë•Œ í•œê¸€ì´ ë§‰ ê¹¨ì¡Œì—ˆë‹¤...  [ i > ì¸í„°ë„·, g > ê·¸ë¦¬ë“œ ì‹œìŠ¤í…œ, c > cloud ] 
+    - 9i, 10g, 11g, 12c, 18c, 19c, 21c ë“± ì´ëŸ°ì‹ìœ¼ë¡œ ë²„ì „ì´ ì˜¬ë¼ì˜¨ë‹¤. ..  >> ë²„ì „ë§Œ ê¸°ì–µí•˜ë©´ ëœë‹¤. 
+    - 9i, 10g, 11g, 12c, 18c, 19c, 21c .. : UTF-8 ì“´ë‹¤. ìš”ì¦˜ì€ ê¹¨ì§ˆ ë¦¬ê°€ ì—†ë‹¤.
     
-    ¿À¶óÅ¬ Á¦Ç°±º 
-    - Oracle Enterprise       >  º¹ÀâÇÑ°Å Àß ÇÔ
-    - Oracle Express Edition  > º¹ÀâÇÏ°Å³ª Å« ÀÏ ¸øÇÑ´Ù. > ±Ùµ¥ ¹«·á´Ù.
+    ì˜¤ë¼í´ ì œí’ˆêµ° 
+    - Oracle Enterprise       >  ë³µìž¡í•œê±° ìž˜ í•¨
+    - Oracle Express Edition  > ë³µìž¡í•˜ê±°ë‚˜ í° ì¼ ëª»í•œë‹¤. > ê·¼ë° ë¬´ë£Œë‹¤.
     
     Oracle Express Edition
-    - ¹«·á
-    - °³ÀÎ¿ë or ¼Ò±Ô¸ð È¸»ç
-    - »ç¿ë ¸Þ¸ð¸® ÃÖ´ë 1GB 
-    - Áö±ÝÀº Express EditionÀº 11g¿Í 18c µÎ°¡Áö ¹öÀü¹Û¿¡ ¾ø´Ù. ¾ÆÁ÷±îÁö 18cº¸´Ù 11g¸¦ ¸¹ÀÌ ¾´´Ù.
+    - ë¬´ë£Œ
+    - ê°œì¸ìš© or ì†Œê·œëª¨ íšŒì‚¬
+    - ì‚¬ìš© ë©”ëª¨ë¦¬ ìµœëŒ€ 1GB 
+    - ì§€ê¸ˆì€ Express Editionì€ 11gì™€ 18c ë‘ê°€ì§€ ë²„ì „ë°–ì— ì—†ë‹¤. ì•„ì§ê¹Œì§€ 18cë³´ë‹¤ 11gë¥¼ ë§Žì´ ì“´ë‹¤.
     - 11g 
-    - 18c  >  ¿©±â·Î ¿À¸é¼­ Ãß°¡µÈ ¹®¹ýÀÌ Á¶±Ý ÀÖ´Ù. // ÀÌ°É·Î ¼ö¾÷ÇØµµ µÇ´Âµ¥ ±ÍÂú´Ù.
+    - 18c  >  ì—¬ê¸°ë¡œ ì˜¤ë©´ì„œ ì¶”ê°€ëœ ë¬¸ë²•ì´ ì¡°ê¸ˆ ìžˆë‹¤. // ì´ê±¸ë¡œ ìˆ˜ì—…í•´ë„ ë˜ëŠ”ë° ê·€ì°®ë‹¤.
    
 */
 
--- hr °èÁ¤À¸·Î º¸Åë ¼ö¾÷ÇÑ´Ù. 
--- ´ë¼Ò¹®ÀÚ 
--- 1. SQL ¸í·É¾î´Â ´ë¼Ò¹®ÀÚ¸¦ ±¸ºÐÇÏÁö ¾Ê´Â´Ù.
--- ÆÄ¶õ»ö > Å°¿öµå
--- °ËÁ¤»ö > ½Äº°ÀÚ
-select * from tabs; -- ¿Ã¼Ò¹®ÀÚ --> ¼ö¾÷Àº ÀüºÎ´Ù ¼Ò¹®ÀÚ·Î ÇÑ´Ù. ½ºÅ¸ÀÏÀÇ ¹®Á¦´Ù. 
+-- hr ê³„ì •ìœ¼ë¡œ ë³´í†µ ìˆ˜ì—…í•œë‹¤. 
+-- ëŒ€ì†Œë¬¸ìž 
+-- 1. SQL ëª…ë ¹ì–´ëŠ” ëŒ€ì†Œë¬¸ìžë¥¼ êµ¬ë¶„í•˜ì§€ ì•ŠëŠ”ë‹¤.
+-- íŒŒëž€ìƒ‰ > í‚¤ì›Œë“œ
+-- ê²€ì •ìƒ‰ > ì‹ë³„ìž
+select * from tabs; -- ì˜¬ì†Œë¬¸ìž --> ìˆ˜ì—…ì€ ì „ë¶€ë‹¤ ì†Œë¬¸ìžë¡œ í•œë‹¤. ìŠ¤íƒ€ì¼ì˜ ë¬¸ì œë‹¤. 
 
-SELECT * FROM TABS; -- ¿Ã´ë¹®ÀÚ
+SELECT * FROM TABS; -- ì˜¬ëŒ€ë¬¸ìž
 
-select * from TABS; -- È¥¿ë1
+select * from TABS; -- í˜¼ìš©1
 
-SELECT * FROM tabs; -- È¥¿ë2
+SELECT * FROM tabs; -- í˜¼ìš©2
 
--- ÃÊ±âÀÛ¼º¸¸ ÀÌ·¸°Ô ÇÏ´Ù°¡ ³ªÁß¿¡ ¶Ç ¹Ù²Ü ¼ö ÀÖ´Â ±â´ÉÀÌ ÀÖ´Ù. 
+-- ì´ˆê¸°ìž‘ì„±ë§Œ ì´ë ‡ê²Œ í•˜ë‹¤ê°€ ë‚˜ì¤‘ì— ë˜ ë°”ê¿€ ìˆ˜ ìžˆëŠ” ê¸°ëŠ¥ì´ ìžˆë‹¤. 
 
--- ÄÚµå ÄÁº¥¼Ç 
+-- ì½”ë“œ ì»¨ë²¤ì…˜ 
 
 
 
--- Ctrl + F7 ÀÔ·ÂÇÏ¸é µÎÁÙÀÌ µÈ´Ù. 
+-- Ctrl + F7 ìž…ë ¥í•˜ë©´ ë‘ì¤„ì´ ëœë‹¤. 
  
 select * from tabs; -- 
 
 
--- ¸ðµç ±¸¹®À» ´ë¹®ÀÚ·Î ÀÛ¼ºÇÏ´Â °ÍÀ» ±ÇÁFÛ¤¤´Ù.
+-- ëª¨ë“  êµ¬ë¬¸ì„ ëŒ€ë¬¸ìžë¡œ ìž‘ì„±í•˜ëŠ” ê²ƒì„ ê¶Œí•®ì•Ÿã„´ë‹¤.
 
--- ½Äº°ÀÚ > 
-create table aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  ( -- 31°³ÀÏ ¶§ 
+-- ì‹ë³„ìž > 
+create table aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  ( -- 31ê°œì¼ ë•Œ 
     num number
 );
 
