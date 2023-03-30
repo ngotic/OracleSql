@@ -373,15 +373,17 @@ select * from tblInsa;
 --      in 1개 > out 1개 in으로 부서이름 out으로 직워번호
 -- proTest1
 create or replace procedure procTest1(
-    vbuseo in varchar2,
-    vnum out number
+    pbuseo in varchar2,
+    pnum out number
 )
 is
 -- declare -- declare는 없어도 된다. 
 begin
---    dbms_output.put_line(vbuseo);  
-    select num into vnum from tblInsa where buseo = vbuseo and basicpay = (select max(basicpay) from tblInsa where buseo = vbuseo);
-    -- dbms_output.put_line(vnum);
+--    dbms_output.put_line(pbuseo);  
+    -- select num into pnum from tblInsa where buseo = pbuseo and basicpay = (select max(basicpay) from tblInsa where buseo = pbuseo);
+    -- dbms_output.put_line(pnum);
+    select num into pnum from tblInsa where basicpay = (select max(basicpay) from tblInsa where buseo = pbuseo) and buseo = pbuseo;
+
 end;
 
 select * from tblInsa;
@@ -390,22 +392,32 @@ select * from tblInsa;
 -- 직원번호 in, 같이 지역에 사는 직원의 수, 같은 직위의 직원수, 급여를 155만원 받으면 이사람보다 더 많이 받는 사람은 몇명인지
 -- proTest2
 create or replace procedure procTest2(
-    vnum  in varchar2,
-    vcnt1 out number,
-    vcnt2 out number,
-    vcnt3 out number
-)
-is 
-    -- select
-begin
-    select count(*) into vcnt1 from tblInsa where city = (select city from tblInsa where num = vnum);
-    select count(*) into vcnt2 from tblInsa where jikwi = (select jikwi from tblInsa where buseo = vnum);
-    select count(*) into vcnt3 from tblInsa where basicpay >= (select basicpay from tblInsa where buseo = vnum);
+    pnum  in varchar2,
+    pcnt1 out number,
+    pcnt2 out number,
+    pcnt3 out number
+) -- 파라미터니까 p를 declare에 선언하는것 지역변수니까 v를 붙인다. 
+is     
+    vcity tblInsa.city%type;
+    vjikwi tblInsa.jikwi%type;
+    vbasicpay tblInsa.basicpay%type;
+begin -- select
+
+    select city, jikwi, basicpay into vcity, vjikwi, vbasicpay
+        from tblInsa where num = pnum;
+--
+--    select count(*) into pcnt1 from tblInsa where city = (select city from tblInsa where num = pnum);
+--    select count(*) into pcnt2 from tblInsa where jikwi = (select jikwi from tblInsa where num = pnum);
+--    select count(*) into pcnt3 from tblInsa where basicpay >= (select basicpay from tblInsa where num = pnum);
+    select count(*) into pcnt1 from tblInsa where city = vcity; 
+    select count(*) into pcnt2 from tblInsa where jikwi= vjikwi;
+    select count(*) into pcnt3 from tblInsa where basicpay = vbasicpay;
 end;
 
 select * from tblInsa;
 select jikwi from tblInsa where num = 1001;
 
+-- 검증용
 declare
     vnum number;
 begin
@@ -413,6 +425,8 @@ begin
     dbms_output.put_line(vnum);    
 end;
 
+
+-- 검증용
 declare
     vcnt1 number;
     vcnt2 number;
@@ -423,5 +437,9 @@ begin
     dbms_output.put_line(vcnt2);    
     dbms_output.put_line(vcnt3);    
 end;
+-- 길동이 포함해서 서울사는 사람, 부장이 총 7명, 길동이 보다 많이 많는 사람
+
+
+
 
 

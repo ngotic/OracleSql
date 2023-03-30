@@ -329,7 +329,7 @@ end;
 -- 보너스 = basicpay * 1.5
 create table tblBonus (
     seq number primary key,
-    num number(5) not null references tblInsa(num),
+    num number(5) not null references tblInsa(num), -- 제약조건 
     bonus number not null
 );
 
@@ -1046,5 +1046,844 @@ end;
 select * from tblError order by regdate desc;
 
 -----------------------------------------------
+
+select * from tblStaff;
+select * from tblProject;
+
+--A. 신입 사원 추가 + 프로젝트 담당
+
+--B. 사원 퇴사 : 담당 프로젝트 확인 > 다른 직원에게 위임 > 퇴사 
+
+--A. > 자바가 얘를 호출한다. 얘한테 일을 맡긴다. 
+create or replace procedure procAddstaff (  -- 지금해야하는 프로젝트 중에 해야하는 일이다. 
+    pname    in varchar2, -- 신입 사원명
+    psalary  in number,   -- 신입 급여
+    paddress in varchar2, -- 신입 주소
+    pproject in varchar2, -- 프로젝트명
+    presult  out number   -- 피드백(성공/실패) 
+)
+-- 이 작업은 100퍼센트 성공한다고 보장 못한다. 
+is 
+    vseq number;
+begin
+    select nvl(max(seq), 0) + 1 into vseq from tblStaff;
+    --1. 신입 사원 추가
+    insert into tblStaff (seq, name, salary, address) values(  vseq, pname, psalary, paddress);
+    
+    --2. 프로젝트 담당
+    insert into tblProject (seq, project, staff_seq)
+        values( (select nvl(max(seq), 0 ) + 1 from tblProject), pproject, vseq);
+        
+    presult := 1; -- 성공
+    
+exception
+    when others then
+        presult := 0; -- 실패 
+end procAddStaff;
+
+-- 테스트 
+declare
+    vresult number; -- 결과(out)
+begin
+    -- procAddStaff('이순신', 300, '서울시', '박물관 건립', vresult);
+    procAddStaff('유관순', 350, '부천시', '미술관 건립', vresult);
+    if vresult = 1 then
+        dbms_output.put_line('성공');
+    else 
+        dbms_output.put_line('실패');
+    end if;
+end;
+
+-- 여러가지 기능들을 합쳐서 모듈로 만들었다. 
+
+-- 기존 방식 > 프로시저
+-- 1. 단순화(모듈화)
+-- 2. 팀작업이 원할
+-- 3 저장 객체(팀간에 공유가 수월하다.)
+
+
+-- user의 procudures를 저장 
+SELECT *  FROM user_procedures ;
+
+
+-- boolean(X) > 오라클에는 없다. 근데 혹시 모르니까 변경이 될 수 있는 것은 NUMBER
+-- C언어 > int > 1(true), 0(false)
+-- B.
+create or replace procedure procRemoveStaff (
+    pseq    in number,  -- 퇴사할 직원번호
+    pdseq   in number, -- 위임할 직원번호
+    presult out number
+)
+is  
+    vcnt number;
+begin
+    --1. 퇴사 직원 번호가 유효한지? 존재하는 번호인지? 
+    select count(*) into vcnt from tblStaff where seq = pseq;
+    
+    --2. 확인
+    if vcnt = 1 then
+        -- 존재
+        -- 3. 담당 프로젝트 확인 
+        select count(*) into vcnt from tblStaff where seq = pdseq;
+        -- 4. 담당 프로젝트 확인 > 위임 
+        if vcnt = 1 then
+            --4. 담당 프로젝트 확인 > 위임 > 프로젝트가 있을 때 위임한다. 
+            select count(*) into vcnt from tblProject where staff_seq = pseq;
+            if vcnt > 0 then
+                --5. 위임
+                update tblProject set
+                    staff_seq = pdseq
+                        where staff_seq = pseq; 
+            end if;
+            -- 6. 퇴사 
+                delete from tblStaff where seq  = pseq;      
+                presult :=1;
+        else
+            presult :=0;
+        end if;
+    else
+        presult := 0;
+    end if;
+    
+exception
+    when others then 
+        presult := 0;
+        
+end procRemoveStaff;
+
+
+
+declare 
+    vresult number;
+begin
+   --procRemoveStaff('하하하','이순신,result');
+    procRemoveStaff(6, 5, vresult);
+end;
+
+select * from tblStaff;
+select * from tblProject;
+
+
+
+/*
+
+    저장 프로시저
+    1. 저장 프로시저
+    2. 저장 함수 
+    
+    저장 함수, Stored Function > 함수, Function
+    - 저장 프로시저와 동일 
+    - 반환값이 반드시 존재 > out 파라미터 사용(X) > return 문(O)
+    - out 파라미터 사용 안함 > out 동작 가능
+    - in 파라미터 사용함
+    - 이 특성때문에 함수는 프로시저와 조금 다른 상황에서 사용(**) : 함수 vs 프로시저 
+   
+*/
+
+-- public int sum(int a, int b)
+
+-- 1 + 2 > 3
+create or replace function fnSum (
+    pnum1 number,
+    pnum2 number -- presult out number > 이걸 안쓴다.
+--) return date  -- 타입이 맞지 않으면 에러 난다.  PLS-00382: expression is of wrong type
+) return number
+is 
+begin
+    return pnum1 + pnum2;
+end fnSum;
+declare 
+    vresult number;
+begin
+    -- 프로시저 out > 개수 1개 이상
+    -- 함수 result > 개수 딱 1개 > 무조건 리턴값이 있어야 한다. 리턴값이 없으면 함수가 아니다. 
+    vresult := fnSum(10, 20); -- 단일 상수다. 
+    dbms_output.put_line(vresult);
+end;
+
+select 
+    height, weight,
+    height + weight,
+    fnSum(height, weight) -- 숫자 2개를 넣으면 숫자 하나를 반환한다. > 이게 일반 컬럼값을 반환하는 것과 동일한 효과다. 
+    -- procSum(height, weight); -- 프로시저는 못적는다. 리턴문이 없다. 
+from tblComedian;
+
+-- pl/sql 구문 끝에다가 /를 붙이면 
+-- 블럭을 안잡아도 컨트롤 엔터치면 잡아진다.
+
+-- 이름, 부서, 직위, 성별 > 함수나 프로시저 같은 것들 오라클 꺼지면 다 메모리에 내려감??
+-- 그럼 오라클 키면 셋팅하는 코드를 짜야하나? 
+-- 팀 프로젝트(A 팀원 작업) 
+select 
+    name, buseo, jikwi,
+    case substr(ssn, 8, 1)
+        when '1' then '남자'
+        when '2' then '여자'
+    end as gender
+from tblInsa;
+
+-- 팀 프로젝트(B 팀원 작업) 
+-- 이름, 급여, 성별(남자|여자) 
+select 
+    name, buseo, jikwi,
+    case substr(ssn, 8, 1)
+        when '1' then '남자'
+        when '2' then '여자'
+    end as gender
+from tblInsa;
+
+-- 너도 그거하니? 나도 그거해 하고 서로 합의를 봐서 function을 만든다.
+-- 팀 단위로 만드는 것이 좋다. 같이 만드는 것이 이득이다. 
+
+create or replace function fnGender (
+    pssn varchar2
+) return varchar2
+is
+begin
+    return case substr(pssn, 8, 1)
+                -- when '1' then '남자' --
+                -- when '2' then '여자' -- 갑자기 영어로 해줘!
+                when '1' then 'Male' --
+                when '2' then 'Female'
+           end;
+end fnGender;
+
+select 
+    name, buseo, jikwi,
+    fnGender(ssn) as gender
+from tblInsa;
+-- 한번만 만들면 
+
+/*
+    
+    SQL 처리 순서 
+    - select문 실행(select * from tblInsa;)
+    
+    1. ANSI-SQL or 익명 프로시저
+        a. 클라이언트 > 구문 작성 
+        b. 클라이언트 > 실행(Ctrl+Enter)
+        c. 명령어를 오라클 서버로 전송
+        d. 서버 > 명령어 수신 
+        e.     > 파싱(토큰 분해) > 올바른 키워드로 구성되어 있는지 문법검사 
+        f.     > 컴파일(기계어) 
+        g.     > 실행(SQL)
+        h.     > 결과셋 생성
+        i.     > 결과셋을 크랄이언트에게 반환
+        j. 클라이언트 > 결과셋 > 화면출력
+        - 동일한 명령어를 재실행해도 실행비용이 항상 동일하다.
+        
+    2. 저장 프로시저(프로시저 or 함수)
+        a. 클라이언트 > 구문 작성(select)
+        b.           > 실행(Ctrl+Enter)
+        c. 명령어 오라클 서버로 전송
+        d. 서버 > 명령어 수신
+        e.    > 파싱(토큰 분해) > 문법 검사
+        f.    > 컴파일(기계어) 
+        g.    > 실행(SQL)
+        h.    > 서버에 프로시저 생성 > 영구 저장(HDD)
+        i.    > 종료
+        
+        a. 클라이언트 > 구문 작성(호출)
+        b.          > 실행(Ctrl + Enter)
+        c. 명령어를 오라클 서버로 전송
+        d. 서버 > 명령어 수신
+        e.     > 파싱(토큰 분해) > 문법 검사
+        f.     > 컴파일(기계어) 
+        g.     > 실행(SQL)
+        h.     > 아까 컴파일 완료한 프로시저가 실행 > 프로시저에 관련된 작업을 재사용
+        i.     > select 결과셋을 반환
+        j.  클라이언트 > 결과셋 > 화면출력
+        
+        -- 동일한 명령어 실행 > 반복 비용 저렴(컴파일된 프로시저 호출 > 파싱 + 컴파일 > 생략) > 속도 향상
+        -- 전체 컴파일, 부분 컴파일 등이 있다. 프로젝트가 너무 커서 그렇다.         
+        
+        반복적으로 호출해야 하는 상황이면 프로시저나 함수 만들어서 날리면 좋다. 
+*/
+
+-- 반복되는 업무들을 다시 컴파일하지 않아도 된다. 
+create or replace procedure procTest
+as
+begin
+select * from tblInsa;
+end;
+begin
+    procTest;
+end;
+
+-- 우리가 쓰는 sql developer는 쿼리를 처리 못한다. 그냥 메신저다. 대화창이다.
+
+/*    
+    트리거, Trigger
+    - 프로시저의 한 종류 
+    - 호출을 개발자가 아니라, 미리 저장한 특정 사건이 발생하면 자동으로 실행되는 프로시저
+    - 예약(사건) > 사건 발생 > 프로시저 호출 
+    - 특정 테이블 지정 > 감시(insert or update or delete) > 데이터에 대한 변화이다.
+    - 그 사건이 뻥 터지면 미리 준비해놓은 프로시저가 자동으로 호출이 된다. 
+    ---> 특정 사건 전, 후 
+    ---> 어떤사건??
+    트리거 구문
+    create or replace trigger 트리거명
+        before|after
+        insert|update|delete on 테이블명
+        [for each row] 
+    declare 
+        선언부;
+    begin         --- 사건이 난 직후 동시에 호출되는 코드 
+        구현부;
+    exception
+        예외처리부;
+    end;        
+    
+*/
+
+-- tblInsa > 직원 삭제
+create or replace trigger trgInsa
+    before
+    delete on tblInsa 
+begin
+    dbms_output.put_line('트리거가 실행되었습니다.');
+end trgInsa;
+
+select * from tblInsa;
+delete from tblInsa where name = '홍길동'; 
+-- 레코드 삭제 > 관계 맺은 자식 테이블에서 참조가 있는 경우.. 
+-- 보너스 테이블에 길동이의 기본키가 있다...
+
+-- 부모 레코드가 있는데 지우는 경우 자식이 딸려 있는 경우 > default는 참조하는 자식이 있어서 안지워진다. 
+-- 여러가지 시나리오가 있다. 
+/*
+
+    레코드 삭제 > 관계 맺은 자식 테이블에서 참조가 있는 경우... 
+    
+    1. 홍길동 > 취소 
+    2. 홍길동 > 삭제 
+        a. 홍길동 삭제 + 자식을 삭제  > delete cascade
+        b. 홍길동 삭제 + 자식을 보존 > FK 제약 삭제 > 비권장!!! 
+        c. 홍길동 변형 + 자식 보존 > 회원탈퇴 임의의 값을 수정해서 채워넣기
+
+*/
+desc tblBonus;
+select *from tblBonus;
+select * from tblBonus where num = 1001;
+
+select * from tblInsa;
+update tblInsa set
+    name     = '탈퇴',
+    ssn      = '탈퇴',
+    ibsadate = sysdate,
+    city     = '탈퇴',
+    tel      = '탈퇴',
+    buseo    = '탈퇴',
+    jikwi    = '탈퇴',
+    basicpay = 0,
+    sudang   = 0
+        where num = 1001;
+
+-- 데이터는 실제로 제거를 못하지만 .... 수정를 통해서 제거에 준하는 상태로 만든다. 현업에서 많이 쓰인다.
+-- 이게 회원탈퇴이다. > 우리가 활동했던 정보는 참조키가 여럿있는데 이걸 잘못해서 삭제해버리면 큰일남
+
+
+
+
+
+/*
+    create table tblTest ( -- 내가 인지를 못하는 사이에서 지워진다. 내가 모르는 사이에 이런 조건을 인지하기가 힘듬 
+        num number references tblInsa(num) ON DELETE CASCADE - 
+    )
+
+*/
+
+
+-- tblInsa > 직원 삭제
+create or replace trigger trgInsa
+    before     -- 이것 때문에 덩달아서 실행이 된다. 삭제하기 직전에 프로시저를 실행해라 > 앞에 실행, 뒤에 실행 결정
+    -- delete    -- 삭제든, 수정이든 다  > 어떤 사건 결정 
+    update
+    on tblInsa -- 삭제가 발생하는지 감시해라  > 대상을 결정 
+begin
+    dbms_output.put_line('트리거가 실행되었습니다.');
+end trgInsa;
+
+select * from tblInsa;
+delete from tblInsa where num = 1001;  -- 트리거 실행됨
+
+update tblInsa set city = '서울' where num = 1003; -- 트리거 실행
+
+-- tblInsa > 직원 퇴사
+-- 수요일 > 퇴사 금지!
+
+create or replace trigger trgRemoveInsa
+    before
+    delete
+        on tblInsa
+begin
+    dbms_output.put_line('트리거 실행.');
+    -- 수요일 퇴사 금지 > 현재 무슨 요일?
+--    if to_char(sysdate, 'day') = '수요일' then
+--    if to_char(sysdate, 'dy') = '수' then
+    if to_char(sysdate, 'd') = '4' then
+        dbms_output.put_line('수요일');
+        -- 퇴사 금지 > 지금 트리거 호출의 원인 > 실행 중인 delete문을 없었던 일로 > 취소 > 강제 예외 발생!!!!
+        -- 자바 > throw new Exception();
+        -- -20000 ~ -29999까지 쓸 수 있다. 
+        raise_application_error(-20000, '수요일에는 퇴사가 불가능합니다.'); -- 이 함수가 있다. 이건 강제로 에러를 나게 한다.> 자바 throw 같은 개념 
+        -- 이놈이 뻒하고 실행 그러면서 강제로 취소가 된다. 이게 왜그러냐면 before 트리거라서 그렇다. 
+        
+    else 
+        dbms_output.put_line('다른 요일');
+    end if;
+end;
+
+delete from tblInsa where num = 1003; -- 위에서 트리거 떄문에 퇴사가 불가능 before로 걸어서 그렇다. 
+select * from tblInsa where num = 1003;
+
+delete from tblInsa where num = 1004;
+rollback;
+
+select * from tblmen;
+
+
+
+
+create or replace trigger trgLogmen
+    after
+    insert or update or delete 
+    on tblmen
+declare
+    vmessage varchar2(1000);
+begin
+    -- 호출 : insert?가 나를 부른건지, update? delete? 구분해야 한다. > 식별 방법
+    dbms_output.put_line('트리거 실행');
+    
+    if inserting then 
+        dbms_output.put_line('새로운 항목이 추가되었습니다.');
+        vmessage := '새로운 항목이 추가되었습니다.';
+    elsif updating then
+        dbms_output.put_line('항목이 수정되었습니다.');
+        vmessage := '항목이 수정되었습니다.';
+    elsif deleting then
+        dbms_output.put_line('항목이 삭제되었습니다.');
+        vmessage := '항목이 삭제되었습니다.';
+    end if;
+    insert into tblLogmen values(seqLogmen.nextVal, vmessage, default);
+end trgLogmen;
+
+select * from tblmen;
+
+insert into tblmen values('테스트', 22, 175, 60, null);
+update tblmen set weight = 65 where name = '테스트';
+delete from tblmen where name = '테스트';
+
+create table tblLogmen(
+    seq number primary key,
+    message varchar2(1000) not null,
+    regdate date default sysdate not null
+);
+
+create sequence seqLogmen;
+select * from tbllogmen;
+
+-- 트리거가 부하가 올 수 있다. 너무 추가,수정,삭제가 많은 테이블에 대해선 트리거를 걸지말자
+-- 최소한에 대해서만 트리거를 걸자 > 일단 걸어보고 알자 > 트리거를 걸어도 되는 업무가 있으면 걸자
+-- 보통, 트리거 선언시, 감시 대상 테이블을 구현부에서 조작하지 않는다. 
+create or replace trigger trgCountry
+    after
+    update
+    on tblCountry         -- A 테이블 > 감시 
+begin                     -- ★ 이런식의 테이블 처리는 하지 않는다. !!
+
+    update tblCountry set -- A 테이블 > 감시를 조작 
+        population = population * 1.1;
+        -- 이렇게 해야할 업무가 있대 !
+end trgCountry;
+
+update tblcountry set capital = '제주' where name = '대한민국';
+
+-- ORA-00036: maximum number of recursive SQL levels (50) exceeded 계속 반복이다.
+-- update > trigger > update > trigger 계속 반복 
+
+/*
+
+-- [for each row] 이것 때문에 조금 복잡해진다. 
+    1. 사용 x
+        - 문장(Query) 단위 트리거
+        - 트리거 실행 1회
+        
+    2. 사용 o
+        - 행 단위 트리거 
+        - 트리거 실행 반복 
+    
+*/
+
+select * from tblwomen;
+
+-- 문장 단위 트리거
+--: delete 1회 실행 > 적용된 행 1개  > 프로시저 1회 호출
+--: delete 1회 실행 > 적용된 행 10개 > 프로시저 1회 호출
+--: old.name 누가 지워졌는데 지움을 당한 레코드르 참조한 것이다.
+-- new or old references not allowed in table level 삭제가 되었는데 누가 삭제가 되었는지 중요핮 ㅣ않음
+create or replace trigger trgwomen
+    after
+    delete
+    on tblwomen
+begin 
+    dbms_output.put_line('레코드를 삭제했습니다.');
+    -- dbms_output.put_line('레코드를 삭제했습니다.'||:old.name); -- 에러가난다. old 안된다.
+end trgwomen;
+
+delete from tblwomen where name = '하하하';
+delete from tblwomen; -- 10개가 지워지지만 트리거가 한번 실행 
+
+rollback;
+
+
+-- 이제 행단위 트리거로 바꿔보자 !!
+-- 행단위 트리거 > 개인을 대상으로 실행 > 영향받는 row들의 개수 만큼지운다. 
+--: delete 1회 실행 > 적용된 행 1개  > 프로시저 1회 호출
+--: delete 1회 실행 > 적용된 행 10개 > 프로시저 10회 호출
+--: 개개인의 정보를 참조해서 구체적인 작업을 하는 것이 행단위 트리거의 목적이다. 
+
+create or replace trigger trgwomen
+    after
+    delete
+    on tblwomen
+    for each row
+begin 
+    dbms_output.put_line('레코드를 삭제했습니다.'||:old.name);
+end trgwomen;
+
+delete from tblwomen; -- 10개가 지워지지만 트리거가 지운 row개수 만큼 실행
+
+/*
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+'레코드를 삭제했습니다.'
+*/
+
+create or replace trigger trgwomen
+    after
+    delete
+    on tblwomen
+begin 
+    dbms_output.put_line('레코드를 삭제했습니다.'||:old.name);
+end trgwomen;
+
+
+-- insert 
+create or replace trigger trgwomen
+    after
+    insert -- 방금 추가된 레코드 정보를 알 수 있다. 
+    on tblwomen
+    for each row
+begin 
+    -- 상관관계(: new) > 새롭게 추가되는 행 참조 객체
+    -- 새로 추가된 레코드! 
+    dbms_output.put_line('레코드를 추가했습니다.'||:new.name || :new.age); -- 각 칼럼들을 접근해서 정보들을 알아낸다. 
+end trgwomen;
+
+
+insert into tblwomen values ('호2f', 20, 160, 50, null);
+
+select * from tblwomen;
+
+-- 상관 관계 
+-- 1. :new
+-- 2. :old
+
+create or replace trigger trgwomen
+    after
+    --insert
+    update
+    on tblwomen 
+    for each row -- insert는 new만 !! 
+begin
+    dbms_output.put_line(':old >' ||:old.weight); -- :old > insert에서는 old는 아무것도 안들어온다.
+    dbms_output.put_line(':new >' ||:new.weight); -- :new > 테스트
+    -- update 때는 old.weight는 전상태, new.weight는 후상태이다.
+    dbms_output.put_line(' ');
+end trgwomen;
+
+create or replace trigger trgwomen
+    after
+    delete
+    on tblwomen 
+    for each row
+begin
+    dbms_output.put_line(':old >' ||:old.name); -- :old > 삭제되는 것을 불러온다.
+    dbms_output.put_line(':new >' ||:new.name); -- :new > delete 때는 new로 아무것도 접근을 못한다. 
+    dbms_output.put_line(' ');
+end trgwomen;
+
+-- delete는 old 과거만! / new는 X
+
+insert into tblwomen values('테스트', 22, 175, 60, null);
+update tblwomen set weight = 66 where name = '테스트';
+delete from tblwomen where name = '테스트';
+
+
+-- "퇴사" > 위임
+select * from tblStaff;
+select * from tblProject;
+
+-- '이순신' 퇴사
+create or replace trigger trgRemoveStaff 
+    before       -- 3. 퇴사 직전에
+    delete       -- 2. 퇴사를 하면 
+    on tblStaff  -- 1. 직원 테이블을 감시 > ★ 대상 테이블 이건 절대로 트리거 구현부에서 쓰지마라 
+    for each row -- 4. 담당 프로젝트 위임한다. 
+    -- 퇴사 직전에 일안하는사람 찾아서 일을 맡긴다. 
+    
+declare 
+    vdseq number;
+begin
+    -- 5. 퇴사전에 담당 프로젝트를 다른 사람에게 위임한다. > 현재 맡고 있는 프로젝트 수가 가장 적은 직원에게 
+    -- select * from tblProject group by staff_seq;
+    
+    
+--    select seq from (select s.seq
+--    from tblStaff s
+--        left outer join tblProject p
+--            on s.seq = p.staff_seq
+--                having count(p.seq) = (select
+--                        min(count(p.seq))
+--                    from tblStaff s
+--                        left outer join tblProject p
+--                            on s.seq = p.staff_seq
+--                                group by s.seq)
+--                group by s.seq )
+--                where rownum =1 ;
+    
+--    select 
+--        min(count(p.seq))   
+--    from tblStaff s 
+--        left outer join tblProject p
+--            on s.seq = p.staff_seq
+--                group by s.seq;
+--    
+    update tblProject set
+        staff_seq = 2
+            where staff_seq = :old.seq;
+        
+
+end trgRemoveStaff;
+
+
+select count(*) from tblProject group by staff_seq;
+select min(count(*)) from tblProject group by staff_seq;
+select * from tblProject; --1, 2, 3, 4, 5
+select * from tblStaff; 
+
+delete from tblStaff where seq = 5;
+
+
+-- 우리 프로젝트는 트리거를 많이 만들필요는 없다.
+-- 굳이 개수를 따지면 한사람의 한두개 정도 > 형식 갖출정도만 
+-- 근데 최소 하나이상은 해라 > 트리거 하나이상은 만들어라 
+
+-- 공부만(X), 취업 서류(O) 
+-- 1개 주제 > 수업 > 공부 + 서류화
+-- 주제 > 수업 > 공부 + 서류화 > 뭔가를 배웠다가 어디다가 어떻게 써먹었는지 생각해라 
+
+
+
+
+create table tblUser (
+    id varchar2(30) primary key,
+    point number default 1000 not null
+);
+
+insert into tblUser values('hong', default);
+
+create table tblBoard(
+    seq number primary key,
+    subject varchar2(1000) not null,
+    id varchar2(30) not null references tblUser(id)
+);
+
+-- 회원 > 글쓰기 > +100 
+-- 회원 > 글삭제 > -50
+-- A. 글을 쓴다.(삭제한다) > insert or delete
+-- B. 포인트를 누적시킨다. > update
+
+-- Case1. ANSI-SQL
+-- 절차> 개발자 직접 제어 
+-- 실수> 일부 업무 누락; 
+
+create sequence seqBoard;
+
+-- 1.1 글쓰기
+insert into tblBoard values(seqBoard.nextVal, '게시판입니다.', 'hong');
+--1.2 포인트 누락하기
+update tblUser set point = point + 100 where id ='hong';
+--1.3 글삭제
+delete from tblBoard where seq =1;
+
+--1.4 포인트 누적하기
+update tblUser set point = point -50 where id = 'hong';
+
+select * from tblBoard;
+select * from tblUser;
+
+-- commit 은 필수다 다른사람이 내 글을 볼려면 해야하는 상황  > 유저 단위로 한다는 것 
+-- Case2. Procudure > 트랜잭션 처리 
+create or replace procedure procAddboard(
+    psubject varchar2,
+    pid varchar2
+) 
+is 
+begin
+    
+    -- 2.1 글쓰기 
+    insert into tblBoard values(seqBoard.nextVal, psubject, pid);
+    -- 2.2 포인트 누적하기
+    update tblUser set point = point + 100 where id = pid;
+        
+    commit; 
+    
+exception -- 1번이 성공하고 2번이 실패 > 글은 써졌는데 포인트가 누적이 안됨!! > 근데 우리가 예외처리에서 롤백을 시켜버려서 글 쓴 경우조차 없는 경우다.
+    when others then
+        
+        rollback;
+
+
+end procAddboard;
+
+
+create or replace procedure procRemoveBoard(
+    pseq number 
+)
+is 
+    vid number ;
+begin
+    -- 삭제글을 작성한 id
+    select id into vid from tblBoard  where seq = pseq;
+    -- 2.3 글삭제
+    delete from tblBoard where seq = pseq;
+    -- 2.4 포인트 누적하기 
+    update tblUser set point = point - 50 where id = 'hong';
+
+    commit;
+    
+exception
+    when others then
+        dbms_output.put_line('--');
+        rollback;
+
+end procRemoveBoard;
+
+
+begin
+    -- procAddBoard('다시 글을 작성합니다.', 'hong');
+    procRemoveBoard(2);
+end;
+
+select * from tblBoard;
+select * From tblUser;
+
+-- Case3
+
+create or replace trigger trgBoard
+    after 
+    insert or delete 
+    on tblBoard
+    for each row
+begin
+    if inserting then
+        update tblUser set point = point + 100 where id = :new.id; --:는 붙어있다. old나 new에는 :를 붙여쓰자 
+    elsif deleting then -- 위에서 ansi sql에서 테스트 
+        update tblUser set point = point - 50 where id = :old.id; -- [ph2csql_strdef_to_diana:bind] 저거 :를 띄어쓰면 에러다.
+    end if;
+end;
+
+-- 트리거의 장점 눈 앞에 있는 업무에 집중할 수 있다. 포인트 누적은 사이드 업무 > 글 조회수
+
+select * from tblBoard;
+select * from tblUser;
+
+
+-- 프로시저 vs 트리거
+-- 프로시저 : 모든 작업을 명시적으로 직접 관리
+-- 트리거 : 메인작업 명시적 + 보조작업 암시적
+
+
+/*
+    커서를 반환하는 프로시저 
+    - out > cursor(O)
+    - return > cursor(X)
+*/
+
+
+set serveroutput on;
+
+create or replace procedure procBuseo (
+    pbuseo varchar2
+)
+is 
+    cursor vcursor is 
+        select * from tblInsa where buseo = pbuseo;
+    vrow tblInsa%rowtype;
+begin
+    --1. loop + cursor 
+    --2. for loop + cursor 
+    open vcursor;
+        loop
+            fetch vcursor into vrow;
+            exit when vcursor%notfound;
+            dbms_output.put_line(vrow.name);
+        end loop;
+    close vcursor;
+end procBuseo;
+
+create or replace procedure procBuseo (
+    pbuseo varchar2
+)
+is
+    cursor vcursor is
+        select * from tblInsa where buseo = pbuseo;
+begin
+    for vrow in vcursor loop
+        dbms_output.put_line(vrow.name);
+    end loop;
+end procBuseo;
+
+-- 커서를 가져와서 소비
+begin 
+    procBuseo('개발부');
+end;
+
+create or replace procedure procBuseo (
+    pbuseo in varchar2,
+    pcursor out sys_refcursor -- 리턴 타입에 사용되는 커서의 쓰는 자료형이다. 
+               -- 그냥 cursor로 쓰면 받지를 못한다. 
+)
+is 
+    --cursor vcursor is select...
+begin
+    open pcursor
+    for
+    select * from tblInsa where buseo = pbuseo;
+    
+end procBuseo;
+
+
+declare
+    vcursor sys_refcursor;
+    vrow tblInsa%rowtype;
+begin
+    procBuseo('영업부', vcursor);
+    -- 이 전달받은 vcursor는 따로 열 필요가 없다. 
+    loop
+        fetch vcursor into vrow;
+        exit when vcursor%notfound;
+        dbms_output.put_line(vrow.name);
+    end loop;
+end;
 
 
