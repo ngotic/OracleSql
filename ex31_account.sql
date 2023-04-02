@@ -52,4 +52,43 @@ drop user hong;
 alter user hong identified by java1111;
 
 
+-- connect>
+-- ALTER SESSION, CREATE CLUSTER, CREATE DATABASE LINK, CREATE SEQUENCE, CREATE SESSION,
+-- CREATE SYNONYM, CREATE TABLE
+
+-- resource>
+-- CREATE CLUSTER, CREATE PROCEDURE, CREATE SEQUENCE, CREATE TABLE, CREATE TRIGGER
+
+show user; -- 내가 누군지 알려준다. USER이(가) "SYSTEM"입니다.
+
+
+grant create session to hong; --Grant을(를) 성공했습니다.
+grant create table to hong; -- 아근데 이거해도 안된다. 테이블 권한인데.
+
+---- "hong으로 접속"> 이제 로그인이 된다. 
+
+select * from tabs; -- 지금은 이제 hong이 하는 행동이다. 
+
+-- 
+create table tblTest(
+    seq number primary key,
+    data varchar2(30) not null
+); -- 실행 안된다. ORA-01031: insufficient privileges
+
+-- 프로젝트 진행> 프로젝트용 계정 만드는 것이 좋다.
+create user team identified by java1234;
+
+grant connect, resource to team;              -- 일반 계정, 뷰를 못만듬
+grant connect, resource, create view to team; -- 이렇게 하면 뷰까지 만듬 > 수업계정(hr)과 동일
+grant connect, resource, dba to team;         -- 학습용, > 혹은 프로젝트 계정도 이렇게 하면 좋다. 
+
+-- Java + Oracle = 연동 > JDBC ! 
+
+
+
+
+
+
+
+
 

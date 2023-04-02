@@ -52,7 +52,8 @@
         - catch 역할 
         - 예외 처리 코드를 작성
         - 생략 가능
-    -- draft> mid
+        -- draft> mid
+    
     d. end
         - begin 
         - 생략 불가능     
@@ -115,7 +116,7 @@
     - ANSI-SQL
         ex) update table set column = 값;
     - PL/SQL 
-        ex) 변수 := 값 ( 여기 클론이 =연산자 앞에 붙는다 )
+        ex) 변수 := 값 ( 여기 클론이 = 연산자 앞에 붙는다 )
     
 */
 
@@ -198,8 +199,9 @@ begin
     -- select name from tblInsa where num = 1001; -- 결과는 테이블이 나옴
     -- PLS-00428: an INTO clause is expected in this SELECT statement
     -- 현재 select절에 into절이 와야 한다. 
-    -- ***** PL/SQL 블럭안에는 우리가 사용하던 ANSI-SQL의 select문을 적을 수가 없다. > select into 사용해라!! > 이건 그냥 select이다.
-                                                                                --> 의도가 담긴 select라고 보면 된다. 
+    -- ***** PL/SQL 블럭안에는 우리가 사용하던 ANSI-SQL의 select문을 적을 수가 없다. 
+    -- > select into 사용해라!! > 이건 그냥 select이다.
+    --> 의도가 담긴 select라고 보면 된다. 
     -- ***** PL/SQL 블럭안에서는 select문을 제외한 ANSI-SQL은 그대로 사용 가능하다.(insert, update, delete)
     -- select로 어떤 테이블이 나오고 조치가 필요하다. 그 조치를 위해서 쓰이는것이 select into문이다.
     -- 대입 연산자 역할
@@ -286,6 +288,8 @@ begin
     -- 3. ★ 컬럼과 변수의 자료형이 일치!! 
     select name, buseo, jikwi into vname, vbuseo, vjikwi from tblInsa where num = 1001;
                                 -- "여기로 넣어줘" --
+                                
+    -- 여러개 select into 
     -- into 절 딱 한번만     
     --> 반드시 pl/sql의 변수들만 써라 
     dbms_output.put_line(vname);     
@@ -314,7 +318,7 @@ end;
 */
 
 declare 
-    vname tblInsa.name%type;   -- tblInsa 테이블에서 name에 대한 type만큼 vname의 타입을 잡아줘 ! 
+    vname  tblInsa.name%type;   -- tblInsa 테이블에서 name에 대한 type만큼 vname의 타입을 잡아줘 ! 
     vbuseo tblInsa.buseo%type; -- 테이블 참조해서 하니까 느리다. 정적으로 하는게 나을 때도 있다.  
     vjikwi tblInsa.jikwi%type; 
     
